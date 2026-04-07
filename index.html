@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khoir Karol Nurzuraidah — Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rose:       #e8a4b8;
+            --rose-deep:  #c97a98;
+            --blush:      #f5dde8;
+            --lilac:      #c9b8d8;
+            --lilac-deep: #9b87b5;
+            --cream:      #fdf6f0;
+            --warm:       #f0e6d8;
+            --caramel:    #c4956a;
+            --ink:        #2b1f2e;
+            --muted:      #7a6880;
+            --white:      #fffbf8;
+            --card-bg:    rgba(253,246,240,0.7);
+            --border:     rgba(232,164,184,0.3);
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--cream);
+            color: var(--ink);
+            overflow-x: hidden;
+        }
+
+        /* ── Noise texture overlay ── */
+        body::before {
+            content: '';
+            position: fixed; inset: 0; z-index: 0; pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        /* ── Decorative blobs ── */
+        .blob {
+            position: fixed; border-radius: 50%; filter: blur(80px);
+            pointer-events: none; z-index: 0; opacity: 0.45;
+        }
+        .blob-1 { width: 500px; height: 500px; background: radial-gradient(circle, #f2c4d4, transparent); top: -100px; right: -100px; }
+        .blob-2 { width: 400px; height: 400px; background: radial-gradient(circle, #d8c8e8, transparent); bottom: 20%; left: -120px; }
+        .blob-3 { width: 300px; height: 300px; background: radial-gradient(circle, #fce4b0, transparent); bottom: 10%; right: 10%; }
+
+        /* ── NAV ── */
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 999;
+            padding: 1.2rem 6%;
+            display: flex; justify-content: space-between; align-items: center;
+            background: rgba(253,246,240,0.85);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid var(--border);
+            animation: fadeDown 0.9s ease;
+        }
+        @keyframes fadeDown { from { opacity:0; transform:translateY(-20px); } to { opacity:1; transform:translateY(0); } }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem; font-weight: 700; letter-spacing: 2px;
+            background: linear-gradient(120deg, var(--rose-deep), var(--lilac-deep));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+        .nav-links a {
+            font-size: 0.85rem; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase;
+            color: var(--muted); text-decoration: none; transition: color 0.3s;
+            position: relative;
+        }
+        .nav-links a::after {
+            content: ''; position: absolute; bottom: -4px; left: 0;
+            height: 1.5px; width: 0;
+            background: linear-gradient(90deg, var(--rose), var(--lilac));
+            transition: width 0.3s ease;
+        }
+        .nav-links a:hover { color: var(--rose-deep); }
+        .nav-links a:hover::after { width: 100%; }
+
+        /* ── SECTIONS wrapper ── */
+        section { position: relative; z-index: 1; }
+        .container { max-width: 1300px; margin: 0 auto; padding: 0 6%; }
+
+        /* ══════════════════════════════════════
+           HERO
+        ══════════════════════════════════════ */
+        .hero {
+            min-height: 100vh;
+            display: grid; grid-template-columns: 1fr 1fr;
+            align-items: center; gap: 4rem;
+            padding: 120px 6% 80px;
+        }
+
+        .hero-left { animation: fadeLeft 1s ease 0.2s both; }
+        @keyframes fadeLeft { from { opacity:0; transform:translateX(-40px); } to { opacity:1; transform:translateX(0); } }
+
+        .hero-eyebrow {
+            display: inline-flex; align-items: center; gap: 0.7rem;
+            font-size: 0.78rem; letter-spacing: 3px; text-transform: uppercase;
+            color: var(--rose-deep); font-weight: 600; margin-bottom: 1.5rem;
+        }
+        .hero-eyebrow::before, .hero-eyebrow::after {
+            content: ''; display: block; height: 1px; width: 30px;
+            background: var(--rose);
+        }
+
+        .hero-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3.5rem, 6vw, 5.5rem);
+            font-weight: 700; line-height: 1.05;
+            color: var(--ink); margin-bottom: 0.4rem;
+        }
+        .hero-name em {
+            font-style: italic; font-weight: 300;
+            background: linear-gradient(120deg, var(--rose-deep), var(--lilac-deep));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem; font-weight: 300; font-style: italic;
+            color: var(--muted); margin-bottom: 1.8rem;
+        }
+
+        .hero-desc {
+            font-size: 1rem; color: var(--muted); line-height: 1.85;
+            max-width: 520px; margin-bottom: 2.5rem;
+        }
+
+        .hero-btns { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+
+        .btn {
+            padding: 0.85rem 2.2rem; border-radius: 100px; font-size: 0.9rem;
+            font-weight: 600; letter-spacing: 0.5px; cursor: pointer;
+            text-decoration: none; transition: all 0.3s ease; display: inline-block;
+        }
+        .btn-rose {
+            background: linear-gradient(135deg, var(--rose), var(--rose-deep));
+            color: #fff; border: none;
+            box-shadow: 0 6px 24px rgba(201,122,152,0.35);
+        }
+        .btn-rose:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(201,122,152,0.5); }
+        .btn-outline {
+            background: transparent; color: var(--rose-deep);
+            border: 1.5px solid var(--rose);
+        }
+        .btn-outline:hover { background: var(--blush); transform: translateY(-3px); }
+
+        /* Hero Right — photo + floating cards */
+        .hero-right {
+            position: relative; display: flex; justify-content: center; align-items: center;
+            animation: fadeRight 1s ease 0.4s both;
+        }
+        @keyframes fadeRight { from { opacity:0; transform:translateX(40px); } to { opacity:1; transform:translateX(0); } }
+
+        .photo-frame {
+            position: relative; width: 340px; height: 420px;
+        }
+
+        .photo-bg-shape {
+            position: absolute; bottom: -16px; right: -16px;
+            width: 100%; height: 100%; border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%;
+            background: linear-gradient(135deg, var(--blush), var(--lilac));
+            z-index: 0;
+        }
+
+        .photo-main {
+            position: relative; z-index: 1;
+            width: 100%; height: 100%;
+            border-radius: 38% 62% 55% 45% / 42% 38% 62% 58%;
+            overflow: hidden;
+            border: 4px solid #fff;
+            box-shadow: 0 20px 60px rgba(43,31,46,0.15);
+        }
+        .photo-main img {
+            width: 100%; height: 100%;
+            object-fit: cover; object-position: center top;
+            transition: transform 0.5s ease;
+        }
+        .photo-main:hover img { transform: scale(1.05); }
+
+        /* Floating badges */
+        .float-badge {
+            position: absolute; z-index: 3;
+            background: rgba(255,251,248,0.92); backdrop-filter: blur(10px);
+            border: 1px solid var(--border); border-radius: 18px;
+            padding: 0.7rem 1.1rem; box-shadow: 0 8px 30px rgba(43,31,46,0.1);
+            font-size: 0.8rem; font-weight: 600; color: var(--ink);
+            animation: floatUp 4s ease-in-out infinite;
+            white-space: nowrap;
+        }
+        .float-badge span { font-size: 1.1rem; margin-right: 0.4rem; }
+        .float-badge-1 { top: 10%; left: -60px; animation-delay: 0s; }
+        .float-badge-2 { bottom: 18%; left: -50px; animation-delay: 1.5s; }
+        .float-badge-3 { top: 20%; right: -60px; animation-delay: 0.8s; }
+
+        @keyframes floatUp {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        /* Petal decorations */
+        .petal {
+            position: absolute; pointer-events: none; z-index: 2;
+            border-radius: 50% 0 50% 0;
+            opacity: 0.6;
+        }
+        .petal-1 { width: 18px; height: 18px; background: var(--rose); top: 5%; right: 15%; transform: rotate(30deg); animation: spinFl 8s linear infinite; }
+        .petal-2 { width: 12px; height: 12px; background: var(--lilac); bottom: 12%; right: 12%; transform: rotate(-20deg); animation: spinFl 6s linear infinite reverse; }
+        .petal-3 { width: 10px; height: 10px; background: var(--caramel); top: 55%; left: -15px; transform: rotate(50deg); animation: spinFl 10s linear infinite; }
+        @keyframes spinFl { from { transform: rotate(0deg) scale(1); } to { transform: rotate(360deg) scale(1.2); } }
+
+        /* ══════════════════════════════════════
+           ABOUT
+        ══════════════════════════════════════ */
+        .about { padding: 130px 0; }
+
+        .section-label {
+            font-size: 0.75rem; letter-spacing: 4px; text-transform: uppercase;
+            color: var(--rose-deep); font-weight: 600; margin-bottom: 0.7rem;
+            display: flex; align-items: center; gap: 0.8rem;
+        }
+        .section-label::before {
+            content: ''; display: block; height: 1.5px; width: 28px; background: var(--rose);
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.5rem, 4vw, 3.8rem); font-weight: 700;
+            line-height: 1.1; color: var(--ink); margin-bottom: 0.5rem;
+        }
+        .section-title em { font-style: italic; color: var(--rose-deep); }
+
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; margin-top: 3.5rem; align-items: start; }
+
+        .about-text p {
+            font-size: 1rem; color: var(--muted); line-height: 1.9; margin-bottom: 1.4rem;
+        }
+
+        .about-text .highlight-quote {
+            border-left: 3px solid var(--rose);
+            padding: 1rem 1.5rem;
+            background: var(--blush);
+            border-radius: 0 12px 12px 0;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem; font-style: italic;
+            color: var(--rose-deep); margin: 1.8rem 0;
+        }
+
+        .skills-list { display: flex; flex-direction: column; gap: 1.2rem; }
+
+        .skill-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border); border-radius: 20px;
+            padding: 1.4rem 1.6rem;
+            display: flex; align-items: center; gap: 1.2rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        .skill-item:hover {
+            transform: translateX(8px);
+            border-color: var(--rose);
+            box-shadow: 0 8px 30px rgba(232,164,184,0.2);
+        }
+        .skill-icon {
+            width: 44px; height: 44px; min-width: 44px; border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.3rem;
+        }
+        .skill-icon-rose { background: linear-gradient(135deg, #fde8ef, #f5c0d0); }
+        .skill-icon-lilac { background: linear-gradient(135deg, #ede8f5, #d8cce8); }
+        .skill-icon-caramel { background: linear-gradient(135deg, #fdf0e0, #f0d8b8); }
+        .skill-icon-mint { background: linear-gradient(135deg, #e0f5ee, #bce8d8); }
+
+        .skill-info h4 { font-weight: 600; font-size: 0.95rem; color: var(--ink); margin-bottom: 0.2rem; }
+        .skill-info p { font-size: 0.82rem; color: var(--muted); }
+
+        /* ══════════════════════════════════════
+           PROJECTS
+        ══════════════════════════════════════ */
+        .projects {
+            padding: 130px 0;
+            background: linear-gradient(180deg, transparent, rgba(245,221,232,0.25) 30%, rgba(245,221,232,0.25) 70%, transparent);
+        }
+
+        .projects-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; flex-wrap: wrap; gap: 1.5rem; }
+
+        .projects-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 1.8rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border); border-radius: 24px;
+            overflow: hidden; backdrop-filter: blur(12px);
+            transition: all 0.4s ease;
+            display: flex; flex-direction: column;
+        }
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 24px 60px rgba(43,31,46,0.12);
+            border-color: var(--rose);
+        }
+
+        /* Project image */
+        .project-img-wrap {
+            position: relative; height: 200px;
+            background: linear-gradient(135deg, var(--blush), var(--warm));
+            overflow: hidden; flex-shrink: 0;
+        }
+        .project-img-wrap img {
+            width: 100%; height: 100%; object-fit: cover;
+            display: none; transition: transform 0.5s ease;
+        }
+        .project-img-wrap img.active { display: block; }
+        .project-card:hover .project-img-wrap img { transform: scale(1.06); }
+
+        .project-img-placeholder {
+            width: 100%; height: 100%; display: flex; align-items: center;
+            justify-content: center; font-size: 3.5rem;
+        }
+
+        /* Slider */
+        .slider-arrow {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            background: rgba(255,251,248,0.85); backdrop-filter: blur(6px);
+            border: 1px solid var(--border); color: var(--ink);
+            width: 30px; height: 30px; border-radius: 50%;
+            cursor: pointer; font-size: 0.9rem;
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.2s; z-index: 5;
+        }
+        .slider-arrow:hover { background: var(--rose); color: #fff; }
+        .slider-arrow.prev { left: 10px; }
+        .slider-arrow.next { right: 10px; }
+
+        .slider-dots {
+            position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
+            display: flex; gap: 5px; z-index: 5;
+        }
+        .slider-dot {
+            width: 6px; height: 6px; border-radius: 50%;
+            background: rgba(255,255,255,0.55); border: none; cursor: pointer; padding: 0;
+            transition: background 0.3s;
+        }
+        .slider-dot.active { background: var(--rose-deep); }
+
+        /* Project content */
+        .project-body { padding: 1.6rem; flex: 1; display: flex; flex-direction: column; }
+
+        .project-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem; font-weight: 300; color: var(--rose);
+            letter-spacing: 2px; margin-bottom: 0.5rem;
+        }
+
+        .project-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem; font-weight: 700;
+            color: var(--ink); line-height: 1.3; margin-bottom: 0.7rem;
+        }
+        .project-card p {
+            font-size: 0.88rem; color: var(--muted); line-height: 1.75;
+            flex: 1; margin-bottom: 1.2rem;
+        }
+
+        .tags { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 1.2rem; }
+        .tag {
+            font-size: 0.75rem; font-weight: 500; padding: 0.3rem 0.8rem;
+            border-radius: 100px; background: var(--blush); color: var(--rose-deep);
+            border: 1px solid rgba(232,164,184,0.5);
+        }
+
+        .project-link {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            font-size: 0.82rem; font-weight: 600; color: var(--rose-deep);
+            text-decoration: none; letter-spacing: 0.3px;
+            border-bottom: 1.5px solid transparent;
+            transition: border-color 0.3s, gap 0.3s; width: fit-content;
+        }
+        .project-link:hover { border-color: var(--rose); gap: 0.8rem; }
+        .project-link svg { width: 14px; height: 14px; }
+
+        /* ══════════════════════════════════════
+           CONTACT
+        ══════════════════════════════════════ */
+        .contact { padding: 130px 0; }
+        .contact-inner { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: start; margin-top: 3.5rem; }
+
+        .contact-intro p {
+            font-size: 1.05rem; color: var(--muted); line-height: 1.9; margin-bottom: 1.5rem;
+        }
+
+        .contact-signature {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem; font-style: italic; font-weight: 300;
+            background: linear-gradient(120deg, var(--rose-deep), var(--lilac-deep));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+        .contact-card {
+            background: var(--card-bg); border: 1px solid var(--border);
+            border-radius: 18px; padding: 1.3rem 1.4rem;
+            display: flex; align-items: center; gap: 1rem;
+            backdrop-filter: blur(10px); transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        .contact-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--rose);
+            box-shadow: 0 10px 30px rgba(232,164,184,0.2);
+        }
+        .contact-icon-wrap {
+            width: 40px; height: 40px; min-width: 40px; border-radius: 10px;
+            background: linear-gradient(135deg, var(--blush), var(--warm));
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.15rem;
+        }
+        .contact-text strong { display: block; font-size: 0.8rem; font-weight: 600; color: var(--ink); margin-bottom: 0.15rem; }
+        .contact-text span { font-size: 0.78rem; color: var(--muted); word-break: break-word; }
+
+        /* ── FOOTER ── */
+        footer {
+            padding: 2.5rem 6%;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            background: var(--warm);
+        }
+        footer p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem; font-style: italic; color: var(--muted);
+        }
+        footer span { color: var(--rose-deep); }
+
+        /* ── DIVIDER ── */
+        .ornament-divider {
+            text-align: center; font-size: 1.2rem; color: var(--rose);
+            letter-spacing: 8px; margin: 0; opacity: 0.5;
+        }
+
+        /* ── SCROLL REVEAL ── */
+        .reveal {
+            opacity: 0; transform: translateY(28px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 1024px) {
+            .projects-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .hero { grid-template-columns: 1fr; text-align: center; padding: 110px 5% 70px; }
+            .hero-desc { max-width: 100%; }
+            .hero-btns { justify-content: center; }
+            .hero-right { margin-top: 2rem; }
+            .photo-frame { width: 270px; height: 340px; }
+            .float-badge-1, .float-badge-2 { left: -20px; }
+            .float-badge-3 { right: -20px; }
+            .about-grid, .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+            .projects-grid { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .projects-header { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background decorations -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+
+    <!-- NAV -->
+    <nav>
+        <div class="logo">Khoir Kanzura ✦</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">Tentang</a></li>
+            <li><a href="#projects">Proyek</a></li>
+            <li><a href="#contact">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <!-- ═══ HERO ═══ -->
+    <section id="home" class="hero">
+        <div class="hero-left">
+            <div class="hero-eyebrow">✦ Portfolio ✦</div>
+            <h1 class="hero-name">
+                Khoir Karol<br/>
+                <em>Nurzuraidah</em>
+            </h1>
+            <p class="hero-subtitle">D-IV Sistem Informasi Bisnis · Polinema</p>
+            <p class="hero-desc">Mahasiswa yang berfokus pada pengembangan sistem informasi, analisis data, dan manajemen organisasi — dengan semangat belajar yang tak pernah padam dan jiwa kepemimpinan yang kuat.</p>
+            <div class="hero-btns">
+                <a href="#projects" class="btn btn-rose">Lihat Karya ✦</a>
+                <a href="#contact" class="btn btn-outline">Hubungi Saya</a>
+            </div>
+        </div>
+
+        <div class="hero-right">
+            <div class="photo-frame">
+                <div class="photo-bg-shape"></div>
+                <div class="photo-main">
+                    <img src="Khoir kn.jpeg" alt="Khoir Karol Nurzuraidah" />
+                </div>
+                <!-- <div class="float-badge float-badge-1"><span>📊</span>Data Analysis</div>
+                <div class="float-badge float-badge-2"><span>🎤</span>Public Speaking</div>
+                <div class="float-badge float-badge-3"><span>💻</span>Web Dev</div> -->
+                <div class="petal petal-1"></div>
+                <div class="petal petal-2"></div>
+                <div class="petal petal-3"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ ABOUT ═══ -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-label reveal">Tentang Saya</div>
+            <h2 class="section-title reveal">
+                Mengenal <em>lebih dekat</em>
+            </h2>
+            <div class="about-grid">
+                <div class="about-text reveal">
+                    <p>Saya merupakan mahasiswa aktif Program Studi D-IV Sistem Informasi Bisnis di Politeknik Negeri Malang yang memiliki minat pada pengembangan sistem informasi, analisis data, serta manajemen organisasi.</p>
+                    <div class="highlight-quote">
+                        "Dikenal sebagai pribadi yang bertanggung jawab, detail-oriented, dan memiliki semangat tinggi untuk terus belajar hal-hal baru."
+                    </div>
+                    <p>Saya memiliki pengalaman dalam kepemimpinan dan komunikasi — saat ini dipercaya sebagai Koordinator Komunikasi Eksternal Formadiksi dan Wakil Ketua Himpunan Mahasiswa Tulungagung.</p>
+                    <p>Selain itu, saya aktif dalam public speaking, fotografi, videografi, dan produksi podcast. Pengalaman sebagai MC dan moderator telah membentuk kemampuan saya bekerja dalam tim dengan terstruktur dan profesional.</p>
+                </div>
+                <div class="skills-list reveal reveal-delay-2">
+                    <div class="skill-item">
+                        <div class="skill-icon skill-icon-rose">📊</div>
+                        <div class="skill-info">
+                            <h4>Data Analysis</h4>
+                            <p>Power BI · SQL · Business Intelligence</p>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon skill-icon-lilac">💻</div>
+                        <div class="skill-info">
+                            <h4>Web Development</h4>
+                            <p>HTML · CSS · JavaScript · PHP</p>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon skill-icon-caramel">🎤</div>
+                        <div class="skill-info">
+                            <h4>Public Speaking</h4>
+                            <p>MC · Moderator · Presentasi Profesional</p>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon skill-icon-mint">📸</div>
+                        <div class="skill-info">
+                            <h4>Multimedia</h4>
+                            <p>Fotografi · Videografi · Podcast</p>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon skill-icon-rose">🏛️</div>
+                        <div class="skill-info">
+                            <h4>Organisasi & Kepemimpinan</h4>
+                            <p>Formadiksi · Hima Tulungagung</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ PROJECTS ═══ -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="projects-header">
+                <div>
+                    <div class="section-label reveal">Karya & Proyek</div>
+                    <h2 class="section-title reveal">
+                        Apa yang <em>sudah saya buat</em>
+                    </h2>
+                </div>
+            </div>
+
+            <div class="projects-grid">
+
+                <!-- 01 BI Pizza -->
+                <div class="project-card reveal">
+                    <div class="project-img-wrap" id="slider-01">
+                        <img src="BI 1.png" class="active" alt="BI Dashboard 1"/>
+                        <img src="BI 2.png" alt="BI Dashboard 2"/>
+                        <img src="BI 3.png" alt="BI Dashboard 3"/>
+                        <button class="slider-arrow prev" onclick="slideImg('slider-01',-1)">&#8249;</button>
+                        <button class="slider-arrow next" onclick="slideImg('slider-01', 1)">&#8250;</button>
+                        <div class="slider-dots" id="dots-slider-01">
+                            <button class="slider-dot active" onclick="goToSlide('slider-01',0)"></button>
+                            <button class="slider-dot" onclick="goToSlide('slider-01',1)"></button>
+                            <button class="slider-dot" onclick="goToSlide('slider-01',2)"></button>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-num">— 01</div>
+                        <h3>Dashboard Business Intelligence Pizza Company</h3>
+                        <p>Dashboard Power BI dan analisis SQL untuk menganalisis kinerja penjualan perusahaan Pizza 2022 — mengidentifikasi pola, kategori terbaik, dan waktu tersibuk.</p>
+                        <div class="tags">
+                            <span class="tag">Power BI</span>
+                            <span class="tag">SQL</span>
+                            <span class="tag">Data Analysis</span>
+                        </div>
+                        <a href="https://www.kaggle.com/datasets/khoirkaroln/modifikasi-dashboard-perusahaan-pizza" target="_blank" class="project-link">
+                            Lihat di Kaggle
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 02 AKRESA -->
+                <div class="project-card reveal reveal-delay-1">
+                    <div class="project-img-wrap">
+                        <div class="project-img-placeholder">🎓</div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-num">— 02</div>
+                        <h3>AKRESA — Sistem Akreditasi</h3>
+                        <p>Aplikasi web untuk pencatatan, pengelolaan, dan evaluasi data akreditasi jurusan TI Polinema. Bagian dari Project Based Learning (PBL).</p>
+                        <div class="tags">
+                            <span class="tag">Web Dev</span>
+                            <span class="tag">PHP</span>
+                            <span class="tag">Database</span>
+                        </div>
+                        <a href="https://github.com/khoirkanzura/final-project-accreditation" target="_blank" class="project-link">
+                            Lihat di GitHub
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 03 SIPRES -->
+                <div class="project-card reveal reveal-delay-2">
+                    <div class="project-img-wrap" id="slider-03">
+                        <img src="sipres.jpg" class="active" alt="SIPRES JTI"/>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-num">— 03</div>
+                        <h3>SIPRES-JTI — Sistem Presensi</h3>
+                        <p>Presensi digital berbasis mobile dengan QR Code & validasi GPS, database real-time, dan role-based access untuk dosen/karyawan dan admin.</p>
+                        <div class="tags">
+                            <span class="tag">Mobile Dev</span>
+                            <span class="tag">QR Code</span>
+                            <span class="tag">GPS</span>
+                            <span class="tag">Real-time DB</span>
+                        </div>
+                        <a href="https://github.com/khoirkanzura/SipresJTI" target="_blank" class="project-link">
+                            Lihat di GitHub
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 04 Si Tertib -->
+                <div class="project-card reveal">
+                    <div class="project-img-wrap" id="slider-04">
+                        <img src="tatib.jpg" class="active" alt="Si Tertib"/>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-num">— 04</div>
+                        <h3>Si Tertib — Sistem Tata Tertib</h3>
+                        <p>Sistem informasi web untuk pengelolaan pelanggaran tata tertib mahasiswa — pencatatan digital, penetapan sanksi, pengajuan banding, dan pelaporan transparan.</p>
+                        <div class="tags">
+                            <span class="tag">Web App</span>
+                            <span class="tag">Management</span>
+                            <span class="tag">Database</span>
+                        </div>
+                        <a href="https://github.com/khoirkanzura/Sistem-tata-tertib" target="_blank" class="project-link">
+                            Lihat di GitHub
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 05 Perpustakaan -->
+                <div class="project-card reveal reveal-delay-1">
+                    <div class="project-img-wrap">
+                        <div class="project-img-placeholder">📚</div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-num">— 05</div>
+                        <h3>Sistem Perpustakaan Polinema</h3>
+                        <p>Perpustakaan digital dengan fitur admin (data buku & anggota) dan fitur mahasiswa (peminjaman & pengembalian buku secara digital).</p>
+                        <div class="tags">
+                            <span class="tag">Web System</span>
+                            <span class="tag">Library Mgmt</span>
+                            <span class="tag">Transaction</span>
+                        </div>
+                        <a href="https://github.com/khoirkanzura/FinalProject-Perpustakaan" target="_blank" class="project-link">
+                            Lihat di GitHub
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ CONTACT ═══ -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-label reveal">Kontak</div>
+            <h2 class="section-title reveal">Mari <em>berkolaborasi</em></h2>
+            <div class="contact-inner">
+                <div class="contact-intro reveal">
+                    <p>Punya proyek menarik atau ingin berdiskusi? Saya selalu terbuka untuk peluang kolaborasi baru dan ide-ide kreatif. Mari kita ciptakan sesuatu yang luar biasa bersama!</p>
+                    <p>Jangan ragu untuk menghubungi saya melalui channel yang tersedia — saya akan dengan senang hati merespons 💌</p>
+                    <div class="contact-signature">Khoir Karol N.</div>
+                </div>
+                <div class="contact-grid reveal reveal-delay-2">
+                    <a href="mailto:khoirkarolnurzuraidah23@gmail.com" class="contact-card">
+                        <div class="contact-icon-wrap">📧</div>
+                        <div class="contact-text">
+                            <strong>Email</strong>
+                            <span>khoirkarolnurzuraidah23@gmail.com</span>
+                        </div>
+                    </a>
+                    <a href="tel:+6281410100519" class="contact-card">
+                        <div class="contact-icon-wrap">📱</div>
+                        <div class="contact-text">
+                            <strong>Phone</strong>
+                            <span>+62 814-1010-0519</span>
+                        </div>
+                    </a>
+                    <a href="https://linkedin.com/in/khoir-karol-nurzuraidah" target="_blank" class="contact-card">
+                        <div class="contact-icon-wrap">💼</div>
+                        <div class="contact-text">
+                            <strong>LinkedIn</strong>
+                            <span>Khoir Karol Nurzuraidah</span>
+                        </div>
+                    </a>
+                    <a href="https://github.com/khoirkanzura" target="_blank" class="contact-card">
+                        <div class="contact-icon-wrap">🐙</div>
+                        <div class="contact-text">
+                            <strong>GitHub</strong>
+                            <span>khoirkanzura</span>
+                        </div>
+                    </a>
+                    <a href="https://kaggle.com/khoirkaroln" target="_blank" class="contact-card">
+                        <div class="contact-icon-wrap">📊</div>
+                        <div class="contact-text">
+                            <strong>Kaggle</strong>
+                            <span>khoirkaroln</span>
+                        </div>
+                    </a>
+                    <a href="https://instagram.com/khoirknz" target="_blank" class="contact-card">
+                        <div class="contact-icon-wrap">📷</div>
+                        <div class="contact-text">
+                            <strong>Instagram</strong>
+                            <span>@khoirknz</span>
+                        </div>
+                    </a>
+                    <a href="https://tiktok.com/@khoir.kanzura" target="_blank" class="contact-card">
+                        <div class="contact-icon-wrap">🎵</div>
+                        <div class="contact-text">
+                            <strong>TikTok</strong>
+                            <span>@khoir.kanzura</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Khoir Karol Nurzuraidah &nbsp;✦&nbsp; <em>Man jadda wajada</em> &nbsp;<span>♡</span></p>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                e.preventDefault();
+                const t = document.querySelector(a.getAttribute('href'));
+                if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        // Scroll reveal
+        const obs = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+        // Slider
+        function getSliderState(id) {
+            const c = document.getElementById(id);
+            if (!c) return null;
+            const imgs = c.querySelectorAll('img');
+            let cur = 0;
+            imgs.forEach((img, i) => { if (img.classList.contains('active')) cur = i; });
+            return { c, imgs, cur };
+        }
+        function updateSlider(id, idx) {
+            const c = document.getElementById(id);
+            if (!c) return;
+            const imgs = c.querySelectorAll('img');
+            const dots = document.querySelectorAll(`#dots-${id} .slider-dot`);
+            const total = imgs.length;
+            const n = (idx + total) % total;
+            imgs.forEach((img, i) => img.classList.toggle('active', i === n));
+            dots.forEach((d, i) => d.classList.toggle('active', i === n));
+        }
+        function slideImg(id, dir) {
+            const s = getSliderState(id);
+            if (s) updateSlider(id, s.cur + dir);
+        }
+        function goToSlide(id, idx) { updateSlider(id, idx); }
+
+        // Parallax subtle on hero visual
+        window.addEventListener('scroll', () => {
+            const blob1 = document.querySelector('.blob-1');
+            const blob2 = document.querySelector('.blob-2');
+            const sy = window.pageYOffset;
+            if (blob1) blob1.style.transform = `translateY(${sy * 0.12}px)`;
+            if (blob2) blob2.style.transform = `translateY(${sy * -0.08}px)`;
+        });
+    </script>
+</body>
+</html>
