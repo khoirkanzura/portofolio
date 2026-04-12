@@ -80,7 +80,6 @@
         section { position: relative; z-index: 1; }
         .container { max-width: 1300px; margin: 0 auto; padding: 0 6%; }
 
-        /* ══ HERO ══ */
         .hero {
             min-height: 100vh;
             display: grid; grid-template-columns: 1fr 1fr;
@@ -153,7 +152,6 @@
         .petal-3 { width: 10px; height: 10px; background: var(--caramel); top: 55%; left: -15px; transform: rotate(50deg); animation: spinFl 10s linear infinite; }
         @keyframes spinFl { from { transform: rotate(0deg) scale(1); } to { transform: rotate(360deg) scale(1.2); } }
 
-        /* ══ SECTION COMMONS ══ */
         .section-label {
             font-size: 0.75rem; letter-spacing: 4px; text-transform: uppercase;
             color: var(--rose-deep); font-weight: 600; margin-bottom: 0.7rem;
@@ -168,7 +166,6 @@
         }
         .section-title em { font-style: italic; color: var(--rose-deep); }
 
-        /* ══ ABOUT ══ */
         .about { padding: 130px 0; }
         .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; margin-top: 3.5rem; align-items: start; }
         .about-text p { font-size: 1rem; color: var(--muted); line-height: 1.9; margin-bottom: 1.4rem; }
@@ -194,7 +191,6 @@
         .skill-info h4 { font-weight: 600; font-size: 0.95rem; color: var(--ink); margin-bottom: 0.2rem; }
         .skill-info p { font-size: 0.82rem; color: var(--muted); }
 
-        /* ══ KETERAMPILAN ══ */
         .keterampilan { padding: 130px 0; }
         .skills-categories { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 3rem; }
 
@@ -218,7 +214,6 @@
         .skill-tag.caramel { background: rgba(196,149,106,0.1); color: var(--caramel); border-color: rgba(196,149,106,0.3); }
         .skill-tag.mint { background: rgba(100,196,160,0.1); color: #3a8c6e; border-color: rgba(100,196,160,0.3); }
 
-        /* ══ ORGANISASI ══ */
         .organisasi {
             padding: 130px 0;
             background: linear-gradient(180deg, transparent, rgba(245,221,232,0.2) 30%, rgba(245,221,232,0.2) 70%, transparent);
@@ -254,20 +249,16 @@
             height: fit-content;
         }
 
-        /* Photo placeholder in org */
-        .org-photo-slot {
+        .org-logo-slot {
             width: 52px; height: 52px; min-width: 52px; border-radius: 14px;
-            background: linear-gradient(135deg, var(--blush), var(--lilac));
-            border: 2px dashed var(--rose); display: flex; align-items: center; justify-content: center;
-            font-size: 1.3rem; overflow: hidden;
+            background: #fff;
+            border: 1.5px solid var(--border); display: flex; align-items: center; justify-content: center;
+            overflow: hidden; padding: 6px;
         }
-        .org-photo-slot img { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; }
+        .org-logo-slot svg, .org-logo-slot img { width: 100%; height: 100%; object-fit: contain; display: block; }
         .org-item-inner { display: flex; gap: 1rem; align-items: flex-start; }
 
-        /* ══ PROJECTS ══ */
-        .projects {
-            padding: 130px 0;
-        }
+        .projects { padding: 130px 0; }
         .projects-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; flex-wrap: wrap; gap: 1.5rem; }
         .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.8rem; }
 
@@ -321,7 +312,6 @@
         .project-link:hover { border-color: var(--rose); gap: 0.8rem; }
         .project-link svg { width: 14px; height: 14px; }
 
-        /* Team pills */
         .team-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.8rem; }
         .team-pill {
             font-size: 0.72rem; padding: 0.2rem 0.65rem;
@@ -330,7 +320,6 @@
         }
         .team-label { font-size: 0.75rem; color: var(--muted); margin-bottom: 0.4rem; font-weight: 600; letter-spacing: 0.5px; }
 
-        /* ══ PRESTASI ══ */
         .prestasi {
             padding: 130px 0;
             background: linear-gradient(180deg, transparent, rgba(245,221,232,0.2) 30%, rgba(245,221,232,0.2) 70%, transparent);
@@ -357,12 +346,10 @@
         .prestasi-card h4 { font-size: 0.95rem; font-weight: 700; color: var(--ink); line-height: 1.4; margin-bottom: 0.4rem; }
         .prestasi-year { font-size: 0.8rem; color: var(--muted); }
 
-        /* Gold / Silver / Bronze accent */
         .rank-1::before { background: linear-gradient(90deg, #f0c040, #e8a820); }
         .rank-2::before { background: linear-gradient(90deg, #c9b8d8, #9b87b5); }
         .rank-3::before { background: linear-gradient(90deg, #d4a880, #c4956a); }
 
-        /* ══ CONTACT ══ */
         .contact { padding: 130px 0; }
         .contact-inner { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: start; margin-top: 3.5rem; }
         .contact-intro p { font-size: 1.05rem; color: var(--muted); line-height: 1.9; margin-bottom: 1.5rem; }
@@ -370,7 +357,23 @@
         .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
         .contact-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 18px; padding: 1.3rem 1.4rem; display: flex; align-items: center; gap: 1rem; backdrop-filter: blur(10px); transition: all 0.3s ease; text-decoration: none; }
         .contact-card:hover { transform: translateY(-4px); border-color: var(--rose); box-shadow: 0 10px 30px rgba(232,164,184,0.2); }
-        .contact-icon-wrap { width: 40px; height: 40px; min-width: 40px; border-radius: 10px; background: linear-gradient(135deg, var(--blush), var(--warm)); display: flex; align-items: center; justify-content: center; font-size: 1.15rem; }
+        .contact-icon-wrap {
+            width: 42px; height: 42px; min-width: 42px; border-radius: 11px;
+            display: flex; align-items: center; justify-content: center;
+            transition: transform 0.25s ease; overflow: hidden;
+        }
+        .contact-card:hover .contact-icon-wrap { transform: scale(1.1); }
+        .contact-icon-wrap svg { width: 26px; height: 26px; display: block; }
+        .contact-icon-wrap img { width: 26px; height: 26px; display: block; object-fit: contain; }
+
+        .icon-email    { background: linear-gradient(135deg, #fde8ef, #f5c0d0); }
+        .icon-phone    { background: linear-gradient(135deg, #e0f5ee, #bce8d8); }
+        .icon-linkedin { background: #0077b5; }
+        .icon-github   { background: #24292e; }
+        .icon-kaggle   { background: #20beff; }
+        .icon-instagram { background: linear-gradient(135deg, #f09433, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888); }
+        .icon-tiktok   { background: #010101; }
+
         .contact-text strong { display: block; font-size: 0.8rem; font-weight: 600; color: var(--ink); margin-bottom: 0.15rem; }
         .contact-text span { font-size: 0.78rem; color: var(--muted); word-break: break-word; }
 
@@ -411,7 +414,6 @@
     <div class="blob blob-2"></div>
     <div class="blob blob-3"></div>
 
-    <!-- NAV -->
     <nav>
         <div class="logo">Khoir Kanzura ✦</div>
         <ul class="nav-links">
@@ -425,7 +427,6 @@
         </ul>
     </nav>
 
-    <!-- ═══ HERO ═══ -->
     <section id="home" class="hero">
         <div class="hero-left">
             <div class="hero-eyebrow">✦ Portfolio ✦</div>
@@ -453,7 +454,6 @@
         </div>
     </section>
 
-    <!-- ═══ ABOUT ═══ -->
     <section id="about" class="about">
         <div class="container">
             <div class="section-label reveal">Tentang Saya</div>
@@ -469,35 +469,64 @@
                 </div>
                 <div class="skills-list reveal reveal-delay-2">
                     <div class="skill-item">
-                        <div class="skill-icon skill-icon-rose">📊</div>
+                        <div class="skill-icon skill-icon-rose">
+                            <!-- Power BI icon -->
+                            <svg viewBox="0 0 24 24" width="26" height="26" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 3h4v18H3V3zm5 4h4v14H8V7zm5-2h4v16h-4V5zm5 4h3v12h-3V9z" fill="#F2C811"/>
+                            </svg>
+                        </div>
                         <div class="skill-info">
                             <h4>Data Analysis</h4>
                             <p>Power BI · SQL · Business Intelligence</p>
                         </div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-icon skill-icon-lilac">💻</div>
+                        <div class="skill-icon skill-icon-lilac">
+                            <!-- Code/Web icon -->
+                            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 6L2 12l6 6M16 6l6 6-6 6M14 4l-4 16" stroke="#9b87b5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
                         <div class="skill-info">
                             <h4>Web Development</h4>
                             <p>HTML · CSS · JavaScript · PHP</p>
                         </div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-icon skill-icon-caramel">🎤</div>
+                        <div class="skill-icon skill-icon-caramel">
+                            <!-- Mic icon -->
+                            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2a3 3 0 013 3v7a3 3 0 01-6 0V5a3 3 0 013-3z" stroke="#c4956a" stroke-width="2"/>
+                                <path d="M19 10v1a7 7 0 01-14 0v-1M12 19v3M8 22h8" stroke="#c4956a" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
                         <div class="skill-info">
                             <h4>Public Speaking</h4>
                             <p>MC · Moderator · Presentasi Profesional</p>
                         </div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-icon skill-icon-mint">📸</div>
+                        <div class="skill-icon skill-icon-mint">
+                            <!-- Camera icon -->
+                            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z" stroke="#3a8c6e" stroke-width="2"/>
+                                <circle cx="12" cy="13" r="4" stroke="#3a8c6e" stroke-width="2"/>
+                            </svg>
+                        </div>
                         <div class="skill-info">
                             <h4>Multimedia</h4>
                             <p>Fotografi · Videografi · Podcast</p>
                         </div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-icon skill-icon-rose">🏛️</div>
+                        <div class="skill-icon skill-icon-rose">
+                            <!-- Polinema / organization icon -->
+                            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 21h18M9 21V7l3-4 3 4v14" stroke="#c97a98" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M5 11H3v10h2M21 11h-2v10h2" stroke="#c97a98" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M10 13h4M10 17h4" stroke="#c97a98" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                        </div>
                         <div class="skill-info">
                             <h4>Organisasi & Kepemimpinan</h4>
                             <p>Formadiksi · Hima Tulungagung · FKMBK</p>
@@ -508,7 +537,6 @@
         </div>
     </section>
 
-    <!-- ═══ KETERAMPILAN ═══ -->
     <section id="keterampilan" class="keterampilan">
         <div class="container">
             <div class="section-label reveal">Keterampilan</div>
@@ -517,7 +545,12 @@
 
                 <div class="skill-category-card reveal">
                     <div class="skill-cat-header">
-                        <div class="skill-cat-icon skill-icon-rose">💡</div>
+                        <div class="skill-cat-icon skill-icon-rose">
+                            <!-- Power BI logo -->
+                            <svg viewBox="0 0 32 32" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 4h6v24H4V4zm8 6h6v18h-6V10zm8-3h6v21h-6V7z" fill="#F2C811"/>
+                            </svg>
+                        </div>
                         <div class="skill-cat-title">Keterampilan Teknis</div>
                     </div>
                     <div class="skill-tags">
@@ -536,7 +569,12 @@
 
                 <div class="skill-category-card reveal reveal-delay-1">
                     <div class="skill-cat-header">
-                        <div class="skill-cat-icon skill-icon-lilac">🎤</div>
+                        <div class="skill-cat-icon skill-icon-lilac">
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2a3 3 0 013 3v7a3 3 0 01-6 0V5a3 3 0 013-3z" stroke="#9b87b5" stroke-width="2"/>
+                                <path d="M19 10v1a7 7 0 01-14 0v-1" stroke="#9b87b5" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
                         <div class="skill-cat-title">Komunikasi & Kepemimpinan</div>
                     </div>
                     <div class="skill-tags">
@@ -550,7 +588,12 @@
 
                 <div class="skill-category-card reveal reveal-delay-2">
                     <div class="skill-cat-header">
-                        <div class="skill-cat-icon skill-icon-caramel">🎨</div>
+                        <div class="skill-cat-icon skill-icon-caramel">
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z" stroke="#c4956a" stroke-width="2"/>
+                                <circle cx="12" cy="13" r="4" stroke="#c4956a" stroke-width="2"/>
+                            </svg>
+                        </div>
                         <div class="skill-cat-title">Keterampilan Kreatif</div>
                     </div>
                     <div class="skill-tags">
@@ -563,7 +606,11 @@
 
                 <div class="skill-category-card reveal reveal-delay-3">
                     <div class="skill-cat-header">
-                        <div class="skill-cat-icon skill-icon-mint">🌱</div>
+                        <div class="skill-cat-icon skill-icon-mint">
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="#3a8c6e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
                         <div class="skill-cat-title">Soft Skills</div>
                     </div>
                     <div class="skill-tags">
@@ -578,7 +625,6 @@
         </div>
     </section>
 
-    <!-- ═══ ORGANISASI ═══ -->
     <section id="organisasi" class="organisasi">
         <div class="container">
             <div class="section-label reveal">Pengalaman Organisasi</div>
@@ -586,10 +632,18 @@
 
             <div class="org-timeline" style="margin-top: 3.5rem;">
 
-                <!-- 1 -->
+                <!-- 1: Alumni SMAN 1 Ngunut -->
                 <div class="org-item reveal">
                     <div class="org-item-inner">
-                        <div class="org-photo-slot">🎓</div>
+                        <div class="org-logo-slot" style="background:#1a3a6e;">
+                            <!-- Graduation cap / school logo SVG -->
+                            <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20 8L4 16l16 8 16-8L20 8z" fill="#fff" opacity="0.9"/>
+                                <path d="M8 18v8c0 4 5.4 7 12 7s12-3 12-7v-8" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/>
+                                <line x1="34" y1="16" x2="34" y2="26" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+                                <circle cx="34" cy="27" r="2" fill="#ffcc00"/>
+                            </svg>
+                        </div>
                         <div class="org-info">
                             <div class="org-role">Divisi Alumni</div>
                             <h4>Ikatan Alumni SMAN 1 Ngunut</h4>
@@ -599,10 +653,19 @@
                     <div class="org-period">2025 – 2027</div>
                 </div>
 
-                <!-- 2 -->
+                <!-- 2: Formadiksi (IT/Communication org) -->
                 <div class="org-item reveal reveal-delay-1">
                     <div class="org-item-inner">
-                        <div class="org-photo-slot">📡</div>
+                        <div class="org-logo-slot" style="background:#0f3460;">
+                            <!-- Signal/broadcast logo -->
+                            <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="20" cy="24" r="4" fill="#e94560"/>
+                                <path d="M12 18a11 11 0 0116 0" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/>
+                                <path d="M7 13a18 18 0 0126 0" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+                                <line x1="20" y1="28" x2="20" y2="34" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+                                <line x1="14" y1="34" x2="26" y2="34" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
                         <div class="org-info">
                             <div class="org-role">Koordinator Komunikasi Eksternal</div>
                             <h4>Formadiksi Polinema</h4>
@@ -612,10 +675,18 @@
                     <div class="org-period">2025 – 2026</div>
                 </div>
 
-                <!-- 3 -->
+                <!-- 3: IMAT - Ikatan Mahasiswa Tulungagung -->
                 <div class="org-item reveal reveal-delay-2">
                     <div class="org-item-inner">
-                        <div class="org-photo-slot">👑</div>
+                        <div class="org-logo-slot" style="background:#c0392b;">
+                            <!-- Crown / leadership logo -->
+                            <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6 28h28M8 28L6 14l8 8 6-10 6 10 8-8-2 14z" fill="#fff" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/>
+                                <circle cx="6" cy="14" r="2.5" fill="#ffcc00"/>
+                                <circle cx="20" cy="9" r="2.5" fill="#ffcc00"/>
+                                <circle cx="34" cy="14" r="2.5" fill="#ffcc00"/>
+                            </svg>
+                        </div>
                         <div class="org-info">
                             <div class="org-role">Wakil Ketua Umum</div>
                             <h4>Ikatan Mahasiswa Tulungagung Polinema</h4>
@@ -625,10 +696,18 @@
                     <div class="org-period">2025 – 2026</div>
                 </div>
 
-                <!-- 4 -->
+                <!-- 4: FKMBK Malang Raya -->
                 <div class="org-item reveal">
                     <div class="org-item-inner">
-                        <div class="org-photo-slot">🌏</div>
+                        <div class="org-logo-slot" style="background:#1a6b3c;">
+                            <!-- Globe / international logo -->
+                            <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="20" cy="20" r="14" fill="none" stroke="#fff" stroke-width="2"/>
+                                <ellipse cx="20" cy="20" rx="6" ry="14" fill="none" stroke="#fff" stroke-width="1.5"/>
+                                <line x1="6" y1="20" x2="34" y2="20" stroke="#fff" stroke-width="1.5"/>
+                                <path d="M8 13h24M8 27h24" fill="none" stroke="#fff" stroke-width="1.2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
                         <div class="org-info">
                             <div class="org-role">Anggota Departemen Luar Negeri</div>
                             <h4>FKMBK Malang Raya</h4>
@@ -638,10 +717,21 @@
                     <div class="org-period">2025 – 2026</div>
                 </div>
 
-                <!-- 5 -->
+                <!-- 5: Rubi Community -->
                 <div class="org-item reveal reveal-delay-1">
                     <div class="org-item-inner">
-                        <div class="org-photo-slot">💎</div>
+                        <div class="org-logo-slot" style="background:#7b2d8b;">
+                            <!-- Gem / diamond logo -->
+                            <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                                <polygon points="20,6 34,16 28,32 12,32 6,16" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"/>
+                                <polygon points="20,6 34,16 20,16 6,16" fill="#fff" opacity="0.25"/>
+                                <line x1="6" y1="16" x2="34" y2="16" stroke="#fff" stroke-width="1.5"/>
+                                <line x1="20" y1="6" x2="20" y2="16" stroke="#fff" stroke-width="1.2"/>
+                                <line x1="6" y1="16" x2="12" y2="32" stroke="#fff" stroke-width="1.2"/>
+                                <line x1="34" y1="16" x2="28" y2="32" stroke="#fff" stroke-width="1.2"/>
+                                <line x1="20" y1="16" x2="20" y2="32" stroke="#fff" stroke-width="1.2"/>
+                            </svg>
+                        </div>
                         <div class="org-info">
                             <div class="org-role">Anggota – Batch 8</div>
                             <h4>Rubi Community</h4>
@@ -651,10 +741,21 @@
                     <div class="org-period">Feb – Jun 2025</div>
                 </div>
 
-                <!-- 6 -->
+                <!-- 6: FKMBK Jawa Timur -->
                 <div class="org-item reveal reveal-delay-2">
                     <div class="org-item-inner">
-                        <div class="org-photo-slot">🔍</div>
+                        <div class="org-logo-slot" style="background:#1a5276;">
+                            <!-- Strategy / analysis logo -->
+                            <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="20" cy="20" r="14" fill="none" stroke="#fff" stroke-width="2"/>
+                                <circle cx="20" cy="20" r="8" fill="none" stroke="#fff" stroke-width="1.5" opacity="0.6"/>
+                                <circle cx="20" cy="20" r="3" fill="#fff"/>
+                                <line x1="20" y1="6" x2="20" y2="12" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+                                <line x1="20" y1="28" x2="20" y2="34" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+                                <line x1="6" y1="20" x2="12" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+                                <line x1="28" y1="20" x2="34" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
                         <div class="org-info">
                             <div class="org-role">Staf Departemen Kajian Strategi</div>
                             <h4>FKMBK Jawa Timur</h4>
@@ -664,10 +765,16 @@
                     <div class="org-period">2024 – 2025</div>
                 </div>
 
-                <!-- 7 -->
+                <!-- 7: Formadiksi (junior) -->
                 <div class="org-item reveal">
                     <div class="org-item-inner">
-                        <div class="org-photo-slot">📣</div>
+                        <div class="org-logo-slot" style="background:#0f3460;">
+                            <!-- Megaphone / announcement logo -->
+                            <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M30 10C24 14 16 16 10 16H8a2 2 0 00-2 2v4a2 2 0 002 2h2l4 8h4l-2-8c5.5 0 13 2 18 6V10z" fill="#fff" opacity="0.9"/>
+                                <circle cx="33" cy="20" r="3" fill="#e94560"/>
+                            </svg>
+                        </div>
                         <div class="org-info">
                             <div class="org-role">Pengurus Muda Komunikasi Eksternal</div>
                             <h4>Formadiksi Polinema</h4>
@@ -677,10 +784,17 @@
                     <div class="org-period">2024 – 2025</div>
                 </div>
 
-                <!-- 8 -->
+                <!-- 8: Ikatan Mahasiswa Tulungagung (anggota) -->
                 <div class="org-item reveal reveal-delay-1">
                     <div class="org-item-inner">
-                        <div class="org-photo-slot">🤝</div>
+                        <div class="org-logo-slot" style="background:#922b21;">
+                            <!-- Handshake / community logo -->
+                            <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6 18l8-6 6 4 6-4 8 6" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M6 18v6a2 2 0 002 2h6l6-4 6 4h6a2 2 0 002-2v-6" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                                <line x1="20" y1="22" x2="20" y2="32" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+                            </svg>
+                        </div>
                         <div class="org-info">
                             <div class="org-role">Anggota Eksternal</div>
                             <h4>Ikatan Mahasiswa Tulungagung</h4>
@@ -694,7 +808,6 @@
         </div>
     </section>
 
-    <!-- ═══ PROJECTS ═══ -->
     <section id="projects" class="projects">
         <div class="container">
             <div class="projects-header">
@@ -706,7 +819,6 @@
 
             <div class="projects-grid">
 
-                <!-- 01 BI Pizza -->
                 <div class="project-card reveal">
                     <div class="project-img-wrap" id="slider-01">
                         <img src="BI 1.png" class="active" alt="BI Dashboard 1"/>
@@ -731,15 +843,22 @@
                         </div>
                         <a href="https://www.kaggle.com/datasets/khoirkaroln/modifikasi-dashboard-perusahaan-pizza" target="_blank" class="project-link">
                             Lihat di Kaggle
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                            <!-- Kaggle logo inline -->
+                            <svg viewBox="0 0 24 24" width="14" height="14" fill="#20beff" xmlns="http://www.w3.org/2000/svg"><path d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.448 1.374v5.111c0 .235-.117.352-.351.352H5.505c-.236 0-.354-.117-.354-.352V.353c0-.233.118-.353.354-.353h2.431c.234 0 .351.12.351.353v14.343l6.203-6.272c.165-.165.33-.246.495-.246h3.239c.144 0 .236.06.285.18.046.149.034.255-.036.315l-6.555 6.344 6.836 8.507c.095.104.117.208.07.334z"/></svg>
                         </a>
                     </div>
                 </div>
 
-                <!-- 02 AKRESA -->
                 <div class="project-card reveal reveal-delay-1">
                     <div class="project-img-wrap">
-                        <div class="project-img-placeholder">🎓</div>
+                        <div class="project-img-placeholder" style="background:linear-gradient(135deg,#1a3a6e22,#2563eb22);">
+                            <!-- Graduation/system icon -->
+                            <svg viewBox="0 0 80 80" width="72" height="72" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M40 16L12 30l28 14 28-14L40 16z" fill="#1a3a6e" opacity="0.7"/>
+                                <path d="M18 33v14c0 7 9.6 12 22 12s22-5 22-12V33" fill="none" stroke="#1a3a6e" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+                                <line x1="62" y1="30" x2="62" y2="46" stroke="#1a3a6e" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+                            </svg>
+                        </div>
                     </div>
                     <div class="project-body">
                         <div class="project-num">— 02</div>
@@ -752,12 +871,11 @@
                         </div>
                         <a href="https://github.com/khoirkanzura/final-project-accreditation" target="_blank" class="project-link">
                             Lihat di GitHub
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                            <svg viewBox="0 0 24 24" width="14" height="14" fill="#24292e" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
                         </a>
                     </div>
                 </div>
 
-                <!-- 03 SIPRES -->
                 <div class="project-card reveal reveal-delay-2">
                     <div class="project-img-wrap" id="slider-03">
                         <img src="sipres.jpg" class="active" alt="SIPRES JTI"/>
@@ -774,12 +892,11 @@
                         </div>
                         <a href="https://github.com/khoirkanzura/SipresJTI" target="_blank" class="project-link">
                             Lihat di GitHub
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                            <svg viewBox="0 0 24 24" width="14" height="14" fill="#24292e" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
                         </a>
                     </div>
                 </div>
 
-                <!-- 04 Si Tertib -->
                 <div class="project-card reveal">
                     <div class="project-img-wrap" id="slider-04">
                         <img src="tatib.jpg" class="active" alt="Si Tertib"/>
@@ -795,15 +912,23 @@
                         </div>
                         <a href="https://github.com/khoirkanzura/Sistem-tata-tertib" target="_blank" class="project-link">
                             Lihat di GitHub
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                            <svg viewBox="0 0 24 24" width="14" height="14" fill="#24292e" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
                         </a>
                     </div>
                 </div>
 
-                <!-- 05 Perpustakaan -->
                 <div class="project-card reveal reveal-delay-1">
                     <div class="project-img-wrap">
-                        <div class="project-img-placeholder">📚</div>
+                        <div class="project-img-placeholder" style="background:linear-gradient(135deg,#c4956a22,#f0d8b822);">
+                            <svg viewBox="0 0 80 80" width="72" height="72" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="12" y="10" width="40" height="52" rx="4" fill="none" stroke="#c4956a" stroke-width="3" opacity="0.7"/>
+                                <line x1="20" y1="24" x2="44" y2="24" stroke="#c4956a" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/>
+                                <line x1="20" y1="34" x2="44" y2="34" stroke="#c4956a" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/>
+                                <line x1="20" y1="44" x2="36" y2="44" stroke="#c4956a" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/>
+                                <circle cx="58" cy="54" r="14" fill="#c4956a" opacity="0.15" stroke="#c4956a" stroke-width="2" opacity="0.5"/>
+                                <path d="M52 54l4 4 8-8" stroke="#c4956a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
                     </div>
                     <div class="project-body">
                         <div class="project-num">— 05</div>
@@ -816,15 +941,22 @@
                         </div>
                         <a href="https://github.com/khoirkanzura/FinalProject-Perpustakaan" target="_blank" class="project-link">
                             Lihat di GitHub
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                            <svg viewBox="0 0 24 24" width="14" height="14" fill="#24292e" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
                         </a>
                     </div>
                 </div>
 
-                <!-- 06 Data Mining -->
                 <div class="project-card reveal reveal-delay-2">
                     <div class="project-img-wrap">
-                        <div class="project-img-placeholder">🎮</div>
+                        <div class="project-img-placeholder" style="background:linear-gradient(135deg,#9b87b522,#c9b8d822);">
+                            <!-- Python/ML icon -->
+                            <svg viewBox="0 0 80 80" width="72" height="72" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M40 12c-9 0-16 4-16 9v6h16v2H24c-5 0-12 3-12 13s5 13 12 13h4v-7c0-6 5-11 12-11h12c5 0-8 0 8 0h0c5 0 8-4 8-9v-7c0-5-7-9-16-9h0z" fill="#9b87b5" opacity="0.5"/>
+                                <circle cx="33" cy="22" r="2.5" fill="#fff"/>
+                                <path d="M40 68c9 0 16-4 16-9v-6H40v-2h16c5 0 12-3 12-13S68 25 61 25h-4v7c0 6-5 11-12 11H33c-5 0-8 4-8 9v7c0 5 7 9 15 9h2z" fill="#c9b8d8" opacity="0.6"/>
+                                <circle cx="47" cy="58" r="2.5" fill="#fff"/>
+                            </svg>
+                        </div>
                     </div>
                     <div class="project-body">
                         <div class="project-num">— 06</div>
@@ -838,15 +970,23 @@
                         </div>
                         <a href="https://drive.google.com/drive/folders/your-link" target="_blank" class="project-link">
                             Lihat Laporan
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                            <!-- Google Drive logo -->
+                            <svg viewBox="0 0 24 24" width="14" height="14" xmlns="http://www.w3.org/2000/svg"><path d="M4.587 20l3.46-6h11.906l-3.46 6z" fill="#0F9D58"/><path d="M1 20l5.75-10L12 19H1z" fill="#4285F4"/><path d="M12 14L7 5h10l5 9H12z" fill="#FBBC05"/></svg>
                         </a>
                     </div>
                 </div>
 
-                <!-- 07 SkinQuo -->
                 <div class="project-card reveal">
                     <div class="project-img-wrap">
-                        <div class="project-img-placeholder">✨</div>
+                        <div class="project-img-placeholder" style="background:linear-gradient(135deg,#e8a4b822,#f5dde822);">
+                            <!-- Skincare/expert system icon -->
+                            <svg viewBox="0 0 80 80" width="72" height="72" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="40" cy="36" r="20" fill="none" stroke="#e8a4b8" stroke-width="3" opacity="0.7"/>
+                                <path d="M32 34c0-4 3-8 8-8s8 4 8 8c0 6-8 14-8 14s-8-8-8-14z" fill="#e8a4b8" opacity="0.4"/>
+                                <circle cx="40" cy="34" r="4" fill="#c97a98" opacity="0.8"/>
+                                <path d="M28 58h24M34 62h12" stroke="#c97a98" stroke-width="2.5" stroke-linecap="round" opacity="0.5"/>
+                            </svg>
+                        </div>
                     </div>
                     <div class="project-body">
                         <div class="project-num">— 07</div>
@@ -867,15 +1007,21 @@
                         </div>
                         <a href="https://github.com/khoirkanzura/SkinQuo.git" target="_blank" class="project-link">
                             Lihat di GitHub
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                            <svg viewBox="0 0 24 24" width="14" height="14" fill="#24292e" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
                         </a>
                     </div>
                 </div>
 
-                <!-- 08 Data Warehouse -->
                 <div class="project-card reveal reveal-delay-1">
                     <div class="project-img-wrap">
-                        <div class="project-img-placeholder">🏗️</div>
+                        <div class="project-img-placeholder" style="background:linear-gradient(135deg,#1a6b3c22,#bce8d822);">
+                            <!-- Data Warehouse icon -->
+                            <svg viewBox="0 0 80 80" width="72" height="72" xmlns="http://www.w3.org/2000/svg">
+                                <ellipse cx="40" cy="22" rx="22" ry="8" fill="none" stroke="#1a6b3c" stroke-width="2.5" opacity="0.6"/>
+                                <path d="M18 22v14c0 4.4 9.9 8 22 8s22-3.6 22-8V22" fill="none" stroke="#1a6b3c" stroke-width="2.5" opacity="0.6"/>
+                                <path d="M18 36v14c0 4.4 9.9 8 22 8s22-3.6 22-8V36" fill="none" stroke="#1a6b3c" stroke-width="2" opacity="0.4"/>
+                            </svg>
+                        </div>
                     </div>
                     <div class="project-body">
                         <div class="project-num">— 08</div>
@@ -895,7 +1041,6 @@
         </div>
     </section>
 
-    <!-- ═══ PRESTASI ═══ -->
     <section id="prestasi" class="prestasi">
         <div class="container">
             <div class="section-label reveal">Prestasi & Penghargaan</div>
@@ -942,7 +1087,6 @@
         </div>
     </section>
 
-    <!-- ═══ CONTACT ═══ -->
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-label reveal">Kontak</div>
@@ -954,55 +1098,107 @@
                     <div class="contact-signature">Khoir Karol N.</div>
                 </div>
                 <div class="contact-grid reveal reveal-delay-2">
+
+                    <!-- Email -->
                     <a href="mailto:khoirkarolnurzuraidah23@gmail.com" class="contact-card">
-                        <div class="contact-icon-wrap">📧</div>
+                        <div class="contact-icon-wrap icon-email">
+                            <!-- Gmail logo SVG -->
+                            <svg viewBox="0 0 24 24" width="26" height="26" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 010 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.908 1.528-1.147C21.69 2.28 24 3.434 24 5.457z" fill="#EA4335"/>
+                                <path d="M0 5.457v13.909c0 .904.732 1.636 1.636 1.636H5.455V11.73L12 16.64V9.548L5.455 4.64 3.927 3.493C2.309 2.28 0 3.434 0 5.457z" fill="#C5221F"/>
+                                <path d="M24 5.457c0-2.023-2.31-3.177-3.927-1.964L18.545 4.64 12 9.548v7.092l6.545-4.91V20.999H22.364A1.636 1.636 0 0024 19.366V5.457z" fill="#FF0000" opacity=".6"/>
+                            </svg>
+                        </div>
                         <div class="contact-text">
                             <strong>Email</strong>
                             <span>khoirkarolnurzuraidah23@gmail.com</span>
                         </div>
                     </a>
+
+                    <!-- WhatsApp/Phone -->
                     <a href="tel:+6281410100519" class="contact-card">
-                        <div class="contact-icon-wrap">📱</div>
+                        <div class="contact-icon-wrap" style="background:#25D366;">
+                            <!-- WhatsApp logo SVG -->
+                            <svg viewBox="0 0 24 24" width="26" height="26" fill="white" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                            </svg>
+                        </div>
                         <div class="contact-text">
-                            <strong>Phone</strong>
+                            <strong>WhatsApp</strong>
                             <span>+62 814-1010-0519</span>
                         </div>
                     </a>
+
+                    <!-- LinkedIn -->
                     <a href="https://linkedin.com/in/khoir-karol-nurzuraidah" target="_blank" class="contact-card">
-                        <div class="contact-icon-wrap">💼</div>
+                        <div class="contact-icon-wrap icon-linkedin">
+                            <!-- LinkedIn official logo -->
+                            <svg viewBox="0 0 24 24" width="26" height="26" fill="white" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </div>
                         <div class="contact-text">
                             <strong>LinkedIn</strong>
                             <span>Khoir Karol Nurzuraidah</span>
                         </div>
                     </a>
+
+                    <!-- GitHub -->
                     <a href="https://github.com/khoirkanzura" target="_blank" class="contact-card">
-                        <div class="contact-icon-wrap">🐙</div>
+                        <div class="contact-icon-wrap icon-github">
+                            <!-- GitHub Octocat logo -->
+                            <svg viewBox="0 0 24 24" width="26" height="26" fill="white" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+                            </svg>
+                        </div>
                         <div class="contact-text">
                             <strong>GitHub</strong>
                             <span>khoirkanzura</span>
                         </div>
                     </a>
+
+                    <!-- Kaggle -->
                     <a href="https://kaggle.com/khoirkaroln" target="_blank" class="contact-card">
-                        <div class="contact-icon-wrap">📊</div>
+                        <div class="contact-icon-wrap icon-kaggle">
+                            <!-- Kaggle official logo -->
+                            <svg viewBox="0 0 24 24" width="26" height="26" fill="white" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.448 1.374v5.111c0 .235-.117.352-.351.352H5.505c-.236 0-.354-.117-.354-.352V.353c0-.233.118-.353.354-.353h2.431c.234 0 .351.12.351.353v14.343l6.203-6.272c.165-.165.33-.246.495-.246h3.239c.144 0 .236.06.285.18.046.149.034.255-.036.315l-6.555 6.344 6.836 8.507c.095.104.117.208.07.334z"/>
+                            </svg>
+                        </div>
                         <div class="contact-text">
                             <strong>Kaggle</strong>
                             <span>khoirkaroln</span>
                         </div>
                     </a>
+
+                    <!-- Instagram -->
                     <a href="https://instagram.com/khoirknz" target="_blank" class="contact-card">
-                        <div class="contact-icon-wrap">📷</div>
+                        <div class="contact-icon-wrap icon-instagram">
+                            <!-- Instagram official logo -->
+                            <svg viewBox="0 0 24 24" width="26" height="26" fill="white" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </div>
                         <div class="contact-text">
                             <strong>Instagram</strong>
                             <span>@khoirknz</span>
                         </div>
                     </a>
+
+                    <!-- TikTok -->
                     <a href="https://tiktok.com/@khoir.kanzura" target="_blank" class="contact-card">
-                        <div class="contact-icon-wrap">🎵</div>
+                        <div class="contact-icon-wrap icon-tiktok">
+                            <!-- TikTok official logo -->
+                            <svg viewBox="0 0 24 24" width="26" height="26" fill="white" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.78a4.85 4.85 0 01-1.01-.09z"/>
+                            </svg>
+                        </div>
                         <div class="contact-text">
                             <strong>TikTok</strong>
                             <span>@khoir.kanzura</span>
                         </div>
                     </a>
+
                 </div>
             </div>
         </div>
@@ -1038,7 +1234,7 @@
             const c = document.getElementById(id);
             if (!c) return;
             const imgs = c.querySelectorAll('img');
-            const dots = document.querySelectorAll(`#dots-${id} .slider-dot`);
+            const dots = document.querySelectorAll('#dots-' + id + ' .slider-dot');
             const total = imgs.length;
             const n = (idx + total) % total;
             imgs.forEach((img, i) => img.classList.toggle('active', i === n));
@@ -1053,9 +1249,9 @@
         window.addEventListener('scroll', () => {
             const blob1 = document.querySelector('.blob-1');
             const blob2 = document.querySelector('.blob-2');
-            const sy = window.pageYOffset;
-            if (blob1) blob1.style.transform = `translateY(${sy * 0.12}px)`;
-            if (blob2) blob2.style.transform = `translateY(${sy * -0.08}px)`;
+            const scrollY = window.scrollY;
+            if (blob1) blob1.style.transform = 'translate(' + (scrollY * 0.3) + 'px, ' + (scrollY * 0.2) + 'px)';
+            if (blob2) blob2.style.transform = 'translate(' + (-scrollY * 0.2) + 'px, ' + (scrollY * 0.3) + 'px)';
         });
     </script>
 </body>
