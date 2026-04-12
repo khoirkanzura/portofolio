@@ -23,7 +23,6 @@
         }
 
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
         html { scroll-behavior: smooth; }
 
         body {
@@ -33,7 +32,6 @@
             overflow-x: hidden;
         }
 
-        /* ── Noise texture overlay ── */
         body::before {
             content: '';
             position: fixed; inset: 0; z-index: 0; pointer-events: none;
@@ -41,16 +39,11 @@
             opacity: 0.5;
         }
 
-        /* ── Decorative blobs ── */
-        .blob {
-            position: fixed; border-radius: 50%; filter: blur(80px);
-            pointer-events: none; z-index: 0; opacity: 0.45;
-        }
+        .blob { position: fixed; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; opacity: 0.45; }
         .blob-1 { width: 500px; height: 500px; background: radial-gradient(circle, #f2c4d4, transparent); top: -100px; right: -100px; }
         .blob-2 { width: 400px; height: 400px; background: radial-gradient(circle, #d8c8e8, transparent); bottom: 20%; left: -120px; }
         .blob-3 { width: 300px; height: 300px; background: radial-gradient(circle, #fce4b0, transparent); bottom: 10%; right: 10%; }
 
-        /* ── NAV ── */
         nav {
             position: fixed; top: 0; width: 100%; z-index: 999;
             padding: 1.2rem 6%;
@@ -69,9 +62,9 @@
             -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
         }
 
-        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
         .nav-links a {
-            font-size: 0.85rem; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase;
+            font-size: 0.82rem; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase;
             color: var(--muted); text-decoration: none; transition: color 0.3s;
             position: relative;
         }
@@ -84,20 +77,16 @@
         .nav-links a:hover { color: var(--rose-deep); }
         .nav-links a:hover::after { width: 100%; }
 
-        /* ── SECTIONS wrapper ── */
         section { position: relative; z-index: 1; }
         .container { max-width: 1300px; margin: 0 auto; padding: 0 6%; }
 
-        /* ══════════════════════════════════════
-           HERO
-        ══════════════════════════════════════ */
+        /* ══ HERO ══ */
         .hero {
             min-height: 100vh;
             display: grid; grid-template-columns: 1fr 1fr;
             align-items: center; gap: 4rem;
             padding: 120px 6% 80px;
         }
-
         .hero-left { animation: fadeLeft 1s ease 0.2s both; }
         @keyframes fadeLeft { from { opacity:0; transform:translateX(-40px); } to { opacity:1; transform:translateX(0); } }
 
@@ -107,8 +96,7 @@
             color: var(--rose-deep); font-weight: 600; margin-bottom: 1.5rem;
         }
         .hero-eyebrow::before, .hero-eyebrow::after {
-            content: ''; display: block; height: 1px; width: 30px;
-            background: var(--rose);
+            content: ''; display: block; height: 1px; width: 30px; background: var(--rose);
         }
 
         .hero-name {
@@ -128,108 +116,50 @@
             font-size: 1.25rem; font-weight: 300; font-style: italic;
             color: var(--muted); margin-bottom: 1.8rem;
         }
-
-        .hero-desc {
-            font-size: 1rem; color: var(--muted); line-height: 1.85;
-            max-width: 520px; margin-bottom: 2.5rem;
-        }
-
+        .hero-desc { font-size: 1rem; color: var(--muted); line-height: 1.85; max-width: 520px; margin-bottom: 2.5rem; }
         .hero-btns { display: flex; gap: 1.2rem; flex-wrap: wrap; }
 
-        .btn {
-            padding: 0.85rem 2.2rem; border-radius: 100px; font-size: 0.9rem;
-            font-weight: 600; letter-spacing: 0.5px; cursor: pointer;
-            text-decoration: none; transition: all 0.3s ease; display: inline-block;
-        }
-        .btn-rose {
-            background: linear-gradient(135deg, var(--rose), var(--rose-deep));
-            color: #fff; border: none;
-            box-shadow: 0 6px 24px rgba(201,122,152,0.35);
-        }
+        .btn { padding: 0.85rem 2.2rem; border-radius: 100px; font-size: 0.9rem; font-weight: 600; letter-spacing: 0.5px; cursor: pointer; text-decoration: none; transition: all 0.3s ease; display: inline-block; }
+        .btn-rose { background: linear-gradient(135deg, var(--rose), var(--rose-deep)); color: #fff; border: none; box-shadow: 0 6px 24px rgba(201,122,152,0.35); }
         .btn-rose:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(201,122,152,0.5); }
-        .btn-outline {
-            background: transparent; color: var(--rose-deep);
-            border: 1.5px solid var(--rose);
-        }
+        .btn-outline { background: transparent; color: var(--rose-deep); border: 1.5px solid var(--rose); }
         .btn-outline:hover { background: var(--blush); transform: translateY(-3px); }
 
-        /* Hero Right — photo + floating cards */
         .hero-right {
             position: relative; display: flex; justify-content: center; align-items: center;
             animation: fadeRight 1s ease 0.4s both;
         }
         @keyframes fadeRight { from { opacity:0; transform:translateX(40px); } to { opacity:1; transform:translateX(0); } }
 
-        .photo-frame {
-            position: relative; width: 340px; height: 420px;
-        }
-
+        .photo-frame { position: relative; width: 340px; height: 420px; }
         .photo-bg-shape {
             position: absolute; bottom: -16px; right: -16px;
             width: 100%; height: 100%; border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%;
-            background: linear-gradient(135deg, var(--blush), var(--lilac));
-            z-index: 0;
+            background: linear-gradient(135deg, var(--blush), var(--lilac)); z-index: 0;
         }
-
         .photo-main {
             position: relative; z-index: 1;
             width: 100%; height: 100%;
             border-radius: 38% 62% 55% 45% / 42% 38% 62% 58%;
-            overflow: hidden;
-            border: 4px solid #fff;
+            overflow: hidden; border: 4px solid #fff;
             box-shadow: 0 20px 60px rgba(43,31,46,0.15);
         }
-        .photo-main img {
-            width: 100%; height: 100%;
-            object-fit: cover; object-position: center top;
-            transition: transform 0.5s ease;
-        }
+        .photo-main img { width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: transform 0.5s ease; }
         .photo-main:hover img { transform: scale(1.05); }
 
-        /* Floating badges */
-        .float-badge {
-            position: absolute; z-index: 3;
-            background: rgba(255,251,248,0.92); backdrop-filter: blur(10px);
-            border: 1px solid var(--border); border-radius: 18px;
-            padding: 0.7rem 1.1rem; box-shadow: 0 8px 30px rgba(43,31,46,0.1);
-            font-size: 0.8rem; font-weight: 600; color: var(--ink);
-            animation: floatUp 4s ease-in-out infinite;
-            white-space: nowrap;
-        }
-        .float-badge span { font-size: 1.1rem; margin-right: 0.4rem; }
-        .float-badge-1 { top: 10%; left: -60px; animation-delay: 0s; }
-        .float-badge-2 { bottom: 18%; left: -50px; animation-delay: 1.5s; }
-        .float-badge-3 { top: 20%; right: -60px; animation-delay: 0.8s; }
-
-        @keyframes floatUp {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
-        }
-
-        /* Petal decorations */
-        .petal {
-            position: absolute; pointer-events: none; z-index: 2;
-            border-radius: 50% 0 50% 0;
-            opacity: 0.6;
-        }
+        .petal { position: absolute; pointer-events: none; z-index: 2; border-radius: 50% 0 50% 0; opacity: 0.6; }
         .petal-1 { width: 18px; height: 18px; background: var(--rose); top: 5%; right: 15%; transform: rotate(30deg); animation: spinFl 8s linear infinite; }
         .petal-2 { width: 12px; height: 12px; background: var(--lilac); bottom: 12%; right: 12%; transform: rotate(-20deg); animation: spinFl 6s linear infinite reverse; }
         .petal-3 { width: 10px; height: 10px; background: var(--caramel); top: 55%; left: -15px; transform: rotate(50deg); animation: spinFl 10s linear infinite; }
         @keyframes spinFl { from { transform: rotate(0deg) scale(1); } to { transform: rotate(360deg) scale(1.2); } }
 
-        /* ══════════════════════════════════════
-           ABOUT
-        ══════════════════════════════════════ */
-        .about { padding: 130px 0; }
-
+        /* ══ SECTION COMMONS ══ */
         .section-label {
             font-size: 0.75rem; letter-spacing: 4px; text-transform: uppercase;
             color: var(--rose-deep); font-weight: 600; margin-bottom: 0.7rem;
             display: flex; align-items: center; gap: 0.8rem;
         }
-        .section-label::before {
-            content: ''; display: block; height: 1.5px; width: 28px; background: var(--rose);
-        }
+        .section-label::before { content: ''; display: block; height: 1.5px; width: 28px; background: var(--rose); }
 
         .section-title {
             font-family: 'Cormorant Garamond', serif;
@@ -238,97 +168,126 @@
         }
         .section-title em { font-style: italic; color: var(--rose-deep); }
 
+        /* ══ ABOUT ══ */
+        .about { padding: 130px 0; }
         .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; margin-top: 3.5rem; align-items: start; }
-
-        .about-text p {
-            font-size: 1rem; color: var(--muted); line-height: 1.9; margin-bottom: 1.4rem;
-        }
-
+        .about-text p { font-size: 1rem; color: var(--muted); line-height: 1.9; margin-bottom: 1.4rem; }
         .about-text .highlight-quote {
-            border-left: 3px solid var(--rose);
-            padding: 1rem 1.5rem;
-            background: var(--blush);
-            border-radius: 0 12px 12px 0;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.15rem; font-style: italic;
+            border-left: 3px solid var(--rose); padding: 1rem 1.5rem;
+            background: var(--blush); border-radius: 0 12px 12px 0;
+            font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-style: italic;
             color: var(--rose-deep); margin: 1.8rem 0;
         }
 
         .skills-list { display: flex; flex-direction: column; gap: 1.2rem; }
-
         .skill-item {
-            background: var(--card-bg);
-            border: 1px solid var(--border); border-radius: 20px;
-            padding: 1.4rem 1.6rem;
-            display: flex; align-items: center; gap: 1.2rem;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
+            background: var(--card-bg); border: 1px solid var(--border); border-radius: 20px;
+            padding: 1.4rem 1.6rem; display: flex; align-items: center; gap: 1.2rem;
+            backdrop-filter: blur(10px); transition: all 0.3s ease;
         }
-        .skill-item:hover {
-            transform: translateX(8px);
-            border-color: var(--rose);
-            box-shadow: 0 8px 30px rgba(232,164,184,0.2);
-        }
-        .skill-icon {
-            width: 44px; height: 44px; min-width: 44px; border-radius: 12px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.3rem;
-        }
+        .skill-item:hover { transform: translateX(8px); border-color: var(--rose); box-shadow: 0 8px 30px rgba(232,164,184,0.2); }
+        .skill-icon { width: 44px; height: 44px; min-width: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; }
         .skill-icon-rose { background: linear-gradient(135deg, #fde8ef, #f5c0d0); }
         .skill-icon-lilac { background: linear-gradient(135deg, #ede8f5, #d8cce8); }
         .skill-icon-caramel { background: linear-gradient(135deg, #fdf0e0, #f0d8b8); }
         .skill-icon-mint { background: linear-gradient(135deg, #e0f5ee, #bce8d8); }
-
         .skill-info h4 { font-weight: 600; font-size: 0.95rem; color: var(--ink); margin-bottom: 0.2rem; }
         .skill-info p { font-size: 0.82rem; color: var(--muted); }
 
-        /* ══════════════════════════════════════
-           PROJECTS
-        ══════════════════════════════════════ */
+        /* ══ KETERAMPILAN ══ */
+        .keterampilan { padding: 130px 0; }
+        .skills-categories { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 3rem; }
+
+        .skill-category-card {
+            background: var(--card-bg); border: 1px solid var(--border); border-radius: 24px;
+            padding: 2rem; backdrop-filter: blur(12px); transition: all 0.3s ease;
+        }
+        .skill-category-card:hover { transform: translateY(-5px); border-color: var(--rose); box-shadow: 0 16px 40px rgba(232,164,184,0.18); }
+
+        .skill-cat-header { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.4rem; }
+        .skill-cat-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
+        .skill-cat-title { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 700; color: var(--ink); }
+
+        .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .skill-tag {
+            font-size: 0.8rem; font-weight: 500; padding: 0.35rem 0.9rem;
+            border-radius: 100px; background: var(--blush); color: var(--rose-deep);
+            border: 1px solid rgba(232,164,184,0.4);
+        }
+        .skill-tag.lilac { background: rgba(201,184,216,0.2); color: var(--lilac-deep); border-color: rgba(201,184,216,0.4); }
+        .skill-tag.caramel { background: rgba(196,149,106,0.1); color: var(--caramel); border-color: rgba(196,149,106,0.3); }
+        .skill-tag.mint { background: rgba(100,196,160,0.1); color: #3a8c6e; border-color: rgba(100,196,160,0.3); }
+
+        /* ══ ORGANISASI ══ */
+        .organisasi {
+            padding: 130px 0;
+            background: linear-gradient(180deg, transparent, rgba(245,221,232,0.2) 30%, rgba(245,221,232,0.2) 70%, transparent);
+        }
+        .org-timeline { position: relative; margin-top: 3.5rem; padding-left: 2rem; }
+        .org-timeline::before {
+            content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+            width: 2px; background: linear-gradient(180deg, var(--rose), var(--lilac), var(--caramel));
+            border-radius: 2px;
+        }
+
+        .org-item {
+            position: relative; margin-bottom: 2rem;
+            background: var(--card-bg); border: 1px solid var(--border); border-radius: 20px;
+            padding: 1.4rem 1.6rem; backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: start;
+        }
+        .org-item:hover { transform: translateX(6px); border-color: var(--rose); box-shadow: 0 8px 28px rgba(232,164,184,0.18); }
+        .org-item::before {
+            content: '✦'; position: absolute; left: -2.7rem;
+            top: 1.3rem; color: var(--rose-deep); font-size: 0.75rem;
+            background: var(--cream); padding: 0.2rem;
+        }
+
+        .org-info h4 { font-weight: 700; font-size: 0.95rem; color: var(--ink); margin-bottom: 0.25rem; }
+        .org-info .org-role { font-size: 0.85rem; color: var(--rose-deep); font-weight: 600; margin-bottom: 0.3rem; }
+        .org-info .org-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
+        .org-period {
+            font-size: 0.75rem; font-weight: 600; color: var(--muted);
+            background: var(--warm); border: 1px solid var(--border);
+            padding: 0.3rem 0.8rem; border-radius: 100px; white-space: nowrap;
+            height: fit-content;
+        }
+
+        /* Photo placeholder in org */
+        .org-photo-slot {
+            width: 52px; height: 52px; min-width: 52px; border-radius: 14px;
+            background: linear-gradient(135deg, var(--blush), var(--lilac));
+            border: 2px dashed var(--rose); display: flex; align-items: center; justify-content: center;
+            font-size: 1.3rem; overflow: hidden;
+        }
+        .org-photo-slot img { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; }
+        .org-item-inner { display: flex; gap: 1rem; align-items: flex-start; }
+
+        /* ══ PROJECTS ══ */
         .projects {
             padding: 130px 0;
-            background: linear-gradient(180deg, transparent, rgba(245,221,232,0.25) 30%, rgba(245,221,232,0.25) 70%, transparent);
         }
-
         .projects-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; flex-wrap: wrap; gap: 1.5rem; }
-
-        .projects-grid {
-            display: grid; grid-template-columns: repeat(3, 1fr);
-            gap: 1.8rem;
-        }
+        .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.8rem; }
 
         .project-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border); border-radius: 24px;
-            overflow: hidden; backdrop-filter: blur(12px);
-            transition: all 0.4s ease;
+            background: var(--card-bg); border: 1px solid var(--border); border-radius: 24px;
+            overflow: hidden; backdrop-filter: blur(12px); transition: all 0.4s ease;
             display: flex; flex-direction: column;
         }
-        .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 24px 60px rgba(43,31,46,0.12);
-            border-color: var(--rose);
-        }
+        .project-card:hover { transform: translateY(-8px); box-shadow: 0 24px 60px rgba(43,31,46,0.12); border-color: var(--rose); }
 
-        /* Project image */
         .project-img-wrap {
             position: relative; height: 200px;
             background: linear-gradient(135deg, var(--blush), var(--warm));
             overflow: hidden; flex-shrink: 0;
         }
-        .project-img-wrap img {
-            width: 100%; height: 100%; object-fit: cover;
-            display: none; transition: transform 0.5s ease;
-        }
+        .project-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: none; transition: transform 0.5s ease; }
         .project-img-wrap img.active { display: block; }
         .project-card:hover .project-img-wrap img { transform: scale(1.06); }
+        .project-img-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 3.5rem; }
 
-        .project-img-placeholder {
-            width: 100%; height: 100%; display: flex; align-items: center;
-            justify-content: center; font-size: 3.5rem;
-        }
-
-        /* Slider */
         .slider-arrow {
             position: absolute; top: 50%; transform: translateY(-50%);
             background: rgba(255,251,248,0.85); backdrop-filter: blur(6px);
@@ -341,127 +300,95 @@
         .slider-arrow:hover { background: var(--rose); color: #fff; }
         .slider-arrow.prev { left: 10px; }
         .slider-arrow.next { right: 10px; }
-
-        .slider-dots {
-            position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
-            display: flex; gap: 5px; z-index: 5;
-        }
-        .slider-dot {
-            width: 6px; height: 6px; border-radius: 50%;
-            background: rgba(255,255,255,0.55); border: none; cursor: pointer; padding: 0;
-            transition: background 0.3s;
-        }
+        .slider-dots { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); display: flex; gap: 5px; z-index: 5; }
+        .slider-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.55); border: none; cursor: pointer; padding: 0; transition: background 0.3s; }
         .slider-dot.active { background: var(--rose-deep); }
 
-        /* Project content */
         .project-body { padding: 1.6rem; flex: 1; display: flex; flex-direction: column; }
-
-        .project-num {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1rem; font-weight: 300; color: var(--rose);
-            letter-spacing: 2px; margin-bottom: 0.5rem;
-        }
-
-        .project-card h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.25rem; font-weight: 700;
-            color: var(--ink); line-height: 1.3; margin-bottom: 0.7rem;
-        }
-        .project-card p {
-            font-size: 0.88rem; color: var(--muted); line-height: 1.75;
-            flex: 1; margin-bottom: 1.2rem;
-        }
+        .project-num { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 300; color: var(--rose); letter-spacing: 2px; margin-bottom: 0.5rem; }
+        .project-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 700; color: var(--ink); line-height: 1.3; margin-bottom: 0.7rem; }
+        .project-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.75; flex: 1; margin-bottom: 1.2rem; }
 
         .tags { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 1.2rem; }
-        .tag {
-            font-size: 0.75rem; font-weight: 500; padding: 0.3rem 0.8rem;
-            border-radius: 100px; background: var(--blush); color: var(--rose-deep);
-            border: 1px solid rgba(232,164,184,0.5);
-        }
+        .tag { font-size: 0.75rem; font-weight: 500; padding: 0.3rem 0.8rem; border-radius: 100px; background: var(--blush); color: var(--rose-deep); border: 1px solid rgba(232,164,184,0.5); }
 
         .project-link {
             display: inline-flex; align-items: center; gap: 0.5rem;
             font-size: 0.82rem; font-weight: 600; color: var(--rose-deep);
             text-decoration: none; letter-spacing: 0.3px;
-            border-bottom: 1.5px solid transparent;
-            transition: border-color 0.3s, gap 0.3s; width: fit-content;
+            border-bottom: 1.5px solid transparent; transition: border-color 0.3s, gap 0.3s; width: fit-content;
         }
         .project-link:hover { border-color: var(--rose); gap: 0.8rem; }
         .project-link svg { width: 14px; height: 14px; }
 
-        /* ══════════════════════════════════════
-           CONTACT
-        ══════════════════════════════════════ */
+        /* Team pills */
+        .team-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.8rem; }
+        .team-pill {
+            font-size: 0.72rem; padding: 0.2rem 0.65rem;
+            border-radius: 100px; background: rgba(201,184,216,0.2); color: var(--lilac-deep);
+            border: 1px solid rgba(201,184,216,0.4);
+        }
+        .team-label { font-size: 0.75rem; color: var(--muted); margin-bottom: 0.4rem; font-weight: 600; letter-spacing: 0.5px; }
+
+        /* ══ PRESTASI ══ */
+        .prestasi {
+            padding: 130px 0;
+            background: linear-gradient(180deg, transparent, rgba(245,221,232,0.2) 30%, rgba(245,221,232,0.2) 70%, transparent);
+        }
+        .prestasi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; margin-top: 3rem; }
+
+        .prestasi-card {
+            background: var(--card-bg); border: 1px solid var(--border); border-radius: 22px;
+            padding: 1.8rem; backdrop-filter: blur(12px); transition: all 0.3s ease;
+            position: relative; overflow: hidden;
+        }
+        .prestasi-card:hover { transform: translateY(-6px); border-color: var(--rose); box-shadow: 0 16px 40px rgba(232,164,184,0.2); }
+        .prestasi-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, var(--rose), var(--lilac));
+        }
+
+        .trophy-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+        .prestasi-rank {
+            font-family: 'Cormorant Garamond', serif; font-size: 0.85rem; font-weight: 600;
+            color: var(--rose-deep); letter-spacing: 1px; text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+        .prestasi-card h4 { font-size: 0.95rem; font-weight: 700; color: var(--ink); line-height: 1.4; margin-bottom: 0.4rem; }
+        .prestasi-year { font-size: 0.8rem; color: var(--muted); }
+
+        /* Gold / Silver / Bronze accent */
+        .rank-1::before { background: linear-gradient(90deg, #f0c040, #e8a820); }
+        .rank-2::before { background: linear-gradient(90deg, #c9b8d8, #9b87b5); }
+        .rank-3::before { background: linear-gradient(90deg, #d4a880, #c4956a); }
+
+        /* ══ CONTACT ══ */
         .contact { padding: 130px 0; }
         .contact-inner { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: start; margin-top: 3.5rem; }
-
-        .contact-intro p {
-            font-size: 1.05rem; color: var(--muted); line-height: 1.9; margin-bottom: 1.5rem;
-        }
-
-        .contact-signature {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.2rem; font-style: italic; font-weight: 300;
-            background: linear-gradient(120deg, var(--rose-deep), var(--lilac-deep));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-        }
-
+        .contact-intro p { font-size: 1.05rem; color: var(--muted); line-height: 1.9; margin-bottom: 1.5rem; }
+        .contact-signature { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-style: italic; font-weight: 300; background: linear-gradient(120deg, var(--rose-deep), var(--lilac-deep)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
         .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-
-        .contact-card {
-            background: var(--card-bg); border: 1px solid var(--border);
-            border-radius: 18px; padding: 1.3rem 1.4rem;
-            display: flex; align-items: center; gap: 1rem;
-            backdrop-filter: blur(10px); transition: all 0.3s ease;
-            text-decoration: none;
-        }
-        .contact-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--rose);
-            box-shadow: 0 10px 30px rgba(232,164,184,0.2);
-        }
-        .contact-icon-wrap {
-            width: 40px; height: 40px; min-width: 40px; border-radius: 10px;
-            background: linear-gradient(135deg, var(--blush), var(--warm));
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.15rem;
-        }
+        .contact-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 18px; padding: 1.3rem 1.4rem; display: flex; align-items: center; gap: 1rem; backdrop-filter: blur(10px); transition: all 0.3s ease; text-decoration: none; }
+        .contact-card:hover { transform: translateY(-4px); border-color: var(--rose); box-shadow: 0 10px 30px rgba(232,164,184,0.2); }
+        .contact-icon-wrap { width: 40px; height: 40px; min-width: 40px; border-radius: 10px; background: linear-gradient(135deg, var(--blush), var(--warm)); display: flex; align-items: center; justify-content: center; font-size: 1.15rem; }
         .contact-text strong { display: block; font-size: 0.8rem; font-weight: 600; color: var(--ink); margin-bottom: 0.15rem; }
         .contact-text span { font-size: 0.78rem; color: var(--muted); word-break: break-word; }
 
-        /* ── FOOTER ── */
-        footer {
-            padding: 2.5rem 6%;
-            text-align: center;
-            border-top: 1px solid var(--border);
-            background: var(--warm);
-        }
-        footer p {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1rem; font-style: italic; color: var(--muted);
-        }
+        footer { padding: 2.5rem 6%; text-align: center; border-top: 1px solid var(--border); background: var(--warm); }
+        footer p { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-style: italic; color: var(--muted); }
         footer span { color: var(--rose-deep); }
 
-        /* ── DIVIDER ── */
-        .ornament-divider {
-            text-align: center; font-size: 1.2rem; color: var(--rose);
-            letter-spacing: 8px; margin: 0; opacity: 0.5;
-        }
-
-        /* ── SCROLL REVEAL ── */
-        .reveal {
-            opacity: 0; transform: translateY(28px);
-            transition: opacity 0.7s ease, transform 0.7s ease;
-        }
+        .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
         .reveal.visible { opacity: 1; transform: translateY(0); }
         .reveal-delay-1 { transition-delay: 0.1s; }
         .reveal-delay-2 { transition-delay: 0.2s; }
         .reveal-delay-3 { transition-delay: 0.3s; }
         .reveal-delay-4 { transition-delay: 0.4s; }
 
-        /* ── RESPONSIVE ── */
         @media (max-width: 1024px) {
             .projects-grid { grid-template-columns: repeat(2, 1fr); }
+            .prestasi-grid { grid-template-columns: repeat(2, 1fr); }
+            .skills-categories { grid-template-columns: 1fr; }
         }
         @media (max-width: 768px) {
             .hero { grid-template-columns: 1fr; text-align: center; padding: 110px 5% 70px; }
@@ -469,18 +396,17 @@
             .hero-btns { justify-content: center; }
             .hero-right { margin-top: 2rem; }
             .photo-frame { width: 270px; height: 340px; }
-            .float-badge-1, .float-badge-2 { left: -20px; }
-            .float-badge-3 { right: -20px; }
             .about-grid, .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
-            .projects-grid { grid-template-columns: 1fr; }
+            .projects-grid, .prestasi-grid { grid-template-columns: 1fr; }
+            .skills-categories { grid-template-columns: 1fr; }
             .contact-grid { grid-template-columns: 1fr; }
             .nav-links { display: none; }
             .projects-header { flex-direction: column; }
+            .org-item { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <!-- Background decorations -->
     <div class="blob blob-1"></div>
     <div class="blob blob-2"></div>
     <div class="blob blob-3"></div>
@@ -491,7 +417,10 @@
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">Tentang</a></li>
+            <li><a href="#keterampilan">Keterampilan</a></li>
+            <li><a href="#organisasi">Organisasi</a></li>
             <li><a href="#projects">Proyek</a></li>
+            <li><a href="#prestasi">Prestasi</a></li>
             <li><a href="#contact">Kontak</a></li>
         </ul>
     </nav>
@@ -511,16 +440,12 @@
                 <a href="#contact" class="btn btn-outline">Hubungi Saya</a>
             </div>
         </div>
-
         <div class="hero-right">
             <div class="photo-frame">
                 <div class="photo-bg-shape"></div>
                 <div class="photo-main">
                     <img src="Khoir kn.jpeg" alt="Khoir Karol Nurzuraidah" />
                 </div>
-                <!-- <div class="float-badge float-badge-1"><span>📊</span>Data Analysis</div>
-                <div class="float-badge float-badge-2"><span>🎤</span>Public Speaking</div>
-                <div class="float-badge float-badge-3"><span>💻</span>Web Dev</div> -->
                 <div class="petal petal-1"></div>
                 <div class="petal petal-2"></div>
                 <div class="petal petal-3"></div>
@@ -532,9 +457,7 @@
     <section id="about" class="about">
         <div class="container">
             <div class="section-label reveal">Tentang Saya</div>
-            <h2 class="section-title reveal">
-                Mengenal <em>lebih dekat</em>
-            </h2>
+            <h2 class="section-title reveal">Mengenal <em>lebih dekat</em></h2>
             <div class="about-grid">
                 <div class="about-text reveal">
                     <p>Saya merupakan mahasiswa aktif Program Studi D-IV Sistem Informasi Bisnis di Politeknik Negeri Malang yang memiliki minat pada pengembangan sistem informasi, analisis data, serta manajemen organisasi.</p>
@@ -577,10 +500,196 @@
                         <div class="skill-icon skill-icon-rose">🏛️</div>
                         <div class="skill-info">
                             <h4>Organisasi & Kepemimpinan</h4>
-                            <p>Formadiksi · Hima Tulungagung</p>
+                            <p>Formadiksi · Hima Tulungagung · FKMBK</p>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ KETERAMPILAN ═══ -->
+    <section id="keterampilan" class="keterampilan">
+        <div class="container">
+            <div class="section-label reveal">Keterampilan</div>
+            <h2 class="section-title reveal">Apa yang <em>saya kuasai</em></h2>
+            <div class="skills-categories">
+
+                <div class="skill-category-card reveal">
+                    <div class="skill-cat-header">
+                        <div class="skill-cat-icon skill-icon-rose">💡</div>
+                        <div class="skill-cat-title">Keterampilan Teknis</div>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">System Analysis & Design</span>
+                        <span class="skill-tag">Business Intelligence</span>
+                        <span class="skill-tag">Power BI</span>
+                        <span class="skill-tag">Data Analysis</span>
+                        <span class="skill-tag">Data Visualization</span>
+                        <span class="skill-tag">Web Development</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Data Mining</span>
+                        <span class="skill-tag">Data Warehouse</span>
+                        <span class="skill-tag">ETL / Pentaho</span>
+                    </div>
+                </div>
+
+                <div class="skill-category-card reveal reveal-delay-1">
+                    <div class="skill-cat-header">
+                        <div class="skill-cat-icon skill-icon-lilac">🎤</div>
+                        <div class="skill-cat-title">Komunikasi & Kepemimpinan</div>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag lilac">Public Speaking</span>
+                        <span class="skill-tag lilac">Manajemen Acara</span>
+                        <span class="skill-tag lilac">Kepemimpinan Tim</span>
+                        <span class="skill-tag lilac">Komunikasi Organisasi</span>
+                        <span class="skill-tag lilac">MC & Moderator</span>
+                    </div>
+                </div>
+
+                <div class="skill-category-card reveal reveal-delay-2">
+                    <div class="skill-cat-header">
+                        <div class="skill-cat-icon skill-icon-caramel">🎨</div>
+                        <div class="skill-cat-title">Keterampilan Kreatif</div>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag caramel">Fotografi</span>
+                        <span class="skill-tag caramel">Videografi</span>
+                        <span class="skill-tag caramel">Produksi Podcast</span>
+                        <span class="skill-tag caramel">Konten Kreatif</span>
+                    </div>
+                </div>
+
+                <div class="skill-category-card reveal reveal-delay-3">
+                    <div class="skill-cat-header">
+                        <div class="skill-cat-icon skill-icon-mint">🌱</div>
+                        <div class="skill-cat-title">Soft Skills</div>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag mint">Problem Solving</span>
+                        <span class="skill-tag mint">Teamwork & Collaboration</span>
+                        <span class="skill-tag mint">Time Management</span>
+                        <span class="skill-tag mint">Adaptability</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ ORGANISASI ═══ -->
+    <section id="organisasi" class="organisasi">
+        <div class="container">
+            <div class="section-label reveal">Pengalaman Organisasi</div>
+            <h2 class="section-title reveal">Perjalanan <em>kepemimpinan</em></h2>
+
+            <div class="org-timeline" style="margin-top: 3.5rem;">
+
+                <!-- 1 -->
+                <div class="org-item reveal">
+                    <div class="org-item-inner">
+                        <div class="org-photo-slot">🎓</div>
+                        <div class="org-info">
+                            <div class="org-role">Divisi Alumni</div>
+                            <h4>Ikatan Alumni SMAN 1 Ngunut</h4>
+                            <p class="org-desc">Mengelola jaringan alumni dan mendukung kegiatan komunikasi serta silaturahmi antar lulusan SMAN 1 Ngunut.</p>
+                        </div>
+                    </div>
+                    <div class="org-period">2025 – 2027</div>
+                </div>
+
+                <!-- 2 -->
+                <div class="org-item reveal reveal-delay-1">
+                    <div class="org-item-inner">
+                        <div class="org-photo-slot">📡</div>
+                        <div class="org-info">
+                            <div class="org-role">Koordinator Komunikasi Eksternal</div>
+                            <h4>Formadiksi Polinema</h4>
+                            <p class="org-desc">Memimpin divisi komunikasi eksternal — mengelola hubungan dengan pihak luar, media sosial, dan kemitraan strategis organisasi mahasiswa teknologi informasi Polinema.</p>
+                        </div>
+                    </div>
+                    <div class="org-period">2025 – 2026</div>
+                </div>
+
+                <!-- 3 -->
+                <div class="org-item reveal reveal-delay-2">
+                    <div class="org-item-inner">
+                        <div class="org-photo-slot">👑</div>
+                        <div class="org-info">
+                            <div class="org-role">Wakil Ketua Umum</div>
+                            <h4>Ikatan Mahasiswa Tulungagung Polinema</h4>
+                            <p class="org-desc">Membantu ketua dalam mengoordinasikan seluruh kegiatan, program kerja, dan anggota IMAT Polinema — memperkuat solidaritas mahasiswa asal Tulungagung di Malang.</p>
+                        </div>
+                    </div>
+                    <div class="org-period">2025 – 2026</div>
+                </div>
+
+                <!-- 4 -->
+                <div class="org-item reveal">
+                    <div class="org-item-inner">
+                        <div class="org-photo-slot">🌏</div>
+                        <div class="org-info">
+                            <div class="org-role">Anggota Departemen Luar Negeri</div>
+                            <h4>FKMBK Malang Raya</h4>
+                            <p class="org-desc">Berfokus pada pengelolaan hubungan eksternal dan kerja sama antarorganisasi mahasiswa di lingkup Malang Raya.</p>
+                        </div>
+                    </div>
+                    <div class="org-period">2025 – 2026</div>
+                </div>
+
+                <!-- 5 -->
+                <div class="org-item reveal reveal-delay-1">
+                    <div class="org-item-inner">
+                        <div class="org-photo-slot">💎</div>
+                        <div class="org-info">
+                            <div class="org-role">Anggota – Batch 8</div>
+                            <h4>Rubi Community</h4>
+                            <p class="org-desc">Komunitas pengembangan diri yang berfokus pada peningkatan kapabilitas mahasiswa melalui pelatihan, mentoring, dan kolaborasi lintas kampus.</p>
+                        </div>
+                    </div>
+                    <div class="org-period">Feb – Jun 2025</div>
+                </div>
+
+                <!-- 6 -->
+                <div class="org-item reveal reveal-delay-2">
+                    <div class="org-item-inner">
+                        <div class="org-photo-slot">🔍</div>
+                        <div class="org-info">
+                            <div class="org-role">Staf Departemen Kajian Strategi</div>
+                            <h4>FKMBK Jawa Timur</h4>
+                            <p class="org-desc">Terlibat dalam kajian dan analisis isu-isu strategis kemahasiswaan di tingkat Jawa Timur, mendukung perumusan kebijakan dan program FKMBK Jatim.</p>
+                        </div>
+                    </div>
+                    <div class="org-period">2024 – 2025</div>
+                </div>
+
+                <!-- 7 -->
+                <div class="org-item reveal">
+                    <div class="org-item-inner">
+                        <div class="org-photo-slot">📣</div>
+                        <div class="org-info">
+                            <div class="org-role">Pengurus Muda Komunikasi Eksternal</div>
+                            <h4>Formadiksi Polinema</h4>
+                            <p class="org-desc">Awal perjalanan di Formadiksi — berkontribusi dalam kegiatan komunikasi dan publikasi eksternal sebagai pengurus muda yang aktif dan berdedikasi.</p>
+                        </div>
+                    </div>
+                    <div class="org-period">2024 – 2025</div>
+                </div>
+
+                <!-- 8 -->
+                <div class="org-item reveal reveal-delay-1">
+                    <div class="org-item-inner">
+                        <div class="org-photo-slot">🤝</div>
+                        <div class="org-info">
+                            <div class="org-role">Anggota Eksternal</div>
+                            <h4>Ikatan Mahasiswa Tulungagung</h4>
+                            <p class="org-desc">Bergabung sebagai anggota aktif dalam kegiatan sosial dan kemahasiswaan IMAT, membangun relasi dan solidaritas sesama mahasiswa Tulungagung.</p>
+                        </div>
+                    </div>
+                    <div class="org-period">2024 – 2025</div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -591,9 +700,7 @@
             <div class="projects-header">
                 <div>
                     <div class="section-label reveal">Karya & Proyek</div>
-                    <h2 class="section-title reveal">
-                        Apa yang <em>sudah saya buat</em>
-                    </h2>
+                    <h2 class="section-title reveal">Apa yang <em>sudah saya buat</em></h2>
                 </div>
             </div>
 
@@ -714,6 +821,123 @@
                     </div>
                 </div>
 
+                <!-- 06 Data Mining -->
+                <div class="project-card reveal reveal-delay-2">
+                    <div class="project-img-wrap">
+                        <div class="project-img-placeholder">🎮</div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-num">— 06</div>
+                        <h3>Data Mining — Amazon Video Games Reviews</h3>
+                        <p>Pemilihan model terbaik (Regresi, Decision Tree, KNN, SVM, K-Means) pada dataset Amazon Product Reviews "Video Games" — membandingkan performa dan akurasi masing-masing algoritma.</p>
+                        <div class="tags">
+                            <span class="tag">Data Mining</span>
+                            <span class="tag">Machine Learning</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">Classification</span>
+                        </div>
+                        <a href="https://drive.google.com/drive/folders/your-link" target="_blank" class="project-link">
+                            Lihat Laporan
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 07 SkinQuo -->
+                <div class="project-card reveal">
+                    <div class="project-img-wrap">
+                        <div class="project-img-placeholder">✨</div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-num">— 07</div>
+                        <h3>SkinQuo — Sistem Pakar Rekomendasi Skincare</h3>
+                        <p>Sistem pakar berbasis web menggunakan rule-based expert system. Pengguna input jenis kulit, keluhan, dan tujuan perawatan — sistem mencocokkan basis aturan pakar, menganalisis bahan aktif, dan menampilkan ranking produk.</p>
+                        <div class="tags">
+                            <span class="tag">Expert System</span>
+                            <span class="tag">Web Dev</span>
+                            <span class="tag">Rule-Based</span>
+                        </div>
+                        <div class="team-label">Tim Pengembang</div>
+                        <div class="team-pills">
+                            <span class="team-pill">Axelo Matthew</span>
+                            <span class="team-pill">Khoir Karol N.</span>
+                            <span class="team-pill">Lyra Faiqah</span>
+                            <span class="team-pill">Nadya Hapsari</span>
+                            <span class="team-pill">Pandya Cahya</span>
+                        </div>
+                        <a href="https://github.com/khoirkanzura/SkinQuo.git" target="_blank" class="project-link">
+                            Lihat di GitHub
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 08 Data Warehouse -->
+                <div class="project-card reveal reveal-delay-1">
+                    <div class="project-img-wrap">
+                        <div class="project-img-placeholder">🏗️</div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-num">— 08</div>
+                        <h3>Data Warehouse — Studi Kasus Northwind</h3>
+                        <p>Pengembangan sistem Data Warehouse berbasis studi kasus Northwind untuk mengubah data operasional menjadi insight bisnis. Mencakup Star Schema, ETL dengan Pentaho, SCD, serta analisis KPI penjualan, margin, dan pengiriman.</p>
+                        <div class="tags">
+                            <span class="tag">Data Warehouse</span>
+                            <span class="tag">ETL</span>
+                            <span class="tag">Pentaho</span>
+                            <span class="tag">Star Schema</span>
+                            <span class="tag">OLAP</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ PRESTASI ═══ -->
+    <section id="prestasi" class="prestasi">
+        <div class="container">
+            <div class="section-label reveal">Prestasi & Penghargaan</div>
+            <h2 class="section-title reveal">Pencapaian yang <em>membanggakan</em></h2>
+
+            <div class="prestasi-grid">
+
+                <div class="prestasi-card rank-2 reveal">
+                    <span class="trophy-icon">🥈</span>
+                    <div class="prestasi-rank">Juara 2</div>
+                    <h4>Lomba TikTok — Penguatan Ekosistem Inovasi dan Hilirisasi Riset</h4>
+                    <div class="prestasi-year">2025</div>
+                </div>
+
+                <div class="prestasi-card rank-3 reveal reveal-delay-1">
+                    <span class="trophy-icon">🥉</span>
+                    <div class="prestasi-rank">Juara 3</div>
+                    <h4>Lomba Broadcasting SMAN 1 Ngunut</h4>
+                    <div class="prestasi-year">2022</div>
+                </div>
+
+                <div class="prestasi-card rank-3 reveal reveal-delay-2">
+                    <span class="trophy-icon">🥉</span>
+                    <div class="prestasi-rank">Juara 3</div>
+                    <h4>Lomba Kriya</h4>
+                    <div class="prestasi-year">2021</div>
+                </div>
+
+                <div class="prestasi-card rank-3 reveal">
+                    <span class="trophy-icon">🥉</span>
+                    <div class="prestasi-rank">Juara 3</div>
+                    <h4>Lomba Movie Maker</h4>
+                    <div class="prestasi-year">2021</div>
+                </div>
+
+                <div class="prestasi-card rank-3 reveal reveal-delay-1">
+                    <span class="trophy-icon">🥉</span>
+                    <div class="prestasi-rank">Juara 3</div>
+                    <h4>Lomba Movie Maker — ITC SMAN 1 Ngunut</h4>
+                    <div class="prestasi-year">2020</div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -784,13 +1008,11 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
         <p>© 2026 Khoir Karol Nurzuraidah &nbsp;✦&nbsp; <em>Man jadda wajada</em> &nbsp;<span>♡</span></p>
     </footer>
 
     <script>
-        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(a => {
             a.addEventListener('click', e => {
                 e.preventDefault();
@@ -799,13 +1021,11 @@
             });
         });
 
-        // Scroll reveal
         const obs = new IntersectionObserver(entries => {
             entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
         }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
         document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-        // Slider
         function getSliderState(id) {
             const c = document.getElementById(id);
             if (!c) return null;
@@ -830,7 +1050,6 @@
         }
         function goToSlide(id, idx) { updateSlider(id, idx); }
 
-        // Parallax subtle on hero visual
         window.addEventListener('scroll', () => {
             const blob1 = document.querySelector('.blob-1');
             const blob2 = document.querySelector('.blob-2');
@@ -840,3 +1059,4 @@
         });
     </script>
 </body>
+</html>
