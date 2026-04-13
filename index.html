@@ -253,9 +253,9 @@
             width: 52px; height: 52px; min-width: 52px; border-radius: 14px;
             background: #fff;
             border: 1.5px solid var(--border); display: flex; align-items: center; justify-content: center;
-            overflow: hidden; padding: 6px;
+            overflow: hidden; padding: 0;
         }
-        .org-logo-slot svg, .org-logo-slot img { width: 100%; height: 100%; object-fit: contain; display: block; }
+        .org-logo-slot img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 12px; }
         .org-item-inner { display: flex; gap: 1rem; align-items: flex-start; }
 
         .projects { padding: 130px 0; }
@@ -388,7 +388,6 @@
         .reveal-delay-3 { transition-delay: 0.3s; }
         .reveal-delay-4 { transition-delay: 0.4s; }
 
-        /* ERP project description list */
         .erp-features { margin: 0.5rem 0 1rem 0; padding-left: 1.2rem; }
         .erp-features li { font-size: 0.82rem; color: var(--muted); line-height: 1.7; }
 
@@ -632,15 +631,11 @@
 
             <div class="org-timeline" style="margin-top: 3.5rem;">
 
+                <!-- 1. Ikatan Alumni SMAN 1 Ngunut -->
                 <div class="org-item reveal">
                     <div class="org-item-inner">
-                        <div class="org-logo-slot" style="background:#1a3a6e;">
-                            <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M20 8L4 16l16 8 16-8L20 8z" fill="#fff" opacity="0.9"/>
-                                <path d="M8 18v8c0 4 5.4 7 12 7s12-3 12-7v-8" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/>
-                                <line x1="34" y1="16" x2="34" y2="26" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
-                                <circle cx="34" cy="27" r="2" fill="#ffcc00"/>
-                            </svg>
+                        <div class="org-logo-slot">
+                            <img src="imansta.jpeg" alt="Ikatan Alumni SMAN 1 Ngunut" />
                         </div>
                         <div class="org-info">
                             <div class="org-role">Divisi Alumni</div>
@@ -651,16 +646,11 @@
                     <div class="org-period">2025 – 2027</div>
                 </div>
 
+                <!-- 2. Formadiksi Polinema — Koordinator -->
                 <div class="org-item reveal reveal-delay-1">
                     <div class="org-item-inner">
-                        <div class="org-logo-slot" style="background:#0f3460;">
-                            <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="20" cy="24" r="4" fill="#e94560"/>
-                                <path d="M12 18a11 11 0 0116 0" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/>
-                                <path d="M7 13a18 18 0 0126 0" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
-                                <line x1="20" y1="28" x2="20" y2="34" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
-                                <line x1="14" y1="34" x2="26" y2="34" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
-                            </svg>
+                        <div class="org-logo-slot">
+                            <img src="formadiksi poinema.jpeg" alt="Formadiksi Polinema" />
                         </div>
                         <div class="org-info">
                             <div class="org-role">Koordinator Komunikasi Eksternal</div>
@@ -671,15 +661,11 @@
                     <div class="org-period">2025 – 2026</div>
                 </div>
 
+                <!-- 3. Ikatan Mahasiswa Tulungagung Polinema -->
                 <div class="org-item reveal reveal-delay-2">
                     <div class="org-item-inner">
-                        <div class="org-logo-slot" style="background:#c0392b;">
-                            <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M6 28h28M8 28L6 14l8 8 6-10 6 10 8-8-2 14z" fill="#fff" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/>
-                                <circle cx="6" cy="14" r="2.5" fill="#ffcc00"/>
-                                <circle cx="20" cy="9" r="2.5" fill="#ffcc00"/>
-                                <circle cx="34" cy="14" r="2.5" fill="#ffcc00"/>
-                            </svg>
+                        <div class="org-logo-slot">
+                            <img src="ikatama.jpeg" alt="Ikatan Mahasiswa Tulungagung Polinema" />
                         </div>
                         <div class="org-info">
                             <div class="org-role">Wakil Ketua Umum</div>
@@ -690,15 +676,11 @@
                     <div class="org-period">2025 – 2026</div>
                 </div>
 
+                <!-- 4. FKMBK Malang Raya -->
                 <div class="org-item reveal">
                     <div class="org-item-inner">
-                        <div class="org-logo-slot" style="background:#1a6b3c;">
-                            <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="20" cy="20" r="14" fill="none" stroke="#fff" stroke-width="2"/>
-                                <ellipse cx="20" cy="20" rx="6" ry="14" fill="none" stroke="#fff" stroke-width="1.5"/>
-                                <line x1="6" y1="20" x2="34" y2="20" stroke="#fff" stroke-width="1.5"/>
-                                <path d="M8 13h24M8 27h24" fill="none" stroke="#fff" stroke-width="1.2" stroke-linecap="round"/>
-                            </svg>
+                        <div class="org-logo-slot">
+                            <img src="fkmbk malang raya.jpeg" alt="FKMBK Malang Raya" />
                         </div>
                         <div class="org-info">
                             <div class="org-role">Anggota Departemen Luar Negeri</div>
@@ -709,18 +691,11 @@
                     <div class="org-period">2025 – 2026</div>
                 </div>
 
+                <!-- 5. Rubi Community -->
                 <div class="org-item reveal reveal-delay-1">
                     <div class="org-item-inner">
-                        <div class="org-logo-slot" style="background:#7b2d8b;">
-                            <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-                                <polygon points="20,6 34,16 28,32 12,32 6,16" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"/>
-                                <polygon points="20,6 34,16 20,16 6,16" fill="#fff" opacity="0.25"/>
-                                <line x1="6" y1="16" x2="34" y2="16" stroke="#fff" stroke-width="1.5"/>
-                                <line x1="20" y1="6" x2="20" y2="16" stroke="#fff" stroke-width="1.2"/>
-                                <line x1="6" y1="16" x2="12" y2="32" stroke="#fff" stroke-width="1.2"/>
-                                <line x1="34" y1="16" x2="28" y2="32" stroke="#fff" stroke-width="1.2"/>
-                                <line x1="20" y1="16" x2="20" y2="32" stroke="#fff" stroke-width="1.2"/>
-                            </svg>
+                        <div class="org-logo-slot">
+                            <img src="rubi comunity.jpeg" alt="Rubi Community" />
                         </div>
                         <div class="org-info">
                             <div class="org-role">Anggota – Batch 8</div>
@@ -731,18 +706,11 @@
                     <div class="org-period">Feb – Jun 2025</div>
                 </div>
 
+                <!-- 6. FKMBK Jawa Timur -->
                 <div class="org-item reveal reveal-delay-2">
                     <div class="org-item-inner">
-                        <div class="org-logo-slot" style="background:#1a5276;">
-                            <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="20" cy="20" r="14" fill="none" stroke="#fff" stroke-width="2"/>
-                                <circle cx="20" cy="20" r="8" fill="none" stroke="#fff" stroke-width="1.5" opacity="0.6"/>
-                                <circle cx="20" cy="20" r="3" fill="#fff"/>
-                                <line x1="20" y1="6" x2="20" y2="12" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
-                                <line x1="20" y1="28" x2="20" y2="34" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
-                                <line x1="6" y1="20" x2="12" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
-                                <line x1="28" y1="20" x2="34" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
-                            </svg>
+                        <div class="org-logo-slot">
+                            <img src="fkmbk jatim.jpeg" alt="FKMBK Jawa Timur" />
                         </div>
                         <div class="org-info">
                             <div class="org-role">Staf Departemen Kajian Strategi</div>
@@ -753,13 +721,11 @@
                     <div class="org-period">2024 – 2025</div>
                 </div>
 
+                <!-- 7. Formadiksi Polinema — Pengurus Muda -->
                 <div class="org-item reveal">
                     <div class="org-item-inner">
-                        <div class="org-logo-slot" style="background:#0f3460;">
-                            <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M30 10C24 14 16 16 10 16H8a2 2 0 00-2 2v4a2 2 0 002 2h2l4 8h4l-2-8c5.5 0 13 2 18 6V10z" fill="#fff" opacity="0.9"/>
-                                <circle cx="33" cy="20" r="3" fill="#e94560"/>
-                            </svg>
+                        <div class="org-logo-slot">
+                            <img src="formadiksi poinema.jpeg" alt="Formadiksi Polinema" />
                         </div>
                         <div class="org-info">
                             <div class="org-role">Pengurus Muda Komunikasi Eksternal</div>
@@ -770,14 +736,11 @@
                     <div class="org-period">2024 – 2025</div>
                 </div>
 
+                <!-- 8. Ikatan Mahasiswa Tulungagung — Anggota Eksternal -->
                 <div class="org-item reveal reveal-delay-1">
                     <div class="org-item-inner">
-                        <div class="org-logo-slot" style="background:#922b21;">
-                            <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M6 18l8-6 6 4 6-4 8 6" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M6 18v6a2 2 0 002 2h6l6-4 6 4h6a2 2 0 002-2v-6" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                                <line x1="20" y1="22" x2="20" y2="32" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
-                            </svg>
+                        <div class="org-logo-slot">
+                            <img src="ikatama.jpeg" alt="Ikatan Mahasiswa Tulungagung" />
                         </div>
                         <div class="org-info">
                             <div class="org-role">Anggota Eksternal</div>
@@ -1015,7 +978,6 @@
                     </div>
                 </div>
 
-                <!-- NEW PROJECT 09 — ERP Odoo 18 Berry Bean -->
                 <div class="project-card reveal reveal-delay-2">
                     <div class="project-img-wrap" id="slider-09">
                         <img src="dw 1.jpeg" class="active" alt="ERP Odoo 18 - Dashboard"/>
@@ -1118,8 +1080,6 @@
                         <div class="contact-icon-wrap icon-email">
                             <svg viewBox="0 0 24 24" width="26" height="26" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 010 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.908 1.528-1.147C21.69 2.28 24 3.434 24 5.457z" fill="#EA4335"/>
-                                <path d="M0 5.457v13.909c0 .904.732 1.636 1.636 1.636H5.455V11.73L12 16.64V9.548L5.455 4.64 3.927 3.493C2.309 2.28 0 3.434 0 5.457z" fill="#C5221F"/>
-                                <path d="M24 5.457c0-2.023-2.31-3.177-3.927-1.964L18.545 4.64 12 9.548v7.092l6.545-4.91V20.999H22.364A1.636 1.636 0 0024 19.366V5.457z" fill="#FF0000" opacity=".6"/>
                             </svg>
                         </div>
                         <div class="contact-text">
