@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Khoir Karol Nurzuraidah — Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
     <style>
         :root {
             --rose:       #e8a4b8;
@@ -99,32 +99,47 @@
             content: ''; display: block; height: 1px; width: 30px; background: var(--rose);
         }
 
+        /* ── NAMA SLOWMO BARU ── */
         .flip-name-row {
-            display: flex; flex-wrap: wrap; gap: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0;
             margin: 0.15rem 0 0.5rem;
+            perspective: 1200px;
         }
+
+        .flip-word {
+            display: inline-flex;
+            margin: 0 0.28em 0 0;
+        }
+
         .flip-ch {
             display: inline-block;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(1.6rem, 3vw, 2.2rem);
-            font-weight: 700; font-style: italic;
-            color: var(--rose-deep);
-            padding: 0 1px;
+            font-family: 'DM Serif Display', 'Playfair Display', Georgia, serif;
+            font-size: clamp(1.8rem, 3.2vw, 2.8rem);
+            font-style: italic;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            background: linear-gradient(135deg, #c97a98 0%, #9b87b5 55%, #c4956a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             opacity: 0;
-            animation: flipIn 0.5s cubic-bezier(0.23, 1.32, 0.68, 1) forwards;
+            transform: translateY(40px) rotateX(-80deg) scale(0.85);
+            filter: blur(6px);
+            animation: charIn 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
             transform-origin: center bottom;
-            perspective: 400px;
-            transition: color 0.2s;
             cursor: default;
         }
-        .flip-ch:hover { color: var(--lilac-deep); }
-        .flip-ch.sp { width: 0.35em; }
 
-        @keyframes flipIn {
-            from { opacity: 0; transform: rotateX(-90deg) translateY(20px); }
-            to   { opacity: 1; transform: rotateX(0deg) translateY(0); }
+        @keyframes charIn {
+            0%   { opacity: 0; transform: translateY(40px) rotateX(-80deg) scale(0.85); filter: blur(6px); }
+            40%  { opacity: 0.6; filter: blur(2px); }
+            75%  { opacity: 1; filter: blur(0); }
+            100% { opacity: 1; transform: translateY(0) rotateX(0deg) scale(1); filter: blur(0); }
         }
 
+        /* ── FLIP DECOR DOTS ── */
         .flip-decor {
             display: flex; align-items: center; gap: 7px; margin-bottom: 1.4rem;
         }
@@ -371,6 +386,21 @@
             background: linear-gradient(90deg, var(--rose), var(--lilac));
         }
 
+        .prestasi-card.has-photo { padding: 0; }
+        .prestasi-card.has-photo::before { z-index: 2; }
+        .prestasi-card.has-photo .prestasi-img-wrap {
+            position: relative; height: 180px;
+            background: linear-gradient(135deg, var(--blush), var(--warm));
+            overflow: hidden; border-radius: 22px 22px 0 0;
+        }
+        .prestasi-card.has-photo .prestasi-img-wrap img {
+            width: 100%; height: 100%; object-fit: cover;
+            display: none; transition: transform 0.5s ease;
+        }
+        .prestasi-card.has-photo .prestasi-img-wrap img.active { display: block; }
+        .prestasi-card.has-photo:hover .prestasi-img-wrap img { transform: scale(1.06); }
+        .prestasi-card.has-photo .prestasi-body { padding: 1.8rem; }
+
         .trophy-icon     { font-size: 2rem; margin-bottom: 1rem; display: block; }
         .prestasi-rank   { font-family: 'Cormorant Garamond', serif; font-size: 0.85rem; font-weight: 600; color: var(--rose-deep); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.5rem; }
         .prestasi-card h4 { font-size: 0.95rem; font-weight: 700; color: var(--ink); line-height: 1.4; margin-bottom: 0.4rem; }
@@ -441,6 +471,7 @@
             .org-item          { grid-template-columns: 1fr; }
             .flip-name-row     { justify-content: center; }
             .flip-decor        { justify-content: center; }
+            .flip-ch           { font-size: clamp(1.5rem, 6vw, 2rem); }
         }
     </style>
 </head>
@@ -474,7 +505,7 @@
                 <span class="flip-dot flip-dot-3"></span>
             </div>
             <p class="hero-subtitle">D-IV Sistem Informasi Bisnis · Polinema</p>
-            <p class="hero-desc">Mahasiswa yang berfokus pada pengembangan sistem informasi, analisis data, dan manajemen organisasi — dengan semangat belajar yang tak pernah padam dan jiwa kepemimpinan yang kuat.</p>
+            <p class="hero-desc">Mahasiswa Sistem Informasi Bisnis yang memiliki minat pada pengembangan sistem dan analisis data, serta aktif dalam kegiatan organisasi dan kepanitiaan. Memiliki kemampuan komunikasi, kerja sama tim, dan manajemen waktu yang baik, serta berkomitmen untuk terus belajar dan mengembangkan diri melalui berbagai pengalaman.</p>
             <div class="hero-btns">
                 <a href="#projects" class="btn btn-rose">Lihat Karya ✦</a>
                 <a href="#contact" class="btn btn-outline">Hubungi Saya</a>
@@ -500,41 +531,11 @@
             <h2 class="section-title reveal">Mengenal <em>lebih dekat</em></h2>
             <div class="about-grid">
                 <div class="about-text reveal">
-                    <p>Saya merupakan mahasiswa aktif Program Studi D-IV Sistem Informasi Bisnis di Politeknik Negeri Malang yang memiliki minat pada pengembangan sistem informasi, analisis data, serta manajemen organisasi.</p>
+                    <p>Saya adalah mahasiswa Program Studi D-IV Sistem Informasi Bisnis di Politeknik Negeri Malang yang memiliki ketertarikan pada pengembangan sistem informasi, analisis data, serta manajemen organisasi. Saya aktif mengembangkan kemampuan melalui berbagai proyek dan pengalaman, serta berfokus pada pemanfaatan teknologi untuk menghasilkan solusi yang bermanfaat.</p>
                     <div class="highlight-quote">
                         "Dikenal sebagai pribadi yang bertanggung jawab dan memiliki semangat tinggi untuk terus belajar hal-hal baru."
                     </div>
-                    <p>Saya memiliki pengalaman dalam kepemimpinan dan komunikasi — saat ini dipercaya sebagai Koordinator Komunikasi Eksternal Formadiksi dan Wakil Ketua Ikatan Mahasiswa Tulungagung.</p>
-                </div>
-                <div class="skills-list reveal reveal-delay-1">
-                    <div class="skill-item">
-                        <div class="skill-icon skill-icon-rose">📊</div>
-                        <div class="skill-info">
-                            <h4>Analisis Data & BI</h4>
-                            <p>Power BI, SQL, Data Visualization</p>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon skill-icon-lilac">🌐</div>
-                        <div class="skill-info">
-                            <h4>Pengembangan Web</h4>
-                            <p>PHP, Mobile Dev, Database</p>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon skill-icon-caramel">🗣️</div>
-                        <div class="skill-info">
-                            <h4>Komunikasi & Kepemimpinan</h4>
-                            <p>Public Speaking, MC, Manajemen Tim</p>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon skill-icon-mint">🎨</div>
-                        <div class="skill-info">
-                            <h4>Kreatif & Konten</h4>
-                            <p>Fotografi, Videografi, Podcast</p>
-                        </div>
-                    </div>
+                    <p>Saya memiliki pengalaman dalam kepemimpinan dan komunikasi, serta dipercaya mengemban peran sebagai Koordinator Komunikasi Eksternal Formadiksi dan Wakil Ketua Ikatan Mahasiswa Tulungagung, yang memperkuat kemampuan saya dalam berkoordinasi, membangun relasi, dan mengelola kegiatan organisasi.</p>
                 </div>
             </div>
         </div>
@@ -766,7 +767,6 @@
 
             <div class="projects-grid">
 
-                <!-- Proyek 01 -->
                 <div class="project-card reveal">
                     <div class="project-img-wrap" id="slider-01">
                         <img src="BI 1.png" class="active" alt="BI Dashboard 1"/>
@@ -796,7 +796,6 @@
                     </div>
                 </div>
 
-                <!-- Proyek 02 -->
                 <div class="project-card reveal reveal-delay-1">
                     <div class="project-img-wrap">
                         <div class="project-img-placeholder" style="background:linear-gradient(135deg,#1a3a6e22,#2563eb22);">
@@ -823,7 +822,6 @@
                     </div>
                 </div>
 
-                <!-- Proyek 03 -->
                 <div class="project-card reveal reveal-delay-2">
                     <div class="project-img-wrap" id="slider-03">
                         <img src="sipres.jpg" class="active" alt="SIPRES JTI"/>
@@ -845,7 +843,6 @@
                     </div>
                 </div>
 
-                <!-- Proyek 04 -->
                 <div class="project-card reveal">
                     <div class="project-img-wrap" id="slider-04">
                         <img src="tatib.jpg" class="active" alt="Si Tertib"/>
@@ -866,7 +863,6 @@
                     </div>
                 </div>
 
-                <!-- Proyek 05 -->
                 <div class="project-card reveal reveal-delay-1">
                     <div class="project-img-wrap">
                         <div class="project-img-placeholder" style="background:linear-gradient(135deg,#c4956a22,#f0d8b822);">
@@ -896,7 +892,6 @@
                     </div>
                 </div>
 
-                <!-- Proyek 06 -->
                 <div class="project-card reveal reveal-delay-2">
                     <div class="project-img-wrap">
                         <div class="project-img-placeholder" style="background:linear-gradient(135deg,#9b87b522,#c9b8d822);">
@@ -925,7 +920,6 @@
                     </div>
                 </div>
 
-                <!-- Proyek 07 -->
                 <div class="project-card reveal">
                     <div class="project-img-wrap">
                         <div class="project-img-placeholder" style="background:linear-gradient(135deg,#e8a4b822,#f5dde822);">
@@ -961,7 +955,6 @@
                     </div>
                 </div>
 
-                <!-- Proyek 08 -->
                 <div class="project-card reveal reveal-delay-1">
                     <div class="project-img-wrap">
                         <div class="project-img-placeholder" style="background:linear-gradient(135deg,#1a6b3c22,#bce8d822);">
@@ -986,7 +979,6 @@
                     </div>
                 </div>
 
-                <!-- Proyek 09 -->
                 <div class="project-card reveal reveal-delay-2">
                     <div class="project-img-wrap" id="slider-09">
                         <img src="dw 1.jpeg" class="active" alt="ERP Odoo 18 - Dashboard"/>
@@ -1035,11 +1027,25 @@
 
             <div class="prestasi-grid">
 
-                <div class="prestasi-card rank-2 reveal">
-                    <span class="trophy-icon">🥈</span>
-                    <div class="prestasi-rank">Juara 2</div>
-                    <h4>Lomba TikTok — Penguatan Ekosistem Inovasi dan Hilirisasi Riset</h4>
-                    <div class="prestasi-year">2025</div>
+                <div class="prestasi-card rank-2 has-photo reveal">
+                    <div class="prestasi-img-wrap" id="slider-tiktok">
+                        <img src="tiktok2.jpg" class="active" alt="Juara 2 Lomba TikTok - Foto 1"/>
+                        <img src="tiktok3.jpg" alt="Juara 2 Lomba TikTok - Foto 2"/>
+                        <img src="tiktok 1.jpg" alt="Juara 2 Lomba TikTok - Foto 3"/>
+                        <button class="slider-arrow prev" onclick="slideImg('slider-tiktok',-1)">&#8249;</button>
+                        <button class="slider-arrow next" onclick="slideImg('slider-tiktok', 1)">&#8250;</button>
+                        <div class="slider-dots" id="dots-slider-tiktok">
+                            <button class="slider-dot active" onclick="goToSlide('slider-tiktok',0)"></button>
+                            <button class="slider-dot" onclick="goToSlide('slider-tiktok',1)"></button>
+                            <button class="slider-dot" onclick="goToSlide('slider-tiktok',2)"></button>
+                        </div>
+                    </div>
+                    <div class="prestasi-body">
+                        <span class="trophy-icon">🥈</span>
+                        <div class="prestasi-rank">Juara 2</div>
+                        <h4>Lomba TikTok — Penguatan Ekosistem Inovasi dan Hilirisasi Riset</h4>
+                        <div class="prestasi-year">2025</div>
+                    </div>
                 </div>
 
                 <div class="prestasi-card rank-3 reveal reveal-delay-1">
@@ -1081,9 +1087,8 @@
             <h2 class="section-title reveal">Mari <em>berkolaborasi</em></h2>
             <div class="contact-inner">
                 <div class="contact-intro reveal">
-                    <p>Punya proyek menarik atau ingin berdiskusi? Saya selalu terbuka untuk peluang kolaborasi baru dan ide-ide kreatif. Mari kita ciptakan sesuatu yang luar biasa bersama!</p>
-                    <p>Jangan ragu untuk menghubungi saya melalui channel yang tersedia — saya akan dengan senang hati merespons 💌</p>
-                    <div class="contact-signature">Khoir Karol N.</div>
+                    <p>Saya terbuka untuk berbagai peluang kolaborasi, baik dalam pengembangan proyek, diskusi ide, maupun eksplorasi solusi di bidang teknologi dan sistem informasi. Saya percaya bahwa kolaborasi yang baik dapat menghasilkan inovasi yang berdampak dan bermanfaat.</p>
+                    <p>Jika Anda tertarik untuk bekerja sama atau ingin berdiskusi lebih lanjut, jangan ragu untuk menghubungi saya melalui kontak yang tersedia. Saya akan dengan senang hati merespons dan berdiskusi bersama Anda. 💌</p>
                 </div>
                 <div class="contact-grid reveal reveal-delay-2">
 
@@ -1231,17 +1236,38 @@
             if (blob2) blob2.style.transform = `translate(${-y * 0.2}px, ${y * 0.3}px)`;
         });
 
-        /* ── Flip 3D name animation ── */
+        /* ── NAMA SLOWMO — animasi huruf per huruf ── */
         (function () {
-            const name = 'KHOIR KAROL NURZURAIDAH';
-            const row  = document.getElementById('flipNameRow');
+            const name    = 'KHOIR KAROL NURZURAIDAH';
+            const row     = document.getElementById('flipNameRow');
             if (!row) return;
-            [...name].forEach((ch, i) => {
-                const s = document.createElement('span');
-                s.className = 'flip-ch' + (ch === ' ' ? ' sp' : '');
-                s.textContent = ch === ' ' ? '\u00a0' : ch;
-                s.style.animationDelay = (0.8 + i * 0.06) + 's';
-                row.appendChild(s);
+
+            const BASE_DELAY = 0.8;
+            const CHAR_GAP   = 0.13;
+
+            const words = name.split(' ');
+            let charIndex = 0;
+
+            words.forEach((word, wi) => {
+                const wordEl = document.createElement('span');
+                wordEl.className = 'flip-word';
+
+                [...word].forEach(ch => {
+                    const s = document.createElement('span');
+                    s.className = 'flip-ch';
+                    s.textContent = ch;
+                    s.style.animationDelay = (BASE_DELAY + charIndex * CHAR_GAP) + 's';
+                    wordEl.appendChild(s);
+                    charIndex++;
+                });
+
+                row.appendChild(wordEl);
+
+                if (wi < words.length - 1) {
+                    const sp = document.createElement('span');
+                    sp.style.cssText = 'display:inline-block;width:0.32em;';
+                    row.appendChild(sp);
+                }
             });
         })();
     </script>
