@@ -4,78 +4,102 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Khoir Karol Nurzuraidah — Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Serif+Display:ital@0;1&family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --rose:       #e8a4b8;
-            --rose-deep:  #c97a98;
-            --blush:      #f5dde8;
-            --lilac:      #c9b8d8;
-            --lilac-deep: #9b87b5;
-            --cream:      #fdf6f0;
-            --warm:       #f0e6d8;
-            --caramel:    #c4956a;
-            --ink:        #2b1f2e;
-            --muted:      #7a6880;
-            --white:      #fffbf8;
-            --card-bg:    rgba(253,246,240,0.7);
-            --border:     rgba(232,164,184,0.3);
+            --rose:        #e8a4b8;
+            --rose-deep:   #c97a98;
+            --rose-light:  #fce8f0;
+            --blush:       #f5dde8;
+            --lilac:       #c9b8d8;
+            --lilac-deep:  #9b87b5;
+            --lilac-light: #ede8f5;
+            --cream:       #fdf6f0;
+            --warm:        #f0e6d8;
+            --caramel:     #c4956a;
+            --peach:       #f9c4a8;
+            --mint:        #b8e4d4;
+            --sky:         #b8d8f0;
+            --butter:      #f9e8a0;
+            --ink:         #2b1f2e;
+            --muted:       #7a6880;
+            --white:       #fffbf8;
+            --card-bg:     rgba(253,246,240,0.75);
+            --border:      rgba(232,164,184,0.3);
+            --shadow-rose: 0 8px 32px rgba(201,122,152,0.18);
         }
 
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'DM Sans', sans-serif;
+            font-family: 'Nunito', 'DM Sans', sans-serif;
             background: var(--cream);
             color: var(--ink);
             overflow-x: hidden;
+            cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Ccircle cx='10' cy='10' r='4' fill='%23e8a4b8' opacity='0.7'/%3E%3C/svg%3E") 10 10, auto;
         }
 
         body::before {
             content: '';
             position: fixed; inset: 0; z-index: 0; pointer-events: none;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-            opacity: 0.5;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.025'/%3E%3C/svg%3E");
         }
 
-        .blob { position: fixed; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; opacity: 0.45; }
-        .blob-1 { width: 500px; height: 500px; background: radial-gradient(circle, #f2c4d4, transparent); top: -100px; right: -100px; }
-        .blob-2 { width: 400px; height: 400px; background: radial-gradient(circle, #d8c8e8, transparent); bottom: 20%; left: -120px; }
-        .blob-3 { width: 300px; height: 300px; background: radial-gradient(circle, #fce4b0, transparent); bottom: 10%; right: 10%; }
+        .blob { position: fixed; border-radius: 50%; filter: blur(90px); pointer-events: none; z-index: 0; }
+        .blob-1 { width: 600px; height: 600px; background: radial-gradient(circle, #f9d0e0cc, transparent 70%); top: -150px; right: -150px; opacity: 0.5; animation: blobFloat1 12s ease-in-out infinite; }
+        .blob-2 { width: 450px; height: 450px; background: radial-gradient(circle, #ddd0eecc, transparent 70%); bottom: 15%; left: -130px; opacity: 0.4; animation: blobFloat2 15s ease-in-out infinite; }
+        .blob-3 { width: 350px; height: 350px; background: radial-gradient(circle, #fce8b0cc, transparent 70%); bottom: 8%; right: 8%; opacity: 0.35; animation: blobFloat1 10s ease-in-out infinite reverse; }
+        .blob-4 { width: 280px; height: 280px; background: radial-gradient(circle, #b8e4d4aa, transparent 70%); top: 40%; left: 10%; opacity: 0.25; animation: blobFloat2 18s ease-in-out infinite; }
+
+        @keyframes blobFloat1 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(30px,-20px) scale(1.05); } }
+        @keyframes blobFloat2 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-20px,25px) scale(0.97); } }
+
+        .deco-float {
+            position: fixed; pointer-events: none; z-index: 0;
+            animation: floatDeco linear infinite;
+        }
+        @keyframes floatDeco {
+            0%   { transform: translateY(0px) rotate(0deg); opacity: 0.6; }
+            50%  { transform: translateY(-18px) rotate(180deg); opacity: 1; }
+            100% { transform: translateY(0px) rotate(360deg); opacity: 0.6; }
+        }
 
         nav {
             position: fixed; top: 0; width: 100%; z-index: 999;
-            padding: 1.2rem 6%;
+            padding: 1rem 6%;
             display: flex; justify-content: space-between; align-items: center;
-            background: rgba(253,246,240,0.85);
-            backdrop-filter: blur(18px);
-            border-bottom: 1px solid var(--border);
+            background: rgba(253,246,240,0.88);
+            backdrop-filter: blur(20px);
+            border-bottom: 1.5px solid rgba(232,164,184,0.22);
             animation: fadeDown 0.9s ease;
         }
         @keyframes fadeDown { from { opacity:0; transform:translateY(-20px); } to { opacity:1; transform:translateY(0); } }
 
         .logo {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.6rem; font-weight: 700; letter-spacing: 2px;
-            background: linear-gradient(120deg, var(--rose-deep), var(--lilac-deep));
+            font-size: 1.5rem; font-weight: 700; letter-spacing: 2px;
+            background: linear-gradient(120deg, var(--rose-deep), var(--lilac-deep), var(--caramel));
             -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+            display: flex; align-items: center; gap: 0.4rem;
         }
+        .logo-star { animation: spinStar 4s linear infinite; display: inline-block; }
+        @keyframes spinStar { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
-        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links { display: flex; gap: 1.8rem; list-style: none; }
         .nav-links a {
-            font-size: 0.82rem; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase;
-            color: var(--muted); text-decoration: none; transition: color 0.3s;
-            position: relative;
+            font-size: 0.78rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+            color: var(--muted); text-decoration: none; transition: all 0.3s;
+            position: relative; padding: 0.3rem 0;
         }
         .nav-links a::after {
-            content: ''; position: absolute; bottom: -4px; left: 0;
-            height: 1.5px; width: 0;
-            background: linear-gradient(90deg, var(--rose), var(--lilac));
-            transition: width 0.3s ease;
+            content: '✦'; position: absolute; bottom: -4px; left: 50%;
+            transform: translateX(-50%) scale(0);
+            color: var(--rose); font-size: 0.6rem;
+            transition: transform 0.3s ease;
         }
         .nav-links a:hover { color: var(--rose-deep); }
-        .nav-links a:hover::after { width: 100%; }
+        .nav-links a:hover::after { transform: translateX(-50%) scale(1); }
 
         section { position: relative; z-index: 1; }
         .container { max-width: 1300px; margin: 0 auto; padding: 0 6%; }
@@ -85,91 +109,98 @@
             min-height: 100vh;
             display: grid; grid-template-columns: 1fr 1fr;
             align-items: center; gap: 4rem;
-            padding: 120px 6% 80px;
+            padding: 110px 6% 80px;
         }
         .hero-left { animation: fadeLeft 1s ease 0.2s both; }
         @keyframes fadeLeft { from { opacity:0; transform:translateX(-40px); } to { opacity:1; transform:translateX(0); } }
 
         .hero-eyebrow {
-            display: inline-flex; align-items: center; gap: 0.7rem;
-            font-size: 0.78rem; letter-spacing: 3px; text-transform: uppercase;
-            color: var(--rose-deep); font-weight: 600; margin-bottom: 1.5rem;
+            display: inline-flex; align-items: center; gap: 0.6rem;
+            background: linear-gradient(135deg, var(--rose-light), var(--lilac-light));
+            border: 1.5px solid rgba(232,164,184,0.4);
+            border-radius: 100px;
+            padding: 0.45rem 1.1rem;
+            font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase;
+            color: var(--rose-deep); font-weight: 700; margin-bottom: 1.8rem;
+            box-shadow: 0 4px 16px rgba(232,164,184,0.2);
         }
-        .hero-eyebrow::before, .hero-eyebrow::after {
-            content: ''; display: block; height: 1px; width: 30px; background: var(--rose);
-        }
+        .eyebrow-star { animation: twinkle 1.5s ease-in-out infinite; }
+        .eyebrow-star:nth-child(2) { animation-delay: 0.5s; }
+        @keyframes twinkle { 0%,100%{ opacity:1; transform:scale(1) rotate(0deg); } 50%{ opacity:0.6; transform:scale(1.3) rotate(20deg); } }
 
-        /* ── NAMA SLOWMO BARU ── */
         .flip-name-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0;
-            margin: 0.15rem 0 0.5rem;
-            perspective: 1200px;
+            display: flex; flex-wrap: wrap; gap: 0;
+            margin: 0.15rem 0 0.5rem; perspective: 1200px;
         }
-
-        .flip-word {
-            display: inline-flex;
-            margin: 0 0.28em 0 0;
-        }
-
+        .flip-word { display: inline-flex; margin: 0 0.28em 0 0; }
         .flip-ch {
             display: inline-block;
-            font-family: 'DM Serif Display', 'Playfair Display', Georgia, serif;
-            font-size: clamp(1.8rem, 3.2vw, 2.8rem);
-            font-style: italic;
-            font-weight: 400;
-            letter-spacing: 0.05em;
-            background: linear-gradient(135deg, #c97a98 0%, #9b87b5 55%, #c4956a 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: clamp(1.8rem, 3.2vw, 2.9rem);
+            font-style: italic; font-weight: 400;
+            letter-spacing: 0.04em;
+            background: linear-gradient(135deg, #c97a98 0%, #9b87b5 45%, #c4956a 80%, #e8a4b8 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
             opacity: 0;
             transform: translateY(40px) rotateX(-80deg) scale(0.85);
             filter: blur(6px);
             animation: charIn 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
             transform-origin: center bottom;
-            cursor: default;
         }
-
         @keyframes charIn {
-            0%   { opacity: 0; transform: translateY(40px) rotateX(-80deg) scale(0.85); filter: blur(6px); }
-            40%  { opacity: 0.6; filter: blur(2px); }
-            75%  { opacity: 1; filter: blur(0); }
-            100% { opacity: 1; transform: translateY(0) rotateX(0deg) scale(1); filter: blur(0); }
+            0%   { opacity:0; transform:translateY(40px) rotateX(-80deg) scale(0.85); filter:blur(6px); }
+            40%  { opacity:0.6; filter:blur(2px); }
+            75%  { opacity:1; filter:blur(0); }
+            100% { opacity:1; transform:translateY(0) rotateX(0deg) scale(1); filter:blur(0); }
         }
 
-        /* ── FLIP DECOR DOTS ── */
-        .flip-decor {
-            display: flex; align-items: center; gap: 7px; margin-bottom: 1.4rem;
+        .cute-divider {
+            display: flex; align-items: center; gap: 0.5rem; margin: 0.8rem 0 1.4rem;
         }
-        .flip-dot {
-            width: 5px; height: 5px; border-radius: 50%;
-            animation: dotPulse 1.8s ease-in-out infinite;
-            flex-shrink: 0;
-        }
-        .flip-dot-1 { background: var(--rose); animation-delay: 0s; }
+        .cute-divider-line { height: 1.5px; flex: 1; max-width: 60px; background: linear-gradient(90deg, var(--rose), transparent); border-radius: 2px; }
+        .cute-divider-icon { font-size: 0.85rem; animation: heartBeat 2s ease-in-out infinite; }
+        @keyframes heartBeat { 0%,100%{ transform:scale(1); } 14%{ transform:scale(1.3); } 28%{ transform:scale(1); } 42%{ transform:scale(1.15); } }
+        .flip-dot { width: 6px; height: 6px; border-radius: 50%; animation: dotPulse 1.8s ease-in-out infinite; }
+        .flip-dot-1 { background: var(--rose); }
         .flip-dot-2 { background: var(--lilac-deep); animation-delay: 0.3s; }
         .flip-dot-3 { background: var(--caramel); animation-delay: 0.6s; }
-
-        @keyframes dotPulse {
-            0%, 100% { transform: scale(1); opacity: 0.5; }
-            50%       { transform: scale(1.8); opacity: 1; }
-        }
+        @keyframes dotPulse { 0%,100%{ transform:scale(1); opacity:0.5; } 50%{ transform:scale(1.8); opacity:1; } }
 
         .hero-subtitle {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.25rem; font-weight: 300; font-style: italic;
-            color: var(--muted); margin-bottom: 1.8rem;
+            font-size: 1.2rem; font-weight: 300; font-style: italic;
+            color: var(--muted); margin-bottom: 1.4rem;
+            display: flex; align-items: center; gap: 0.5rem;
         }
-        .hero-desc { font-size: 1rem; color: var(--muted); line-height: 1.85; max-width: 520px; margin-bottom: 2.5rem; }
-        .hero-btns { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+        .hero-subtitle::before { content:'🌸'; font-size:0.9rem; }
 
-        .btn { padding: 0.85rem 2.2rem; border-radius: 100px; font-size: 0.9rem; font-weight: 600; letter-spacing: 0.5px; cursor: pointer; text-decoration: none; transition: all 0.3s ease; display: inline-block; }
-        .btn-rose { background: linear-gradient(135deg, var(--rose), var(--rose-deep)); color: #fff; border: none; box-shadow: 0 6px 24px rgba(201,122,152,0.35); }
-        .btn-rose:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(201,122,152,0.5); }
-        .btn-outline { background: transparent; color: var(--rose-deep); border: 1.5px solid var(--rose); }
-        .btn-outline:hover { background: var(--blush); transform: translateY(-3px); }
+        .hero-desc {
+            font-size: 0.96rem; color: var(--muted); line-height: 1.9;
+            max-width: 520px; margin-bottom: 2.5rem;
+            background: rgba(255,251,248,0.6);
+            border-left: 3px solid var(--rose);
+            padding: 1rem 1.2rem; border-radius: 0 14px 14px 0;
+        }
+        .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+        .btn {
+            padding: 0.85rem 2rem; border-radius: 100px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 0.88rem; font-weight: 800; letter-spacing: 0.5px;
+            cursor: pointer; text-decoration: none; transition: all 0.3s ease;
+            display: inline-flex; align-items: center; gap: 0.5rem;
+        }
+        .btn-rose {
+            background: linear-gradient(135deg, var(--rose), var(--rose-deep), #b56080);
+            color: #fff; border: none;
+            box-shadow: 0 6px 24px rgba(201,122,152,0.4), 0 2px 8px rgba(201,122,152,0.2);
+        }
+        .btn-rose:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 12px 36px rgba(201,122,152,0.5); }
+        .btn-outline {
+            background: rgba(255,251,248,0.8); color: var(--rose-deep);
+            border: 2px solid var(--rose); backdrop-filter: blur(8px);
+        }
+        .btn-outline:hover { background: var(--blush); transform: translateY(-3px) scale(1.02); }
 
         .hero-right {
             position: relative; display: flex; justify-content: center; align-items: center;
@@ -179,251 +210,383 @@
 
         .photo-frame { position: relative; width: 340px; height: 420px; }
         .photo-bg-shape {
-            position: absolute; bottom: -16px; right: -16px;
-            width: 100%; height: 100%; border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%;
-            background: linear-gradient(135deg, var(--blush), var(--lilac)); z-index: 0;
+            position: absolute; bottom: -20px; right: -20px;
+            width: 100%; height: 100%;
+            border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%;
+            background: linear-gradient(135deg, var(--blush), var(--lilac), #f5c0d0);
+            z-index: 0; animation: morphShape 8s ease-in-out infinite;
         }
+        @keyframes morphShape {
+            0%,100% { border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%; }
+            50%      { border-radius: 60% 40% 40% 60% / 60% 60% 40% 40%; }
+        }
+
+        .photo-ring {
+            position: absolute; top: -12px; left: -12px;
+            width: calc(100% + 24px); height: calc(100% + 24px);
+            border: 2px dashed rgba(232,164,184,0.4);
+            border-radius: 42% 62% 57% 47% / 44% 40% 64% 60%;
+            z-index: 0; animation: spinRing 20s linear infinite;
+        }
+        @keyframes spinRing { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
         .photo-main {
             position: relative; z-index: 1;
             width: 100%; height: 100%;
             border-radius: 38% 62% 55% 45% / 42% 38% 62% 58%;
-            overflow: hidden; border: 4px solid #fff;
-            box-shadow: 0 20px 60px rgba(43,31,46,0.15);
+            overflow: hidden; border: 5px solid #fff;
+            box-shadow: 0 24px 64px rgba(43,31,46,0.16), 0 0 0 1px rgba(232,164,184,0.2);
         }
-        .photo-main img { width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: transform 0.5s ease; }
-        .photo-main:hover img { transform: scale(1.05); }
+        .photo-main img { width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: transform 0.6s ease; }
+        .photo-main:hover img { transform: scale(1.06); }
 
-        .petal { position: absolute; pointer-events: none; z-index: 2; border-radius: 50% 0 50% 0; opacity: 0.6; }
-        .petal-1 { width: 18px; height: 18px; background: var(--rose); top: 5%; right: 15%; transform: rotate(30deg); animation: spinFl 8s linear infinite; }
-        .petal-2 { width: 12px; height: 12px; background: var(--lilac); bottom: 12%; right: 12%; transform: rotate(-20deg); animation: spinFl 6s linear infinite reverse; }
-        .petal-3 { width: 10px; height: 10px; background: var(--caramel); top: 55%; left: -15px; transform: rotate(50deg); animation: spinFl 10s linear infinite; }
-        @keyframes spinFl { from { transform: rotate(0deg) scale(1); } to { transform: rotate(360deg) scale(1.2); } }
+        .photo-badge {
+            position: absolute; z-index: 3;
+            background: #fff; border-radius: 100px;
+            padding: 0.5rem 1rem;
+            box-shadow: 0 8px 24px rgba(43,31,46,0.12);
+            display: flex; align-items: center; gap: 0.5rem;
+            font-size: 0.78rem; font-weight: 700; color: var(--ink);
+            animation: badgeFloat 3s ease-in-out infinite;
+            border: 1.5px solid var(--border);
+        }
+        .badge-top { top: -10px; right: -30px; animation-delay: 0s; }
+        .badge-bot { bottom: 30px; left: -35px; animation-delay: 1.5s; }
+        @keyframes badgeFloat { 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-8px); } }
+        .badge-dot { width: 8px; height: 8px; border-radius: 50%; }
+        .badge-dot-rose { background: var(--rose); }
+        .badge-dot-green { background: #5cb85c; }
+
+        .petal { position: absolute; pointer-events: none; z-index: 2; opacity: 0.7; }
+        .petal-1 { width: 16px; height: 16px; background: var(--rose); border-radius: 50% 0 50% 0; top: 5%; right: 14%; animation: spinFl 8s linear infinite; }
+        .petal-2 { width: 11px; height: 11px; background: var(--lilac); border-radius: 50% 0; bottom: 12%; right: 10%; animation: spinFl 6s linear infinite reverse; }
+        .petal-3 { width: 9px; height: 9px; background: var(--caramel); border-radius: 50% 0 50% 0; top: 55%; left: -18px; animation: spinFl 10s linear infinite; }
+        .petal-4 { width: 13px; height: 13px; background: var(--mint); border-radius: 50%; top: 30%; left: -10px; animation: spinFl 7s linear infinite; }
+        @keyframes spinFl { from { transform:rotate(0deg) scale(1); } to { transform:rotate(360deg) scale(1.2); } }
+
+        .hero-stats {
+            display: flex; gap: 1.5rem; margin-top: 2.5rem; flex-wrap: wrap;
+        }
+        .stat-pill {
+            background: rgba(255,251,248,0.85);
+            border: 1.5px solid var(--border); border-radius: 100px;
+            padding: 0.6rem 1.2rem;
+            display: flex; align-items: center; gap: 0.6rem;
+            backdrop-filter: blur(8px);
+            transition: all 0.3s;
+        }
+        .stat-pill:hover { transform: translateY(-3px); border-color: var(--rose); box-shadow: var(--shadow-rose); }
+        .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 700; color: var(--rose-deep); }
+        .stat-lbl { font-size: 0.72rem; color: var(--muted); font-weight: 600; }
 
         /* ── SECTION LABELS ── */
         .section-label {
-            font-size: 0.75rem; letter-spacing: 4px; text-transform: uppercase;
-            color: var(--rose-deep); font-weight: 600; margin-bottom: 0.7rem;
-            display: flex; align-items: center; gap: 0.8rem;
+            font-size: 0.72rem; letter-spacing: 4px; text-transform: uppercase;
+            color: var(--rose-deep); font-weight: 800; margin-bottom: 0.6rem;
+            display: inline-flex; align-items: center; gap: 0.7rem;
+            background: linear-gradient(135deg, var(--rose-light), var(--lilac-light));
+            padding: 0.35rem 1rem; border-radius: 100px;
+            border: 1px solid rgba(232,164,184,0.3);
         }
-        .section-label::before { content: ''; display: block; height: 1.5px; width: 28px; background: var(--rose); }
-
         .section-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2.5rem, 4vw, 3.8rem); font-weight: 700;
-            line-height: 1.1; color: var(--ink); margin-bottom: 0.5rem;
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2.2rem, 4vw, 3.4rem); font-weight: 400;
+            line-height: 1.15; color: var(--ink); margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
         }
         .section-title em { font-style: italic; color: var(--rose-deep); }
 
         /* ── ABOUT ── */
         .about { padding: 130px 0; }
         .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; margin-top: 3.5rem; align-items: start; }
-        .about-text p { font-size: 1rem; color: var(--muted); line-height: 1.9; margin-bottom: 1.4rem; }
-        .about-text .highlight-quote {
-            border-left: 3px solid var(--rose); padding: 1rem 1.5rem;
-            background: var(--blush); border-radius: 0 12px 12px 0;
+        .about-text p { font-size: 0.97rem; color: var(--muted); line-height: 1.9; margin-bottom: 1.4rem; }
+        .highlight-quote {
+            border-left: 3px solid var(--rose); padding: 1.2rem 1.5rem;
+            background: linear-gradient(135deg, var(--blush), rgba(201,184,216,0.2));
+            border-radius: 0 16px 16px 0;
             font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-style: italic;
             color: var(--rose-deep); margin: 1.8rem 0;
+            box-shadow: 0 4px 16px rgba(232,164,184,0.12);
         }
+        .highlight-quote::before { content: '❝ '; font-size: 1.5rem; opacity: 0.5; }
 
-        .skills-list { display: flex; flex-direction: column; gap: 1.2rem; }
-        .skill-item {
-            background: var(--card-bg); border: 1px solid var(--border); border-radius: 20px;
+        .about-cards { display: flex; flex-direction: column; gap: 1rem; }
+        .about-card {
+            background: var(--card-bg); border: 1.5px solid var(--border); border-radius: 20px;
             padding: 1.4rem 1.6rem; display: flex; align-items: center; gap: 1.2rem;
-            backdrop-filter: blur(10px); transition: all 0.3s ease;
+            backdrop-filter: blur(12px); transition: all 0.3s ease;
+            position: relative; overflow: hidden;
         }
-        .skill-item:hover { transform: translateX(8px); border-color: var(--rose); box-shadow: 0 8px 30px rgba(232,164,184,0.2); }
-        .skill-icon { width: 44px; height: 44px; min-width: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; }
-        .skill-icon-rose    { background: linear-gradient(135deg, #fde8ef, #f5c0d0); }
-        .skill-icon-lilac   { background: linear-gradient(135deg, #ede8f5, #d8cce8); }
-        .skill-icon-caramel { background: linear-gradient(135deg, #fdf0e0, #f0d8b8); }
-        .skill-icon-mint    { background: linear-gradient(135deg, #e0f5ee, #bce8d8); }
-        .skill-info h4 { font-weight: 600; font-size: 0.95rem; color: var(--ink); margin-bottom: 0.2rem; }
-        .skill-info p  { font-size: 0.82rem; color: var(--muted); }
+        .about-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2.5px;
+            background: linear-gradient(90deg, var(--rose), var(--lilac));
+        }
+        .about-card:hover { transform: translateX(8px) translateY(-2px); border-color: var(--rose); box-shadow: var(--shadow-rose); }
+        .about-card-icon { width: 48px; height: 48px; min-width: 48px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; }
+        .icon-bg-rose    { background: linear-gradient(135deg, #fde8ef, #f5c0d0); }
+        .icon-bg-lilac   { background: linear-gradient(135deg, #ede8f5, #d8cce8); }
+        .icon-bg-caramel { background: linear-gradient(135deg, #fdf0e0, #f0d8b8); }
+        .icon-bg-mint    { background: linear-gradient(135deg, #e0f5ee, #bce8d8); }
+        .icon-bg-sky     { background: linear-gradient(135deg, #e0f0fc, #b8d8f0); }
+        .about-card-info h4 { font-weight: 800; font-size: 0.92rem; color: var(--ink); margin-bottom: 0.18rem; }
+        .about-card-info p  { font-size: 0.8rem; color: var(--muted); }
 
         /* ── KETERAMPILAN ── */
         .keterampilan { padding: 130px 0; }
-        .skills-categories { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 3rem; }
+        .skills-categories { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.4rem; margin-top: 3rem; }
 
         .skill-category-card {
-            background: var(--card-bg); border: 1px solid var(--border); border-radius: 24px;
-            padding: 2rem; backdrop-filter: blur(12px); transition: all 0.3s ease;
+            background: var(--card-bg); border: 1.5px solid var(--border); border-radius: 24px;
+            padding: 2rem; backdrop-filter: blur(14px); transition: all 0.3s ease;
+            position: relative; overflow: hidden;
         }
-        .skill-category-card:hover { transform: translateY(-5px); border-color: var(--rose); box-shadow: 0 16px 40px rgba(232,164,184,0.18); }
-
-        .skill-cat-header { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.4rem; }
-        .skill-cat-icon   { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
-        .skill-cat-title  { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 700; color: var(--ink); }
-
+        .skill-category-card::after {
+            content: ''; position: absolute; bottom: -30px; right: -30px;
+            width: 80px; height: 80px; border-radius: 50%;
+            background: radial-gradient(circle, rgba(232,164,184,0.12), transparent);
+            pointer-events: none;
+        }
+        .skill-category-card:hover { transform: translateY(-6px); border-color: var(--rose); box-shadow: 0 20px 48px rgba(232,164,184,0.2); }
+        .skill-cat-header { display: flex; align-items: center; gap: 0.9rem; margin-bottom: 1.4rem; }
+        .skill-cat-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+        .skill-cat-title { font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 800; color: var(--ink); }
         .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
         .skill-tag {
-            font-size: 0.8rem; font-weight: 500; padding: 0.35rem 0.9rem;
-            border-radius: 100px; background: var(--blush); color: var(--rose-deep);
-            border: 1px solid rgba(232,164,184,0.4);
+            font-size: 0.78rem; font-weight: 700; padding: 0.35rem 0.9rem;
+            border-radius: 100px;
+            background: linear-gradient(135deg, var(--rose-light), var(--blush));
+            color: var(--rose-deep); border: 1px solid rgba(232,164,184,0.4);
+            transition: all 0.2s;
         }
+        .skill-tag:hover { transform: scale(1.05); box-shadow: 0 4px 12px rgba(232,164,184,0.3); }
         .skill-tag.lilac   { background: rgba(201,184,216,0.2); color: var(--lilac-deep); border-color: rgba(201,184,216,0.4); }
-        .skill-tag.caramel { background: rgba(196,149,106,0.1); color: var(--caramel); border-color: rgba(196,149,106,0.3); }
-        .skill-tag.mint    { background: rgba(100,196,160,0.1); color: #3a8c6e; border-color: rgba(100,196,160,0.3); }
+        .skill-tag.caramel { background: rgba(196,149,106,0.12); color: var(--caramel); border-color: rgba(196,149,106,0.3); }
+        .skill-tag.mint    { background: rgba(100,196,160,0.12); color: #3a8c6e; border-color: rgba(100,196,160,0.3); }
 
         /* ── ORGANISASI ── */
-        .organisasi {
-            padding: 130px 0;
-            background: linear-gradient(180deg, transparent, rgba(245,221,232,0.2) 30%, rgba(245,221,232,0.2) 70%, transparent);
+        .organisasi { padding: 130px 0; }
+        .org-section-bg {
+            background: linear-gradient(180deg, transparent, rgba(245,221,232,0.25) 20%, rgba(245,221,232,0.25) 80%, transparent);
+            border-radius: 40px; padding: 3rem 2.5rem; margin-top: 3.5rem;
         }
-        .org-timeline { position: relative; margin-top: 3.5rem; padding-left: 2rem; }
+
+        .org-timeline { position: relative; padding-left: 2.2rem; }
         .org-timeline::before {
             content: ''; position: absolute; left: 0; top: 0; bottom: 0;
-            width: 2px; background: linear-gradient(180deg, var(--rose), var(--lilac), var(--caramel));
+            width: 2.5px;
+            background: linear-gradient(180deg, var(--rose), var(--lilac), var(--caramel), var(--mint), var(--sky));
             border-radius: 2px;
         }
 
         .org-item {
-            position: relative; margin-bottom: 2rem;
-            background: var(--card-bg); border: 1px solid var(--border); border-radius: 20px;
-            padding: 1.4rem 1.6rem; backdrop-filter: blur(10px);
+            position: relative; margin-bottom: 1.8rem;
+            background: var(--card-bg); border: 1.5px solid var(--border); border-radius: 22px;
+            padding: 1.4rem 1.6rem; backdrop-filter: blur(12px);
             transition: all 0.3s ease;
             display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: start;
         }
-        .org-item:hover { transform: translateX(6px); border-color: var(--rose); box-shadow: 0 8px 28px rgba(232,164,184,0.18); }
+        .org-item:hover { transform: translateX(8px); border-color: var(--rose); box-shadow: var(--shadow-rose); }
         .org-item::before {
-            content: '✦'; position: absolute; left: -2.7rem;
-            top: 1.3rem; color: var(--rose-deep); font-size: 0.75rem;
+            content: '✦'; position: absolute; left: -2.8rem;
+            top: 1.2rem; color: var(--rose-deep); font-size: 0.8rem;
             background: var(--cream); padding: 0.2rem;
+            animation: twinkle 3s ease-in-out infinite;
         }
+        .org-item:nth-child(2)::before { color: var(--lilac-deep); animation-delay: 0.5s; }
+        .org-item:nth-child(3)::before { color: var(--caramel); animation-delay: 1s; }
+        .org-item:nth-child(4)::before { color: #3a8c6e; animation-delay: 1.5s; }
 
-        .org-info h4         { font-weight: 700; font-size: 0.95rem; color: var(--ink); margin-bottom: 0.25rem; }
-        .org-info .org-role  { font-size: 0.85rem; color: var(--rose-deep); font-weight: 600; margin-bottom: 0.3rem; }
-        .org-info .org-desc  { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
+        .org-info h4        { font-weight: 800; font-size: 0.92rem; color: var(--ink); margin-bottom: 0.22rem; }
+        .org-info .org-role { font-size: 0.82rem; color: var(--rose-deep); font-weight: 700; margin-bottom: 0.3rem; }
+        .org-info .org-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.65; }
         .org-period {
-            font-size: 0.75rem; font-weight: 600; color: var(--muted);
-            background: var(--warm); border: 1px solid var(--border);
-            padding: 0.3rem 0.8rem; border-radius: 100px; white-space: nowrap;
+            font-size: 0.72rem; font-weight: 800; color: var(--rose-deep);
+            background: linear-gradient(135deg, var(--rose-light), var(--lilac-light));
+            border: 1px solid rgba(232,164,184,0.35);
+            padding: 0.32rem 0.85rem; border-radius: 100px; white-space: nowrap;
             height: fit-content;
         }
-
         .org-logo-slot {
             width: 52px; height: 52px; min-width: 52px; border-radius: 14px;
-            background: #fff;
-            border: 1.5px solid var(--border); display: flex; align-items: center; justify-content: center;
+            background: #fff; border: 2px solid var(--border);
+            display: flex; align-items: center; justify-content: center;
             overflow: hidden; padding: 0;
         }
-        .org-logo-slot img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 12px; }
+        .org-logo-slot img { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; }
         .org-item-inner { display: flex; gap: 1rem; align-items: flex-start; }
 
         /* ── PROJECTS ── */
         .projects { padding: 130px 0; }
-        .projects-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; flex-wrap: wrap; gap: 1.5rem; }
+
+        /* FIX: Header sejajar kiri, tidak space-between */
+        .projects-header {
+            display: flex;
+            flex-direction: column;         /* ← stack vertikal, rata kiri */
+            justify-content: flex-start;
+            align-items: flex-start;        /* ← semua rata kiri */
+            margin-bottom: 3rem;
+            gap: 0;
+        }
+
         .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.8rem; }
 
         .project-card {
-            background: var(--card-bg); border: 1px solid var(--border); border-radius: 24px;
-            overflow: hidden; backdrop-filter: blur(12px); transition: all 0.4s ease;
+            background: var(--card-bg); border: 1.5px solid var(--border); border-radius: 26px;
+            overflow: hidden; backdrop-filter: blur(14px); transition: all 0.4s ease;
             display: flex; flex-direction: column;
         }
-        .project-card:hover { transform: translateY(-8px); box-shadow: 0 24px 60px rgba(43,31,46,0.12); border-color: var(--rose); }
+        .project-card:hover { transform: translateY(-10px); box-shadow: 0 28px 64px rgba(43,31,46,0.12); border-color: var(--rose); }
 
+        /* FIX: Tinggi foto project card yang konsisten dan proporsional */
         .project-img-wrap {
-            position: relative; height: 200px;
+            position: relative;
+            height: 210px;                  /* ← tinggi konsisten semua card */
             background: linear-gradient(135deg, var(--blush), var(--warm));
             overflow: hidden; flex-shrink: 0;
         }
-        .project-img-wrap img          { width: 100%; height: 100%; object-fit: cover; display: none; transition: transform 0.5s ease; }
-        .project-img-wrap img.active   { display: block; }
-        .project-card:hover .project-img-wrap img { transform: scale(1.06); }
-        .project-img-placeholder       { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 3.5rem; }
+        .project-img-wrap img {
+            width: 100%; height: 100%;
+            object-fit: cover;              /* ← cover agar foto penuh & proporsional */
+            object-position: center center;
+            display: none; transition: transform 0.5s ease;
+        }
+        .project-img-wrap img.active { display: block; }
+        .project-card:hover .project-img-wrap img { transform: scale(1.07); }
+        .project-img-placeholder {
+            width: 100%; height: 100%;
+            display: flex; align-items: center; justify-content: center; font-size: 3.5rem;
+        }
 
         .slider-arrow {
             position: absolute; top: 50%; transform: translateY(-50%);
-            background: rgba(255,251,248,0.85); backdrop-filter: blur(6px);
-            border: 1px solid var(--border); color: var(--ink);
+            background: rgba(255,251,248,0.9); backdrop-filter: blur(8px);
+            border: 1.5px solid var(--border); color: var(--ink);
             width: 30px; height: 30px; border-radius: 50%;
             cursor: pointer; font-size: 0.9rem;
             display: flex; align-items: center; justify-content: center;
             transition: all 0.2s; z-index: 5;
         }
-        .slider-arrow:hover  { background: var(--rose); color: #fff; }
-        .slider-arrow.prev   { left: 10px; }
-        .slider-arrow.next   { right: 10px; }
-        .slider-dots         { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); display: flex; gap: 5px; z-index: 5; }
-        .slider-dot          { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.55); border: none; cursor: pointer; padding: 0; transition: background 0.3s; }
-        .slider-dot.active   { background: var(--rose-deep); }
+        .slider-arrow:hover { background: var(--rose); color: #fff; transform: translateY(-50%) scale(1.1); }
+        .slider-arrow.prev { left: 10px; }
+        .slider-arrow.next { right: 10px; }
+        .slider-dots { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); display: flex; gap: 5px; z-index: 5; }
+        .slider-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.55); border: none; cursor: pointer; padding: 0; transition: all 0.3s; }
+        .slider-dot.active { background: var(--rose-deep); width: 14px; border-radius: 3px; }
 
-        .project-body    { padding: 1.6rem; flex: 1; display: flex; flex-direction: column; }
-        .project-num     { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 300; color: var(--rose); letter-spacing: 2px; margin-bottom: 0.5rem; }
-        .project-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 700; color: var(--ink); line-height: 1.3; margin-bottom: 0.7rem; }
-        .project-card p  { font-size: 0.88rem; color: var(--muted); line-height: 1.75; flex: 1; margin-bottom: 1.2rem; }
+        .project-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; position: relative; }
+        .project-num {
+            font-family: 'Cormorant Garamond', serif; font-size: 0.85rem; font-weight: 300;
+            color: var(--rose); letter-spacing: 2px; margin-bottom: 0.45rem;
+            display: flex; align-items: center; gap: 0.4rem;
+        }
+        .project-card h3 { font-family: 'DM Serif Display', serif; font-size: 1.15rem; font-weight: 400; font-style: italic; color: var(--ink); line-height: 1.35; margin-bottom: 0.65rem; }
+        .project-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.8; flex: 1; margin-bottom: 1.2rem; }
 
-        .tags     { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 1.2rem; }
-        .tag      { font-size: 0.75rem; font-weight: 500; padding: 0.3rem 0.8rem; border-radius: 100px; background: var(--blush); color: var(--rose-deep); border: 1px solid rgba(232,164,184,0.5); }
+        .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.1rem; }
+        .tag { font-size: 0.74rem; font-weight: 700; padding: 0.28rem 0.75rem; border-radius: 100px; background: var(--blush); color: var(--rose-deep); border: 1px solid rgba(232,164,184,0.5); }
 
         .project-link {
             display: inline-flex; align-items: center; gap: 0.5rem;
-            font-size: 0.82rem; font-weight: 600; color: var(--rose-deep);
-            text-decoration: none; letter-spacing: 0.3px;
-            border-bottom: 1.5px solid transparent; transition: border-color 0.3s, gap 0.3s; width: fit-content;
+            font-size: 0.8rem; font-weight: 800; color: var(--rose-deep);
+            text-decoration: none;
+            background: linear-gradient(135deg, var(--rose-light), var(--lilac-light));
+            border: 1px solid rgba(232,164,184,0.35);
+            padding: 0.45rem 1rem; border-radius: 100px;
+            transition: all 0.3s; width: fit-content;
         }
-        .project-link:hover { border-color: var(--rose); gap: 0.8rem; }
-        .project-link svg   { width: 14px; height: 14px; }
+        .project-link:hover { background: var(--rose); color: #fff; transform: scale(1.04); gap: 0.7rem; }
+        .project-link svg { width: 14px; height: 14px; transition: transform 0.3s; }
+        .project-link:hover svg { transform: translateX(3px); }
 
-        .team-pills  { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.8rem; }
-        .team-pill   { font-size: 0.72rem; padding: 0.2rem 0.65rem; border-radius: 100px; background: rgba(201,184,216,0.2); color: var(--lilac-deep); border: 1px solid rgba(201,184,216,0.4); }
-        .team-label  { font-size: 0.75rem; color: var(--muted); margin-bottom: 0.4rem; font-weight: 600; letter-spacing: 0.5px; }
+        .team-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.8rem; }
+        .team-pill { font-size: 0.7rem; padding: 0.22rem 0.65rem; border-radius: 100px; background: rgba(201,184,216,0.2); color: var(--lilac-deep); border: 1px solid rgba(201,184,216,0.4); font-weight: 600; }
+        .team-label { font-size: 0.72rem; color: var(--muted); margin-bottom: 0.4rem; font-weight: 800; letter-spacing: 0.5px; }
 
         /* ── PRESTASI ── */
-        .prestasi {
-            padding: 130px 0;
-            background: linear-gradient(180deg, transparent, rgba(245,221,232,0.2) 30%, rgba(245,221,232,0.2) 70%, transparent);
+        .prestasi { padding: 130px 0; }
+        .prestasi-wrap {
+            background: linear-gradient(135deg, rgba(245,221,232,0.2), rgba(237,232,245,0.2));
+            border-radius: 40px; padding: 3rem 2.5rem;
         }
         .prestasi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; margin-top: 3rem; }
 
         .prestasi-card {
-            background: var(--card-bg); border: 1px solid var(--border); border-radius: 22px;
-            padding: 1.8rem; backdrop-filter: blur(12px); transition: all 0.3s ease;
+            background: var(--card-bg); border: 1.5px solid var(--border); border-radius: 24px;
+            padding: 2rem; backdrop-filter: blur(14px); transition: all 0.3s ease;
             position: relative; overflow: hidden;
         }
-        .prestasi-card:hover { transform: translateY(-6px); border-color: var(--rose); box-shadow: 0 16px 40px rgba(232,164,184,0.2); }
+        .prestasi-card:hover { transform: translateY(-8px); border-color: var(--rose); box-shadow: 0 20px 48px rgba(232,164,184,0.22); }
         .prestasi-card::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
             background: linear-gradient(90deg, var(--rose), var(--lilac));
         }
+        .rank-1::before { background: linear-gradient(90deg, #f5d060, #e8a820); }
+        .rank-2::before { background: linear-gradient(90deg, #c9b8d8, #9b87b5); }
+        .rank-3::before { background: linear-gradient(90deg, #d4a880, #c4956a); }
 
+        .prestasi-card::after {
+            content: ''; position: absolute; top: -50%; left: -60%;
+            width: 40%; height: 200%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+            transform: rotate(20deg); transition: 0.6s;
+            pointer-events: none;
+        }
+        .prestasi-card:hover::after { left: 120%; }
+
+        /* FIX: Ukuran foto prestasi yang konsisten dan proporsional */
         .prestasi-card.has-photo { padding: 0; }
         .prestasi-card.has-photo::before { z-index: 2; }
         .prestasi-card.has-photo .prestasi-img-wrap {
-            position: relative; height: 180px;
+            position: relative;
+            height: 200px;                  /* ← tinggi konsisten */
             background: linear-gradient(135deg, var(--blush), var(--warm));
             overflow: hidden; border-radius: 22px 22px 0 0;
         }
         .prestasi-card.has-photo .prestasi-img-wrap img {
-            width: 100%; height: 100%; object-fit: cover;
+            width: 100%; height: 100%;
+            object-fit: cover;              /* ← cover penuh */
+            object-position: center center;
             display: none; transition: transform 0.5s ease;
         }
         .prestasi-card.has-photo .prestasi-img-wrap img.active { display: block; }
         .prestasi-card.has-photo:hover .prestasi-img-wrap img { transform: scale(1.06); }
         .prestasi-card.has-photo .prestasi-body { padding: 1.8rem; }
 
-        .trophy-icon     { font-size: 2rem; margin-bottom: 1rem; display: block; }
-        .prestasi-rank   { font-family: 'Cormorant Garamond', serif; font-size: 0.85rem; font-weight: 600; color: var(--rose-deep); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.5rem; }
-        .prestasi-card h4 { font-size: 0.95rem; font-weight: 700; color: var(--ink); line-height: 1.4; margin-bottom: 0.4rem; }
-        .prestasi-year   { font-size: 0.8rem; color: var(--muted); }
-
-        .rank-1::before { background: linear-gradient(90deg, #f0c040, #e8a820); }
-        .rank-2::before { background: linear-gradient(90deg, #c9b8d8, #9b87b5); }
-        .rank-3::before { background: linear-gradient(90deg, #d4a880, #c4956a); }
+        .trophy-icon { font-size: 2.2rem; margin-bottom: 0.9rem; display: block; animation: trophyWiggle 3s ease-in-out infinite; }
+        @keyframes trophyWiggle { 0%,100%{ transform:rotate(-5deg); } 50%{ transform:rotate(5deg); } }
+        .prestasi-rank { font-family: 'Nunito', sans-serif; font-size: 0.78rem; font-weight: 800; color: var(--rose-deep); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem; }
+        .prestasi-card h4 { font-size: 0.92rem; font-weight: 700; color: var(--ink); line-height: 1.45; margin-bottom: 0.4rem; }
+        .prestasi-year {
+            font-size: 0.75rem; color: var(--muted);
+            background: var(--warm); display: inline-block;
+            padding: 0.2rem 0.7rem; border-radius: 100px; margin-top: 0.3rem; font-weight: 700;
+        }
 
         /* ── CONTACT ── */
         .contact { padding: 130px 0; }
-        .contact-inner  { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: start; margin-top: 3.5rem; }
-        .contact-intro p { font-size: 1.05rem; color: var(--muted); line-height: 1.9; margin-bottom: 1.5rem; }
-        .contact-signature { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-style: italic; font-weight: 300; background: linear-gradient(120deg, var(--rose-deep), var(--lilac-deep)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .contact-grid  { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-        .contact-card  { background: var(--card-bg); border: 1px solid var(--border); border-radius: 18px; padding: 1.3rem 1.4rem; display: flex; align-items: center; gap: 1rem; backdrop-filter: blur(10px); transition: all 0.3s ease; text-decoration: none; }
-        .contact-card:hover { transform: translateY(-4px); border-color: var(--rose); box-shadow: 0 10px 30px rgba(232,164,184,0.2); }
-        .contact-icon-wrap {
-            width: 42px; height: 42px; min-width: 42px; border-radius: 11px;
-            display: flex; align-items: center; justify-content: center;
-            transition: transform 0.25s ease; overflow: hidden;
+        .contact-inner { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: start; margin-top: 3.5rem; }
+        .contact-intro p { font-size: 0.97rem; color: var(--muted); line-height: 1.9; margin-bottom: 1.4rem; }
+        .contact-signature {
+            font-family: 'Cormorant Garamond', serif; font-size: 2.4rem;
+            font-style: italic; font-weight: 300;
+            background: linear-gradient(120deg, var(--rose-deep), var(--lilac-deep), var(--caramel));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
         }
-        .contact-card:hover .contact-icon-wrap { transform: scale(1.1); }
+
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
+        .contact-card {
+            background: var(--card-bg); border: 1.5px solid var(--border); border-radius: 20px;
+            padding: 1.2rem 1.3rem; display: flex; align-items: center; gap: 0.9rem;
+            backdrop-filter: blur(12px); transition: all 0.3s ease; text-decoration: none;
+            position: relative; overflow: hidden;
+        }
+        .contact-card:hover { transform: translateY(-5px) scale(1.02); border-color: var(--rose); box-shadow: 0 12px 36px rgba(232,164,184,0.22); }
+        .contact-icon-wrap {
+            width: 44px; height: 44px; min-width: 44px; border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            transition: transform 0.3s ease; overflow: hidden;
+        }
+        .contact-card:hover .contact-icon-wrap { transform: scale(1.15) rotate(-5deg); }
         .contact-icon-wrap svg { width: 26px; height: 26px; display: block; }
         .contact-icon-wrap img { width: 26px; height: 26px; display: block; object-fit: contain; }
 
@@ -435,43 +598,86 @@
         .icon-instagram { background: linear-gradient(135deg, #f09433, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888); }
         .icon-tiktok    { background: #010101; }
 
-        .contact-text strong { display: block; font-size: 0.8rem; font-weight: 600; color: var(--ink); margin-bottom: 0.15rem; }
-        .contact-text span   { font-size: 0.78rem; color: var(--muted); word-break: break-word; }
+        .contact-text strong { display: block; font-size: 0.78rem; font-weight: 800; color: var(--ink); margin-bottom: 0.12rem; }
+        .contact-text span   { font-size: 0.76rem; color: var(--muted); word-break: break-word; }
+
+        /* ── CUTE SECTION DIVIDERS ── */
+        .section-divider {
+            text-align: center; padding: 1.5rem 0; color: var(--rose);
+            font-size: 0.85rem; letter-spacing: 6px;
+            opacity: 0.5;
+        }
 
         /* ── FOOTER ── */
-        footer { padding: 2.5rem 6%; text-align: center; border-top: 1px solid var(--border); background: var(--warm); }
-        footer p { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-style: italic; color: var(--muted); }
-        footer span { color: var(--rose-deep); }
+        footer {
+            padding: 3rem 6%; text-align: center;
+            border-top: 1.5px solid var(--border);
+            background: linear-gradient(135deg, var(--warm), rgba(245,221,232,0.3));
+        }
+        .footer-inner { max-width: 600px; margin: 0 auto; }
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 700; font-style: italic;
+            background: linear-gradient(120deg, var(--rose-deep), var(--lilac-deep));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+            margin-bottom: 0.6rem;
+        }
+        footer p { font-size: 0.82rem; color: var(--muted); margin-bottom: 0.4rem; }
+        footer .footer-quote { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-style: italic; color: var(--rose-deep); }
+        .footer-hearts { display: flex; justify-content: center; gap: 0.6rem; margin-top: 0.8rem; font-size: 0.8rem; }
+
+        /* ── SPARKLE CURSOR TRAIL ── */
+        .sparkle {
+            position: fixed; pointer-events: none; z-index: 9999;
+            border-radius: 50%; animation: sparkleAnim 0.8s ease-out forwards;
+        }
+        @keyframes sparkleAnim {
+            0%   { opacity: 1; transform: scale(1) translateY(0); }
+            100% { opacity: 0; transform: scale(0) translateY(-20px); }
+        }
 
         /* ── REVEAL ── */
         .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
-        .reveal.visible    { opacity: 1; transform: translateY(0); }
-        .reveal-delay-1    { transition-delay: 0.1s; }
-        .reveal-delay-2    { transition-delay: 0.2s; }
-        .reveal-delay-3    { transition-delay: 0.3s; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+
+        /* ── CUTE PROGRESS DOTS ── */
+        .progress-dots {
+            position: fixed; right: 24px; top: 50%; transform: translateY(-50%);
+            display: flex; flex-direction: column; gap: 8px; z-index: 888;
+        }
+        .progress-dot {
+            width: 7px; height: 7px; border-radius: 50%;
+            background: rgba(201,122,152,0.25); border: 1.5px solid var(--rose);
+            transition: all 0.3s; cursor: pointer;
+        }
+        .progress-dot.active { background: var(--rose); transform: scale(1.4); }
+        .progress-dot:hover  { background: var(--lilac); transform: scale(1.3); }
 
         /* ── RESPONSIVE ── */
         @media (max-width: 1024px) {
-            .projects-grid     { grid-template-columns: repeat(2, 1fr); }
-            .prestasi-grid     { grid-template-columns: repeat(2, 1fr); }
+            .projects-grid { grid-template-columns: repeat(2, 1fr); }
+            .prestasi-grid { grid-template-columns: repeat(2, 1fr); }
             .skills-categories { grid-template-columns: 1fr; }
         }
         @media (max-width: 768px) {
-            .hero              { grid-template-columns: 1fr; text-align: center; padding: 110px 5% 70px; }
-            .hero-desc         { max-width: 100%; }
-            .hero-btns         { justify-content: center; }
-            .hero-right        { margin-top: 2rem; }
-            .photo-frame       { width: 270px; height: 340px; }
+            .hero { grid-template-columns: 1fr; text-align: center; padding: 110px 5% 70px; }
+            .hero-desc { max-width: 100%; }
+            .hero-btns { justify-content: center; }
+            .hero-right { margin-top: 2rem; }
+            .photo-frame { width: 270px; height: 340px; }
             .about-grid, .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
             .projects-grid, .prestasi-grid { grid-template-columns: 1fr; }
             .skills-categories { grid-template-columns: 1fr; }
-            .contact-grid      { grid-template-columns: 1fr; }
-            .nav-links         { display: none; }
-            .projects-header   { flex-direction: column; }
-            .org-item          { grid-template-columns: 1fr; }
-            .flip-name-row     { justify-content: center; }
-            .flip-decor        { justify-content: center; }
-            .flip-ch           { font-size: clamp(1.5rem, 6vw, 2rem); }
+            .contact-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .flip-name-row { justify-content: center; }
+            .cute-divider { justify-content: center; }
+            .flip-ch { font-size: clamp(1.4rem, 6vw, 1.9rem); }
+            .hero-stats { justify-content: center; }
+            .badge-top, .badge-bot { display: none; }
+            .progress-dots { display: none; }
         }
     </style>
 </head>
@@ -479,14 +685,25 @@
     <div class="blob blob-1"></div>
     <div class="blob blob-2"></div>
     <div class="blob blob-3"></div>
+    <div class="blob blob-4"></div>
 
-    <!-- ═══════════════ NAVBAR ═══════════════ -->
+    <div class="progress-dots" id="progressDots">
+        <div class="progress-dot active" data-target="#home"        title="Home"></div>
+        <div class="progress-dot"        data-target="#about"       title="Tentang"></div>
+        <div class="progress-dot"        data-target="#keterampilan" title="Keterampilan"></div>
+        <div class="progress-dot"        data-target="#organisasi"  title="Organisasi"></div>
+        <div class="progress-dot"        data-target="#projects"    title="Proyek"></div>
+        <div class="progress-dot"        data-target="#prestasi"    title="Prestasi"></div>
+        <div class="progress-dot"        data-target="#contact"     title="Kontak"></div>
+    </div>
+
+    <!-- NAVBAR -->
     <nav>
-        <div class="logo">Khoir Kanzura ✦</div>
+        <div class="logo">Khoir Kanzura <span class="logo-star">✦</span></div>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">Tentang</a></li>
-            <li><a href="#keterampilan">Keterampilan</a></li>
+            <li><a href="#keterampilan">Skill</a></li>
             <li><a href="#organisasi">Organisasi</a></li>
             <li><a href="#projects">Proyek</a></li>
             <li><a href="#prestasi">Prestasi</a></li>
@@ -494,46 +711,80 @@
         </ul>
     </nav>
 
-    <!-- ═══════════════ HERO ═══════════════ -->
+    <!-- HERO -->
     <section id="home" class="hero">
         <div class="hero-left">
-            <div class="hero-eyebrow">✦ Portfolio ✦</div>
+            <div class="hero-eyebrow">
+                <span class="eyebrow-star">✦</span>
+                Portfolio
+                <span class="eyebrow-star">✦</span>
+            </div>
             <div class="flip-name-row" id="flipNameRow"></div>
-            <div class="flip-decor">
+            <div class="cute-divider">
+                <div class="cute-divider-line"></div>
                 <span class="flip-dot flip-dot-1"></span>
                 <span class="flip-dot flip-dot-2"></span>
+                <span class="cute-divider-icon">🌸</span>
+                <span class="flip-dot flip-dot-2"></span>
                 <span class="flip-dot flip-dot-3"></span>
+                <div class="cute-divider-line" style="background:linear-gradient(90deg,transparent,var(--lilac));"></div>
             </div>
             <p class="hero-subtitle">D-IV Sistem Informasi Bisnis · Polinema</p>
-            <p class="hero-desc">Mahasiswa Sistem Informasi Bisnis yang memiliki minat pada pengembangan sistem dan analisis data, serta aktif dalam kegiatan organisasi dan kepanitiaan. Memiliki kemampuan komunikasi, kerja sama tim, dan manajemen waktu yang baik, serta berkomitmen untuk terus belajar dan mengembangkan diri melalui berbagai pengalaman.</p>
+            <p class="hero-desc">Mahasiswa Sistem Informasi Bisnis yang memiliki minat pada pengembangan sistem dan analisis data, serta aktif dalam kegiatan organisasi dan kepanitiaan. Memiliki kemampuan komunikasi, kerja sama tim, dan manajemen waktu yang baik — berkomitmen untuk terus belajar dan berkembang. ✨</p>
             <div class="hero-btns">
-                <a href="#projects" class="btn btn-rose">Lihat Karya ✦</a>
-                <a href="#contact" class="btn btn-outline">Hubungi Saya</a>
+                <a href="#projects" class="btn btn-rose">✦ Lihat Karya</a>
+                <a href="#contact" class="btn btn-outline">💌 Hubungi Saya</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-pill">
+                    <span class="stat-num">9+</span>
+                    <span class="stat-lbl">Proyek</span>
+                </div>
+                <div class="stat-pill">
+                    <span class="stat-num">6+</span>
+                    <span class="stat-lbl">Organisasi</span>
+                </div>
+                <div class="stat-pill">
+                    <span class="stat-num">5+</span>
+                    <span class="stat-lbl">Prestasi</span>
+                </div>
             </div>
         </div>
         <div class="hero-right">
             <div class="photo-frame">
+                <div class="photo-ring"></div>
                 <div class="photo-bg-shape"></div>
                 <div class="photo-main">
                     <img src="Khoir kn.jpeg" alt="Khoir Karol Nurzuraidah" />
                 </div>
+                <div class="photo-badge badge-top">
+                    <span class="badge-dot badge-dot-rose"></span>
+                    Polinema ✨
+                </div>
+                <div class="photo-badge badge-bot">
+                    <span class="badge-dot badge-dot-green"></span>
+                    Open to Collab 🤝
+                </div>
                 <div class="petal petal-1"></div>
                 <div class="petal petal-2"></div>
                 <div class="petal petal-3"></div>
+                <div class="petal petal-4"></div>
             </div>
         </div>
     </section>
 
-    <!-- ═══════════════ ABOUT ═══════════════ -->
+    <div class="section-divider">✦ · · ✦ · · ✦ · · ✦</div>
+
+    <!-- ABOUT -->
     <section id="about" class="about">
         <div class="container">
-            <div class="section-label reveal">Tentang Saya</div>
+            <div class="section-label reveal">🌸 Tentang Saya</div>
             <h2 class="section-title reveal">Mengenal <em>lebih dekat</em></h2>
             <div class="about-grid">
                 <div class="about-text reveal">
                     <p>Saya adalah mahasiswa Program Studi D-IV Sistem Informasi Bisnis di Politeknik Negeri Malang yang memiliki ketertarikan pada pengembangan sistem informasi, analisis data, serta manajemen organisasi. Saya aktif mengembangkan kemampuan melalui berbagai proyek dan pengalaman, serta berfokus pada pemanfaatan teknologi untuk menghasilkan solusi yang bermanfaat.</p>
                     <div class="highlight-quote">
-                        "Dikenal sebagai pribadi yang bertanggung jawab dan memiliki semangat tinggi untuk terus belajar hal-hal baru."
+                        Dikenal sebagai pribadi yang bertanggung jawab dan memiliki semangat tinggi untuk terus belajar hal-hal baru.
                     </div>
                     <p>Saya memiliki pengalaman dalam kepemimpinan dan komunikasi, serta dipercaya mengemban peran sebagai Koordinator Komunikasi Eksternal Formadiksi dan Wakil Ketua Ikatan Mahasiswa Tulungagung, yang memperkuat kemampuan saya dalam berkoordinasi, membangun relasi, dan mengelola kegiatan organisasi.</p>
                 </div>
@@ -541,18 +792,20 @@
         </div>
     </section>
 
-    <!-- ═══════════════ KETERAMPILAN ═══════════════ -->
+    <div class="section-divider">✿ · · ✿ · · ✿ · · ✿</div>
+
+    <!-- KETERAMPILAN -->
     <section id="keterampilan" class="keterampilan">
         <div class="container">
-            <div class="section-label reveal">Keterampilan</div>
+            <div class="section-label reveal">✨ Keterampilan</div>
             <h2 class="section-title reveal">Apa yang <em>saya kuasai</em></h2>
             <div class="skills-categories">
 
                 <div class="skill-category-card reveal">
                     <div class="skill-cat-header">
-                        <div class="skill-cat-icon skill-icon-rose">
+                        <div class="skill-cat-icon icon-bg-rose">
                             <svg viewBox="0 0 32 32" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4 4h6v24H4V4zm8 6h6v18h-6V10zm8-3h6v21h-6V7z" fill="#F2C811"/>
+                                <path d="M4 4h6v24H4V4zm8 6h6v18h-6V10zm8-3h6v21h-6V7z" fill="#c97a98"/>
                             </svg>
                         </div>
                         <div class="skill-cat-title">Keterampilan Teknis</div>
@@ -564,17 +817,23 @@
                         <span class="skill-tag">Data Analysis</span>
                         <span class="skill-tag">Data Visualization</span>
                         <span class="skill-tag">Web Development</span>
-                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">Laravel</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Python</span>
                         <span class="skill-tag">Data Mining</span>
                         <span class="skill-tag">Data Warehouse</span>
-                        <span class="skill-tag">Functional ERP (Odoo Specialist Basic)</span>
+                        <span class="skill-tag">Odoo Specialist Basic</span>
                         <span class="skill-tag">Business Process Analysis</span>
                     </div>
                 </div>
 
                 <div class="skill-category-card reveal reveal-delay-1">
                     <div class="skill-cat-header">
-                        <div class="skill-cat-icon skill-icon-lilac">
+                        <div class="skill-cat-icon icon-bg-lilac">
                             <svg viewBox="0 0 24 24" width="22" height="22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M12 2a3 3 0 013 3v7a3 3 0 01-6 0V5a3 3 0 013-3z" stroke="#9b87b5" stroke-width="2"/>
                                 <path d="M19 10v1a7 7 0 01-14 0v-1" stroke="#9b87b5" stroke-width="2" stroke-linecap="round"/>
@@ -593,7 +852,7 @@
 
                 <div class="skill-category-card reveal reveal-delay-2">
                     <div class="skill-cat-header">
-                        <div class="skill-cat-icon skill-icon-caramel">
+                        <div class="skill-cat-icon icon-bg-caramel">
                             <svg viewBox="0 0 24 24" width="22" height="22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z" stroke="#c4956a" stroke-width="2"/>
                                 <circle cx="12" cy="13" r="4" stroke="#c4956a" stroke-width="2"/>
@@ -611,7 +870,7 @@
 
                 <div class="skill-category-card reveal reveal-delay-3">
                     <div class="skill-cat-header">
-                        <div class="skill-cat-icon skill-icon-mint">
+                        <div class="skill-cat-icon icon-bg-mint">
                             <svg viewBox="0 0 24 24" width="22" height="22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="#3a8c6e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
@@ -630,142 +889,132 @@
         </div>
     </section>
 
-    <!-- ═══════════════ ORGANISASI ═══════════════ -->
+    <div class="section-divider">✦ · · ✦ · · ✦ · · ✦</div>
+
+    <!-- ORGANISASI -->
     <section id="organisasi" class="organisasi">
         <div class="container">
-            <div class="section-label reveal">Pengalaman Organisasi</div>
+            <div class="section-label reveal">🤝 Organisasi</div>
             <h2 class="section-title reveal">Perjalanan <em>kepemimpinan</em></h2>
 
-            <div class="org-timeline">
+            <div class="org-section-bg">
+                <div class="org-timeline">
 
-                <div class="org-item reveal">
-                    <div class="org-item-inner">
-                        <div class="org-logo-slot">
-                            <img src="imansta.jpeg" alt="Ikatan Alumni SMAN 1 Ngunut" />
+                    <div class="org-item reveal">
+                        <div class="org-item-inner">
+                            <div class="org-logo-slot"><img src="imansta.jpeg" alt="Ikatan Alumni SMAN 1 Ngunut"/></div>
+                            <div class="org-info">
+                                <div class="org-role">✦ Divisi Alumni</div>
+                                <h4>Ikatan Alumni SMAN 1 Ngunut</h4>
+                                <p class="org-desc">Mengelola jaringan alumni dan mendukung kegiatan komunikasi serta silaturahmi antar lulusan SMAN 1 Ngunut.</p>
+                            </div>
                         </div>
-                        <div class="org-info">
-                            <div class="org-role">Divisi Alumni</div>
-                            <h4>Ikatan Alumni SMAN 1 Ngunut</h4>
-                            <p class="org-desc">Mengelola jaringan alumni dan mendukung kegiatan komunikasi serta silaturahmi antar lulusan SMAN 1 Ngunut.</p>
-                        </div>
+                        <div class="org-period">2025 – 2027</div>
                     </div>
-                    <div class="org-period">2025 – 2027</div>
-                </div>
 
-                <div class="org-item reveal reveal-delay-1">
-                    <div class="org-item-inner">
-                        <div class="org-logo-slot">
-                            <img src="formadiksi poinema.jpeg" alt="Formadiksi Polinema" />
+                    <div class="org-item reveal reveal-delay-1">
+                        <div class="org-item-inner">
+                            <div class="org-logo-slot"><img src="formadiksi poinema.jpeg" alt="Formadiksi Polinema"/></div>
+                            <div class="org-info">
+                                <div class="org-role">✦ Koordinator Komunikasi Eksternal</div>
+                                <h4>Formadiksi Polinema</h4>
+                                <p class="org-desc">Memimpin divisi komunikasi eksternal — menjembatani komunikasi dan kerja sama antara Formadiksi Polinema dengan pihak eksternal, alumni, serta FKMBK di tingkat regional, wilayah, dan nasional.</p>
+                            </div>
                         </div>
-                        <div class="org-info">
-                            <div class="org-role">Koordinator Komunikasi Eksternal</div>
-                            <h4>Formadiksi Polinema</h4>
-                            <p class="org-desc">Memimpin divisi komunikasi eksternal — menjembatani komunikasi dan kerja sama antara Formadiksi Polinema dengan pihak eksternal, seperti alumni, forum Bidikmisi luar Polinema, serta FKMBK di tingkat regional, wilayah, dan nasional. Berperan dalam menjaga hubungan baik dan menjalin sinergi dengan Forum Daerah di Politeknik Negeri Malang.</p>
-                        </div>
+                        <div class="org-period">2025 – 2026</div>
                     </div>
-                    <div class="org-period">2025 – 2026</div>
-                </div>
 
-                <div class="org-item reveal reveal-delay-2">
-                    <div class="org-item-inner">
-                        <div class="org-logo-slot">
-                            <img src="ikatama.jpeg" alt="Ikatan Mahasiswa Tulungagung Polinema" />
+                    <div class="org-item reveal reveal-delay-2">
+                        <div class="org-item-inner">
+                            <div class="org-logo-slot"><img src="ikatama.jpeg" alt="IKATAMA Polinema"/></div>
+                            <div class="org-info">
+                                <div class="org-role">✦ Wakil Ketua Umum</div>
+                                <h4>Ikatan Mahasiswa Tulungagung Polinema</h4>
+                                <p class="org-desc">Membantu ketua dalam mengoordinasikan seluruh kegiatan, program kerja, dan anggota IKATAMA Polinema — memperkuat solidaritas mahasiswa asal Tulungagung di Malang.</p>
+                            </div>
                         </div>
-                        <div class="org-info">
-                            <div class="org-role">Wakil Ketua Umum</div>
-                            <h4>Ikatan Mahasiswa Tulungagung Polinema</h4>
-                            <p class="org-desc">Membantu ketua dalam mengoordinasikan seluruh kegiatan, program kerja, dan anggota IKATAMA Polinema — memperkuat solidaritas mahasiswa asal Tulungagung di Malang.</p>
-                        </div>
+                        <div class="org-period">2025 – 2026</div>
                     </div>
-                    <div class="org-period">2025 – 2026</div>
-                </div>
 
-                <div class="org-item reveal">
-                    <div class="org-item-inner">
-                        <div class="org-logo-slot">
-                            <img src="fkmbk malang raya.jpeg" alt="FKMBK Malang Raya" />
+                    <div class="org-item reveal">
+                        <div class="org-item-inner">
+                            <div class="org-logo-slot"><img src="fkmbk malang raya.jpeg" alt="FKMBK Malang Raya"/></div>
+                            <div class="org-info">
+                                <div class="org-role">✦ Staf Departemen Luar Negeri</div>
+                                <h4>FKMBK Malang Raya</h4>
+                                <p class="org-desc">Berfokus pada pengelolaan hubungan eksternal dan kerja sama antarorganisasi mahasiswa di lingkup Malang Raya serta Forum Daerah.</p>
+                            </div>
                         </div>
-                        <div class="org-info">
-                            <div class="org-role">Anggota Staff Departemen Luar Negeri</div>
-                            <h4>FKMBK Malang Raya</h4>
-                            <p class="org-desc">Berfokus pada pengelolaan hubungan eksternal dan kerja sama antarorganisasi mahasiswa di lingkup Malang Raya serta Forum Daerah.</p>
-                        </div>
+                        <div class="org-period">2025 – 2026</div>
                     </div>
-                    <div class="org-period">2025 – 2026</div>
-                </div>
 
-                <div class="org-item reveal reveal-delay-1">
-                    <div class="org-item-inner">
-                        <div class="org-logo-slot">
-                            <img src="rubi comunity.jpeg" alt="Rubi Community" />
+                    <div class="org-item reveal reveal-delay-1">
+                        <div class="org-item-inner">
+                            <div class="org-logo-slot"><img src="rubi comunity.jpeg" alt="Rubi Community"/></div>
+                            <div class="org-info">
+                                <div class="org-role">✦ Anggota – Batch 8</div>
+                                <h4>Rubi Community</h4>
+                                <p class="org-desc">RUBI Community (Respecting Understanding Beauty Influencer) adalah komunitas kecantikan milik Avoskin Beauty, didirikan untuk memberdayakan perempuan.</p>
+                            </div>
                         </div>
-                        <div class="org-info">
-                            <div class="org-role">Anggota – Batch 8</div>
-                            <h4>Rubi Community</h4>
-                            <p class="org-desc">RUBI Community (Respecting Understanding Beauty Influencer) adalah komunitas kecantikan milik Avoskin Beauty, didirikan pada 5 Agustus 2017 sebagai representasi misi "Empowering Women" dalam memberdayakan perempuan.</p>
-                        </div>
+                        <div class="org-period">Feb – Jun 2025</div>
                     </div>
-                    <div class="org-period">Feb – Jun 2025</div>
-                </div>
 
-                <div class="org-item reveal reveal-delay-2">
-                    <div class="org-item-inner">
-                        <div class="org-logo-slot">
-                            <img src="fkmbk jatim.jpeg" alt="FKMBK Jawa Timur" />
+                    <div class="org-item reveal reveal-delay-2">
+                        <div class="org-item-inner">
+                            <div class="org-logo-slot"><img src="fkmbk jatim.jpeg" alt="FKMBK Jawa Timur"/></div>
+                            <div class="org-info">
+                                <div class="org-role">✦ Staf Departemen Kajian Strategi</div>
+                                <h4>FKMBK Jawa Timur</h4>
+                                <p class="org-desc">Melakukan riset dan kajian terkait isu Bidikmisi/KIP-Kuliah di wilayah Jawa Timur. Mengelola stock of knowledge dalam bentuk infografis serta pendataan forum KIP-K.</p>
+                            </div>
                         </div>
-                        <div class="org-info">
-                            <div class="org-role">Staf Departemen Kajian Strategi</div>
-                            <h4>FKMBK Jawa Timur</h4>
-                            <p class="org-desc">Melakukan riset dan kajian terkait isu Bidikmisi/KIP-Kuliah di wilayah Jawa Timur melalui diskusi internal dan eksternal. Mengelola stock of knowledge dalam bentuk infografis, serta melakukan pendataan forum Bidikmisi/KIP-K di perguruan tinggi.</p>
-                        </div>
+                        <div class="org-period">2024 – 2025</div>
                     </div>
-                    <div class="org-period">2024 – 2025</div>
-                </div>
 
-                <div class="org-item reveal">
-                    <div class="org-item-inner">
-                        <div class="org-logo-slot">
-                            <img src="formadiksi poinema.jpeg" alt="Formadiksi Polinema" />
+                    <div class="org-item reveal">
+                        <div class="org-item-inner">
+                            <div class="org-logo-slot"><img src="formadiksi poinema.jpeg" alt="Formadiksi Polinema"/></div>
+                            <div class="org-info">
+                                <div class="org-role">✦ Pengurus Muda Komunikasi Eksternal</div>
+                                <h4>Formadiksi Polinema</h4>
+                                <p class="org-desc">Menjembatani komunikasi dan kerja sama antara Formadiksi Polinema dengan pihak eksternal — alumni, forum Bidikmisi luar Polinema, serta FKMBK di berbagai tingkat.</p>
+                            </div>
                         </div>
-                        <div class="org-info">
-                            <div class="org-role">Pengurus Muda Komunikasi Eksternal</div>
-                            <h4>Formadiksi Polinema</h4>
-                            <p class="org-desc">Menjembatani komunikasi dan kerja sama antara Formadiksi Polinema dengan pihak eksternal — alumni, forum Bidikmisi luar Polinema, serta FKMBK di berbagai tingkat.</p>
-                        </div>
+                        <div class="org-period">2024 – 2025</div>
                     </div>
-                    <div class="org-period">2024 – 2025</div>
-                </div>
 
-                <div class="org-item reveal reveal-delay-1">
-                    <div class="org-item-inner">
-                        <div class="org-logo-slot">
-                            <img src="ikatama.jpeg" alt="Ikatan Mahasiswa Tulungagung" />
+                    <div class="org-item reveal reveal-delay-1">
+                        <div class="org-item-inner">
+                            <div class="org-logo-slot"><img src="ikatama.jpeg" alt="IKATAMA"/></div>
+                            <div class="org-info">
+                                <div class="org-role">✦ Anggota Eksternal</div>
+                                <h4>Ikatan Mahasiswa Tulungagung</h4>
+                                <p class="org-desc">Bergabung sebagai anggota aktif dalam kegiatan sosial dan kemahasiswaan, membangun relasi dan solidaritas sesama mahasiswa Tulungagung.</p>
+                            </div>
                         </div>
-                        <div class="org-info">
-                            <div class="org-role">Anggota Eksternal</div>
-                            <h4>Ikatan Mahasiswa Tulungagung</h4>
-                            <p class="org-desc">Bergabung sebagai anggota aktif dalam kegiatan sosial dan kemahasiswaan, membangun relasi dan solidaritas sesama mahasiswa Tulungagung.</p>
-                        </div>
+                        <div class="org-period">2024 – 2025</div>
                     </div>
-                    <div class="org-period">2024 – 2025</div>
-                </div>
 
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ═══════════════ PROJECTS ═══════════════ -->
+    <div class="section-divider">✿ · · ✿ · · ✿ · · ✿</div>
+
+    <!-- PROJECTS -->
     <section id="projects" class="projects">
         <div class="container">
+            <!-- FIX: Header rata kiri, tidak perlu wrapper div extra -->
             <div class="projects-header">
-                <div>
-                    <div class="section-label reveal">Karya & Proyek</div>
-                    <h2 class="section-title reveal">Apa yang <em>sudah saya buat</em></h2>
-                </div>
+                <div class="section-label reveal">🛠️ Karya & Proyek</div>
+                <h2 class="section-title reveal">Apa yang <em>sudah saya buat</em></h2>
             </div>
 
             <div class="projects-grid">
 
+                <!-- Project 01 -->
                 <div class="project-card reveal">
                     <div class="project-img-wrap" id="slider-01">
                         <img src="BI 1.png" class="active" alt="BI Dashboard 1"/>
@@ -780,138 +1029,101 @@
                         </div>
                     </div>
                     <div class="project-body">
-                        <div class="project-num">— 01</div>
+                        <div class="project-num">✦ 01</div>
                         <h3>Dashboard Business Intelligence Pizza Company</h3>
                         <p>Dashboard Power BI dan analisis SQL untuk menganalisis kinerja penjualan perusahaan Pizza 2022 — mengidentifikasi pola, kategori terbaik, dan waktu tersibuk.</p>
-                        <div class="tags">
-                            <span class="tag">Power BI</span>
-                            <span class="tag">SQL</span>
-                            <span class="tag">Data Analysis</span>
-                        </div>
+                        <div class="tags"><span class="tag">Power BI</span><span class="tag">SQL</span><span class="tag">Data Analysis</span></div>
                         <a href="https://www.kaggle.com/datasets/khoirkaroln/modifikasi-dashboard-perusahaan-pizza" target="_blank" class="project-link">
                             Lihat di Kaggle
-                            <svg viewBox="0 0 24 24" width="14" height="14" fill="#20beff" xmlns="http://www.w3.org/2000/svg"><path d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.448 1.374v5.111c0 .235-.117.352-.351.352H5.505c-.236 0-.354-.117-.354-.352V.353c0-.233.118-.353.354-.353h2.431c.234 0 .351.12.351.353v14.343l6.203-6.272c.165-.165.33-.246.495-.246h3.239c.144 0 .236.06.285.18.046.149.034.255-.036.315l-6.555 6.344 6.836 8.507c.095.104.117.208.07.334z"/></svg>
+                            <svg viewBox="0 0 24 24" fill="#20beff" xmlns="http://www.w3.org/2000/svg"><path d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.448 1.374v5.111c0 .235-.117.352-.351.352H5.505c-.236 0-.354-.117-.354-.352V.353c0-.233.118-.353.354-.353h2.431c.234 0 .351.12.351.353v14.343l6.203-6.272c.165-.165.33-.246.495-.246h3.239c.144 0 .236.06.285.18.046.149.034.255-.036.315l-6.555 6.344 6.836 8.507c.095.104.117.208.07.334z"/></svg>
                         </a>
                     </div>
                 </div>
 
+                <!-- Project 02 -->
                 <div class="project-card reveal reveal-delay-1">
                     <div class="project-img-wrap">
-                        <div class="project-img-placeholder" style="background:linear-gradient(135deg,#1a3a6e22,#2563eb22);">
-                            <svg viewBox="0 0 80 80" width="72" height="72" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M40 16L12 30l28 14 28-14L40 16z" fill="#1a3a6e" opacity="0.7"/>
-                                <path d="M18 33v14c0 7 9.6 12 22 12s22-5 22-12V33" fill="none" stroke="#1a3a6e" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
-                                <line x1="62" y1="30" x2="62" y2="46" stroke="#1a3a6e" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
-                            </svg>
+                        <div class="project-img-placeholder" style="background:linear-gradient(135deg,#1a3a6e18,#2563eb18);">
+                            <svg viewBox="0 0 80 80" width="72" height="72" xmlns="http://www.w3.org/2000/svg"><path d="M40 16L12 30l28 14 28-14L40 16z" fill="#1a3a6e" opacity="0.6"/><path d="M18 33v14c0 7 9.6 12 22 12s22-5 22-12V33" fill="none" stroke="#1a3a6e" stroke-width="3" stroke-linecap="round" opacity="0.6"/><line x1="62" y1="30" x2="62" y2="46" stroke="#1a3a6e" stroke-width="3" stroke-linecap="round" opacity="0.4"/></svg>
                         </div>
                     </div>
                     <div class="project-body">
-                        <div class="project-num">— 02</div>
+                        <div class="project-num">✦ 02</div>
                         <h3>AKRESA — Sistem Akreditasi</h3>
                         <p>Aplikasi web untuk pencatatan, pengelolaan, dan evaluasi data akreditasi jurusan TI Polinema. Bagian dari Project Based Learning (PBL).</p>
-                        <div class="tags">
-                            <span class="tag">Web Dev</span>
-                            <span class="tag">PHP</span>
-                            <span class="tag">Database</span>
-                        </div>
+                        <div class="tags"><span class="tag">Web Dev</span><span class="tag">PHP</span><span class="tag">Database</span></div>
                         <a href="https://github.com/khoirkanzura/final-project-accreditation" target="_blank" class="project-link">
                             Lihat di GitHub
-                            <svg viewBox="0 0 24 24" width="14" height="14" fill="#24292e" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                            <svg viewBox="0 0 24 24" fill="#24292e" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
                         </a>
                     </div>
                 </div>
 
+                <!-- Project 03 -->
                 <div class="project-card reveal reveal-delay-2">
                     <div class="project-img-wrap" id="slider-03">
                         <img src="sipres.jpg" class="active" alt="SIPRES JTI"/>
                     </div>
                     <div class="project-body">
-                        <div class="project-num">— 03</div>
+                        <div class="project-num">✦ 03</div>
                         <h3>SIPRES-JTI — Sistem Presensi</h3>
                         <p>Presensi digital berbasis mobile dengan QR Code & validasi GPS, database real-time, dan role-based access untuk dosen/karyawan dan admin.</p>
-                        <div class="tags">
-                            <span class="tag">Mobile Dev</span>
-                            <span class="tag">QR Code</span>
-                            <span class="tag">GPS</span>
-                            <span class="tag">Real-time DB</span>
-                        </div>
+                        <div class="tags"><span class="tag">Mobile Dev</span><span class="tag">QR Code</span><span class="tag">GPS</span><span class="tag">Real-time DB</span></div>
                         <a href="https://github.com/khoirkanzura/SipresJTI" target="_blank" class="project-link">
                             Lihat di GitHub
-                            <svg viewBox="0 0 24 24" width="14" height="14" fill="#24292e" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                            <svg viewBox="0 0 24 24" fill="#24292e" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
                         </a>
                     </div>
                 </div>
 
+                <!-- Project 04 -->
                 <div class="project-card reveal">
                     <div class="project-img-wrap" id="slider-04">
                         <img src="tatib.jpg" class="active" alt="Si Tertib"/>
                     </div>
                     <div class="project-body">
-                        <div class="project-num">— 04</div>
+                        <div class="project-num">✦ 04</div>
                         <h3>Si Tertib — Sistem Tata Tertib</h3>
                         <p>Sistem informasi web untuk pengelolaan pelanggaran tata tertib mahasiswa — pencatatan digital, penetapan sanksi, pengajuan banding, dan pelaporan transparan.</p>
-                        <div class="tags">
-                            <span class="tag">Web App</span>
-                            <span class="tag">Management</span>
-                            <span class="tag">Database</span>
-                        </div>
+                        <div class="tags"><span class="tag">Web App</span><span class="tag">Management</span><span class="tag">Database</span></div>
                         <a href="https://github.com/khoirkanzura/Sistem-tata-tertib" target="_blank" class="project-link">
                             Lihat di GitHub
-                            <svg viewBox="0 0 24 24" width="14" height="14" fill="#24292e" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                            <svg viewBox="0 0 24 24" fill="#24292e" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
                         </a>
                     </div>
                 </div>
 
+                <!-- Project 05 -->
                 <div class="project-card reveal reveal-delay-1">
                     <div class="project-img-wrap">
-                        <div class="project-img-placeholder" style="background:linear-gradient(135deg,#c4956a22,#f0d8b822);">
-                            <svg viewBox="0 0 80 80" width="72" height="72" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="12" y="10" width="40" height="52" rx="4" fill="none" stroke="#c4956a" stroke-width="3" opacity="0.7"/>
-                                <line x1="20" y1="24" x2="44" y2="24" stroke="#c4956a" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/>
-                                <line x1="20" y1="34" x2="44" y2="34" stroke="#c4956a" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/>
-                                <line x1="20" y1="44" x2="36" y2="44" stroke="#c4956a" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/>
-                                <circle cx="58" cy="54" r="14" fill="#c4956a" opacity="0.15" stroke="#c4956a" stroke-width="2"/>
-                                <path d="M52 54l4 4 8-8" stroke="#c4956a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
+                        <div class="project-img-placeholder" style="background:linear-gradient(135deg,#c4956a18,#f0d8b818);">
+                            <svg viewBox="0 0 80 80" width="72" height="72" xmlns="http://www.w3.org/2000/svg"><rect x="12" y="10" width="40" height="52" rx="4" fill="none" stroke="#c4956a" stroke-width="3" opacity="0.7"/><line x1="20" y1="24" x2="44" y2="24" stroke="#c4956a" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/><line x1="20" y1="34" x2="44" y2="34" stroke="#c4956a" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/><line x1="20" y1="44" x2="36" y2="44" stroke="#c4956a" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/><circle cx="58" cy="54" r="14" fill="#c4956a" opacity="0.12" stroke="#c4956a" stroke-width="2"/><path d="M52 54l4 4 8-8" stroke="#c4956a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                         </div>
                     </div>
                     <div class="project-body">
-                        <div class="project-num">— 05</div>
+                        <div class="project-num">✦ 05</div>
                         <h3>Sistem Perpustakaan Polinema</h3>
                         <p>Perpustakaan digital dengan fitur admin (data buku & anggota) dan fitur mahasiswa (peminjaman & pengembalian buku secara digital).</p>
-                        <div class="tags">
-                            <span class="tag">Web System</span>
-                            <span class="tag">Library Mgmt</span>
-                            <span class="tag">Transaction</span>
-                        </div>
+                        <div class="tags"><span class="tag">Web System</span><span class="tag">Library Mgmt</span><span class="tag">Transaction</span></div>
                         <a href="https://github.com/khoirkanzura/FinalProject-Perpustakaan" target="_blank" class="project-link">
                             Lihat di GitHub
-                            <svg viewBox="0 0 24 24" width="14" height="14" fill="#24292e" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                            <svg viewBox="0 0 24 24" fill="#24292e" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
                         </a>
                     </div>
                 </div>
 
+                <!-- Project 06 -->
                 <div class="project-card reveal reveal-delay-2">
                     <div class="project-img-wrap">
-                        <div class="project-img-placeholder" style="background:linear-gradient(135deg,#9b87b522,#c9b8d822);">
-                            <svg viewBox="0 0 80 80" width="72" height="72" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M40 12c-9 0-16 4-16 9v6h16v2H24c-5 0-12 3-12 13s5 13 12 13h4v-7c0-6 5-11 12-11h12c5 0 8-4 8-9v-7c0-5-7-9-16-9z" fill="#9b87b5" opacity="0.5"/>
-                                <circle cx="33" cy="22" r="2.5" fill="#fff"/>
-                                <path d="M40 68c9 0 16-4 16-9v-6H40v-2h16c5 0 12-3 12-13s-7-13-14-13h-4v7c0 6-5 11-12 11H33c-5 0-8 4-8 9v7c0 5 7 9 15 9z" fill="#c9b8d8" opacity="0.6"/>
-                                <circle cx="47" cy="58" r="2.5" fill="#fff"/>
-                            </svg>
+                        <div class="project-img-placeholder" style="background:linear-gradient(135deg,#9b87b518,#c9b8d818);">
+                            <svg viewBox="0 0 80 80" width="72" height="72" xmlns="http://www.w3.org/2000/svg"><path d="M40 12c-9 0-16 4-16 9v6h16v2H24c-5 0-12 3-12 13s5 13 12 13h4v-7c0-6 5-11 12-11h12c5 0 8-4 8-9v-7c0-5-7-9-16-9z" fill="#9b87b5" opacity="0.5"/><circle cx="33" cy="22" r="2.5" fill="#fff"/><path d="M40 68c9 0 16-4 16-9v-6H40v-2h16c5 0 12-3 12-13s-7-13-14-13h-4v7c0 6-5 11-12 11H33c-5 0-8 4-8 9v7c0 5 7 9 15 9z" fill="#c9b8d8" opacity="0.6"/><circle cx="47" cy="58" r="2.5" fill="#fff"/></svg>
                         </div>
                     </div>
                     <div class="project-body">
-                        <div class="project-num">— 06</div>
+                        <div class="project-num">✦ 06</div>
                         <h3>Data Mining — Amazon Video Games Reviews</h3>
                         <p>Pemilihan model terbaik (Regresi, Decision Tree, KNN, SVM, K-Means) pada dataset Amazon Product Reviews "Video Games" — membandingkan performa dan akurasi masing-masing algoritma.</p>
-                        <div class="tags">
-                            <span class="tag">Data Mining</span>
-                            <span class="tag">Machine Learning</span>
-                            <span class="tag">Python</span>
-                            <span class="tag">Classification</span>
-                        </div>
+                        <div class="tags"><span class="tag">Data Mining</span><span class="tag">Machine Learning</span><span class="tag">Python</span></div>
                         <a href="https://drive.google.com/drive/folders/your-link" target="_blank" class="project-link">
                             Lihat Laporan
                             <svg viewBox="0 0 24 24" width="14" height="14" xmlns="http://www.w3.org/2000/svg"><path d="M4.587 20l3.46-6h11.906l-3.46 6z" fill="#0F9D58"/><path d="M1 20l5.75-10L12 19H1z" fill="#4285F4"/><path d="M12 14L7 5h10l5 9H12z" fill="#FBBC05"/></svg>
@@ -919,65 +1131,47 @@
                     </div>
                 </div>
 
+                <!-- Project 07 -->
                 <div class="project-card reveal">
                     <div class="project-img-wrap">
-                        <div class="project-img-placeholder" style="background:linear-gradient(135deg,#e8a4b822,#f5dde822);">
-                            <svg viewBox="0 0 80 80" width="72" height="72" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="40" cy="36" r="20" fill="none" stroke="#e8a4b8" stroke-width="3" opacity="0.7"/>
-                                <path d="M32 34c0-4 3-8 8-8s8 4 8 8c0 6-8 14-8 14s-8-8-8-14z" fill="#e8a4b8" opacity="0.4"/>
-                                <circle cx="40" cy="34" r="4" fill="#c97a98" opacity="0.8"/>
-                                <path d="M28 58h24M34 62h12" stroke="#c97a98" stroke-width="2.5" stroke-linecap="round" opacity="0.5"/>
-                            </svg>
+                        <div class="project-img-placeholder" style="background:linear-gradient(135deg,#e8a4b818,#f5dde818);">
+                            <svg viewBox="0 0 80 80" width="72" height="72" xmlns="http://www.w3.org/2000/svg"><circle cx="40" cy="36" r="20" fill="none" stroke="#e8a4b8" stroke-width="3" opacity="0.7"/><path d="M32 34c0-4 3-8 8-8s8 4 8 8c0 6-8 14-8 14s-8-8-8-14z" fill="#e8a4b8" opacity="0.4"/><circle cx="40" cy="34" r="4" fill="#c97a98" opacity="0.8"/><path d="M28 58h24M34 62h12" stroke="#c97a98" stroke-width="2.5" stroke-linecap="round" opacity="0.5"/></svg>
                         </div>
                     </div>
                     <div class="project-body">
-                        <div class="project-num">— 07</div>
-                        <h3>SkinQuo — Sistem Pakar Rekomendasi Skincare</h3>
-                        <p>Sistem pakar berbasis web menggunakan rule-based expert system. Pengguna input jenis kulit, keluhan, dan tujuan perawatan — sistem mencocokkan basis aturan pakar, menganalisis bahan aktif, dan menampilkan ranking produk.</p>
-                        <div class="tags">
-                            <span class="tag">Expert System</span>
-                            <span class="tag">Web Dev</span>
-                            <span class="tag">Rule-Based</span>
-                        </div>
+                        <div class="project-num">✦ 07</div>
+                        <h3>SkinQuo — Sistem Pakar Skincare</h3>
+                        <p>Sistem pakar berbasis web menggunakan rule-based expert system. Input jenis kulit, keluhan, dan tujuan perawatan — sistem menganalisis bahan aktif dan menampilkan ranking produk.</p>
+                        <div class="tags"><span class="tag">Expert System</span><span class="tag">Web Dev</span><span class="tag">Rule-Based</span></div>
                         <div class="team-label">Tim Pengembang</div>
                         <div class="team-pills">
-                            <span class="team-pill">Axelo Matthew</span>
-                            <span class="team-pill">Khoir Karol N.</span>
-                            <span class="team-pill">Lyra Faiqah</span>
-                            <span class="team-pill">Nadya Hapsari</span>
+                            <span class="team-pill">Axelo Matthew</span><span class="team-pill">Khoir Karol N.</span>
+                            <span class="team-pill">Lyra Faiqah</span><span class="team-pill">Nadya Hapsari</span>
                             <span class="team-pill">Pandya Cahya</span>
                         </div>
                         <a href="https://github.com/khoirkanzura/SkinQuo.git" target="_blank" class="project-link">
                             Lihat di GitHub
-                            <svg viewBox="0 0 24 24" width="14" height="14" fill="#24292e" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                            <svg viewBox="0 0 24 24" fill="#24292e" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
                         </a>
                     </div>
                 </div>
 
+                <!-- Project 08 -->
                 <div class="project-card reveal reveal-delay-1">
                     <div class="project-img-wrap">
-                        <div class="project-img-placeholder" style="background:linear-gradient(135deg,#1a6b3c22,#bce8d822);">
-                            <svg viewBox="0 0 80 80" width="72" height="72" xmlns="http://www.w3.org/2000/svg">
-                                <ellipse cx="40" cy="22" rx="22" ry="8" fill="none" stroke="#1a6b3c" stroke-width="2.5" opacity="0.6"/>
-                                <path d="M18 22v14c0 4.4 9.9 8 22 8s22-3.6 22-8V22" fill="none" stroke="#1a6b3c" stroke-width="2.5" opacity="0.6"/>
-                                <path d="M18 36v14c0 4.4 9.9 8 22 8s22-3.6 22-8V36" fill="none" stroke="#1a6b3c" stroke-width="2" opacity="0.4"/>
-                            </svg>
+                        <div class="project-img-placeholder" style="background:linear-gradient(135deg,#1a6b3c18,#bce8d818);">
+                            <svg viewBox="0 0 80 80" width="72" height="72" xmlns="http://www.w3.org/2000/svg"><ellipse cx="40" cy="22" rx="22" ry="8" fill="none" stroke="#1a6b3c" stroke-width="2.5" opacity="0.6"/><path d="M18 22v14c0 4.4 9.9 8 22 8s22-3.6 22-8V22" fill="none" stroke="#1a6b3c" stroke-width="2.5" opacity="0.6"/><path d="M18 36v14c0 4.4 9.9 8 22 8s22-3.6 22-8V36" fill="none" stroke="#1a6b3c" stroke-width="2" opacity="0.4"/></svg>
                         </div>
                     </div>
                     <div class="project-body">
-                        <div class="project-num">— 08</div>
+                        <div class="project-num">✦ 08</div>
                         <h3>Data Warehouse — Studi Kasus Northwind</h3>
-                        <p>Pengembangan sistem Data Warehouse berbasis studi kasus Northwind untuk mengubah data operasional menjadi insight bisnis. Mencakup Star Schema, ETL dengan Pentaho, SCD, serta analisis KPI penjualan, margin, dan pengiriman.</p>
-                        <div class="tags">
-                            <span class="tag">Data Warehouse</span>
-                            <span class="tag">ETL</span>
-                            <span class="tag">Pentaho</span>
-                            <span class="tag">Star Schema</span>
-                            <span class="tag">OLAP</span>
-                        </div>
+                        <p>Sistem Data Warehouse berbasis studi kasus Northwind untuk mengubah data operasional menjadi insight bisnis. Mencakup Star Schema, ETL dengan Pentaho, SCD, serta analisis KPI penjualan.</p>
+                        <div class="tags"><span class="tag">Data Warehouse</span><span class="tag">ETL</span><span class="tag">Pentaho</span><span class="tag">Star Schema</span><span class="tag">OLAP</span></div>
                     </div>
                 </div>
 
+                <!-- Project 09 -->
                 <div class="project-card reveal reveal-delay-2">
                     <div class="project-img-wrap" id="slider-09">
                         <img src="dw 1.jpeg" class="active" alt="ERP Odoo 18 - Dashboard"/>
@@ -992,24 +1186,15 @@
                         </div>
                     </div>
                     <div class="project-body">
-                        <div class="project-num">— 09</div>
-                        <h3>ERP System Implementation — Berry Bean (Odoo 18)</h3>
-                        <p>Implementasi sistem Enterprise Resource Planning (ERP) menggunakan Odoo 18 dengan studi kasus perusahaan Berry Bean. Mengintegrasikan berbagai proses bisnis ke dalam satu sistem terpusat untuk meningkatkan efisiensi operasional dan akurasi data.</p>
-                        <div class="tags">
-                            <span class="tag">Odoo 18</span>
-                            <span class="tag">ERP</span>
-                            <span class="tag">Business Process</span>
-                            <span class="tag">Manufacturing</span>
-                            <span class="tag">Inventory</span>
-                        </div>
+                        <div class="project-num">✦ 09</div>
+                        <h3>ERP System — Berry Bean (Odoo 18)</h3>
+                        <p>Implementasi sistem ERP menggunakan Odoo 18 dengan studi kasus perusahaan Berry Bean. Mengintegrasikan berbagai proses bisnis ke dalam satu sistem terpusat.</p>
+                        <div class="tags"><span class="tag">Odoo 18</span><span class="tag">ERP</span><span class="tag">Manufacturing</span><span class="tag">Inventory</span></div>
                         <div class="team-label">Modul yang Diimplementasikan</div>
                         <div class="team-pills">
-                            <span class="team-pill">Purchase</span>
-                            <span class="team-pill">Sales</span>
-                            <span class="team-pill">Manufacturing</span>
-                            <span class="team-pill">Point of Sale</span>
-                            <span class="team-pill">Website</span>
-                            <span class="team-pill">Employees</span>
+                            <span class="team-pill">Purchase</span><span class="team-pill">Sales</span>
+                            <span class="team-pill">Manufacturing</span><span class="team-pill">Point of Sale</span>
+                            <span class="team-pill">Website</span><span class="team-pill">Employees</span>
                         </div>
                     </div>
                 </div>
@@ -1018,161 +1203,134 @@
         </div>
     </section>
 
-    <!-- ═══════════════ PRESTASI ═══════════════ -->
+    <div class="section-divider">✦ · · ✦ · · ✦ · · ✦</div>
+
+    <!-- PRESTASI -->
     <section id="prestasi" class="prestasi">
         <div class="container">
-            <div class="section-label reveal">Prestasi & Penghargaan</div>
+            <div class="section-label reveal">🏆 Prestasi & Penghargaan</div>
             <h2 class="section-title reveal">Pencapaian yang <em>membanggakan</em></h2>
 
-            <div class="prestasi-grid">
+            <div class="prestasi-wrap">
+                <div class="prestasi-grid">
 
-                <div class="prestasi-card rank-2 has-photo reveal">
-                    <div class="prestasi-img-wrap" id="slider-tiktok">
-                        <img src="tiktok2.jpg" class="active" alt="Juara 2 Lomba TikTok - Foto 1"/>
-                        <img src="tiktok3.jpg" alt="Juara 2 Lomba TikTok - Foto 2"/>
-                        <img src="tiktok 1.jpg" alt="Juara 2 Lomba TikTok - Foto 3"/>
-                        <button class="slider-arrow prev" onclick="slideImg('slider-tiktok',-1)">&#8249;</button>
-                        <button class="slider-arrow next" onclick="slideImg('slider-tiktok', 1)">&#8250;</button>
-                        <div class="slider-dots" id="dots-slider-tiktok">
-                            <button class="slider-dot active" onclick="goToSlide('slider-tiktok',0)"></button>
-                            <button class="slider-dot" onclick="goToSlide('slider-tiktok',1)"></button>
-                            <button class="slider-dot" onclick="goToSlide('slider-tiktok',2)"></button>
+                    <div class="prestasi-card rank-2 has-photo reveal">
+                        <div class="prestasi-img-wrap" id="slider-tiktok">
+                            <img src="tiktok2.jpg" class="active" alt="Juara 2 - Foto 1"/>
+                            <img src="tiktok3.jpg" alt="Juara 2 - Foto 2"/>
+                            <img src="tiktok 1.jpg" alt="Juara 2 - Foto 3"/>
+                            <button class="slider-arrow prev" onclick="slideImg('slider-tiktok',-1)">&#8249;</button>
+                            <button class="slider-arrow next" onclick="slideImg('slider-tiktok', 1)">&#8250;</button>
+                            <div class="slider-dots" id="dots-slider-tiktok">
+                                <button class="slider-dot active" onclick="goToSlide('slider-tiktok',0)"></button>
+                                <button class="slider-dot" onclick="goToSlide('slider-tiktok',1)"></button>
+                                <button class="slider-dot" onclick="goToSlide('slider-tiktok',2)"></button>
+                            </div>
+                        </div>
+                        <div class="prestasi-body">
+                            <span class="trophy-icon">🥈</span>
+                            <div class="prestasi-rank">✦ Juara 2</div>
+                            <h4>Lomba TikTok — Penguatan Ekosistem Inovasi dan Hilirisasi Riset</h4>
+                            <div class="prestasi-year">📅 2025</div>
                         </div>
                     </div>
-                    <div class="prestasi-body">
-                        <span class="trophy-icon">🥈</span>
-                        <div class="prestasi-rank">Juara 2</div>
-                        <h4>Lomba TikTok — Penguatan Ekosistem Inovasi dan Hilirisasi Riset</h4>
-                        <div class="prestasi-year">2025</div>
+
+                    <div class="prestasi-card rank-3 reveal reveal-delay-1">
+                        <span class="trophy-icon">🥉</span>
+                        <div class="prestasi-rank">✦ Juara 3</div>
+                        <h4>Lomba Broadcasting SMAN 1 Ngunut</h4>
+                        <div class="prestasi-year">📅 2022</div>
                     </div>
-                </div>
 
-                <div class="prestasi-card rank-3 reveal reveal-delay-1">
-                    <span class="trophy-icon">🥉</span>
-                    <div class="prestasi-rank">Juara 3</div>
-                    <h4>Lomba Broadcasting SMAN 1 Ngunut</h4>
-                    <div class="prestasi-year">2022</div>
-                </div>
+                    <div class="prestasi-card rank-3 reveal reveal-delay-2">
+                        <span class="trophy-icon">🥉</span>
+                        <div class="prestasi-rank">✦ Juara 3</div>
+                        <h4>Lomba Kriya</h4>
+                        <div class="prestasi-year">📅 2021</div>
+                    </div>
 
-                <div class="prestasi-card rank-3 reveal reveal-delay-2">
-                    <span class="trophy-icon">🥉</span>
-                    <div class="prestasi-rank">Juara 3</div>
-                    <h4>Lomba Kriya</h4>
-                    <div class="prestasi-year">2021</div>
-                </div>
+                    <div class="prestasi-card rank-3 reveal">
+                        <span class="trophy-icon">🥉</span>
+                        <div class="prestasi-rank">✦ Juara 3</div>
+                        <h4>Lomba Movie Maker</h4>
+                        <div class="prestasi-year">📅 2021</div>
+                    </div>
 
-                <div class="prestasi-card rank-3 reveal">
-                    <span class="trophy-icon">🥉</span>
-                    <div class="prestasi-rank">Juara 3</div>
-                    <h4>Lomba Movie Maker</h4>
-                    <div class="prestasi-year">2021</div>
-                </div>
+                    <div class="prestasi-card rank-3 reveal reveal-delay-1">
+                        <span class="trophy-icon">🥉</span>
+                        <div class="prestasi-rank">✦ Juara 3</div>
+                        <h4>Lomba Movie Maker — ITC SMAN 1 Ngunut</h4>
+                        <div class="prestasi-year">📅 2020</div>
+                    </div>
 
-                <div class="prestasi-card rank-3 reveal reveal-delay-1">
-                    <span class="trophy-icon">🥉</span>
-                    <div class="prestasi-rank">Juara 3</div>
-                    <h4>Lomba Movie Maker — ITC SMAN 1 Ngunut</h4>
-                    <div class="prestasi-year">2020</div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- ═══════════════ CONTACT ═══════════════ -->
+    <div class="section-divider">✿ · · ✿ · · ✿ · · ✿</div>
+
+    <!-- CONTACT -->
     <section id="contact" class="contact">
         <div class="container">
-            <div class="section-label reveal">Kontak</div>
+            <div class="section-label reveal">💌 Kontak</div>
             <h2 class="section-title reveal">Mari <em>berkolaborasi</em></h2>
             <div class="contact-inner">
                 <div class="contact-intro reveal">
-                    <p>Saya terbuka untuk berbagai peluang kolaborasi, baik dalam pengembangan proyek, diskusi ide, maupun eksplorasi solusi di bidang teknologi dan sistem informasi. Saya percaya bahwa kolaborasi yang baik dapat menghasilkan inovasi yang berdampak dan bermanfaat.</p>
-                    <p>Jika Anda tertarik untuk bekerja sama atau ingin berdiskusi lebih lanjut, jangan ragu untuk menghubungi saya melalui kontak yang tersedia. Saya akan dengan senang hati merespons dan berdiskusi bersama Anda. 💌</p>
+                    <p>Saya terbuka untuk berbagai peluang kolaborasi, baik dalam pengembangan proyek, diskusi ide, maupun eksplorasi solusi di bidang teknologi dan sistem informasi.</p>
+                    <p>Jika Anda tertarik untuk bekerja sama atau ingin berdiskusi lebih lanjut, jangan ragu untuk menghubungi saya! Saya akan dengan senang hati merespons. 🌸</p>
+                    <div class="contact-signature">Khoir Kanzura ✦</div>
                 </div>
+
                 <div class="contact-grid reveal reveal-delay-2">
 
                     <a href="mailto:khoirkarolnurzuraidah23@gmail.com" class="contact-card">
                         <div class="contact-icon-wrap icon-email">
-                            <svg viewBox="0 0 24 24" width="26" height="26" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 010 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.908 1.528-1.147C21.69 2.28 24 3.434 24 5.457z" fill="#EA4335"/>
-                            </svg>
+                            <svg viewBox="0 0 24 24" width="26" height="26" xmlns="http://www.w3.org/2000/svg"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 010 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.908 1.528-1.147C21.69 2.28 24 3.434 24 5.457z" fill="#EA4335"/></svg>
                         </div>
-                        <div class="contact-text">
-                            <strong>Email</strong>
-                            <span>khoirkarolnurzuraidah23@gmail.com</span>
-                        </div>
+                        <div class="contact-text"><strong>Email</strong><span>khoirkarolnurzuraidah23@gmail.com</span></div>
                     </a>
 
                     <a href="tel:+6281410100519" class="contact-card">
                         <div class="contact-icon-wrap icon-phone">
-                            <svg viewBox="0 0 24 24" width="26" height="26" fill="white" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                            </svg>
+                            <svg viewBox="0 0 24 24" width="26" height="26" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                         </div>
-                        <div class="contact-text">
-                            <strong>WhatsApp</strong>
-                            <span>+62 814-1010-0519</span>
-                        </div>
+                        <div class="contact-text"><strong>WhatsApp</strong><span>+62 814-1010-0519</span></div>
                     </a>
 
                     <a href="https://linkedin.com/in/khoir-karol-nurzuraidah" target="_blank" class="contact-card">
                         <div class="contact-icon-wrap icon-linkedin">
-                            <svg viewBox="0 0 24 24" width="26" height="26" fill="white" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                            </svg>
+                            <svg viewBox="0 0 24 24" width="26" height="26" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                         </div>
-                        <div class="contact-text">
-                            <strong>LinkedIn</strong>
-                            <span>Khoir Karol Nurzuraidah</span>
-                        </div>
+                        <div class="contact-text"><strong>LinkedIn</strong><span>Khoir Karol Nurzuraidah</span></div>
                     </a>
 
                     <a href="https://github.com/khoirkanzura" target="_blank" class="contact-card">
                         <div class="contact-icon-wrap icon-github">
-                            <svg viewBox="0 0 24 24" width="26" height="26" fill="white" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
-                            </svg>
+                            <svg viewBox="0 0 24 24" width="26" height="26" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
                         </div>
-                        <div class="contact-text">
-                            <strong>GitHub</strong>
-                            <span>khoirkanzura</span>
-                        </div>
+                        <div class="contact-text"><strong>GitHub</strong><span>khoirkanzura</span></div>
                     </a>
 
                     <a href="https://kaggle.com/khoirkaroln" target="_blank" class="contact-card">
                         <div class="contact-icon-wrap icon-kaggle">
-                            <svg viewBox="0 0 24 24" width="26" height="26" fill="white" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.448 1.374v5.111c0 .235-.117.352-.351.352H5.505c-.236 0-.354-.117-.354-.352V.353c0-.233.118-.353.354-.353h2.431c.234 0 .351.12.351.353v14.343l6.203-6.272c.165-.165.33-.246.495-.246h3.239c.144 0 .236.06.285.18.046.149.034.255-.036.315l-6.555 6.344 6.836 8.507c.095.104.117.208.07.334z"/>
-                            </svg>
+                            <svg viewBox="0 0 24 24" width="26" height="26" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.448 1.374v5.111c0 .235-.117.352-.351.352H5.505c-.236 0-.354-.117-.354-.352V.353c0-.233.118-.353.354-.353h2.431c.234 0 .351.12.351.353v14.343l6.203-6.272c.165-.165.33-.246.495-.246h3.239c.144 0 .236.06.285.18.046.149.034.255-.036.315l-6.555 6.344 6.836 8.507c.095.104.117.208.07.334z"/></svg>
                         </div>
-                        <div class="contact-text">
-                            <strong>Kaggle</strong>
-                            <span>khoirkaroln</span>
-                        </div>
+                        <div class="contact-text"><strong>Kaggle</strong><span>khoirkaroln</span></div>
                     </a>
 
                     <a href="https://instagram.com/khoirknz" target="_blank" class="contact-card">
                         <div class="contact-icon-wrap icon-instagram">
-                            <svg viewBox="0 0 24 24" width="26" height="26" fill="white" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                            </svg>
+                            <svg viewBox="0 0 24 24" width="26" height="26" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                         </div>
-                        <div class="contact-text">
-                            <strong>Instagram</strong>
-                            <span>@khoirknz</span>
-                        </div>
+                        <div class="contact-text"><strong>Instagram</strong><span>@khoirknz</span></div>
                     </a>
 
                     <a href="https://tiktok.com/@khoir.kanzura" target="_blank" class="contact-card">
                         <div class="contact-icon-wrap icon-tiktok">
-                            <svg viewBox="0 0 24 24" width="26" height="26" fill="white" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.78a4.85 4.85 0 01-1.01-.09z"/>
-                            </svg>
+                            <svg viewBox="0 0 24 24" width="26" height="26" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.78a4.85 4.85 0 01-1.01-.09z"/></svg>
                         </div>
-                        <div class="contact-text">
-                            <strong>TikTok</strong>
-                            <span>@khoir.kanzura</span>
-                        </div>
+                        <div class="contact-text"><strong>TikTok</strong><span>@khoir.kanzura</span></div>
                     </a>
 
                 </div>
@@ -1180,13 +1338,18 @@
         </div>
     </section>
 
-    <!-- ═══════════════ FOOTER ═══════════════ -->
+    <!-- FOOTER -->
     <footer>
-        <p>© 2026 Khoir Karol Nurzuraidah &nbsp;✦&nbsp; <em>Man jadda wajada</em> &nbsp;<span>♡</span></p>
+        <div class="footer-inner">
+            <div class="footer-logo">© 2026 Khoir Karol Nurzuraidah ✦</div>
+            <p class="footer-quote">"Man jadda wajada"</p>
+            <div class="footer-hearts">
+                <span>🌸</span><span>✦</span><span>💜</span><span>✦</span><span>🌸</span>
+            </div>
+        </div>
     </footer>
 
     <script>
-        /* ── Smooth scroll ── */
         document.querySelectorAll('a[href^="#"]').forEach(a => {
             a.addEventListener('click', e => {
                 e.preventDefault();
@@ -1195,13 +1358,11 @@
             });
         });
 
-        /* ── Reveal on scroll ── */
         const obs = new IntersectionObserver(entries => {
             entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
         }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
         document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-        /* ── Image slider ── */
         function getSliderState(id) {
             const c = document.getElementById(id);
             if (!c) return null;
@@ -1215,8 +1376,7 @@
             if (!c) return;
             const imgs = c.querySelectorAll('img');
             const dots = document.querySelectorAll('#dots-' + id + ' .slider-dot');
-            const total = imgs.length;
-            const n = (idx + total) % total;
+            const n = (idx + imgs.length) % imgs.length;
             imgs.forEach((img, i) => img.classList.toggle('active', i === n));
             dots.forEach((d, i) => d.classList.toggle('active', i === n));
         }
@@ -1226,31 +1386,24 @@
         }
         function goToSlide(id, idx) { updateSlider(id, idx); }
 
-        /* ── Blob parallax ── */
         window.addEventListener('scroll', () => {
-            const blob1 = document.querySelector('.blob-1');
-            const blob2 = document.querySelector('.blob-2');
             const y = window.scrollY;
-            if (blob1) blob1.style.transform = `translate(${y * 0.3}px, ${y * 0.2}px)`;
-            if (blob2) blob2.style.transform = `translate(${-y * 0.2}px, ${y * 0.3}px)`;
+            const b1 = document.querySelector('.blob-1');
+            const b2 = document.querySelector('.blob-2');
+            if (b1) b1.style.transform = `translate(${y*0.25}px, ${y*0.18}px)`;
+            if (b2) b2.style.transform = `translate(${-y*0.18}px, ${y*0.25}px)`;
         });
 
-        /* ── NAMA SLOWMO — animasi huruf per huruf ── */
         (function () {
-            const name    = 'KHOIR KAROL NURZURAIDAH';
-            const row     = document.getElementById('flipNameRow');
+            const name = 'KHOIR KAROL NURZURAIDAH';
+            const row  = document.getElementById('flipNameRow');
             if (!row) return;
-
-            const BASE_DELAY = 0.8;
-            const CHAR_GAP   = 0.13;
-
+            const BASE_DELAY = 0.8, CHAR_GAP = 0.13;
             const words = name.split(' ');
             let charIndex = 0;
-
             words.forEach((word, wi) => {
                 const wordEl = document.createElement('span');
                 wordEl.className = 'flip-word';
-
                 [...word].forEach(ch => {
                     const s = document.createElement('span');
                     s.className = 'flip-ch';
@@ -1259,9 +1412,7 @@
                     wordEl.appendChild(s);
                     charIndex++;
                 });
-
                 row.appendChild(wordEl);
-
                 if (wi < words.length - 1) {
                     const sp = document.createElement('span');
                     sp.style.cssText = 'display:inline-block;width:0.32em;';
@@ -1269,6 +1420,45 @@
                 }
             });
         })();
+
+        const sections = ['#home','#about','#keterampilan','#organisasi','#projects','#prestasi','#contact'];
+        const dots = document.querySelectorAll('.progress-dot');
+        dots.forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+                const t = document.querySelector(sections[i]);
+                if (t) t.scrollIntoView({ behavior:'smooth', block:'start' });
+            });
+        });
+        const dotObserver = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    const idx = sections.indexOf('#' + e.target.id);
+                    if (idx >= 0) {
+                        dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+                    }
+                }
+            });
+        }, { threshold: 0.5 });
+        sections.forEach(s => {
+            const el = document.querySelector(s);
+            if (el) dotObserver.observe(el);
+        });
+
+        const colors = ['#e8a4b8','#c9b8d8','#f9c4a8','#b8e4d4','#c4956a','#f5dde8'];
+        document.addEventListener('mousemove', (e) => {
+            if (Math.random() > 0.65) return;
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            const size = Math.random() * 10 + 5;
+            sparkle.style.cssText = `
+                left: ${e.clientX - size/2}px;
+                top: ${e.clientY - size/2}px;
+                width: ${size}px; height: ${size}px;
+                background: ${colors[Math.floor(Math.random()*colors.length)]};
+            `;
+            document.body.appendChild(sparkle);
+            setTimeout(() => sparkle.remove(), 800);
+        });
     </script>
 </body>
 </html>
