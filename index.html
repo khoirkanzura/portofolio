@@ -930,7 +930,7 @@
                 <a href="#contact" class="btn btn-outline">💌 Hubungi Saya</a>
             </div>
             <div class="hero-stats">
-                <div class="stat-pill"><span class="stat-num">9+</span><span class="stat-lbl">Proyek</span></div>
+                <div class="stat-pill"><span class="stat-num">10+</span><span class="stat-lbl">Proyek</span></div>
                 <div class="stat-pill"><span class="stat-num">6+</span><span class="stat-lbl">Organisasi</span></div>
                 <div class="stat-pill"><span class="stat-num">5+</span><span class="stat-lbl">Prestasi</span></div>
             </div>
@@ -1400,9 +1400,20 @@
 
                 <!-- Project 07 -->
                 <div class="project-card reveal">
-                    <div class="project-img-wrap">
-                        <div class="project-img-placeholder" style="background:linear-gradient(135deg,#e8a4b818,#f5dde818);">
-                            <svg viewBox="0 0 80 80" width="72" height="72" xmlns="http://www.w3.org/2000/svg"><circle cx="40" cy="36" r="20" fill="none" stroke="#e8a4b8" stroke-width="3" opacity="0.7"/><path d="M32 34c0-4 3-8 8-8s8 4 8 8c0 6-8 14-8 14s-8-8-8-14z" fill="#e8a4b8" opacity="0.4"/><circle cx="40" cy="34" r="4" fill="#c97a98" opacity="0.8"/><path d="M28 58h24M34 62h12" stroke="#c97a98" stroke-width="2.5" stroke-linecap="round" opacity="0.5"/></svg>
+                    <div class="project-img-wrap" id="slider-07">
+                        <img src="skinquo1.png" class="active" alt="SkinQuo - Tampilan 1"/>
+                        <img src="skinquo2.png" alt="SkinQuo - Tampilan 2"/>
+                        <img src="skinquo3.png" alt="SkinQuo - Tampilan 3"/>
+                        <img src="skinquo4.jpeg" alt="SkinQuo - Tampilan 4"/>
+                        <img src="skinquo5.jpeg" alt="SkinQuo - Tampilan 5"/>
+                        <button class="slider-arrow prev" onclick="slideImg('slider-07',-1)">&#8249;</button>
+                        <button class="slider-arrow next" onclick="slideImg('slider-07', 1)">&#8250;</button>
+                        <div class="slider-dots" id="dots-slider-07">
+                            <button class="slider-dot active" onclick="goToSlide('slider-07',0)"></button>
+                            <button class="slider-dot" onclick="goToSlide('slider-07',1)"></button>
+                            <button class="slider-dot" onclick="goToSlide('slider-07',2)"></button>
+                            <button class="slider-dot" onclick="goToSlide('slider-07',3)"></button>
+                            <button class="slider-dot" onclick="goToSlide('slider-07',4)"></button>
                         </div>
                     </div>
                     <div class="project-body">
@@ -1482,6 +1493,46 @@
                                 <span class="module-pill">Point of Sale</span>
                                 <span class="module-pill">Website</span>
                                 <span class="module-pill">Employees</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 10 -->
+                <div class="project-card reveal">
+                    <div class="project-img-wrap" id="slider-10">
+                        <img src="bigdata1.png" class="active" alt="Big Data Taksi NYC - 1"/>
+                        <img src="bigdata2.png" alt="Big Data Taksi NYC - 2"/>
+                        <img src="bigdata3.jpeg" alt="Big Data Taksi NYC - 3"/>
+                        <img src="bigdata4.jpeg" alt="Big Data Taksi NYC - 4"/>
+                        <button class="slider-arrow prev" onclick="slideImg('slider-10',-1)">&#8249;</button>
+                        <button class="slider-arrow next" onclick="slideImg('slider-10', 1)">&#8250;</button>
+                        <div class="slider-dots" id="dots-slider-10">
+                            <button class="slider-dot active" onclick="goToSlide('slider-10',0)"></button>
+                            <button class="slider-dot" onclick="goToSlide('slider-10',1)"></button>
+                            <button class="slider-dot" onclick="goToSlide('slider-10',2)"></button>
+                            <button class="slider-dot" onclick="goToSlide('slider-10',3)"></button>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-num">✦ 10</div>
+                        <h3>Big Data — Estimasi Tarif Taksi NYC (Spark & HDFS)</h3>
+                        <p>Eksperimen pengolahan data skala besar buat mengestimasi tarif taksi pakai dataset NYC Taxi Fare. Data disimpan dan diproses lewat HDFS dan Apache Spark biar sanggup nanganin volume data yang besar, lalu model regresinya dibangun pakai Spark ML Pipeline untuk memprediksi tarif perjalanan dari fitur-fitur yang ada di dataset.</p>
+                        <div class="tags"><span class="tag">Big Data</span><span class="tag">Apache Spark</span><span class="tag">HDFS</span><span class="tag">Spark ML</span></div>
+
+                        <div class="team-section">
+                            <div class="team-header">
+                                <span class="team-header-icon">👥</span>
+                                <span class="team-header-label">Tim Pengembang</span>
+                                <div class="team-header-line"></div>
+                                <span class="team-count-badge">5 orang</span>
+                            </div>
+                            <div class="team-avatars">
+                                <div class="team-avatar"><div class="team-avatar-circle">AI</div><span class="team-avatar-name">Adinda Ivanka M.</span></div>
+                                <div class="team-avatar is-author"><div class="team-avatar-circle">KK</div><span class="team-avatar-name">Khoir Karol N.</span><span class="author-star">✦</span></div>
+                                <div class="team-avatar"><div class="team-avatar-circle">MB</div><span class="team-avatar-name">My Babby F. R. S.</span></div>
+                                <div class="team-avatar"><div class="team-avatar-circle">NH</div><span class="team-avatar-name">Nadya Hapsari</span></div>
+                                <div class="team-avatar"><div class="team-avatar-circle">NS</div><span class="team-avatar-name">Nindya Shafira P.</span></div>
                             </div>
                         </div>
                     </div>
