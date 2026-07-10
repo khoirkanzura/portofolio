@@ -1587,11 +1587,23 @@
                         <div class="prestasi-year">📅 2021</div>
                     </div>
 
-                    <div class="prestasi-card rank-3 reveal">
-                        <span class="trophy-icon">🥉</span>
-                        <div class="prestasi-rank">✦ Juara 3</div>
-                        <h4>Lomba Movie Maker</h4>
-                        <div class="prestasi-year">📅 2021</div>
+                    <div class="prestasi-card rank-3 has-photo reveal">
+                        <div class="prestasi-img-wrap" id="slider-moviemaker">
+                            <img src="videomaker.jpg" class="active" alt="Juara 3 Movie Maker - Foto 1"/>
+                            <img src="videomaker2.jpg" alt="Juara 3 Movie Maker - Foto 2"/>
+                            <button class="slider-arrow prev" onclick="slideImg('slider-moviemaker',-1)">&#8249;</button>
+                            <button class="slider-arrow next" onclick="slideImg('slider-moviemaker', 1)">&#8250;</button>
+                            <div class="slider-dots" id="dots-slider-moviemaker">
+                                <button class="slider-dot active" onclick="goToSlide('slider-moviemaker',0)"></button>
+                                <button class="slider-dot" onclick="goToSlide('slider-moviemaker',1)"></button>
+                            </div>
+                        </div>
+                        <div class="prestasi-body">
+                            <span class="trophy-icon">🥉</span>
+                            <div class="prestasi-rank">✦ Juara 3</div>
+                            <h4>Lomba Movie Maker</h4>
+                            <div class="prestasi-year">📅 2021</div>
+                        </div>
                     </div>
 
                     <div class="prestasi-card rank-3 reveal reveal-delay-1">
