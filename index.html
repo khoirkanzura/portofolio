@@ -106,16 +106,10 @@
             position: relative;
         }
 
-        /* Subtle Noise & Ruled Paper Overlay */
+        /* Subtle Noise Overlay */
         body::before {
             content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.035;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-        }
-        
-        body::after {
-            content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.015;
-            background-size: 100% 28px;
-            background-image: linear-gradient(to bottom, var(--ink-main) 1px, transparent 1px);
         }
 
         /* Organic Background Blobs (Matcha, Rose & Lilac Blend) */
@@ -143,12 +137,6 @@
         }
         .washi-tape-top-left { top: -12px; left: 18px; transform: rotate(-5deg); }
         .washi-tape-top-right { top: -12px; right: 18px; transform: rotate(4deg); }
-        .washi-tape-bot-right { bottom: -10px; right: 24px; transform: rotate(-3deg); }
-
-        .hand-doodle {
-            font-family: var(--font-hand); font-size: 1.4rem; color: var(--rose-deep);
-            display: inline-block; transform: rotate(-3deg);
-        }
 
         .paper-clip {
             position: absolute; top: -16px; left: 24px; z-index: 12; width: 14px; height: 36px;
@@ -218,15 +206,12 @@
             transform: scale(1.12) rotate(15deg);
             border-color: var(--matcha-deep);
         }
-        .theme-pill-btn:active { transform: scale(0.92); }
 
         /* ── LAYOUT CONTAINERS & HEADINGS ── */
         section { position: relative; z-index: 1; padding: 100px 0; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 6%; }
 
-        .section-header-scrap {
-            margin-bottom: 3.5rem; position: relative;
-        }
+        .section-header-scrap { margin-bottom: 3.5rem; position: relative; }
         .section-tag-doodle {
             font-family: var(--font-hand); font-size: 1.35rem; color: var(--matcha-deep);
             display: inline-flex; align-items: center; gap: 0.4rem; margin-bottom: 0.3rem;
@@ -253,7 +238,6 @@
             display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: center;
         }
 
-        .hero-left { position: relative; }
         .hero-sticker-header {
             display: inline-flex; align-items: center; gap: 0.6rem;
             background: var(--matcha-light); border: 1.5px solid var(--border-paper);
@@ -279,6 +263,7 @@
             transform: rotate(-0.8deg); transition: transform 0.3s ease;
         }
         .hero-sub-card:hover { transform: rotate(0deg) translateY(-3px); }
+        .hero-subtitle-tag { font-family: var(--font-display); font-style: italic; font-size: 1.15rem; color: var(--matcha-deep); margin-bottom: 0.4rem; }
         .hero-sub-card p { font-size: 1rem; color: var(--ink-muted); line-height: 1.8; }
         
         .hero-cta-group { display: flex; gap: 1.2rem; flex-wrap: wrap; align-items: center; margin-bottom: 2.5rem; }
@@ -314,7 +299,7 @@
         .stat-num-j { font-family: var(--font-heading); font-size: 1.6rem; font-weight: 800; color: var(--rose-deep); line-height: 1; }
         .stat-lbl-j { font-size: 0.75rem; font-weight: 600; color: var(--ink-muted); }
 
-        /* Hero Right Polaroid Stack */
+        /* Hero Right Polaroid Frame */
         .hero-right { position: relative; display: flex; justify-content: center; }
         .polaroid-frame {
             position: relative; width: 340px; background: var(--card-bg);
@@ -346,11 +331,8 @@
         .sticker-pin-b { bottom: 40px; left: -30px; transform: rotate(-8deg); animation-delay: 2s; background: var(--rose-light); border-color: var(--rose-deep); color: var(--rose-deep); }
         @keyframes floatSticker { 0%,100%{ transform: translateY(0) rotate(4deg); } 50%{ transform: translateY(-8px) rotate(-2deg); } }
 
-        /* ── ABOUT SECTION (ASYSMMETRIC SCRAPBOOK) ── */
-        .about-grid-journal {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;
-        }
-        
+        /* ── ABOUT SECTION ── */
+        .about-grid-journal { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
         .about-text-paper {
             background: var(--card-bg); border: 1.5px solid var(--border-paper);
             border-radius: 24px 10px 30px 14px; padding: 2.5rem;
@@ -366,7 +348,6 @@
         }
 
         .about-cards-stack { display: flex; flex-direction: column; gap: 1.3rem; }
-        
         .journal-note-card {
             background: var(--card-bg); border: 1.5px solid var(--border-paper);
             border-radius: 20px 8px 20px 12px; padding: 1.3rem 1.6rem;
@@ -390,24 +371,16 @@
             background: var(--matcha-light); color: var(--matcha-deep); border: 1px solid var(--border-paper);
         }
 
-        /* ── KETERAMPILAN / SKILLS SECTION (3D GLOBE + CARDS) ── */
-        .skills-container-grid {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: center;
-        }
-        
+        /* ── SKILLS SECTION (3D GLOBE) ── */
+        .skills-container-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: center; }
         .globe-wrapper-card {
             background: var(--card-bg); border: 1.5px solid var(--border-paper);
             border-radius: 32px 14px 28px 18px; padding: 2rem;
             box-shadow: var(--shadow-lift); position: relative; text-align: center;
             transform: rotate(-1deg); overflow: hidden;
         }
-        .globe-title-hint {
-            font-family: var(--font-hand); font-size: 1.3rem; color: var(--matcha-deep); margin-bottom: 0.5rem;
-        }
-        #skillGlobeCanvas {
-            width: 100%; max-width: 440px; height: 440px; cursor: grab; touch-action: none;
-        }
-        #skillGlobeCanvas:active { cursor: grabbing; }
+        .globe-title-hint { font-family: var(--font-hand); font-size: 1.3rem; color: var(--matcha-deep); margin-bottom: 0.5rem; }
+        #skillGlobeCanvas { width: 100%; max-width: 440px; height: 440px; cursor: grab; touch-action: none; }
 
         .skills-category-stack { display: flex; flex-direction: column; gap: 1.4rem; }
         .skill-cat-journal-card {
@@ -434,10 +407,8 @@
         .skill-pill.caramel { background: var(--caramel-light); color: var(--caramel-deep); border-color: var(--caramel); }
         .skill-pill.rose { background: var(--rose-light); color: var(--rose-deep); border-color: var(--rose); }
 
-        /* ── ORGANISASI SECTION (JOURNAL RIBBON TIMELINE) ── */
-        .org-timeline-scrap {
-            position: relative; padding-left: 2.8rem; margin-top: 2rem;
-        }
+        /* ── ORGANISASI SECTION ── */
+        .org-timeline-scrap { position: relative; padding-left: 2.8rem; margin-top: 2rem; }
         .org-timeline-scrap::before {
             content: ''; position: absolute; left: 12px; top: 0; bottom: 0; width: 3px;
             background: linear-gradient(to bottom, var(--matcha), var(--rose), var(--lilac), var(--caramel));
@@ -482,41 +453,23 @@
             white-space: nowrap; transform: rotate(-2deg);
         }
 
-        /* ── PROJECTS SECTION (SCRAPBOOK GALLERY) ── */
-        .projects-asym-grid {
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.2rem;
-        }
-
+        /* ── PROJECTS SECTION ── */
+        .projects-asym-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.2rem; }
         .project-scrap-card {
             background: var(--card-bg); border: 1.5px solid var(--border-paper);
             border-radius: 26px 12px 28px 16px; overflow: hidden;
             box-shadow: var(--shadow-paper); display: flex; flex-direction: column;
             position: relative; transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
-        .project-scrap-card:nth-child(1) { transform: rotate(-1deg); }
-        .project-scrap-card:nth-child(2) { transform: rotate(1.2deg); }
-        .project-scrap-card:nth-child(3) { transform: rotate(-0.8deg); }
-        .project-scrap-card:nth-child(4) { transform: rotate(1deg); }
-        .project-scrap-card:nth-child(5) { transform: rotate(-1.4deg); }
-        .project-scrap-card:nth-child(6) { transform: rotate(0.6deg); }
+        .project-scrap-card:nth-child(odd) { transform: rotate(-1deg); }
+        .project-scrap-card:nth-child(even) { transform: rotate(1.2deg); }
+        .project-scrap-card:hover { transform: rotate(0deg) translateY(-10px); border-color: var(--matcha-deep); box-shadow: var(--shadow-lift); z-index: 5; }
 
-        .project-scrap-card:hover {
-            transform: rotate(0deg) translateY(-10px); border-color: var(--matcha-deep);
-            box-shadow: var(--shadow-lift); z-index: 5;
-        }
-
-        .project-carousel-wrap {
-            position: relative; height: 210px; background: var(--bg-paper-alt); overflow: hidden;
-        }
-        .project-carousel-wrap img {
-            width: 100%; height: 100%; object-fit: cover; display: none; transition: transform 0.5s ease;
-        }
+        .project-carousel-wrap { position: relative; height: 210px; background: var(--bg-paper-alt); overflow: hidden; }
+        .project-carousel-wrap img { width: 100%; height: 100%; object-fit: cover; display: none; transition: transform 0.5s ease; }
         .project-carousel-wrap img.active { display: block; }
         .project-scrap-card:hover .project-carousel-wrap img { transform: scale(1.06); }
-
-        .project-img-placeholder {
-            width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
-        }
+        .project-img-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
 
         .carousel-btn {
             position: absolute; top: 50%; transform: translateY(-50%);
@@ -524,102 +477,71 @@
             background: rgba(255, 253, 250, 0.9); border: 1px solid var(--border-paper);
             color: var(--ink-main); font-size: 1rem; cursor: pointer;
             display: flex; align-items: center; justify-content: center; z-index: 5;
-            transition: all 0.2s ease;
         }
         .carousel-btn:hover { background: var(--matcha-deep); color: #fff; }
         .carousel-btn.prev { left: 10px; }
         .carousel-btn.next { right: 10px; }
 
-        .carousel-dots {
-            position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
-            display: flex; gap: 5px; z-index: 5;
-        }
-        .c-dot {
-            width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.6);
-            border: none; cursor: pointer; transition: all 0.3s ease; padding: 0;
-        }
+        .carousel-dots { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); display: flex; gap: 5px; z-index: 5; }
+        .c-dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.6); border: none; cursor: pointer; padding: 0; }
         .c-dot.active { background: var(--matcha-deep); width: 16px; border-radius: 4px; }
 
         .project-card-body { padding: 1.6rem; flex: 1; display: flex; flex-direction: column; }
-        .project-num-hand {
-            font-family: var(--font-hand); font-size: 1.4rem; color: var(--matcha-deep); margin-bottom: 0.3rem;
-        }
-        .project-card-body h3 {
-            font-family: var(--font-heading); font-size: 1.25rem; font-weight: 700; color: var(--ink-main);
-            margin-bottom: 0.6rem; line-height: 1.35;
-        }
+        .project-num-hand { font-family: var(--font-hand); font-size: 1.4rem; color: var(--matcha-deep); margin-bottom: 0.3rem; }
+        .project-card-body h3 { font-family: var(--font-heading); font-size: 1.25rem; font-weight: 700; color: var(--ink-main); margin-bottom: 0.6rem; line-height: 1.35; }
         .project-card-body p { font-size: 0.88rem; color: var(--ink-muted); line-height: 1.7; flex: 1; margin-bottom: 1.2rem; }
 
         .project-tags-wrap { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.2rem; }
-        .p-tag {
-            font-size: 0.74rem; font-weight: 700; padding: 0.22rem 0.75rem; border-radius: 100px;
-            background: var(--matcha-light); color: var(--matcha-deep); border: 1px solid var(--border-paper);
-        }
+        .p-tag { font-size: 0.74rem; font-weight: 700; padding: 0.22rem 0.75rem; border-radius: 100px; background: var(--matcha-light); color: var(--matcha-deep); border: 1px solid var(--border-paper); }
 
-        /* Team Avatar Sticker Group */
-        .team-sticker-group {
-            margin-bottom: 1.2rem; padding: 0.7rem; background: var(--card-bg-subtle);
-            border-radius: 14px; border: 1px dashed var(--border-paper);
-        }
-        .team-title-sm {
-            font-family: var(--font-hand); font-size: 1.1rem; color: var(--caramel-deep); margin-bottom: 0.4rem;
-        }
+        .team-sticker-group { margin-bottom: 1.2rem; padding: 0.7rem; background: var(--card-bg-subtle); border-radius: 14px; border: 1px dashed var(--border-paper); }
+        .team-title-sm { font-family: var(--font-hand); font-size: 1.1rem; color: var(--caramel-deep); margin-bottom: 0.4rem; }
         .team-avatar-list { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-        .t-avatar-pill {
-            display: flex; align-items: center; gap: 0.35rem; background: var(--card-bg);
-            border: 1px solid var(--border-paper); border-radius: 100px; padding: 0.2rem 0.6rem 0.2rem 0.35rem;
-            font-size: 0.72rem; font-weight: 700; color: var(--ink-main);
-        }
+        .t-avatar-pill { display: flex; align-items: center; gap: 0.35rem; background: var(--card-bg); border: 1px solid var(--border-paper); border-radius: 100px; padding: 0.2rem 0.6rem 0.2rem 0.35rem; font-size: 0.72rem; font-weight: 700; color: var(--ink-main); }
         .t-avatar-pill.author { border-color: var(--rose-deep); background: var(--rose-light); color: var(--rose-deep); }
-        .t-avatar-circle {
-            width: 20px; height: 20px; border-radius: 50%; background: var(--matcha-deep); color: #fff;
-            font-size: 0.55rem; display: flex; align-items: center; justify-content: center; font-weight: 800;
-        }
+        .t-avatar-circle { width: 20px; height: 20px; border-radius: 50%; background: var(--matcha-deep); color: #fff; font-size: 0.55rem; display: flex; align-items: center; justify-content: center; font-weight: 800; }
 
-        .project-link-btn {
-            display: inline-flex; align-items: center; gap: 0.5rem;
-            font-size: 0.82rem; font-weight: 700; color: var(--matcha-deep); text-decoration: none;
-            background: var(--matcha-light); border: 1px solid var(--border-paper);
-            padding: 0.5rem 1.1rem; border-radius: 100px; transition: all 0.3s ease; width: fit-content;
-        }
+        .project-link-btn { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; font-weight: 700; color: var(--matcha-deep); text-decoration: none; background: var(--matcha-light); border: 1px solid var(--border-paper); padding: 0.5rem 1.1rem; border-radius: 100px; transition: all 0.3s ease; width: fit-content; }
         .project-link-btn:hover { background: var(--matcha-deep); color: #fff; transform: scale(1.05); }
 
-        /* ── PRESTASI SECTION (POLAROID WINNERS) ── */
-        .prestasi-grid-scrap {
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2rem;
-        }
+        .module-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+        .module-pill { font-size: 0.74rem; font-weight: 700; padding: 0.25rem 0.8rem; border-radius: 100px; background: var(--lilac-light); color: var(--lilac-deep); border: 1px solid var(--lilac); }
+
+        /* ── PRESTASI SECTION ── */
+        .prestasi-grid-scrap { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2rem; }
         .trophy-polaroid-card {
             background: var(--card-bg); border: 1.5px solid var(--border-paper);
             border-radius: 22px 10px 24px 12px; padding: 1.6rem;
             box-shadow: var(--shadow-paper); position: relative; transition: all 0.35s ease;
+            display: flex; flex-direction: column;
         }
         .trophy-polaroid-card:nth-child(odd) { transform: rotate(1deg); }
         .trophy-polaroid-card:nth-child(even) { transform: rotate(-1.2deg); }
         .trophy-polaroid-card:hover { transform: rotate(0deg) translateY(-6px); border-color: var(--rose); box-shadow: var(--shadow-lift); }
 
-        .trophy-icon-j { font-size: 2.2rem; margin-bottom: 0.6rem; display: block; }
-        .trophy-rank-badge {
-            font-family: var(--font-hand); font-size: 1.3rem; color: var(--rose-deep); font-weight: 700;
+        .clean-polaroid-photo-wrap {
+            position: relative; height: 200px; width: 100%; margin-bottom: 1rem;
+            border-radius: 12px; overflow: hidden; border: 1px solid var(--border-paper);
+            background: var(--bg-paper-alt);
         }
-        .trophy-polaroid-card h4 { font-family: var(--font-heading); font-size: 1.1rem; font-weight: 700; color: var(--ink-main); margin: 0.4rem 0; }
-        .trophy-year-seal {
-            font-size: 0.75rem; font-weight: 700; color: var(--caramel-deep);
-            background: var(--caramel-light); padding: 0.2rem 0.7rem; border-radius: 100px; display: inline-block;
-        }
+        .clean-polaroid-photo-wrap img { width: 100%; height: 100%; object-fit: cover; display: none; transition: transform 0.5s ease; }
+        .clean-polaroid-photo-wrap img.active { display: block; }
+        .trophy-polaroid-card:hover .clean-polaroid-photo-wrap img { transform: scale(1.05); }
 
-        /* ── CONTACT SECTION (VINTAGE POSTAL ENVELOPE) ── */
-        .contact-envelope-grid {
-            display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: start;
-        }
+        .trophy-icon-j { font-size: 2.2rem; margin-bottom: 0.6rem; display: block; }
+        .trophy-rank-badge { font-family: var(--font-hand); font-size: 1.3rem; color: var(--rose-deep); font-weight: 700; }
+        .trophy-polaroid-card h4 { font-family: var(--font-heading); font-size: 1.1rem; font-weight: 700; color: var(--ink-main); margin: 0.4rem 0; }
+        .trophy-year-seal { font-size: 0.75rem; font-weight: 700; color: var(--caramel-deep); background: var(--caramel-light); padding: 0.2rem 0.7rem; border-radius: 100px; display: inline-block; width: fit-content; margin-top: auto; }
+
+        /* ── CONTACT SECTION ── */
+        .contact-envelope-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: start; }
         .contact-letter-card {
             background: var(--card-bg); border: 1.5px solid var(--border-paper);
             border-radius: 28px 12px 30px 16px; padding: 2.5rem;
             box-shadow: var(--shadow-lift); position: relative; transform: rotate(-0.8deg);
         }
         .contact-letter-card p { font-size: 1rem; color: var(--ink-muted); line-height: 1.9; margin-bottom: 1.5rem; }
-        .contact-signature-hand {
-            font-family: var(--font-hand); font-size: 2.4rem; color: var(--matcha-deep); transform: rotate(-3deg); display: inline-block;
-        }
+        .contact-signature-hand { font-family: var(--font-hand); font-size: 2.4rem; color: var(--matcha-deep); transform: rotate(-3deg); display: inline-block; }
 
         .contact-stamps-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
         .contact-stamp-card {
@@ -699,33 +621,34 @@
     <section id="home" class="hero-section">
         <div class="hero-left">
             <div class="hero-sticker-header">
-                ✦ Catatan Jurnal & Portfolio ✦
+                ✦ Portfolio & Journal ✦
             </div>
             <h1 class="hero-name-journal">
                 Khoir Karol <br><span class="highlight-serif">Nurzuraidah</span>
             </h1>
             <div class="hero-sub-card">
                 <div class="washi-tape washi-tape-top-left"></div>
+                <div class="hero-subtitle-tag">D-IV Sistem Informasi Bisnis · Polinema</div>
                 <p>
-                    Hai! Aku mahasiswa D-IV Sistem Informasi Bisnis di Polinema (SIB 3D). Lagi suka-sukanya ngulik analisis data, ngebangun aplikasi web, dan ngatur kegiatan organisasi di kampus. Suka nyoba hal baru dan selalu kepo sama cara ngebantu proses bisnis lewat teknologi! ✨
+                    Mahasiswa Sistem Informasi Bisnis yang memiliki minat mendalam pada analisis bisnis, pengembangan sistem, dan analisis data, serta aktif dalam kegiatan organisasi dan kepanitiaan. Memiliki kemampuan komunikasi, kerja sama tim, dan manajemen waktu yang baik — berkomitmen untuk terus belajar dan berkembang. ✨
                 </p>
             </div>
             <div class="hero-cta-group">
-                <a href="#projects" class="btn-scrap btn-scrap-rose">✦ Intip Karya</a>
-                <a href="#contact" class="btn-scrap btn-scrap-outline">💌 Ngobrol Yuk</a>
+                <a href="#projects" class="btn-scrap btn-scrap-rose">✦ Lihat Karya</a>
+                <a href="#contact" class="btn-scrap btn-scrap-outline">💌 Hubungi Saya</a>
             </div>
             <div class="hero-stats-row">
                 <div class="stat-polaroid">
                     <div class="stat-num-j">10+</div>
-                    <div class="stat-lbl-j">Proyek digarap</div>
+                    <div class="stat-lbl-j">Proyek</div>
                 </div>
                 <div class="stat-polaroid">
                     <div class="stat-num-j">6+</div>
-                    <div class="stat-lbl-j">Pengalaman organisasi</div>
+                    <div class="stat-lbl-j">Organisasi</div>
                 </div>
                 <div class="stat-polaroid">
                     <div class="stat-num-j">5+</div>
-                    <div class="stat-lbl-j">Penghargaan</div>
+                    <div class="stat-lbl-j">Prestasi</div>
                 </div>
             </div>
         </div>
@@ -733,10 +656,10 @@
             <div class="polaroid-frame">
                 <div class="washi-tape washi-tape-top-right"></div>
                 <div class="polaroid-img-wrap">
-                    <img src="Khoir kn.jpeg" alt="Foto Khoir Karol Nurzuraidah">
+                    <img src="Khoir kn.jpeg" alt="Khoir Karol Nurzuraidah">
                 </div>
-                <div class="polaroid-caption">Khoir Karol N. 🌸</div>
-                <div class="sticker-pin sticker-pin-a"><span>🎓</span> Polinema SIB 3D</div>
+                <div class="polaroid-caption">Khoir Karol 🌸</div>
+                <div class="sticker-pin sticker-pin-a"><span>🎓</span> Polinema ✨</div>
                 <div class="sticker-pin sticker-pin-b"><span>🤝</span> Open to Collab</div>
             </div>
         </div>
@@ -746,18 +669,18 @@
     <section id="about">
         <div class="container">
             <div class="section-header-scrap reveal-scrap">
-                <div class="section-tag-doodle">🌸 Cerita Singkat #01</div>
+                <div class="section-tag-doodle">🌸 Catatan Jurnal #01</div>
                 <h2 class="section-title-journal">Mengenal <em>Lebih Dekat</em></h2>
             </div>
 
             <div class="about-grid-journal">
                 <div class="about-text-paper reveal-scrap">
                     <div class="paper-clip"></div>
-                    <p>Sekarang aku lagi nempuh studi D-IV Sistem Informasi Bisnis di Politeknik Negeri Malang (Polinema). Dari urusan kodingan Laravel, olah data di SQL & Power BI, sampe riwehnya ngurusin acara organisasi — semuanya dinikmati aja karena emang seneng sama proses belajarnya!</p>
+                    <p>Saya adalah mahasiswa Program Studi D-IV Sistem Informasi Bisnis di Politeknik Negeri Malang yang memiliki ketertarikan pada analisis bisnis, pengembangan sistem informasi, analisis data, serta manajemen organisasi. Saya aktif mengembangkan kemampuan melalui berbagai proyek dan pengalaman, serta berfokus pada pemanfaatan teknologi untuk menghasilkan solusi yang bermanfaat.</p>
                     <div class="highlight-marker">
-                        "Buat aku, belajar itu nggak cuma pas duduk di kelas. Tapi juga pas nemu error kodingan jam 2 pagi, atau pas koordinasi antar-divisi pas event."
+                        "Dikenal sebagai pribadi yang bertanggung jawab dan memiliki semangat tinggi untuk terus belajar hal-hal baru."
                     </div>
-                    <p>Selain fokus kuliah, aku juga aktif di beberapa organisasi kaya Formadiksi Polinema (dipercaya jadi Koordinator Komunikasi Eksternal) dan Ikatan Mahasiswa Tulungagung (IKATAMA). Pengalaman ini bener-bener ngelatih public speaking, negosiasi, dan cara kerja bareng banyak orang.</p>
+                    <p>Saya memiliki pengalaman dalam kepemimpinan dan komunikasi, serta dipercaya mengemban peran sebagai Koordinator Komunikasi Eksternal Formadiksi dan Wakil Ketua Ikatan Mahasiswa Tulungagung, yang memperkuat kemampuan saya dalam berkoordinasi, membangun relasi, dan mengelola kegiatan organisasi.</p>
                 </div>
 
                 <div class="about-cards-stack reveal-scrap">
@@ -766,28 +689,38 @@
                         <div class="note-info">
                             <h4>Pendidikan</h4>
                             <p>D-IV Sistem Informasi Bisnis — Polinema</p>
-                            <div class="note-tags"><span class="note-tag-pill">Kelas SIB 3D</span></div>
+                            <div class="note-tags"><span class="note-tag-pill">Semester 7</span></div>
                         </div>
                     </div>
                     <div class="journal-note-card">
                         <div class="note-icon-circle">📍</div>
                         <div class="note-info">
                             <h4>Domisili</h4>
-                            <p>Malang, Jawa Timur (Asal Tulungagung nih!)</p>
+                            <p>Malang, Jawa Timur (Asal Tulungagung)</p>
                         </div>
                     </div>
                     <div class="journal-note-card">
-                        <div class="note-icon-circle">💻</div>
+                        <div class="note-icon-circle">📊</div>
                         <div class="note-info">
-                            <h4>Hal yang Disukai</h4>
-                            <p>Web Dev, System Analysis, Business Intelligence & Data Analytics</p>
+                            <h4>Fokus Keahlian</h4>
+                            <p>Analisis bisnis, pengembangan sistem & analisis data</p>
+                            <div class="note-tags"><span class="note-tag-pill">Business Analyst</span><span class="note-tag-pill">System Analyst</span><span class="note-tag-pill">Business Intelligence</span><span class="note-tag-pill">Data Analytics</span></div>
+                        </div>
+                    </div>
+                    <div class="journal-note-card">
+                        <div class="note-icon-circle">🌱</div>
+                        <div class="note-info">
+                            <h4>Sedang Dipelajari</h4>
+                            <p>Mengeksplorasi teknologi terkini untuk solusi bisnis</p>
+                            <div class="note-tags"><span class="note-tag-pill">Laravel</span><span class="note-tag-pill">Python</span><span class="note-tag-pill">Odoo</span></div>
                         </div>
                     </div>
                     <div class="journal-note-card">
                         <div class="note-icon-circle">✨</div>
                         <div class="note-info">
-                            <h4>Hobi & Sampingan</h4>
-                            <p>Fotografi, Videografi, Podcast, & Bikin Konten Visual</p>
+                            <h4>Hobi & Kreativitas</h4>
+                            <p>Mengabadikan momen dan bercerita lewat karya visual</p>
+                            <div class="note-tags"><span class="note-tag-pill">Fotografi</span><span class="note-tag-pill">Videografi</span><span class="note-tag-pill">Podcast</span></div>
                         </div>
                     </div>
                 </div>
@@ -819,16 +752,23 @@
                             <h3>Keterampilan Teknis & Analisis Data</h3>
                         </div>
                         <div class="cat-pills-wrap">
-                            <span class="skill-pill">System Analysis</span>
+                            <span class="skill-pill">System Analysis & Design</span>
                             <span class="skill-pill">Business Intelligence</span>
                             <span class="skill-pill">Power BI</span>
                             <span class="skill-pill">Data Analysis</span>
+                            <span class="skill-pill">Data Visualization</span>
+                            <span class="skill-pill">Web Development</span>
+                            <span class="skill-pill">MySQL</span>
+                            <span class="skill-pill">PHP</span>
+                            <span class="skill-pill">HTML</span>
+                            <span class="skill-pill">CSS</span>
+                            <span class="skill-pill">Laravel</span>
+                            <span class="skill-pill">Java</span>
+                            <span class="skill-pill">Python</span>
                             <span class="skill-pill">Data Mining</span>
                             <span class="skill-pill">Data Warehouse</span>
-                            <span class="skill-pill">Laravel</span>
-                            <span class="skill-pill">Python</span>
-                            <span class="skill-pill">SQL & MySQL</span>
-                            <span class="skill-pill">Odoo ERP</span>
+                            <span class="skill-pill">Odoo Specialist Basic</span>
+                            <span class="skill-pill">Business Process Analysis</span>
                         </div>
                     </div>
 
@@ -841,6 +781,7 @@
                             <span class="skill-pill lilac">Public Speaking</span>
                             <span class="skill-pill lilac">Manajemen Acara</span>
                             <span class="skill-pill lilac">Kepemimpinan Tim</span>
+                            <span class="skill-pill lilac">Komunikasi Organisasi</span>
                             <span class="skill-pill lilac">MC & Moderator</span>
                         </div>
                     </div>
@@ -854,7 +795,7 @@
                             <span class="skill-pill caramel">Fotografi</span>
                             <span class="skill-pill caramel">Videografi</span>
                             <span class="skill-pill caramel">Produksi Podcast</span>
-                            <span class="skill-pill caramel">Content Creator</span>
+                            <span class="skill-pill caramel">Konten Kreatif</span>
                         </div>
                     </div>
 
@@ -865,7 +806,7 @@
                         </div>
                         <div class="cat-pills-wrap">
                             <span class="skill-pill rose">Problem Solving</span>
-                            <span class="skill-pill rose">Teamwork</span>
+                            <span class="skill-pill rose">Teamwork & Collaboration</span>
                             <span class="skill-pill rose">Time Management</span>
                             <span class="skill-pill rose">Adaptability</span>
                         </div>
@@ -875,7 +816,7 @@
         </div>
     </section>
 
-    <!-- ═══════════════════════════════ ORGANISASI SECTION ═══════════════════════════════ -->
+    <!-- ═══════════════════════════════ ORGANISASI SECTION (ALL 8 ITEMS) ═══════════════════════════════ -->
     <section id="organisasi">
         <div class="container">
             <div class="section-header-scrap reveal-scrap">
@@ -891,7 +832,7 @@
                         <div class="org-details">
                             <h4>Ikatan Alumni SMAN 1 Ngunut</h4>
                             <div class="org-role-tag">✦ Divisi Alumni</div>
-                            <p class="org-desc-text">Bantu-bantu ngatur database jaringan alumni dan jaga silaturahmi sesama lulusan SMAN 1 Ngunut.</p>
+                            <p class="org-desc-text">Mengelola jaringan alumni dan mendukung kegiatan komunikasi serta silaturahmi antar lulusan SMAN 1 Ngunut.</p>
                         </div>
                     </div>
                     <div class="org-period-seal">2025 – 2027</div>
@@ -903,7 +844,7 @@
                         <div class="org-details">
                             <h4>Formadiksi Polinema</h4>
                             <div class="org-role-tag">✦ Koordinator Komunikasi Eksternal</div>
-                            <p class="org-desc-text">Ngedampingin tim divisi eksternal buat ngebangun relasi sama pihak luar, alumni, dan forum mahasiswa KIP-K se-Indonesia.</p>
+                            <p class="org-desc-text">Memimpin divisi komunikasi eksternal — menjembatani komunikasi dan kerja sama antara Formadiksi Polinema dengan pihak eksternal, alumni, serta FKMBK di tingkat regional, wilayah, dan nasional.</p>
                         </div>
                     </div>
                     <div class="org-period-seal">2025 – 2026</div>
@@ -915,7 +856,7 @@
                         <div class="org-details">
                             <h4>Ikatan Mahasiswa Tulungagung Polinema</h4>
                             <div class="org-role-tag">✦ Wakil Ketua Umum</div>
-                            <p class="org-desc-text">Bantu Ketua Umum ngatur alur program kerja dan ngerangkul temen-temen mahasiswa asal Tulungagung di Malang.</p>
+                            <p class="org-desc-text">Membantu ketua dalam mengoordinasikan seluruh kegiatan, program kerja, dan anggota IKATAMA Polinema — memperkuat solidaritas mahasiswa asal Tulungagung di Malang.</p>
                         </div>
                     </div>
                     <div class="org-period-seal">2025 – 2026</div>
@@ -927,7 +868,7 @@
                         <div class="org-details">
                             <h4>FKMBK Malang Raya</h4>
                             <div class="org-role-tag">✦ Staf Departemen Luar Negeri</div>
-                            <p class="org-desc-text">Fokus ngurusin komunikasi dan kerja sama antar-organisasi daerah se-Malang Raya.</p>
+                            <p class="org-desc-text">Berfokus pada pengelolaan hubungan eksternal dan kerja sama antarorganisasi mahasiswa di lingkup Malang Raya serta Forum Daerah.</p>
                         </div>
                     </div>
                     <div class="org-period-seal">2025 – 2026</div>
@@ -938,8 +879,8 @@
                         <div class="org-logo-stamp"><img src="rubi comunity.jpeg" alt="Rubi Community"></div>
                         <div class="org-details">
                             <h4>Rubi Community</h4>
-                            <div class="org-role-tag">✦ Anggota — Batch 8</div>
-                            <p class="org-desc-text">Komunitas kecantikan Avoskin tempat belajar content creation, personal branding, dan wawasan seputar beauty industry.</p>
+                            <div class="org-role-tag">✦ Anggota – Batch 8</div>
+                            <p class="org-desc-text">RUBI Community (Respecting Understanding Beauty Influencer) adalah komunitas kecantikan milik Avoskin Beauty, didirikan untuk memberdayakan perempuan.</p>
                         </div>
                     </div>
                     <div class="org-period-seal">Feb – Jun 2025</div>
@@ -947,11 +888,35 @@
 
                 <div class="org-timeline-item reveal-scrap">
                     <div class="org-item-main">
-                        <div class="org-logo-stamp"><img src="fkmbk jatim.jpeg" alt="FKMBK Jatim"></div>
+                        <div class="org-logo-stamp"><img src="fkmbk jatim.jpeg" alt="FKMBK Jawa Timur"></div>
                         <div class="org-details">
                             <h4>FKMBK Jawa Timur</h4>
                             <div class="org-role-tag">✦ Staf Departemen Kajian Strategi</div>
-                            <p class="org-desc-text">Ikut ngeriset isu-isu seputar KIP-Kuliah di Jatim dan bikin konten infografis edukatif.</p>
+                            <p class="org-desc-text">Melakukan riset dan kajian terkait isu Bidikmisi/KIP-Kuliah di wilayah Jawa Timur. Mengelola stock of knowledge dalam bentuk infografis serta pendataan forum KIP-K.</p>
+                        </div>
+                    </div>
+                    <div class="org-period-seal">2024 – 2025</div>
+                </div>
+
+                <div class="org-timeline-item reveal-scrap">
+                    <div class="org-item-main">
+                        <div class="org-logo-stamp"><img src="formadiksi poinema.jpeg" alt="Formadiksi Polinema"></div>
+                        <div class="org-details">
+                            <h4>Formadiksi Polinema</h4>
+                            <div class="org-role-tag">✦ Pengurus Muda Komunikasi Eksternal</div>
+                            <p class="org-desc-text">Menjembatani komunikasi dan kerja sama antara Formadiksi Polinema dengan pihak eksternal — alumni, forum Bidikmisi luar Polinema, serta FKMBK di berbagai tingkat.</p>
+                        </div>
+                    </div>
+                    <div class="org-period-seal">2024 – 2025</div>
+                </div>
+
+                <div class="org-timeline-item reveal-scrap">
+                    <div class="org-item-main">
+                        <div class="org-logo-stamp"><img src="ikatama.jpeg" alt="IKATAMA"></div>
+                        <div class="org-details">
+                            <h4>Ikatan Mahasiswa Tulungagung</h4>
+                            <div class="org-role-tag">✦ Anggota Eksternal</div>
+                            <p class="org-desc-text">Bergabung sebagai anggota aktif dalam kegiatan sosial dan kemahasiswaan, membangun relasi dan solidaritas sesama mahasiswa Tulungagung.</p>
                         </div>
                     </div>
                     <div class="org-period-seal">2024 – 2025</div>
@@ -961,11 +926,11 @@
         </div>
     </section>
 
-    <!-- ═══════════════════════════════ PROJECTS SECTION ═══════════════════════════════ -->
+    <!-- ═══════════════════════════════ PROJECTS SECTION (ALL 10 PROJECTS) ═══════════════════════════════ -->
     <section id="projects">
         <div class="container">
             <div class="section-header-scrap reveal-scrap">
-                <div class="section-tag-doodle">🛠️ Story Behind Projects</div>
+                <div class="section-tag-doodle">🛠️ Portfolio Gallery</div>
                 <h2 class="section-title-journal">Karya & <em>Proyek Garapan</em></h2>
             </div>
 
@@ -987,9 +952,9 @@
                         </div>
                     </div>
                     <div class="project-card-body">
-                        <div class="project-num-hand">#01 Business Intelligence</div>
-                        <h3>Dashboard BI Pizza Company</h3>
-                        <p>Iseng ngulik data penjualan pizza 2022 dari Kaggle. Penasaran menu mana yang paling laris dan jam berapa restoran paling sibuk, akhirnya sekalian bikin dashboard visualisasinya di Power BI & SQL.</p>
+                        <div class="project-num-hand">✦ 01 Business Intelligence</div>
+                        <h3>Dashboard Business Intelligence Pizza Company</h3>
+                        <p>Dashboard Power BI dan analisis SQL untuk menganalisis kinerja penjualan perusahaan Pizza 2022 — mengidentifikasi pola, kategori terbaik, dan waktu tersibuk.</p>
                         <div class="project-tags-wrap">
                             <span class="p-tag">Power BI</span><span class="p-tag">SQL</span><span class="p-tag">Data Analysis</span>
                         </div>
@@ -1008,20 +973,25 @@
                         </div>
                     </div>
                     <div class="project-card-body">
-                        <div class="project-num-hand">#02 Web App PBL</div>
-                        <h3>AKRESA — Sistem Akreditasi TI</h3>
-                        <p>Proyek PBL paling berkesan! Tim kita yang isinya 9 orang sempet pusing ngatur alur data akreditasi Jurusan TI Polinema, tapi akhirnya beres juga dibangun rapi pake Laravel.</p>
+                        <div class="project-num-hand">✦ 02 Web App PBL</div>
+                        <h3>AKRESA — Sistem Akreditasi</h3>
+                        <p>Aplikasi web untuk pencatatan, pengelolaan, dan evaluasi data akreditasi jurusan TI Polinema. Bagian dari Project Based Learning (PBL).</p>
                         <div class="project-tags-wrap">
-                            <span class="p-tag">Laravel</span><span class="p-tag">Web Dev</span><span class="p-tag">MySQL</span>
+                            <span class="p-tag">Web Dev</span><span class="p-tag">Laravel</span><span class="p-tag">Database</span>
                         </div>
 
                         <div class="team-sticker-group">
-                            <div class="team-title-sm">👥 Tim Developer (9 Orang)</div>
+                            <div class="team-title-sm">👥 Tim Pengembang (9 Orang)</div>
                             <div class="team-avatar-list">
-                                <div class="t-avatar-pill author"><div class="t-avatar-circle">KK</div>Khoir Karol ✦</div>
-                                <div class="t-avatar-pill"><div class="t-avatar-circle">RN</div>Revani N.</div>
-                                <div class="t-avatar-pill"><div class="t-avatar-circle">MS</div>M. Satria</div>
-                                <div class="t-avatar-pill"><div class="t-avatar-circle">SS</div>Sharlyf S.</div>
+                                <div class="t-avatar-pill"><div class="t-avatar-circle">RN</div>Revani Nanda P.</div>
+                                <div class="t-avatar-pill"><div class="t-avatar-circle">MS</div>M. Satria R. D.</div>
+                                <div class="t-avatar-pill"><div class="t-avatar-circle">SS</div>Sharlyf Shaquille</div>
+                                <div class="t-avatar-pill"><div class="t-avatar-circle">SA</div>Susilowati Syafa</div>
+                                <div class="t-avatar-pill author"><div class="t-avatar-circle">KK</div>Khoir Karol N. ✦</div>
+                                <div class="t-avatar-pill"><div class="t-avatar-circle">IT</div>Isnaeny Tri L.</div>
+                                <div class="t-avatar-pill"><div class="t-avatar-circle">MZ</div>M. Zidna B. F.</div>
+                                <div class="t-avatar-pill"><div class="t-avatar-circle">NH</div>Nadya Hapsari</div>
+                                <div class="t-avatar-pill"><div class="t-avatar-circle">EP</div>Eka Putri N. K.</div>
                             </div>
                         </div>
 
@@ -1038,19 +1008,20 @@
                         <img src="sipres.jpg" class="active" alt="SIPRES-JTI">
                     </div>
                     <div class="project-card-body">
-                        <div class="project-num-hand">#03 Mobile App</div>
-                        <h3>SIPRES-JTI — Presensi Digital</h3>
-                        <p>Bikin sistem presensi kampus berbasis QR Code & validasi GPS. Tantangan utamanya pas bikin validasi lokasi biar tetep presisi saat dosen/mahasiswa scan.</p>
+                        <div class="project-num-hand">✦ 03 Mobile App</div>
+                        <h3>SIPRES-JTI — Sistem Presensi</h3>
+                        <p>Presensi digital berbasis mobile dengan QR Code & validasi GPS, database real-time, dan role-based access untuk dosen/karyawan dan admin.</p>
                         <div class="project-tags-wrap">
-                            <span class="p-tag">Mobile Dev</span><span class="p-tag">QR Code</span><span class="p-tag">GPS</span>
+                            <span class="p-tag">Mobile Dev</span><span class="p-tag">QR Code</span><span class="p-tag">GPS</span><span class="p-tag">Real-time DB</span>
                         </div>
 
                         <div class="team-sticker-group">
-                            <div class="team-title-sm">👥 Tim Developer (4 Orang)</div>
+                            <div class="team-title-sm">👥 Tim Pengembang (4 Orang)</div>
                             <div class="team-avatar-list">
-                                <div class="t-avatar-pill author"><div class="t-avatar-circle">KK</div>Khoir Karol ✦</div>
-                                <div class="t-avatar-pill"><div class="t-avatar-circle">GV</div>Gerly V.</div>
-                                <div class="t-avatar-pill"><div class="t-avatar-circle">IA</div>Ismi A.</div>
+                                <div class="t-avatar-pill"><div class="t-avatar-circle">GV</div>Gerly Vaeyungfan</div>
+                                <div class="t-avatar-pill"><div class="t-avatar-circle">IA</div>Ismi Atika</div>
+                                <div class="t-avatar-pill"><div class="t-avatar-circle">KT</div>Kartika Tri J.</div>
+                                <div class="t-avatar-pill author"><div class="t-avatar-circle">KK</div>Khoir Karol N. ✦</div>
                             </div>
                         </div>
 
@@ -1067,12 +1038,23 @@
                         <img src="tatib.jpg" class="active" alt="Si Tertib">
                     </div>
                     <div class="project-card-body">
-                        <div class="project-num-hand">#04 Sistem Informasi</div>
+                        <div class="project-num-hand">✦ 04 Sistem Informasi</div>
                         <h3>Si Tertib — Sistem Tata Tertib</h3>
-                        <p>Aplikasi web buat nyatet pelanggaran tata tertib mahasiswa di kampus secara transparan — dari pencatatan sanksi sampe fitur pengajuan banding.</p>
+                        <p>Sistem informasi web untuk pengelolaan pelanggaran tata tertib mahasiswa — pencatatan digital, penetapan sanksi, pengajuan banding, dan pelaporan transparan.</p>
                         <div class="project-tags-wrap">
-                            <span class="p-tag">Laravel</span><span class="p-tag">MySQL</span><span class="p-tag">Bootstrap</span>
+                            <span class="p-tag">Web App</span><span class="p-tag">Laravel</span><span class="p-tag">MySQL</span>
                         </div>
+
+                        <div class="team-sticker-group">
+                            <div class="team-title-sm">👥 Tim Pengembang (4 Orang)</div>
+                            <div class="team-avatar-list">
+                                <div class="t-avatar-pill"><div class="t-avatar-circle">NA</div>Naa'fi Ridho A.</div>
+                                <div class="t-avatar-pill"><div class="t-avatar-circle">AN</div>Abhinaya Nuzul.</div>
+                                <div class="t-avatar-pill author"><div class="t-avatar-circle">KK</div>Khoir Karol N. ✦</div>
+                                <div class="t-avatar-pill"><div class="t-avatar-circle">SA</div>Siti Alifia A.</div>
+                            </div>
+                        </div>
+
                         <a href="https://github.com/khoirkanzura/Sistem-tata-tertib" target="_blank" class="project-link-btn">
                             Lihat di GitHub ➔
                         </a>
@@ -1082,26 +1064,30 @@
                 <!-- Project 05 -->
                 <div class="project-scrap-card reveal-scrap">
                     <div class="washi-tape washi-tape-top-right"></div>
-                    <div class="project-carousel-wrap" id="proj-07">
-                        <img src="skinquo1.png" class="active" alt="SkinQuo 1">
-                        <img src="skinquo2.png" alt="SkinQuo 2">
-                        <img src="skinquo3.png" alt="SkinQuo 3">
-                        <button class="carousel-btn prev" onclick="moveSlide('proj-07', -1)">‹</button>
-                        <button class="carousel-btn next" onclick="moveSlide('proj-07', 1)">›</button>
-                        <div class="carousel-dots" id="dots-proj-07">
-                            <button class="c-dot active" onclick="setSlide('proj-07', 0)"></button>
-                            <button class="c-dot" onclick="setSlide('proj-07', 1)"></button>
-                            <button class="c-dot" onclick="setSlide('proj-07', 2)"></button>
+                    <div class="project-carousel-wrap">
+                        <div class="project-img-placeholder" style="background:linear-gradient(135deg,#c4956a18,#f0d8b818);">
+                            <svg viewBox="0 0 80 80" width="60" height="60" xmlns="http://www.w3.org/2000/svg"><rect x="12" y="10" width="40" height="52" rx="4" fill="none" stroke="var(--caramel-deep)" stroke-width="3" opacity="0.7"/><line x1="20" y1="24" x2="44" y2="24" stroke="var(--caramel-deep)" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/><line x1="20" y1="34" x2="44" y2="34" stroke="var(--caramel-deep)" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/><line x1="20" y1="44" x2="36" y2="44" stroke="var(--caramel-deep)" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/><circle cx="58" cy="54" r="14" fill="var(--caramel-deep)" opacity="0.12" stroke="var(--caramel-deep)" stroke-width="2"/><path d="M52 54l4 4 8-8" stroke="var(--caramel-deep)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                         </div>
                     </div>
                     <div class="project-card-body">
-                        <div class="project-num-hand">#05 Expert System</div>
-                        <h3>SkinQuo — Sistem Pakar Skincare</h3>
-                        <p>Berawal dari curhatan temen yang sering bingung milih skincare. Kita bikin sistem pakar sederhana pake Laravel & Supabase buat nyaranin bahan aktif sesuai kondisi kulit.</p>
+                        <div class="project-num-hand">✦ 05 Java Desktop</div>
+                        <h3>Sistem Perpustakaan Polinema</h3>
+                        <p>Perpustakaan digital dengan fitur admin (data buku & anggota) dan fitur mahasiswa (peminjaman & pengembalian buku secara digital).</p>
                         <div class="project-tags-wrap">
-                            <span class="p-tag">Laravel</span><span class="p-tag">Supabase</span><span class="p-tag">Figma</span>
+                            <span class="p-tag">Java</span>
                         </div>
-                        <a href="https://github.com/khoirkanzura/SkinQuo.git" target="_blank" class="project-link-btn">
+
+                        <div class="team-sticker-group">
+                            <div class="team-title-sm">👥 Tim Pengembang (4 Orang)</div>
+                            <div class="team-avatar-list">
+                                <div class="t-avatar-pill"><div class="t-avatar-circle">FR</div>Fallujah Ramadi</div>
+                                <div class="t-avatar-pill"><div class="t-avatar-circle">DS</div>Deva Selviana</div>
+                                <div class="t-avatar-pill"><div class="t-avatar-circle">DE</div>Dini Elminingstyas</div>
+                                <div class="t-avatar-pill author"><div class="t-avatar-circle">KK</div>Khoir Karol N. ✦</div>
+                            </div>
+                        </div>
+
+                        <a href="https://github.com/khoirkanzura/FinalProject-Perpustakaan" target="_blank" class="project-link-btn">
                             Lihat di GitHub ➔
                         </a>
                     </div>
@@ -1110,22 +1096,157 @@
                 <!-- Project 06 -->
                 <div class="project-scrap-card reveal-scrap">
                     <div class="washi-tape washi-tape-top-left"></div>
+                    <div class="project-carousel-wrap">
+                        <div class="project-img-placeholder" style="background:linear-gradient(135deg,#9b87b518,#c9b8d818);">
+                            <svg viewBox="0 0 80 80" width="60" height="60" xmlns="http://www.w3.org/2000/svg"><path d="M40 12c-9 0-16 4-16 9v6h16v2H24c-5 0-12 3-12 13s5 13 12 13h4v-7c0-6 5-11 12-11h12c5 0 8-4 8-9v-7c0-5-7-9-16-9z" fill="var(--lilac-deep)" opacity="0.5"/><circle cx="33" cy="22" r="2.5" fill="#fff"/><path d="M40 68c9 0 16-4 16-9v-6H40v-2h16c5 0 12-3 12-13s-7-13-14-13h-4v7c0 6-5 11-12 11H33c-5 0-8 4-8 9v7c0 5 7 9 15 9z" fill="var(--lilac)" opacity="0.6"/><circle cx="47" cy="58" r="2.5" fill="#fff"/></svg>
+                        </div>
+                    </div>
+                    <div class="project-card-body">
+                        <div class="project-num-hand">✦ 06 Data Mining</div>
+                        <h3>Data Mining — Amazon Video Games Reviews</h3>
+                        <p>Pemilihan model terbaik (Regresi, Decision Tree, KNN, SVM, K-Means) pada dataset Amazon Product Reviews "Video Games" — membandingkan performa dan akurasi masing-masing algoritma.</p>
+                        <div class="project-tags-wrap">
+                            <span class="p-tag">Data Mining</span><span class="p-tag">Python</span>
+                        </div>
+                        <a href="https://drive.google.com/drive/folders/your-link" target="_blank" class="project-link-btn">
+                            Lihat Laporan ➔
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 07 -->
+                <div class="project-scrap-card reveal-scrap">
+                    <div class="washi-tape washi-tape-top-right"></div>
+                    <div class="project-carousel-wrap" id="proj-07">
+                        <img src="skinquo1.png" class="active" alt="SkinQuo 1">
+                        <img src="skinquo2.png" alt="SkinQuo 2">
+                        <img src="skinquo3.png" alt="SkinQuo 3">
+                        <img src="skinquo4.jpeg" alt="SkinQuo 4">
+                        <img src="skinquo5.jpeg" alt="SkinQuo 5">
+                        <button class="carousel-btn prev" onclick="moveSlide('proj-07', -1)">‹</button>
+                        <button class="carousel-btn next" onclick="moveSlide('proj-07', 1)">›</button>
+                        <div class="carousel-dots" id="dots-proj-07">
+                            <button class="c-dot active" onclick="setSlide('proj-07', 0)"></button>
+                            <button class="c-dot" onclick="setSlide('proj-07', 1)"></button>
+                            <button class="c-dot" onclick="setSlide('proj-07', 2)"></button>
+                            <button class="c-dot" onclick="setSlide('proj-07', 3)"></button>
+                            <button class="c-dot" onclick="setSlide('proj-07', 4)"></button>
+                        </div>
+                    </div>
+                    <div class="project-card-body">
+                        <div class="project-num-hand">✦ 07 Expert System</div>
+                        <h3>SkinQuo — Sistem Pakar Skincare</h3>
+                        <p>Sistem pakar berbasis web menggunakan rule-based expert system. Input jenis kulit, keluhan, dan tujuan perawatan — sistem menganalisis bahan aktif dan menampilkan ranking produk.</p>
+                        <div class="project-tags-wrap">
+                            <span class="p-tag">Laravel</span><span class="p-tag">Web Dev</span><span class="p-tag">Supabase</span><span class="p-tag">Figma</span>
+                        </div>
+
+                        <div class="team-sticker-group">
+                            <div class="team-title-sm">👥 Tim Pengembang (5 Orang)</div>
+                            <div class="team-avatar-list">
+                                <div class="t-avatar-pill"><div class="t-avatar-circle">AM</div>Axelo Matthew</div>
+                                <div class="t-avatar-pill author"><div class="t-avatar-circle">KK</div>Khoir Karol N. ✦</div>
+                                <div class="t-avatar-pill"><div class="t-avatar-circle">LF</div>Lyra Faiqah</div>
+                                <div class="t-avatar-pill"><div class="t-avatar-circle">NH</div>Nadya Hapsari</div>
+                                <div class="t-avatar-pill"><div class="t-avatar-circle">PC</div>Pandya Cahya</div>
+                            </div>
+                        </div>
+
+                        <a href="https://github.com/khoirkanzura/SkinQuo.git" target="_blank" class="project-link-btn">
+                            Lihat di GitHub ➔
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 08 -->
+                <div class="project-scrap-card reveal-scrap">
+                    <div class="washi-tape washi-tape-top-left"></div>
+                    <div class="project-carousel-wrap">
+                        <div class="project-img-placeholder" style="background:linear-gradient(135deg,#1a6b3c18,#bce8d818);">
+                            <svg viewBox="0 0 80 80" width="60" height="60" xmlns="http://www.w3.org/2000/svg"><ellipse cx="40" cy="22" rx="22" ry="8" fill="none" stroke="var(--matcha-deep)" stroke-width="2.5" opacity="0.6"/><path d="M18 22v14c0 4.4 9.9 8 22 8s22-3.6 22-8V22" fill="none" stroke="var(--matcha-deep)" stroke-width="2.5" opacity="0.6"/><path d="M18 36v14c0 4.4 9.9 8 22 8s22-3.6 22-8V36" fill="none" stroke="var(--matcha-deep)" stroke-width="2" opacity="0.4"/></svg>
+                        </div>
+                    </div>
+                    <div class="project-card-body">
+                        <div class="project-num-hand">✦ 08 Data Warehouse</div>
+                        <h3>Data Warehouse — Studi Kasus Northwind</h3>
+                        <p>Sistem Data Warehouse berbasis studi kasus Northwind untuk mengubah data operasional menjadi insight bisnis. Mencakup Star Schema, ETL dengan Pentaho, SCD, serta analisis KPI penjualan.</p>
+                        <div class="project-tags-wrap">
+                            <span class="p-tag">Data Warehouse</span><span class="p-tag">ETL</span><span class="p-tag">Pentaho</span><span class="p-tag">Star Schema</span><span class="p-tag">OLAP</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 09 -->
+                <div class="project-scrap-card reveal-scrap">
+                    <div class="washi-tape washi-tape-top-right"></div>
                     <div class="project-carousel-wrap" id="proj-09">
                         <img src="dw 1.jpeg" class="active" alt="Odoo ERP 1">
                         <img src="dw 2.jpeg" alt="Odoo ERP 2">
+                        <img src="dw 3.jpeg" alt="Odoo ERP 3">
                         <button class="carousel-btn prev" onclick="moveSlide('proj-09', -1)">‹</button>
                         <button class="carousel-btn next" onclick="moveSlide('proj-09', 1)">›</button>
                         <div class="carousel-dots" id="dots-proj-09">
                             <button class="c-dot active" onclick="setSlide('proj-09', 0)"></button>
                             <button class="c-dot" onclick="setSlide('proj-09', 1)"></button>
+                            <button class="c-dot" onclick="setSlide('proj-09', 2)"></button>
                         </div>
                     </div>
                     <div class="project-card-body">
-                        <div class="project-num-hand">#06 ERP Implementation</div>
+                        <div class="project-num-hand">✦ 09 ERP Implementation</div>
                         <h3>ERP System — Berry Bean (Odoo 18)</h3>
-                        <p>Studi kasus implementasi ERP Odoo 18 buat usaha Berry Bean. Rapi-rapihin dan ngintegrasiin proses Purchase, Sales, Manufacturing, sampe Point of Sale.</p>
+                        <p>Implementasi sistem ERP menggunakan Odoo 18 dengan studi kasus perusahaan Berry Bean. Mengintegrasikan berbagai proses bisnis ke dalam satu sistem terpusat.</p>
                         <div class="project-tags-wrap">
-                            <span class="p-tag">Odoo 18</span><span class="p-tag">ERP</span><span class="p-tag">Supply Chain</span>
+                            <span class="p-tag">Odoo 18</span><span class="p-tag">ERP</span><span class="p-tag">Manufacturing</span><span class="p-tag">Inventory</span>
+                        </div>
+
+                        <div class="team-sticker-group">
+                            <div class="team-title-sm">⚙️ Modul Diimplementasikan</div>
+                            <div class="module-pills">
+                                <span class="module-pill">Purchase</span>
+                                <span class="module-pill">Sales</span>
+                                <span class="module-pill">Manufacturing</span>
+                                <span class="module-pill">Point of Sale</span>
+                                <span class="module-pill">Website</span>
+                                <span class="module-pill">Employees</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 10 -->
+                <div class="project-scrap-card reveal-scrap">
+                    <div class="washi-tape washi-tape-top-left"></div>
+                    <div class="project-carousel-wrap" id="proj-10">
+                        <img src="bigdata1.png" class="active" alt="Big Data Taksi NYC 1">
+                        <img src="bigdata2.png" alt="Big Data Taksi NYC 2">
+                        <img src="bigdata3.jpeg" alt="Big Data Taksi NYC 3">
+                        <img src="bigdata4.jpeg" alt="Big Data Taksi NYC 4">
+                        <button class="carousel-btn prev" onclick="moveSlide('proj-10', -1)">‹</button>
+                        <button class="carousel-btn next" onclick="moveSlide('proj-10', 1)">›</button>
+                        <div class="carousel-dots" id="dots-proj-10">
+                            <button class="c-dot active" onclick="setSlide('proj-10', 0)"></button>
+                            <button class="c-dot" onclick="setSlide('proj-10', 1)"></button>
+                            <button class="c-dot" onclick="setSlide('proj-10', 2)"></button>
+                            <button class="c-dot" onclick="setSlide('proj-10', 3)"></button>
+                        </div>
+                    </div>
+                    <div class="project-card-body">
+                        <div class="project-num-hand">✦ 10 Big Data Analytics</div>
+                        <h3>Big Data — Estimasi Tarif Taksi NYC (Spark & HDFS)</h3>
+                        <p>Eksperimen pengolahan data skala besar buat mengestimasi tarif taksi pakai dataset NYC Taxi Fare. Data disimpan dan diproses lewat HDFS dan Apache Spark biar sanggup nanganin volume data yang besar, lalu model regresinya dibangun pakai Spark ML Pipeline untuk memprediksi tarif perjalanan dari fitur-fitur yang ada di dataset.</p>
+                        <div class="project-tags-wrap">
+                            <span class="p-tag">Big Data</span><span class="p-tag">Apache Spark</span><span class="p-tag">HDFS</span><span class="p-tag">Spark ML</span>
+                        </div>
+
+                        <div class="team-sticker-group">
+                            <div class="team-title-sm">👥 Tim Pengembang (5 Orang)</div>
+                            <div class="team-avatar-list">
+                                <div class="t-avatar-pill"><div class="t-avatar-circle">AI</div>Adinda Ivanka M.</div>
+                                <div class="t-avatar-pill author"><div class="t-avatar-circle">KK</div>Khoir Karol N. ✦</div>
+                                <div class="t-avatar-pill"><div class="t-avatar-circle">MB</div>My Babby F. R. S.</div>
+                                <div class="t-avatar-pill"><div class="t-avatar-circle">NH</div>Nadya Hapsari</div>
+                                <div class="t-avatar-pill"><div class="t-avatar-circle">NS</div>Nindya Shafira P.</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1134,7 +1255,7 @@
         </div>
     </section>
 
-    <!-- ═══════════════════════════════ PRESTASI SECTION ═══════════════════════════════ -->
+    <!-- ═══════════════════════════════ PRESTASI SECTION (ALL 5 ITEMS) ═══════════════════════════════ -->
     <section id="prestasi">
         <div class="container">
             <div class="section-header-scrap reveal-scrap">
@@ -1144,46 +1265,71 @@
 
             <div class="prestasi-grid-scrap">
 
+                <!-- Juara 2 TikTok with Polaroid Slider Frame -->
                 <div class="trophy-polaroid-card reveal-scrap">
                     <div class="washi-tape washi-tape-top-left"></div>
+                    
+                    <div class="clean-polaroid-photo-wrap" id="slider-tiktok">
+                        <img src="tiktok2.jpg" class="active" alt="Juara 2 TikTok Photo 1">
+                        <img src="tiktok3.jpg" alt="Juara 2 TikTok Photo 2">
+                        <img src="tiktok 1.jpg" alt="Juara 2 TikTok Photo 3">
+                        <button class="carousel-btn prev" onclick="moveSlide('slider-tiktok', -1)">‹</button>
+                        <button class="carousel-btn next" onclick="moveSlide('slider-tiktok', 1)">›</button>
+                        <div class="carousel-dots" id="dots-slider-tiktok">
+                            <button class="c-dot active" onclick="setSlide('slider-tiktok', 0)"></button>
+                            <button class="c-dot" onclick="setSlide('slider-tiktok', 1)"></button>
+                            <button class="c-dot" onclick="setSlide('slider-tiktok', 2)"></button>
+                        </div>
+                    </div>
+
                     <span class="trophy-icon-j">🥈</span>
                     <div class="trophy-rank-badge">✦ Juara 2</div>
-                    <h4>Lomba TikTok — Penguatan Ekosistem Inovasi & Riset</h4>
-                    <p style="font-size: 0.84rem; color: var(--ink-muted); margin: 0.3rem 0;">Lomba bikin konten visual kreatif edukasi riset. Seneng banget video buatan kita bisa dapet peringkat 2!</p>
+                    <h4>Lomba TikTok — Penguatan Ekosistem Inovasi dan Hilirisasi Riset</h4>
                     <div class="trophy-year-seal">📅 2025</div>
                 </div>
 
+                <!-- Juara 3 Broadcasting -->
                 <div class="trophy-polaroid-card reveal-scrap">
                     <span class="trophy-icon-j">🥉</span>
                     <div class="trophy-rank-badge">✦ Juara 3</div>
                     <h4>Lomba Broadcasting SMAN 1 Ngunut</h4>
-                    <p style="font-size: 0.84rem; color: var(--ink-muted); margin: 0.3rem 0;">Pengalaman pertama nyoba dunia broadcasting & public speaking pas SMA.</p>
                     <div class="trophy-year-seal">📅 2022</div>
                 </div>
 
+                <!-- Juara 3 Kriya -->
                 <div class="trophy-polaroid-card reveal-scrap">
                     <div class="washi-tape washi-tape-top-right"></div>
                     <span class="trophy-icon-j">🥉</span>
                     <div class="trophy-rank-badge">✦ Juara 3</div>
-                    <h4>Lomba Kriya Nusantara</h4>
-                    <p style="font-size: 0.84rem; color: var(--ink-muted); margin: 0.3rem 0;">Nyalurin hobi kerajinan tangan dan seni kriya pas sekolah.</p>
+                    <h4>Lomba Kriya</h4>
                     <div class="trophy-year-seal">📅 2021</div>
                 </div>
 
+                <!-- Juara 3 Movie Maker with Polaroid Slider Frame -->
                 <div class="trophy-polaroid-card reveal-scrap">
+                    <div class="clean-polaroid-photo-wrap" id="slider-moviemaker">
+                        <img src="videomaker.jpg" class="active" alt="Juara 3 Movie Maker Photo 1">
+                        <img src="videomaker2.jpg" alt="Juara 3 Movie Maker Photo 2">
+                        <button class="carousel-btn prev" onclick="moveSlide('slider-moviemaker', -1)">‹</button>
+                        <button class="carousel-btn next" onclick="moveSlide('slider-moviemaker', 1)">›</button>
+                        <div class="carousel-dots" id="dots-slider-moviemaker">
+                            <button class="c-dot active" onclick="setSlide('slider-moviemaker', 0)"></button>
+                            <button class="c-dot" onclick="setSlide('slider-moviemaker', 1)"></button>
+                        </div>
+                    </div>
+
                     <span class="trophy-icon-j">🥉</span>
                     <div class="trophy-rank-badge">✦ Juara 3</div>
                     <h4>Lomba Movie Maker</h4>
-                    <p style="font-size: 0.84rem; color: var(--ink-muted); margin: 0.3rem 0;">Eksperimen bikin video pendek dan editing sama tim.</p>
                     <div class="trophy-year-seal">📅 2021</div>
                 </div>
 
+                <!-- Juara 3 Movie Maker ITC -->
                 <div class="trophy-polaroid-card reveal-scrap">
                     <div class="washi-tape washi-tape-top-left"></div>
                     <span class="trophy-icon-j">🥉</span>
                     <div class="trophy-rank-badge">✦ Juara 3</div>
                     <h4>Lomba Movie Maker — ITC SMAN 1 Ngunut</h4>
-                    <p style="font-size: 0.84rem; color: var(--ink-muted); margin: 0.3rem 0;">Cikal bakal makin suka dunia videografi dan visual storytelling.</p>
                     <div class="trophy-year-seal">📅 2020</div>
                 </div>
 
@@ -1191,19 +1337,19 @@
         </div>
     </section>
 
-    <!-- ═══════════════════════════════ CONTACT SECTION ═══════════════════════════════ -->
+    <!-- ═══════════════════════════════ CONTACT SECTION (ALL 7 LINKS) ═══════════════════════════════ -->
     <section id="contact">
         <div class="container">
             <div class="section-header-scrap reveal-scrap">
-                <div class="section-tag-doodle">💌 Postal & Mailbox</div>
+                <div class="section-tag-doodle">💌 Mailbox & Contact</div>
                 <h2 class="section-title-journal">Mari <em>Berkolaborasi</em></h2>
             </div>
 
             <div class="contact-envelope-grid">
                 <div class="contact-letter-card reveal-scrap">
                     <div class="paper-clip"></div>
-                    <p>Kalo mau diskusi seputar proyek sistem informasi, olah data, kolaborasi organisasi, atau sekadar ngobrol santai — langsung aja kirim pesan lewat kontak di bawah ya!</p>
-                    <p>Aku bakal seneng banget bisa kenalan dan tukar pikiran bareng. 🌸</p>
+                    <p>Saya terbuka untuk berbagai peluang kolaborasi, baik dalam pengembangan proyek, diskusi ide, maupun eksplorasi solusi di bidang teknologi dan sistem informasi.</p>
+                    <p>Jika Anda tertarik untuk bekerja sama atau ingin berdiskusi lebih lanjut, jangan ragu untuk menghubungi saya! Saya akan dengan senang hati merespons. 🌸</p>
                     <div class="contact-signature-hand">Khoir Karol Nurzuraidah</div>
                 </div>
 
@@ -1249,6 +1395,36 @@
                         </div>
                     </a>
 
+                    <a href="https://kaggle.com/khoirkaroln" target="_blank" class="contact-stamp-card">
+                        <div class="stamp-icon-wrap">
+                            <svg viewBox="0 0 24 24" fill="#20beff"><path d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.448 1.374v5.111c0 .235-.117.352-.351.352H5.505c-.236 0-.354-.117-.354-.352V.353c0-.233.118-.353.354-.353h2.431c.234 0 .351.12.351.353v14.343l6.203-6.272c.165-.165.33-.246.495-.246h3.239c.144 0 .236.06.285.18.046.149.034.255-.036.315l-6.555 6.344 6.836 8.507c.095.104.117.208.07.334z"/></svg>
+                        </div>
+                        <div class="stamp-text-info">
+                            <strong>Kaggle</strong>
+                            <span>khoirkaroln</span>
+                        </div>
+                    </a>
+
+                    <a href="https://instagram.com/khoirknz" target="_blank" class="contact-stamp-card">
+                        <div class="stamp-icon-wrap">
+                            <svg viewBox="0 0 24 24" fill="#e6683c"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </div>
+                        <div class="stamp-text-info">
+                            <strong>Instagram</strong>
+                            <span>@khoirknz</span>
+                        </div>
+                    </a>
+
+                    <a href="https://tiktok.com/@khoir.kanzura" target="_blank" class="contact-stamp-card">
+                        <div class="stamp-icon-wrap">
+                            <svg viewBox="0 0 24 24" fill="var(--ink-main)"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.78a4.85 4.85 0 01-1.01-.09z"/></svg>
+                        </div>
+                        <div class="stamp-text-info">
+                            <strong>TikTok</strong>
+                            <span>@khoir.kanzura</span>
+                        </div>
+                    </a>
+
                 </div>
             </div>
         </div>
@@ -1257,7 +1433,7 @@
     <!-- ═══════════════════════════════ FOOTER ═══════════════════════════════ -->
     <footer>
         <div class="footer-logo-hand">Khoir Karol Nurzuraidah ✦</div>
-        <div class="footer-quote-italic">"Man Jadda Wajada — SIAPA YANG BERSUNGGUH-SUNGGUH, IA AKAN BERHASIL"</div>
+        <div class="footer-quote-italic">"Man jadda wajada"</div>
         <div class="footer-doodles-row">🍵 · · 🌸 · · ✦ · · 💜 · · 🍃</div>
     </footer>
 
@@ -1333,7 +1509,7 @@
 
             let tags = [];
             const GLOBE_RADIUS = 140;
-            let rx = 0.003, ry = 0.005; // rotation speed
+            let rx = 0.003, ry = 0.005;
             let isDragging = false;
             let lastMouseX = 0, lastMouseY = 0;
 
@@ -1394,7 +1570,6 @@
                     rotateY(ry);
                 }
 
-                // Sort tags by Z so back ones render behind front ones
                 tags.sort((a, b) => b.z - a.z);
 
                 const isDark = document.body.classList.contains('dark');
@@ -1410,7 +1585,6 @@
                     ctx.textAlign = 'center';
                     ctx.textBaseline = 'middle';
 
-                    // Tag Pill Background
                     const textMetrics = ctx.measureText(tag.text);
                     const padX = 12 * scale;
                     const padY = 6 * scale;
@@ -1426,7 +1600,6 @@
                     ctx.fill();
                     ctx.stroke();
 
-                    // Text
                     ctx.fillStyle = isDark ? `rgba(244, 232, 247, ${alpha})` : `rgba(44, 32, 46, ${alpha})`;
                     ctx.fillText(tag.text, x2d, y2d);
                     ctx.restore();
@@ -1435,10 +1608,7 @@
                 requestAnimationFrame(render);
             }
 
-            // Mouse / Touch Interaction
-            window.addEventListener('resize', () => {
-                resizeCanvas();
-            });
+            window.addEventListener('resize', resizeCanvas);
 
             canvas.addEventListener('mousedown', (e) => {
                 isDragging = true;
