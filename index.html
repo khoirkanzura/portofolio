@@ -1,101 +1,114 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Khoir Karol Nurzuraidah — Personal Journal Portfolio</title>
     <!-- Fonts: Playfair Display, DM Serif Display, Cormorant Garamond, Jost, Caveat (Handwritten) -->
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Serif+Display:ital@0;1&family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600;1,700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Serif+Display:ital@0;1&family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600;1,700&display=swap"
+        rel="stylesheet">
     <style>
         /* ── SYSTEM DESIGN TOKENS (LIGHT MODE: WARM MATCHA & ROSE JOURNAL) ── */
         :root {
-            --bg-paper:      #faf5ef;
-            --bg-paper-alt:  #f2e9de;
-            --card-bg:       #fffdfa;
-            --card-bg-subtle:#f5efe6;
-            --ink-main:      #2c202e;
-            --ink-muted:     #6a586d;
-            --ink-accent:    #473449;
-            
-            --rose:          #e497ac;
-            --rose-deep:     #c86c87;
-            --rose-light:    #fbeaf0;
-            --blush:         #f4d4df;
-            
-            --matcha:        #849b82;
-            --matcha-deep:   #4d644b;
-            --matcha-light:  #e4ebe2;
-            
-            --lilac:         #c1afd5;
-            --lilac-deep:    #9379b2;
-            --lilac-light:   #ece3f4;
-            
-            --caramel:       #c38a59;
+            --bg-paper: #faf5ef;
+            --bg-paper-alt: #f2e9de;
+            --card-bg: #fffdfa;
+            --card-bg-subtle: #f5efe6;
+            --ink-main: #2c202e;
+            --ink-muted: #6a586d;
+            --ink-accent: #473449;
+
+            --rose: #e497ac;
+            --rose-deep: #c86c87;
+            --rose-light: #fbeaf0;
+            --blush: #f4d4df;
+
+            --matcha: #849b82;
+            --matcha-deep: #4d644b;
+            --matcha-light: #e4ebe2;
+
+            --lilac: #c1afd5;
+            --lilac-deep: #9379b2;
+            --lilac-light: #ece3f4;
+
+            --caramel: #c38a59;
             --caramel-light: #f6e7d7;
-            --caramel-deep:  #9c6537;
-            
-            --peach:         #f4b794;
-            --peach-light:   #fbeae0;
-            
-            --border-paper:  rgba(132, 155, 130, 0.25);
-            --border-rose:   rgba(200, 108, 135, 0.35);
-            
-            --shadow-paper:  4px 10px 30px rgba(44, 32, 46, 0.07), 1px 3px 8px rgba(0, 0, 0, 0.03);
-            --shadow-lift:   8px 18px 40px rgba(200, 108, 135, 0.16), 2px 6px 16px rgba(0, 0, 0, 0.04);
-            
-            --tape-bg:       rgba(228, 235, 226, 0.75);
-            --tape-border:   rgba(132, 155, 130, 0.4);
-            
-            --font-heading:  'Playfair Display', 'Cormorant Garamond', Georgia, serif;
-            --font-display:  'DM Serif Display', serif;
-            --font-body:     'Jost', system-ui, sans-serif;
-            --font-hand:     'Caveat', cursive;
+            --caramel-deep: #9c6537;
+
+            --peach: #f4b794;
+            --peach-light: #fbeae0;
+
+            --border-paper: rgba(132, 155, 130, 0.25);
+            --border-rose: rgba(200, 108, 135, 0.35);
+
+            --shadow-paper: 4px 10px 30px rgba(44, 32, 46, 0.07), 1px 3px 8px rgba(0, 0, 0, 0.03);
+            --shadow-lift: 8px 18px 40px rgba(200, 108, 135, 0.16), 2px 6px 16px rgba(0, 0, 0, 0.04);
+
+            --tape-bg: rgba(228, 235, 226, 0.75);
+            --tape-border: rgba(132, 155, 130, 0.4);
+
+            --font-heading: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+            --font-display: 'DM Serif Display', serif;
+            --font-body: 'Jost', system-ui, sans-serif;
+            --font-hand: 'Caveat', cursive;
         }
 
         /* ── DARK MODE TOKENS (COZY NIGHT MATCHA JOURNAL) ── */
         body.dark {
-            --bg-paper:      #15111e;
-            --bg-paper-alt:  #1d1828;
-            --card-bg:       #221c30;
-            --card-bg-subtle:#292238;
-            --ink-main:      #f4e8f7;
-            --ink-muted:     #b89dc1;
-            --ink-accent:    #e3c5ef;
-            
-            --rose:          #d7839b;
-            --rose-deep:     #e17192;
-            --rose-light:    rgba(144, 51, 84, 0.35);
-            --blush:         rgba(109, 39, 69, 0.4);
-            
-            --matcha:        #8eb38b;
-            --matcha-deep:   #a5cca2;
-            --matcha-light:  rgba(45, 75, 42, 0.4);
-            
-            --lilac:         #af97cb;
-            --lilac-deep:    #a584ca;
-            --lilac-light:   rgba(77, 47, 114, 0.4);
-            
-            --caramel:       #d39a69;
+            --bg-paper: #15111e;
+            --bg-paper-alt: #1d1828;
+            --card-bg: #221c30;
+            --card-bg-subtle: #292238;
+            --ink-main: #f4e8f7;
+            --ink-muted: #b89dc1;
+            --ink-accent: #e3c5ef;
+
+            --rose: #d7839b;
+            --rose-deep: #e17192;
+            --rose-light: rgba(144, 51, 84, 0.35);
+            --blush: rgba(109, 39, 69, 0.4);
+
+            --matcha: #8eb38b;
+            --matcha-deep: #a5cca2;
+            --matcha-light: rgba(45, 75, 42, 0.4);
+
+            --lilac: #af97cb;
+            --lilac-deep: #a584ca;
+            --lilac-light: rgba(77, 47, 114, 0.4);
+
+            --caramel: #d39a69;
             --caramel-light: rgba(119, 74, 39, 0.35);
-            --caramel-deep:  #dfaa7b;
-            
-            --peach:         #e99d79;
-            --peach-light:   rgba(124, 64, 39, 0.4);
-            
-            --border-paper:  rgba(142, 179, 139, 0.28);
-            --border-rose:   rgba(225, 113, 146, 0.38);
-            
-            --shadow-paper:  6px 12px 35px rgba(0, 0, 0, 0.45);
-            --shadow-lift:   10px 22px 50px rgba(215, 131, 155, 0.22);
-            
-            --tape-bg:       rgba(45, 75, 42, 0.55);
-            --tape-border:   rgba(142, 179, 139, 0.35);
+            --caramel-deep: #dfaa7b;
+
+            --peach: #e99d79;
+            --peach-light: rgba(124, 64, 39, 0.4);
+
+            --border-paper: rgba(142, 179, 139, 0.28);
+            --border-rose: rgba(225, 113, 146, 0.38);
+
+            --shadow-paper: 6px 12px 35px rgba(0, 0, 0, 0.45);
+            --shadow-lift: 10px 22px 50px rgba(215, 131, 155, 0.22);
+
+            --tape-bg: rgba(45, 75, 42, 0.55);
+            --tape-border: rgba(142, 179, 139, 0.35);
         }
 
         /* ── GLOBAL RESET & BASICS ── */
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; font-size: 16px; }
-        
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
         body {
             font-family: var(--font-body);
             background-color: var(--bg-paper);
@@ -108,490 +121,1591 @@
 
         /* Subtle Noise Overlay */
         body::before {
-            content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.035;
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.035;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
         }
 
         /* Organic Background Blobs (Matcha, Rose & Lilac Blend) */
         .ambient-blob {
-            position: fixed; border-radius: 50%; filter: blur(100px); pointer-events: none; z-index: 0;
-            transition: background 0.5s ease; opacity: 0.45;
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(100px);
+            pointer-events: none;
+            z-index: 0;
+            transition: background 0.5s ease;
+            opacity: 0.45;
         }
-        .blob-a { width: 550px; height: 550px; background: radial-gradient(circle, var(--matcha-light), transparent 70%); top: -120px; right: -100px; animation: floatBlob 14s ease-in-out infinite; }
-        .blob-b { width: 450px; height: 450px; background: radial-gradient(circle, var(--rose-light), transparent 70%); bottom: 10%; left: -100px; animation: floatBlob 18s ease-in-out infinite reverse; }
-        .blob-c { width: 380px; height: 380px; background: radial-gradient(circle, var(--lilac-light), transparent 70%); top: 45%; right: 5%; animation: floatBlob 12s ease-in-out infinite; }
+
+        .blob-a {
+            width: 550px;
+            height: 550px;
+            background: radial-gradient(circle, var(--matcha-light), transparent 70%);
+            top: -120px;
+            right: -100px;
+            animation: floatBlob 14s ease-in-out infinite;
+        }
+
+        .blob-b {
+            width: 450px;
+            height: 450px;
+            background: radial-gradient(circle, var(--rose-light), transparent 70%);
+            bottom: 10%;
+            left: -100px;
+            animation: floatBlob 18s ease-in-out infinite reverse;
+        }
+
+        .blob-c {
+            width: 380px;
+            height: 380px;
+            background: radial-gradient(circle, var(--lilac-light), transparent 70%);
+            top: 45%;
+            right: 5%;
+            animation: floatBlob 12s ease-in-out infinite;
+        }
 
         @keyframes floatBlob {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(35px, -25px) scale(1.08); }
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            50% {
+                transform: translate(35px, -25px) scale(1.08);
+            }
         }
 
         /* ── SCRAPBOOK DECORATIVE ACCENTS ── */
         .washi-tape {
-            position: absolute; z-index: 10; height: 26px; width: 110px;
+            position: absolute;
+            z-index: 10;
+            height: 26px;
+            width: 110px;
             background: var(--tape-bg);
             border: 1px dashed var(--tape-border);
             backdrop-filter: blur(4px);
-            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
             pointer-events: none;
         }
-        .washi-tape-top-left { top: -12px; left: 18px; transform: rotate(-5deg); }
-        .washi-tape-top-right { top: -12px; right: 18px; transform: rotate(4deg); }
+
+        .washi-tape-top-left {
+            top: -12px;
+            left: 18px;
+            transform: rotate(-5deg);
+        }
+
+        .washi-tape-top-right {
+            top: -12px;
+            right: 18px;
+            transform: rotate(4deg);
+        }
 
         .paper-clip {
-            position: absolute; top: -16px; left: 24px; z-index: 12; width: 14px; height: 36px;
-            border: 3px solid var(--matcha-deep); border-radius: 10px 10px 0 0;
-            border-bottom: none; box-shadow: 2px 3px 6px rgba(0,0,0,0.15);
+            position: absolute;
+            top: -16px;
+            left: 24px;
+            z-index: 12;
+            width: 14px;
+            height: 36px;
+            border: 3px solid var(--matcha-deep);
+            border-radius: 10px 10px 0 0;
+            border-bottom: none;
+            box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.15);
             pointer-events: none;
         }
 
         .stamp-badge {
-            display: inline-flex; align-items: center; justify-content: center;
-            border: 2px dashed var(--matcha-deep); color: var(--matcha-deep);
-            font-family: var(--font-hand); font-weight: 700; font-size: 1rem;
-            padding: 0.2rem 0.8rem; border-radius: 8px; transform: rotate(-4deg);
-            background: var(--matcha-light); letter-spacing: 1px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed var(--matcha-deep);
+            color: var(--matcha-deep);
+            font-family: var(--font-hand);
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 0.2rem 0.8rem;
+            border-radius: 8px;
+            transform: rotate(-4deg);
+            background: var(--matcha-light);
+            letter-spacing: 1px;
             transition: transform 0.3s ease;
         }
-        .stamp-badge:hover { transform: rotate(2deg) scale(1.05); }
+
+        .stamp-badge:hover {
+            transform: rotate(2deg) scale(1.05);
+        }
 
         /* ── NAVIGATION (FLOATING SCRAPBOOK BAR) ── */
         nav {
-            position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 999;
-            width: 90%; max-width: 1050px;
-            background: rgba(255, 253, 250, 0.85);
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 999;
+            width: 90%;
+            max-width: 1050px;
+            background: rgba(255, 253, 250, 0.88);
             backdrop-filter: blur(16px);
             border: 1.5px solid var(--border-paper);
             border-radius: 100px;
             padding: 0.6rem 1.6rem;
-            display: flex; justify-content: space-between; align-items: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             box-shadow: 0 8px 32px rgba(44, 32, 46, 0.08);
             transition: all 0.4s ease;
         }
+
         body.dark nav {
-            background: rgba(34, 28, 48, 0.88);
+            background: rgba(34, 28, 48, 0.90);
             border-color: var(--border-paper);
         }
 
         .nav-brand {
-            font-family: var(--font-heading); font-size: 1.35rem; font-weight: 700;
-            color: var(--ink-main); text-decoration: none; display: flex; align-items: center; gap: 0.4rem;
+            font-family: var(--font-heading);
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--ink-main);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            white-space: nowrap;
         }
-        .nav-brand span { color: var(--matcha-deep); font-family: var(--font-hand); font-size: 1.5rem; }
 
-        .nav-links { display: flex; gap: 1.4rem; list-style: none; align-items: center; }
+        .nav-brand span {
+            color: var(--matcha-deep);
+            font-family: var(--font-hand);
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.2rem;
+            list-style: none;
+            align-items: center;
+        }
+
         .nav-links a {
-            text-decoration: none; color: var(--ink-muted); font-size: 0.85rem; font-weight: 600;
-            letter-spacing: 0.5px; transition: all 0.3s ease; position: relative; padding: 0.2rem 0.4rem;
+            text-decoration: none;
+            color: var(--ink-muted);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.2rem 0.4rem;
+            white-space: nowrap;
         }
-        .nav-links a::after {
-            content: '~'; position: absolute; bottom: -6px; left: 50%; transform: translateX(-50%) scale(0);
-            color: var(--rose-deep); font-family: var(--font-hand); font-size: 1.3rem; transition: transform 0.3s ease;
-        }
-        .nav-links a:hover { color: var(--rose-deep); }
-        .nav-links a:hover::after { transform: translateX(-50%) scale(1); }
 
-        /* Floating Pill Theme Switcher */
+        .nav-links a::after {
+            content: '~';
+            position: absolute;
+            bottom: -6px;
+            left: 50%;
+            transform: translateX(-50%) scale(0);
+            color: var(--rose-deep);
+            font-family: var(--font-hand);
+            font-size: 1.3rem;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--rose-deep);
+        }
+
+        .nav-links a:hover::after {
+            transform: translateX(-50%) scale(1);
+        }
+
+        /* Floating Theme Switcher */
         .theme-pill-btn {
-            position: fixed; bottom: 28px; right: 28px; z-index: 990;
-            width: 54px; height: 54px; border-radius: 50%;
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 990;
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
             background: var(--card-bg);
             border: 2px solid var(--border-paper);
             box-shadow: var(--shadow-lift);
-            cursor: pointer; display: flex; align-items: center; justify-content: center;
-            font-size: 1.35rem; transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.35rem;
+            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
             outline: none;
         }
+
         .theme-pill-btn:hover {
             transform: scale(1.12) rotate(15deg);
             border-color: var(--matcha-deep);
         }
 
         /* ── LAYOUT CONTAINERS & HEADINGS ── */
-        section { position: relative; z-index: 1; padding: 100px 0; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 6%; }
+        section {
+            position: relative;
+            z-index: 1;
+            padding: 90px 0;
+        }
 
-        .section-header-scrap { margin-bottom: 3.5rem; position: relative; }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 6%;
+        }
+
+        .section-header-scrap {
+            margin-bottom: 3.5rem;
+            position: relative;
+        }
+
         .section-tag-doodle {
-            font-family: var(--font-hand); font-size: 1.35rem; color: var(--matcha-deep);
-            display: inline-flex; align-items: center; gap: 0.4rem; margin-bottom: 0.3rem;
+            font-family: var(--font-hand);
+            font-size: 1.35rem;
+            color: var(--matcha-deep);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-bottom: 0.3rem;
             transform: rotate(-1.5deg);
         }
+
         .section-title-journal {
-            font-family: var(--font-heading); font-size: clamp(2.3rem, 4.2vw, 3.6rem);
-            font-weight: 700; color: var(--ink-main); line-height: 1.15;
+            font-family: var(--font-heading);
+            font-size: clamp(2.3rem, 4.2vw, 3.6rem);
+            font-weight: 700;
+            color: var(--ink-main);
+            line-height: 1.15;
             letter-spacing: -0.5px;
         }
+
         .section-title-journal em {
-            font-family: var(--font-display); font-style: italic; font-weight: 400;
-            color: var(--rose-deep); position: relative; display: inline-block;
+            font-family: var(--font-display);
+            font-style: italic;
+            font-weight: 400;
+            color: var(--rose-deep);
+            position: relative;
+            display: inline-block;
         }
+
         .section-title-journal em::after {
-            content: ''; position: absolute; bottom: 2px; left: 0; width: 100%; height: 6px;
-            background: var(--matcha-light); z-index: -1; border-radius: 4px; opacity: 0.8;
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: var(--matcha-light);
+            z-index: -1;
+            border-radius: 4px;
+            opacity: 0.8;
             transform: rotate(-1deg);
         }
 
         /* ── HERO SECTION ── */
         .hero-section {
-            min-height: 100vh; padding: 130px 6% 80px;
-            display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: center;
+            min-height: 100vh;
+            padding: 130px 6% 80px;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 4rem;
+            align-items: center;
         }
 
         .hero-sticker-header {
-            display: inline-flex; align-items: center; gap: 0.6rem;
-            background: var(--matcha-light); border: 1.5px solid var(--border-paper);
-            padding: 0.35rem 1.1rem; border-radius: 100px; font-family: var(--font-hand);
-            font-size: 1.2rem; color: var(--matcha-deep); margin-bottom: 1.5rem;
-            box-shadow: 2px 4px 12px rgba(0,0,0,0.03); transform: rotate(-2deg);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: var(--matcha-light);
+            border: 1.5px solid var(--border-paper);
+            padding: 0.35rem 1.1rem;
+            border-radius: 100px;
+            font-family: var(--font-hand);
+            font-size: 1.2rem;
+            color: var(--matcha-deep);
+            margin-bottom: 1.5rem;
+            box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.03);
+            transform: rotate(-2deg);
         }
-        
+
         .hero-name-journal {
-            font-family: var(--font-heading); font-size: clamp(2.8rem, 4.8vw, 4.2rem);
-            font-weight: 800; color: var(--ink-main); line-height: 1.08;
-            margin-bottom: 1.2rem; letter-spacing: -1px;
+            font-family: var(--font-heading);
+            font-size: clamp(2.8rem, 4.8vw, 4.2rem);
+            font-weight: 800;
+            color: var(--ink-main);
+            line-height: 1.08;
+            margin-bottom: 1.2rem;
+            letter-spacing: -1px;
         }
+
         .hero-name-journal span.highlight-serif {
-            font-family: var(--font-display); font-style: italic; font-weight: 400;
+            font-family: var(--font-display);
+            font-style: italic;
+            font-weight: 400;
             color: var(--rose-deep);
         }
 
         .hero-sub-card {
-            background: var(--card-bg); border: 1.5px solid var(--border-paper);
-            border-radius: 20px 8px 24px 12px; padding: 1.4rem 1.6rem;
-            margin-bottom: 2rem; position: relative; box-shadow: var(--shadow-paper);
-            transform: rotate(-0.8deg); transition: transform 0.3s ease;
+            background: var(--card-bg);
+            border: 1.5px solid var(--border-paper);
+            border-radius: 20px 8px 24px 12px;
+            padding: 1.4rem 1.6rem;
+            margin-bottom: 2rem;
+            position: relative;
+            box-shadow: var(--shadow-paper);
+            transform: rotate(-0.8deg);
+            transition: transform 0.3s ease;
         }
-        .hero-sub-card:hover { transform: rotate(0deg) translateY(-3px); }
-        .hero-subtitle-tag { font-family: var(--font-display); font-style: italic; font-size: 1.15rem; color: var(--matcha-deep); margin-bottom: 0.4rem; }
-        .hero-sub-card p { font-size: 1rem; color: var(--ink-muted); line-height: 1.8; }
-        
-        .hero-cta-group { display: flex; gap: 1.2rem; flex-wrap: wrap; align-items: center; margin-bottom: 2.5rem; }
-        
+
+        .hero-sub-card:hover {
+            transform: rotate(0deg) translateY(-3px);
+        }
+
+        .hero-subtitle-tag {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 1.15rem;
+            color: var(--matcha-deep);
+            margin-bottom: 0.4rem;
+        }
+
+        .hero-sub-card p {
+            font-size: 1rem;
+            color: var(--ink-muted);
+            line-height: 1.8;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 2.5rem;
+        }
+
         .btn-scrap {
-            padding: 0.85rem 2.2rem; border-radius: 100px;
-            font-family: var(--font-body); font-weight: 700; font-size: 0.92rem;
-            text-decoration: none; cursor: pointer; transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-            display: inline-flex; align-items: center; gap: 0.6rem; border: none;
+            padding: 0.85rem 2rem;
+            border-radius: 100px;
+            font-family: var(--font-body);
+            font-weight: 700;
+            font-size: 0.92rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            border: none;
+            white-space: nowrap;
         }
+
         .btn-scrap-rose {
             background: linear-gradient(135deg, var(--rose), var(--rose-deep));
-            color: #fff; box-shadow: 0 8px 24px rgba(200, 108, 135, 0.35);
+            color: #fff;
+            box-shadow: 0 8px 24px rgba(200, 108, 135, 0.35);
         }
-        .btn-scrap-rose:hover { transform: translateY(-4px) scale(1.03); box-shadow: 0 14px 32px rgba(200, 108, 135, 0.45); }
-        
-        .btn-scrap-outline {
-            background: var(--card-bg); color: var(--ink-main);
-            border: 2px solid var(--border-paper); box-shadow: var(--shadow-paper);
-        }
-        .btn-scrap-outline:hover { transform: translateY(-4px) scale(1.03); border-color: var(--matcha-deep); color: var(--matcha-deep); }
 
-        .hero-stats-row { display: flex; gap: 1.2rem; flex-wrap: wrap; }
-        .stat-polaroid {
-            background: var(--card-bg); border: 1.5px solid var(--border-paper);
-            border-radius: 14px; padding: 0.7rem 1.2rem; text-align: center;
-            box-shadow: var(--shadow-paper); transition: all 0.3s ease;
+        .btn-scrap-rose:hover {
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 14px 32px rgba(200, 108, 135, 0.45);
+            color: #fff;
         }
-        .stat-polaroid:nth-child(1) { transform: rotate(-3deg); }
-        .stat-polaroid:nth-child(2) { transform: rotate(2deg); }
-        .stat-polaroid:nth-child(3) { transform: rotate(-1.5deg); }
-        .stat-polaroid:hover { transform: scale(1.08) rotate(0deg); border-color: var(--rose); }
-        .stat-num-j { font-family: var(--font-heading); font-size: 1.6rem; font-weight: 800; color: var(--rose-deep); line-height: 1; }
-        .stat-lbl-j { font-size: 0.75rem; font-weight: 600; color: var(--ink-muted); }
+
+        .btn-scrap-matcha {
+            background: linear-gradient(135deg, var(--matcha), var(--matcha-deep));
+            color: #fff;
+            box-shadow: 0 8px 24px rgba(77, 100, 75, 0.32);
+        }
+
+        .btn-scrap-matcha:hover {
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 14px 32px rgba(77, 100, 75, 0.45);
+            color: #fff;
+        }
+
+        .btn-scrap-outline {
+            background: var(--card-bg);
+            color: var(--ink-main);
+            border: 2px solid var(--border-paper);
+            box-shadow: var(--shadow-paper);
+        }
+
+        .btn-scrap-outline:hover {
+            transform: translateY(-4px) scale(1.03);
+            border-color: var(--matcha-deep);
+            color: var(--matcha-deep);
+        }
+
+        .hero-stats-row {
+            display: flex;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-polaroid {
+            background: var(--card-bg);
+            border: 1.5px solid var(--border-paper);
+            border-radius: 14px;
+            padding: 0.7rem 1.2rem;
+            text-align: center;
+            box-shadow: var(--shadow-paper);
+            transition: all 0.3s ease;
+            flex: 1;
+            min-width: 90px;
+        }
+
+        .stat-polaroid:nth-child(1) {
+            transform: rotate(-3deg);
+        }
+
+        .stat-polaroid:nth-child(2) {
+            transform: rotate(2deg);
+        }
+
+        .stat-polaroid:nth-child(3) {
+            transform: rotate(-1.5deg);
+        }
+
+        .stat-polaroid:hover {
+            transform: scale(1.08) rotate(0deg);
+            border-color: var(--rose);
+        }
+
+        .stat-num-j {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--rose-deep);
+            line-height: 1;
+        }
+
+        .stat-lbl-j {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--ink-muted);
+        }
 
         /* Hero Right Polaroid Frame */
-        .hero-right { position: relative; display: flex; justify-content: center; }
+        .hero-right {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
         .polaroid-frame {
-            position: relative; width: 340px; background: var(--card-bg);
-            border: 1.5px solid var(--border-paper); padding: 16px 16px 50px 16px;
-            border-radius: 18px 6px 22px 10px; box-shadow: var(--shadow-lift);
-            transform: rotate(3deg); transition: transform 0.5s ease;
+            position: relative;
+            width: 340px;
+            background: var(--card-bg);
+            border: 1.5px solid var(--border-paper);
+            padding: 16px 16px 50px 16px;
+            border-radius: 18px 6px 22px 10px;
+            box-shadow: var(--shadow-lift);
+            transform: rotate(3deg);
+            transition: transform 0.5s ease;
         }
-        .polaroid-frame:hover { transform: rotate(0deg) scale(1.02); }
+
+        .polaroid-frame:hover {
+            transform: rotate(0deg) scale(1.02);
+        }
+
         .polaroid-img-wrap {
-            width: 100%; height: 380px; border-radius: 12px; overflow: hidden;
-            border: 1px solid rgba(0,0,0,0.06); position: relative;
+            width: 100%;
+            height: 380px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            position: relative;
         }
-        .polaroid-img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: transform 0.6s ease; }
-        .polaroid-frame:hover img { transform: scale(1.05); }
-        
+
+        .polaroid-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            transition: transform 0.6s ease;
+        }
+
+        .polaroid-frame:hover img {
+            transform: scale(1.05);
+        }
+
         .polaroid-caption {
-            position: absolute; bottom: 12px; left: 0; right: 0; text-align: center;
-            font-family: var(--font-hand); font-size: 1.5rem; color: var(--ink-main);
+            position: absolute;
+            bottom: 12px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-family: var(--font-hand);
+            font-size: 1.5rem;
+            color: var(--ink-main);
         }
 
         .sticker-pin {
-            position: absolute; z-index: 15; background: var(--matcha-light);
-            border: 1.5px solid var(--matcha-deep); padding: 0.4rem 0.9rem; border-radius: 100px;
-            font-size: 0.8rem; font-weight: 700; color: var(--matcha-deep);
-            box-shadow: 0 4px 14px rgba(0,0,0,0.08); display: flex; align-items: center; gap: 0.4rem;
+            position: absolute;
+            z-index: 15;
+            background: var(--matcha-light);
+            border: 1.5px solid var(--matcha-deep);
+            padding: 0.4rem 0.9rem;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--matcha-deep);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
             animation: floatSticker 4s ease-in-out infinite;
+            white-space: nowrap;
         }
-        .sticker-pin-a { top: -15px; right: -20px; transform: rotate(6deg); }
-        .sticker-pin-b { bottom: 40px; left: -30px; transform: rotate(-8deg); animation-delay: 2s; background: var(--rose-light); border-color: var(--rose-deep); color: var(--rose-deep); }
-        @keyframes floatSticker { 0%,100%{ transform: translateY(0) rotate(4deg); } 50%{ transform: translateY(-8px) rotate(-2deg); } }
+
+        .sticker-pin-a {
+            top: -15px;
+            right: -20px;
+            transform: rotate(6deg);
+        }
+
+        .sticker-pin-b {
+            bottom: 40px;
+            left: -30px;
+            transform: rotate(-8deg);
+            animation-delay: 2s;
+            background: var(--rose-light);
+            border-color: var(--rose-deep);
+            color: var(--rose-deep);
+        }
+
+        @keyframes floatSticker {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(4deg);
+            }
+
+            50% {
+                transform: translateY(-8px) rotate(-2deg);
+            }
+        }
 
         /* ── ABOUT SECTION ── */
-        .about-grid-journal { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-        .about-text-paper {
-            background: var(--card-bg); border: 1.5px solid var(--border-paper);
-            border-radius: 24px 10px 30px 14px; padding: 2.5rem;
-            box-shadow: var(--shadow-paper); position: relative; transform: rotate(-0.5deg);
+        .about-grid-journal {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 3.5rem;
+            align-items: start;
         }
-        .about-text-paper p { font-size: 1rem; color: var(--ink-muted); line-height: 1.9; margin-bottom: 1.4rem; }
-        
+
+        .about-text-paper {
+            background: var(--card-bg);
+            border: 1.5px solid var(--border-paper);
+            border-radius: 24px 10px 30px 14px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-paper);
+            position: relative;
+            transform: rotate(-0.5deg);
+        }
+
+        .about-text-paper p {
+            font-size: 1rem;
+            color: var(--ink-muted);
+            line-height: 1.9;
+            margin-bottom: 1.4rem;
+        }
+
         .highlight-marker {
             background: linear-gradient(120deg, var(--matcha-light), var(--rose-light));
-            border-left: 4px solid var(--matcha-deep); padding: 1.2rem 1.4rem;
-            border-radius: 0 16px 16px 0; margin: 1.8rem 0;
-            font-family: var(--font-heading); font-style: italic; font-size: 1.15rem; color: var(--ink-main);
+            border-left: 4px solid var(--matcha-deep);
+            padding: 1.2rem 1.4rem;
+            border-radius: 0 16px 16px 0;
+            margin: 1.8rem 0;
+            font-family: var(--font-heading);
+            font-style: italic;
+            font-size: 1.15rem;
+            color: var(--ink-main);
         }
 
-        .about-cards-stack { display: flex; flex-direction: column; gap: 1.3rem; }
-        .journal-note-card {
-            background: var(--card-bg); border: 1.5px solid var(--border-paper);
-            border-radius: 20px 8px 20px 12px; padding: 1.3rem 1.6rem;
-            display: flex; align-items: center; gap: 1.2rem;
-            box-shadow: var(--shadow-paper); position: relative; transition: all 0.35s ease;
+        .about-cards-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 1.3rem;
         }
-        .journal-note-card:nth-child(odd) { transform: rotate(1deg); }
-        .journal-note-card:nth-child(even) { transform: rotate(-1.2deg); }
-        .journal-note-card:hover { transform: scale(1.02) rotate(0deg); border-color: var(--rose); box-shadow: var(--shadow-lift); }
+
+        .journal-note-card {
+            background: var(--card-bg);
+            border: 1.5px solid var(--border-paper);
+            border-radius: 20px 8px 20px 12px;
+            padding: 1.3rem 1.6rem;
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            box-shadow: var(--shadow-paper);
+            position: relative;
+            transition: all 0.35s ease;
+        }
+
+        .journal-note-card:nth-child(odd) {
+            transform: rotate(1deg);
+        }
+
+        .journal-note-card:nth-child(even) {
+            transform: rotate(-1.2deg);
+        }
+
+        .journal-note-card:hover {
+            transform: scale(1.02) rotate(0deg);
+            border-color: var(--rose);
+            box-shadow: var(--shadow-lift);
+        }
 
         .note-icon-circle {
-            width: 48px; height: 48px; min-width: 48px; border-radius: 14px;
-            display: flex; align-items: center; justify-content: center; font-size: 1.4rem;
-            background: var(--matcha-light); border: 1px solid var(--border-paper);
+            width: 48px;
+            height: 48px;
+            min-width: 48px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            background: var(--matcha-light);
+            border: 1px solid var(--border-paper);
         }
-        .note-info h4 { font-family: var(--font-heading); font-size: 1.1rem; font-weight: 700; color: var(--ink-main); margin-bottom: 0.2rem; }
-        .note-info p { font-size: 0.85rem; color: var(--ink-muted); }
-        .note-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.4rem; }
+
+        .note-info h4 {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--ink-main);
+            margin-bottom: 0.2rem;
+        }
+
+        .note-info p {
+            font-size: 0.85rem;
+            color: var(--ink-muted);
+        }
+
+        .note-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-top: 0.4rem;
+        }
+
         .note-tag-pill {
-            font-size: 0.72rem; font-weight: 700; padding: 0.18rem 0.65rem; border-radius: 100px;
-            background: var(--matcha-light); color: var(--matcha-deep); border: 1px solid var(--border-paper);
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 0.18rem 0.65rem;
+            border-radius: 100px;
+            background: var(--matcha-light);
+            color: var(--matcha-deep);
+            border: 1px solid var(--border-paper);
         }
 
         /* ── SKILLS SECTION (3D GLOBE) ── */
-        .skills-container-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: center; }
+        .skills-container-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3.5rem;
+            align-items: center;
+        }
+
         .globe-wrapper-card {
-            background: var(--card-bg); border: 1.5px solid var(--border-paper);
-            border-radius: 32px 14px 28px 18px; padding: 2rem;
-            box-shadow: var(--shadow-lift); position: relative; text-align: center;
-            transform: rotate(-1deg); overflow: hidden;
+            background: var(--card-bg);
+            border: 1.5px solid var(--border-paper);
+            border-radius: 32px 14px 28px 18px;
+            padding: 2rem;
+            box-shadow: var(--shadow-lift);
+            position: relative;
+            text-align: center;
+            transform: rotate(-1deg);
+            overflow: hidden;
         }
-        .globe-title-hint { font-family: var(--font-hand); font-size: 1.3rem; color: var(--matcha-deep); margin-bottom: 0.5rem; }
-        #skillGlobeCanvas { width: 100%; max-width: 440px; height: 440px; cursor: grab; touch-action: none; }
 
-        .skills-category-stack { display: flex; flex-direction: column; gap: 1.4rem; }
+        .globe-title-hint {
+            font-family: var(--font-hand);
+            font-size: 1.3rem;
+            color: var(--matcha-deep);
+            margin-bottom: 0.5rem;
+        }
+
+        #skillGlobeCanvas {
+            width: 100%;
+            max-width: 440px;
+            height: 440px;
+            cursor: grab;
+            touch-action: none;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .skills-category-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 1.4rem;
+        }
+
         .skill-cat-journal-card {
-            background: var(--card-bg); border: 1.5px solid var(--border-paper);
-            border-radius: 24px 10px 22px 14px; padding: 1.6rem;
-            box-shadow: var(--shadow-paper); position: relative; transition: all 0.3s ease;
+            background: var(--card-bg);
+            border: 1.5px solid var(--border-paper);
+            border-radius: 24px 10px 22px 14px;
+            padding: 1.6rem;
+            box-shadow: var(--shadow-paper);
+            position: relative;
+            transition: all 0.3s ease;
         }
-        .skill-cat-journal-card:nth-child(1) { transform: rotate(1deg); }
-        .skill-cat-journal-card:nth-child(2) { transform: rotate(-1deg); }
-        .skill-cat-journal-card:nth-child(3) { transform: rotate(0.8deg); }
-        .skill-cat-journal-card:nth-child(4) { transform: rotate(-0.5deg); }
-        .skill-cat-journal-card:hover { transform: rotate(0deg) translateY(-4px); border-color: var(--matcha-deep); }
 
-        .cat-card-header { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1rem; }
-        .cat-card-header h3 { font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; color: var(--ink-main); }
-        .cat-pills-wrap { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .skill-cat-journal-card:nth-child(1) {
+            transform: rotate(1deg);
+        }
+
+        .skill-cat-journal-card:nth-child(2) {
+            transform: rotate(-1deg);
+        }
+
+        .skill-cat-journal-card:nth-child(3) {
+            transform: rotate(0.8deg);
+        }
+
+        .skill-cat-journal-card:nth-child(4) {
+            transform: rotate(-0.5deg);
+        }
+
+        .skill-cat-journal-card:hover {
+            transform: rotate(0deg) translateY(-4px);
+            border-color: var(--matcha-deep);
+        }
+
+        .cat-card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .cat-card-header h3 {
+            font-family: var(--font-heading);
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--ink-main);
+        }
+
+        .cat-pills-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
         .skill-pill {
-            font-size: 0.8rem; font-weight: 600; padding: 0.35rem 0.95rem; border-radius: 100px;
-            background: var(--matcha-light); color: var(--matcha-deep); border: 1px solid var(--border-paper);
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.35rem 0.95rem;
+            border-radius: 100px;
+            background: var(--matcha-light);
+            color: var(--matcha-deep);
+            border: 1px solid var(--border-paper);
             transition: all 0.25s ease;
         }
-        .skill-pill:hover { transform: scale(1.08) rotate(-2deg); background: var(--matcha-deep); color: #fff; }
-        .skill-pill.lilac { background: var(--lilac-light); color: var(--lilac-deep); border-color: var(--lilac); }
-        .skill-pill.caramel { background: var(--caramel-light); color: var(--caramel-deep); border-color: var(--caramel); }
-        .skill-pill.rose { background: var(--rose-light); color: var(--rose-deep); border-color: var(--rose); }
+
+        .skill-pill:hover {
+            transform: scale(1.08) rotate(-2deg);
+            background: var(--matcha-deep);
+            color: #fff;
+        }
+
+        .skill-pill.lilac {
+            background: var(--lilac-light);
+            color: var(--lilac-deep);
+            border-color: var(--lilac);
+        }
+
+        .skill-pill.caramel {
+            background: var(--caramel-light);
+            color: var(--caramel-deep);
+            border-color: var(--caramel);
+        }
+
+        .skill-pill.rose {
+            background: var(--rose-light);
+            color: var(--rose-deep);
+            border-color: var(--rose);
+        }
 
         /* ── ORGANISASI SECTION ── */
-        .org-timeline-scrap { position: relative; padding-left: 2.8rem; margin-top: 2rem; }
+        .org-timeline-scrap {
+            position: relative;
+            padding-left: 2.8rem;
+            margin-top: 2rem;
+        }
+
         .org-timeline-scrap::before {
-            content: ''; position: absolute; left: 12px; top: 0; bottom: 0; width: 3px;
+            content: '';
+            position: absolute;
+            left: 12px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
             background: linear-gradient(to bottom, var(--matcha), var(--rose), var(--lilac), var(--caramel));
             border-radius: 3px;
         }
 
         .org-timeline-item {
-            position: relative; margin-bottom: 2rem;
-            background: var(--card-bg); border: 1.5px solid var(--border-paper);
-            border-radius: 22px 10px 24px 14px; padding: 1.5rem 1.8rem;
-            box-shadow: var(--shadow-paper); transition: all 0.35s ease;
-            display: grid; grid-template-columns: 1fr auto; gap: 1.5rem; align-items: start;
+            position: relative;
+            margin-bottom: 2rem;
+            background: var(--card-bg);
+            border: 1.5px solid var(--border-paper);
+            border-radius: 22px 10px 24px 14px;
+            padding: 1.5rem 1.8rem;
+            box-shadow: var(--shadow-paper);
+            transition: all 0.35s ease;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 1.5rem;
+            align-items: start;
         }
-        .org-timeline-item:nth-child(odd) { transform: rotate(-0.6deg); }
-        .org-timeline-item:nth-child(even) { transform: rotate(0.8deg); }
-        .org-timeline-item:hover { transform: rotate(0deg) translateX(8px); border-color: var(--matcha-deep); box-shadow: var(--shadow-lift); }
+
+        .org-timeline-item:nth-child(odd) {
+            transform: rotate(-0.6deg);
+        }
+
+        .org-timeline-item:nth-child(even) {
+            transform: rotate(0.8deg);
+        }
+
+        .org-timeline-item:hover {
+            transform: rotate(0deg) translateX(8px);
+            border-color: var(--matcha-deep);
+            box-shadow: var(--shadow-lift);
+        }
 
         .org-timeline-item::before {
-            content: '✦'; position: absolute; left: -3.35rem; top: 1.5rem;
-            width: 26px; height: 26px; border-radius: 50%;
-            background: var(--card-bg); border: 2px solid var(--matcha-deep);
-            color: var(--matcha-deep); font-size: 0.75rem;
-            display: flex; align-items: center; justify-content: center;
+            content: '✦';
+            position: absolute;
+            left: -3.35rem;
+            top: 1.5rem;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: var(--card-bg);
+            border: 2px solid var(--matcha-deep);
+            color: var(--matcha-deep);
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .org-item-main { display: flex; gap: 1.2rem; align-items: flex-start; }
+        .org-item-main {
+            display: flex;
+            gap: 1.2rem;
+            align-items: flex-start;
+        }
+
         .org-logo-stamp {
-            width: 54px; height: 54px; min-width: 54px; border-radius: 16px;
-            background: #fff; border: 2px solid var(--border-paper); overflow: hidden;
-            padding: 2px; box-shadow: 0 4px 10px rgba(0,0,0,0.06); flex-shrink: 0;
+            width: 54px;
+            height: 54px;
+            min-width: 54px;
+            border-radius: 16px;
+            background: #fff;
+            border: 2px solid var(--border-paper);
+            overflow: hidden;
+            padding: 2px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+            flex-shrink: 0;
         }
-        .org-logo-stamp img { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; }
 
-        .org-details h4 { font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; color: var(--ink-main); margin-bottom: 0.15rem; }
-        .org-role-tag { font-family: var(--font-hand); font-size: 1.25rem; color: var(--matcha-deep); margin-bottom: 0.4rem; }
-        .org-desc-text { font-size: 0.88rem; color: var(--ink-muted); line-height: 1.7; }
+        .org-logo-stamp img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .org-details h4 {
+            font-family: var(--font-heading);
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--ink-main);
+            margin-bottom: 0.15rem;
+        }
+
+        .org-role-tag {
+            font-family: var(--font-hand);
+            font-size: 1.25rem;
+            color: var(--matcha-deep);
+            margin-bottom: 0.4rem;
+        }
+
+        .org-desc-text {
+            font-size: 0.88rem;
+            color: var(--ink-muted);
+            line-height: 1.7;
+        }
 
         .org-period-seal {
-            font-family: var(--font-hand); font-size: 1.2rem; font-weight: 700;
-            color: var(--caramel-deep); background: var(--caramel-light);
-            border: 1px dashed var(--caramel); padding: 0.3rem 0.9rem; border-radius: 100px;
-            white-space: nowrap; transform: rotate(-2deg);
+            font-family: var(--font-hand);
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--caramel-deep);
+            background: var(--caramel-light);
+            border: 1px dashed var(--caramel);
+            padding: 0.3rem 0.9rem;
+            border-radius: 100px;
+            white-space: nowrap;
+            transform: rotate(-2deg);
+            align-self: flex-start;
         }
 
         /* ── PROJECTS SECTION ── */
-        .projects-asym-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.2rem; }
-        .project-scrap-card {
-            background: var(--card-bg); border: 1.5px solid var(--border-paper);
-            border-radius: 26px 12px 28px 16px; overflow: hidden;
-            box-shadow: var(--shadow-paper); display: flex; flex-direction: column;
-            position: relative; transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        .projects-asym-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.2rem;
         }
-        .project-scrap-card:nth-child(odd) { transform: rotate(-1deg); }
-        .project-scrap-card:nth-child(even) { transform: rotate(1.2deg); }
-        .project-scrap-card:hover { transform: rotate(0deg) translateY(-10px); border-color: var(--matcha-deep); box-shadow: var(--shadow-lift); z-index: 5; }
 
-        .project-carousel-wrap { position: relative; height: 210px; background: var(--bg-paper-alt); overflow: hidden; }
-        .project-carousel-wrap img { width: 100%; height: 100%; object-fit: cover; display: none; transition: transform 0.5s ease; }
-        .project-carousel-wrap img.active { display: block; }
-        .project-scrap-card:hover .project-carousel-wrap img { transform: scale(1.06); }
-        .project-img-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+        .project-scrap-card {
+            background: var(--card-bg);
+            border: 1.5px solid var(--border-paper);
+            border-radius: 26px 12px 28px 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-paper);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .project-scrap-card:nth-child(odd) {
+            transform: rotate(-1deg);
+        }
+
+        .project-scrap-card:nth-child(even) {
+            transform: rotate(1.2deg);
+        }
+
+        .project-scrap-card:hover {
+            transform: rotate(0deg) translateY(-10px);
+            border-color: var(--matcha-deep);
+            box-shadow: var(--shadow-lift);
+            z-index: 5;
+        }
+
+        .project-carousel-wrap {
+            position: relative;
+            height: 210px;
+            background: var(--bg-paper-alt);
+            overflow: hidden;
+        }
+
+        .project-carousel-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+            transition: transform 0.5s ease;
+        }
+
+        .project-carousel-wrap img.active {
+            display: block;
+        }
+
+        .project-scrap-card:hover .project-carousel-wrap img {
+            transform: scale(1.06);
+        }
+
+        .project-img-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
         .carousel-btn {
-            position: absolute; top: 50%; transform: translateY(-50%);
-            width: 32px; height: 32px; border-radius: 50%;
-            background: rgba(255, 253, 250, 0.9); border: 1px solid var(--border-paper);
-            color: var(--ink-main); font-size: 1rem; cursor: pointer;
-            display: flex; align-items: center; justify-content: center; z-index: 5;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(255, 253, 250, 0.9);
+            border: 1px solid var(--border-paper);
+            color: var(--ink-main);
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 5;
         }
-        .carousel-btn:hover { background: var(--matcha-deep); color: #fff; }
-        .carousel-btn.prev { left: 10px; }
-        .carousel-btn.next { right: 10px; }
 
-        .carousel-dots { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); display: flex; gap: 5px; z-index: 5; }
-        .c-dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.6); border: none; cursor: pointer; padding: 0; }
-        .c-dot.active { background: var(--matcha-deep); width: 16px; border-radius: 4px; }
+        .carousel-btn:hover {
+            background: var(--matcha-deep);
+            color: #fff;
+        }
 
-        .project-card-body { padding: 1.6rem; flex: 1; display: flex; flex-direction: column; }
-        .project-num-hand { font-family: var(--font-hand); font-size: 1.4rem; color: var(--matcha-deep); margin-bottom: 0.3rem; }
-        .project-card-body h3 { font-family: var(--font-heading); font-size: 1.25rem; font-weight: 700; color: var(--ink-main); margin-bottom: 0.6rem; line-height: 1.35; }
-        .project-card-body p { font-size: 0.88rem; color: var(--ink-muted); line-height: 1.7; flex: 1; margin-bottom: 1.2rem; }
+        .carousel-btn.prev {
+            left: 10px;
+        }
 
-        .project-tags-wrap { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.2rem; }
-        .p-tag { font-size: 0.74rem; font-weight: 700; padding: 0.22rem 0.75rem; border-radius: 100px; background: var(--matcha-light); color: var(--matcha-deep); border: 1px solid var(--border-paper); }
+        .carousel-btn.next {
+            right: 10px;
+        }
 
-        .team-sticker-group { margin-bottom: 1.2rem; padding: 0.7rem; background: var(--card-bg-subtle); border-radius: 14px; border: 1px dashed var(--border-paper); }
-        .team-title-sm { font-family: var(--font-hand); font-size: 1.1rem; color: var(--caramel-deep); margin-bottom: 0.4rem; }
-        .team-avatar-list { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-        .t-avatar-pill { display: flex; align-items: center; gap: 0.35rem; background: var(--card-bg); border: 1px solid var(--border-paper); border-radius: 100px; padding: 0.2rem 0.6rem 0.2rem 0.35rem; font-size: 0.72rem; font-weight: 700; color: var(--ink-main); }
-        .t-avatar-pill.author { border-color: var(--rose-deep); background: var(--rose-light); color: var(--rose-deep); }
-        .t-avatar-circle { width: 20px; height: 20px; border-radius: 50%; background: var(--matcha-deep); color: #fff; font-size: 0.55rem; display: flex; align-items: center; justify-content: center; font-weight: 800; }
+        .carousel-dots {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 5px;
+            z-index: 5;
+        }
 
-        .project-link-btn { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; font-weight: 700; color: var(--matcha-deep); text-decoration: none; background: var(--matcha-light); border: 1px solid var(--border-paper); padding: 0.5rem 1.1rem; border-radius: 100px; transition: all 0.3s ease; width: fit-content; }
-        .project-link-btn:hover { background: var(--matcha-deep); color: #fff; transform: scale(1.05); }
+        .c-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.6);
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
 
-        .module-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-        .module-pill { font-size: 0.74rem; font-weight: 700; padding: 0.25rem 0.8rem; border-radius: 100px; background: var(--lilac-light); color: var(--lilac-deep); border: 1px solid var(--lilac); }
+        .c-dot.active {
+            background: var(--matcha-deep);
+            width: 16px;
+            border-radius: 4px;
+        }
+
+        .project-card-body {
+            padding: 1.6rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-num-hand {
+            font-family: var(--font-hand);
+            font-size: 1.4rem;
+            color: var(--matcha-deep);
+            margin-bottom: 0.3rem;
+        }
+
+        .project-card-body h3 {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--ink-main);
+            margin-bottom: 0.6rem;
+            line-height: 1.35;
+        }
+
+        .project-card-body p {
+            font-size: 0.88rem;
+            color: var(--ink-muted);
+            line-height: 1.7;
+            flex: 1;
+            margin-bottom: 1.2rem;
+        }
+
+        .project-tags-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .p-tag {
+            font-size: 0.74rem;
+            font-weight: 700;
+            padding: 0.22rem 0.75rem;
+            border-radius: 100px;
+            background: var(--matcha-light);
+            color: var(--matcha-deep);
+            border: 1px solid var(--border-paper);
+        }
+
+        /* Neat 2-Column Grid Layout for Project Team Members */
+        .team-sticker-group {
+            margin-bottom: 1.2rem;
+            padding: 0.75rem 0.85rem;
+            background: var(--card-bg-subtle);
+            border-radius: 14px;
+            border: 1px dashed var(--border-paper);
+        }
+
+        .team-title-sm {
+            font-family: var(--font-hand);
+            font-size: 1.1rem;
+            color: var(--caramel-deep);
+            margin-bottom: 0.45rem;
+        }
+
+        .team-avatar-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.35rem 0.5rem;
+        }
+
+        .t-avatar-pill {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border-paper);
+            border-radius: 100px;
+            padding: 0.2rem 0.5rem 0.2rem 0.35rem;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--ink-main);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .t-avatar-pill.author {
+            border-color: var(--rose-deep);
+            background: var(--rose-light);
+            color: var(--rose-deep);
+        }
+
+        .t-avatar-circle {
+            width: 20px;
+            height: 20px;
+            min-width: 20px;
+            border-radius: 50%;
+            background: var(--matcha-deep);
+            color: #fff;
+            font-size: 0.55rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+
+        .project-link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--matcha-deep);
+            text-decoration: none;
+            background: var(--matcha-light);
+            border: 1px solid var(--border-paper);
+            padding: 0.5rem 1.1rem;
+            border-radius: 100px;
+            transition: all 0.3s ease;
+            width: fit-content;
+            margin-top: auto;
+        }
+
+        .project-link-btn:hover {
+            background: var(--matcha-deep);
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+        .module-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .module-pill {
+            font-size: 0.74rem;
+            font-weight: 700;
+            padding: 0.25rem 0.8rem;
+            border-radius: 100px;
+            background: var(--lilac-light);
+            color: var(--lilac-deep);
+            border: 1px solid var(--lilac);
+        }
 
         /* ── PRESTASI SECTION ── */
-        .prestasi-grid-scrap { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2rem; }
-        .trophy-polaroid-card {
-            background: var(--card-bg); border: 1.5px solid var(--border-paper);
-            border-radius: 22px 10px 24px 12px; padding: 1.6rem;
-            box-shadow: var(--shadow-paper); position: relative; transition: all 0.35s ease;
-            display: flex; flex-direction: column;
+        .prestasi-grid-scrap {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
         }
-        .trophy-polaroid-card:nth-child(odd) { transform: rotate(1deg); }
-        .trophy-polaroid-card:nth-child(even) { transform: rotate(-1.2deg); }
-        .trophy-polaroid-card:hover { transform: rotate(0deg) translateY(-6px); border-color: var(--rose); box-shadow: var(--shadow-lift); }
+
+        .trophy-polaroid-card {
+            background: var(--card-bg);
+            border: 1.5px solid var(--border-paper);
+            border-radius: 22px 10px 24px 12px;
+            padding: 1.6rem;
+            box-shadow: var(--shadow-paper);
+            position: relative;
+            transition: all 0.35s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .trophy-polaroid-card:nth-child(odd) {
+            transform: rotate(1deg);
+        }
+
+        .trophy-polaroid-card:nth-child(even) {
+            transform: rotate(-1.2deg);
+        }
+
+        .trophy-polaroid-card:hover {
+            transform: rotate(0deg) translateY(-6px);
+            border-color: var(--rose);
+            box-shadow: var(--shadow-lift);
+        }
 
         .clean-polaroid-photo-wrap {
-            position: relative; height: 200px; width: 100%; margin-bottom: 1rem;
-            border-radius: 12px; overflow: hidden; border: 1px solid var(--border-paper);
+            position: relative;
+            height: 200px;
+            width: 100%;
+            margin-bottom: 1rem;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-paper);
             background: var(--bg-paper-alt);
         }
-        .clean-polaroid-photo-wrap img { width: 100%; height: 100%; object-fit: cover; display: none; transition: transform 0.5s ease; }
-        .clean-polaroid-photo-wrap img.active { display: block; }
-        .trophy-polaroid-card:hover .clean-polaroid-photo-wrap img { transform: scale(1.05); }
 
-        .trophy-icon-j { font-size: 2.2rem; margin-bottom: 0.6rem; display: block; }
-        .trophy-rank-badge { font-family: var(--font-hand); font-size: 1.3rem; color: var(--rose-deep); font-weight: 700; }
-        .trophy-polaroid-card h4 { font-family: var(--font-heading); font-size: 1.1rem; font-weight: 700; color: var(--ink-main); margin: 0.4rem 0; }
-        .trophy-year-seal { font-size: 0.75rem; font-weight: 700; color: var(--caramel-deep); background: var(--caramel-light); padding: 0.2rem 0.7rem; border-radius: 100px; display: inline-block; width: fit-content; margin-top: auto; }
+        .clean-polaroid-photo-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+            transition: transform 0.5s ease;
+        }
+
+        .clean-polaroid-photo-wrap img.active {
+            display: block;
+        }
+
+        .trophy-polaroid-card:hover .clean-polaroid-photo-wrap img {
+            transform: scale(1.05);
+        }
+
+        .trophy-icon-j {
+            font-size: 2.2rem;
+            margin-bottom: 0.6rem;
+            display: block;
+        }
+
+        .trophy-rank-badge {
+            font-family: var(--font-hand);
+            font-size: 1.3rem;
+            color: var(--rose-deep);
+            font-weight: 700;
+        }
+
+        .trophy-polaroid-card h4 {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--ink-main);
+            margin: 0.4rem 0 1rem;
+            line-height: 1.4;
+        }
+
+        .trophy-year-seal {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--caramel-deep);
+            background: var(--caramel-light);
+            padding: 0.2rem 0.7rem;
+            border-radius: 100px;
+            display: inline-block;
+            width: fit-content;
+            margin-top: auto;
+        }
 
         /* ── CONTACT SECTION ── */
-        .contact-envelope-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: start; }
-        .contact-letter-card {
-            background: var(--card-bg); border: 1.5px solid var(--border-paper);
-            border-radius: 28px 12px 30px 16px; padding: 2.5rem;
-            box-shadow: var(--shadow-lift); position: relative; transform: rotate(-0.8deg);
+        .contact-envelope-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.25fr;
+            gap: 3.5rem;
+            align-items: start;
         }
-        .contact-letter-card p { font-size: 1rem; color: var(--ink-muted); line-height: 1.9; margin-bottom: 1.5rem; }
-        .contact-signature-hand { font-family: var(--font-hand); font-size: 2.4rem; color: var(--matcha-deep); transform: rotate(-3deg); display: inline-block; }
 
-        .contact-stamps-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-        .contact-stamp-card {
-            background: var(--card-bg); border: 1.5px solid var(--border-paper);
-            border-radius: 18px; padding: 1.1rem 1.2rem; display: flex; align-items: center; gap: 0.9rem;
-            text-decoration: none; box-shadow: var(--shadow-paper); transition: all 0.3s ease; position: relative;
+        .contact-letter-card {
+            background: var(--card-bg);
+            border: 1.5px solid var(--border-paper);
+            border-radius: 28px 12px 30px 16px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-lift);
+            position: relative;
+            transform: rotate(-0.8deg);
         }
-        .contact-stamp-card:nth-child(odd) { transform: rotate(1deg); }
-        .contact-stamp-card:nth-child(even) { transform: rotate(-1deg); }
-        .contact-stamp-card:hover { transform: rotate(0deg) scale(1.04) translateY(-3px); border-color: var(--matcha-deep); box-shadow: var(--shadow-lift); }
+
+        .contact-letter-card p {
+            font-size: 1rem;
+            color: var(--ink-muted);
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-signature-hand {
+            font-family: var(--font-hand);
+            font-size: 2.4rem;
+            color: var(--matcha-deep);
+            transform: rotate(-3deg);
+            display: inline-block;
+        }
+
+        .contact-stamps-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .contact-stamp-card {
+            background: var(--card-bg);
+            border: 1.5px solid var(--border-paper);
+            border-radius: 18px;
+            padding: 1.1rem 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.9rem;
+            text-decoration: none;
+            box-shadow: var(--shadow-paper);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .contact-stamp-card:nth-child(odd) {
+            transform: rotate(1deg);
+        }
+
+        .contact-stamp-card:nth-child(even) {
+            transform: rotate(-1deg);
+        }
+
+        .contact-stamp-card:hover {
+            transform: rotate(0deg) scale(1.04) translateY(-3px);
+            border-color: var(--matcha-deep);
+            box-shadow: var(--shadow-lift);
+        }
 
         .stamp-icon-wrap {
-            width: 44px; height: 44px; min-width: 44px; border-radius: 12px;
-            display: flex; align-items: center; justify-content: center;
-            background: var(--matcha-light); border: 1px solid var(--border-paper);
+            width: 44px;
+            height: 44px;
+            min-width: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--matcha-light);
+            border: 1px solid var(--border-paper);
         }
-        .stamp-icon-wrap svg { width: 24px; height: 24px; }
-        .stamp-text-info strong { display: block; font-size: 0.85rem; font-weight: 700; color: var(--ink-main); }
-        .stamp-text-info span { font-size: 0.78rem; color: var(--ink-muted); word-break: break-all; }
+
+        .stamp-icon-wrap svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .stamp-text-info strong {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--ink-main);
+        }
+
+        .stamp-text-info span {
+            font-size: 0.78rem;
+            color: var(--ink-muted);
+            word-break: break-all;
+        }
 
         /* ── FOOTER ── */
         footer {
-            padding: 4rem 6% 3rem; text-align: center;
-            background: var(--bg-paper-alt); border-top: 1.5px solid var(--border-paper);
-            position: relative; z-index: 1;
+            padding: 4rem 6% 3rem;
+            text-align: center;
+            background: var(--bg-paper-alt);
+            border-top: 1.5px solid var(--border-paper);
+            position: relative;
+            z-index: 1;
         }
-        .footer-logo-hand { font-family: var(--font-heading); font-size: 1.8rem; font-weight: 700; color: var(--ink-main); margin-bottom: 0.4rem; }
-        .footer-quote-italic { font-family: var(--font-display); font-style: italic; font-size: 1.1rem; color: var(--matcha-deep); margin-bottom: 1rem; }
-        .footer-doodles-row { font-size: 1.2rem; color: var(--caramel); }
+
+        .footer-logo-hand {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--ink-main);
+            margin-bottom: 0.4rem;
+        }
+
+        .footer-quote-italic {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--matcha-deep);
+            margin-bottom: 1rem;
+        }
+
+        .footer-doodles-row {
+            font-size: 1.2rem;
+            color: var(--caramel);
+        }
 
         /* ── REVEAL ON SCROLL ── */
-        .reveal-scrap { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
-        .reveal-scrap.visible { opacity: 1; transform: translateY(0); }
+        .reveal-scrap {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal-scrap.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
         /* ── RESPONSIVE MEDIA QUERIES ── */
         @media (max-width: 1024px) {
-            .projects-asym-grid, .prestasi-grid-scrap { grid-template-columns: repeat(2, 1fr); }
-            .skills-container-grid, .about-grid-journal, .contact-envelope-grid { grid-template-columns: 1fr; gap: 3rem; }
+
+            .projects-asym-grid,
+            .prestasi-grid-scrap {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .skills-container-grid,
+            .about-grid-journal,
+            .contact-envelope-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
         }
+
         @media (max-width: 768px) {
-            .hero-section { grid-template-columns: 1fr; text-align: center; padding-top: 120px; gap: 3rem; }
-            .hero-cta-group, .hero-stats-row { justify-content: center; }
-            .projects-asym-grid, .prestasi-grid-scrap, .contact-stamps-grid { grid-template-columns: 1fr; }
-            .nav-links { display: none; }
-            .polaroid-frame { width: 280px; }
-            .polaroid-img-wrap { height: 320px; }
-            #skillGlobeCanvas { height: 320px; }
+            section {
+                padding: 60px 0;
+            }
+
+            nav {
+                width: 95%;
+                padding: 0.5rem 1rem;
+                top: 12px;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                scrollbar-width: none;
+            }
+
+            nav::-webkit-scrollbar {
+                display: none;
+            }
+
+            .nav-links {
+                display: flex;
+                gap: 0.8rem;
+            }
+
+            .nav-links a {
+                font-size: 0.78rem;
+                padding: 0.2rem 0.3rem;
+            }
+
+            .hero-section {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding-top: 110px;
+                gap: 2.5rem;
+            }
+
+            .hero-sticker-header {
+                font-size: 1.05rem;
+            }
+
+            .hero-cta-group,
+            .hero-stats-row {
+                justify-content: center;
+            }
+
+            .btn-scrap {
+                padding: 0.75rem 1.6rem;
+                font-size: 0.88rem;
+            }
+
+            .projects-asym-grid,
+            .prestasi-grid-scrap,
+            .contact-stamps-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .polaroid-frame {
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+
+            .polaroid-img-wrap {
+                height: 340px;
+            }
+
+            #skillGlobeCanvas {
+                height: 320px;
+            }
+
+            .org-timeline-item {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .org-period-seal {
+                align-self: flex-start;
+            }
+
+            .org-timeline-scrap {
+                padding-left: 2.2rem;
+            }
+
+            .org-timeline-item::before {
+                left: -2.75rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-name-journal {
+                font-size: 2.4rem;
+            }
+
+            .section-title-journal {
+                font-size: 2.1rem;
+            }
+
+            .about-text-paper,
+            .contact-letter-card {
+                padding: 1.6rem;
+            }
+
+            .stat-polaroid {
+                min-width: 80px;
+                padding: 0.6rem 0.8rem;
+            }
+
+            .stat-num-j {
+                font-size: 1.35rem;
+            }
+
+            .theme-pill-btn {
+                width: 46px;
+                height: 46px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 1.1rem;
+            }
+
+            .team-avatar-list {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <div class="ambient-blob blob-a"></div>
@@ -600,7 +1714,7 @@
 
     <!-- ═══════════════════════════════ NAVBAR ═══════════════════════════════ -->
     <nav>
-        <a href="#home" class="nav-brand">Khoir Kanzura <span>✦ journal</span></a>
+        <a href="#home" class="nav-brand">Khoir Kanzura <span>✦</span></a>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">Tentang</a></li>
@@ -630,13 +1744,29 @@
                 <div class="washi-tape washi-tape-top-left"></div>
                 <div class="hero-subtitle-tag">D-IV Sistem Informasi Bisnis · Polinema</div>
                 <p>
-                    Mahasiswa Sistem Informasi Bisnis yang memiliki minat mendalam pada analisis bisnis, pengembangan sistem, dan analisis data, serta aktif dalam kegiatan organisasi dan kepanitiaan. Memiliki kemampuan komunikasi, kerja sama tim, dan manajemen waktu yang baik — berkomitmen untuk terus belajar dan berkembang. ✨
+                    Mahasiswa Sistem Informasi Bisnis yang memiliki minat mendalam pada analisis bisnis, pengembangan
+                    sistem, dan analisis data, serta aktif dalam kegiatan organisasi dan kepanitiaan. Memiliki kemampuan
+                    komunikasi, kerja sama tim, dan manajemen waktu yang baik — berkomitmen untuk terus belajar dan
+                    berkembang. ✨
                 </p>
             </div>
+
+            <!-- SINGLE PROMINENT CV BUTTON -->
             <div class="hero-cta-group">
                 <a href="#projects" class="btn-scrap btn-scrap-rose">✦ Lihat Karya</a>
+                <a href="CV Khoir.pdf" target="_blank" class="btn-scrap btn-scrap-matcha">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                    </svg>
+                    Lihat CV
+                </a>
                 <a href="#contact" class="btn-scrap btn-scrap-outline">💌 Hubungi Saya</a>
             </div>
+
             <div class="hero-stats-row">
                 <div class="stat-polaroid">
                     <div class="stat-num-j">10+</div>
@@ -658,8 +1788,7 @@
                 <div class="polaroid-img-wrap">
                     <img src="Khoir kn.jpeg" alt="Khoir Karol Nurzuraidah">
                 </div>
-                <div class="polaroid-caption">Khoir Karol 🌸</div>
-                <div class="sticker-pin sticker-pin-a"><span>🎓</span> Polinema ✨</div>
+                <div class="sticker-pin sticker-pin-a"><span>🎓</span> Semester 7 ✨</div>
                 <div class="sticker-pin sticker-pin-b"><span>🤝</span> Open to Collab</div>
             </div>
         </div>
@@ -676,11 +1805,18 @@
             <div class="about-grid-journal">
                 <div class="about-text-paper reveal-scrap">
                     <div class="paper-clip"></div>
-                    <p>Saya adalah mahasiswa Program Studi D-IV Sistem Informasi Bisnis di Politeknik Negeri Malang yang memiliki ketertarikan pada analisis bisnis, pengembangan sistem informasi, analisis data, serta manajemen organisasi. Saya aktif mengembangkan kemampuan melalui berbagai proyek dan pengalaman, serta berfokus pada pemanfaatan teknologi untuk menghasilkan solusi yang bermanfaat.</p>
+                    <p>Saya adalah mahasiswa Program Studi D-IV Sistem Informasi Bisnis di Politeknik Negeri Malang yang
+                        memiliki ketertarikan pada analisis bisnis, pengembangan sistem informasi, analisis data, serta
+                        manajemen organisasi. Saya aktif mengembangkan kemampuan melalui berbagai proyek dan pengalaman,
+                        serta berfokus pada pemanfaatan teknologi untuk menghasilkan solusi yang bermanfaat.</p>
                     <div class="highlight-marker">
-                        "Dikenal sebagai pribadi yang bertanggung jawab dan memiliki semangat tinggi untuk terus belajar hal-hal baru."
+                        "Dikenal sebagai pribadi yang bertanggung jawab dan memiliki semangat tinggi untuk terus belajar
+                        hal-hal baru."
                     </div>
-                    <p>Saya memiliki pengalaman dalam kepemimpinan dan komunikasi, serta dipercaya mengemban peran sebagai Koordinator Komunikasi Eksternal Formadiksi dan Wakil Ketua Ikatan Mahasiswa Tulungagung, yang memperkuat kemampuan saya dalam berkoordinasi, membangun relasi, dan mengelola kegiatan organisasi.</p>
+                    <p>Saya memiliki pengalaman dalam kepemimpinan dan komunikasi, serta dipercaya mengemban peran
+                        sebagai Koordinator Komunikasi Eksternal Formadiksi dan Wakil Ketua Ikatan Mahasiswa
+                        Tulungagung, yang memperkuat kemampuan saya dalam berkoordinasi, membangun relasi, dan mengelola
+                        kegiatan organisasi.</p>
                 </div>
 
                 <div class="about-cards-stack reveal-scrap">
@@ -704,7 +1840,9 @@
                         <div class="note-info">
                             <h4>Fokus Keahlian</h4>
                             <p>Analisis bisnis, pengembangan sistem & analisis data</p>
-                            <div class="note-tags"><span class="note-tag-pill">Business Analyst</span><span class="note-tag-pill">System Analyst</span><span class="note-tag-pill">Business Intelligence</span><span class="note-tag-pill">Data Analytics</span></div>
+                            <div class="note-tags"><span class="note-tag-pill">Business Analyst</span><span
+                                    class="note-tag-pill">System Analyst</span><span class="note-tag-pill">Business
+                                    Intelligence</span><span class="note-tag-pill">Data Analytics</span></div>
                         </div>
                     </div>
                     <div class="journal-note-card">
@@ -712,7 +1850,8 @@
                         <div class="note-info">
                             <h4>Sedang Dipelajari</h4>
                             <p>Mengeksplorasi teknologi terkini untuk solusi bisnis</p>
-                            <div class="note-tags"><span class="note-tag-pill">Laravel</span><span class="note-tag-pill">Python</span><span class="note-tag-pill">Odoo</span></div>
+                            <div class="note-tags"><span class="note-tag-pill">Laravel</span><span
+                                    class="note-tag-pill">Python</span><span class="note-tag-pill">Odoo</span></div>
                         </div>
                     </div>
                     <div class="journal-note-card">
@@ -720,7 +1859,9 @@
                         <div class="note-info">
                             <h4>Hobi & Kreativitas</h4>
                             <p>Mengabadikan momen dan bercerita lewat karya visual</p>
-                            <div class="note-tags"><span class="note-tag-pill">Fotografi</span><span class="note-tag-pill">Videografi</span><span class="note-tag-pill">Podcast</span></div>
+                            <div class="note-tags"><span class="note-tag-pill">Fotografi</span><span
+                                    class="note-tag-pill">Videografi</span><span class="note-tag-pill">Podcast</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -832,7 +1973,8 @@
                         <div class="org-details">
                             <h4>Ikatan Alumni SMAN 1 Ngunut</h4>
                             <div class="org-role-tag">✦ Divisi Alumni</div>
-                            <p class="org-desc-text">Mengelola jaringan alumni dan mendukung kegiatan komunikasi serta silaturahmi antar lulusan SMAN 1 Ngunut.</p>
+                            <p class="org-desc-text">Mengelola jaringan alumni dan mendukung kegiatan komunikasi serta
+                                silaturahmi antar lulusan SMAN 1 Ngunut.</p>
                         </div>
                     </div>
                     <div class="org-period-seal">2025 – 2027</div>
@@ -844,7 +1986,9 @@
                         <div class="org-details">
                             <h4>Formadiksi Polinema</h4>
                             <div class="org-role-tag">✦ Koordinator Komunikasi Eksternal</div>
-                            <p class="org-desc-text">Memimpin divisi komunikasi eksternal — menjembatani komunikasi dan kerja sama antara Formadiksi Polinema dengan pihak eksternal, alumni, serta FKMBK di tingkat regional, wilayah, dan nasional.</p>
+                            <p class="org-desc-text">Memimpin divisi komunikasi eksternal — menjembatani komunikasi dan
+                                kerja sama antara Formadiksi Polinema dengan pihak eksternal, alumni, serta FKMBK di
+                                tingkat regional, wilayah, dan nasional.</p>
                         </div>
                     </div>
                     <div class="org-period-seal">2025 – 2026</div>
@@ -856,7 +2000,9 @@
                         <div class="org-details">
                             <h4>Ikatan Mahasiswa Tulungagung Polinema</h4>
                             <div class="org-role-tag">✦ Wakil Ketua Umum</div>
-                            <p class="org-desc-text">Membantu ketua dalam mengoordinasikan seluruh kegiatan, program kerja, dan anggota IKATAMA Polinema — memperkuat solidaritas mahasiswa asal Tulungagung di Malang.</p>
+                            <p class="org-desc-text">Membantu ketua dalam mengoordinasikan seluruh kegiatan, program
+                                kerja, dan anggota IKATAMA Polinema — memperkuat solidaritas mahasiswa asal Tulungagung
+                                di Malang.</p>
                         </div>
                     </div>
                     <div class="org-period-seal">2025 – 2026</div>
@@ -868,7 +2014,8 @@
                         <div class="org-details">
                             <h4>FKMBK Malang Raya</h4>
                             <div class="org-role-tag">✦ Staf Departemen Luar Negeri</div>
-                            <p class="org-desc-text">Berfokus pada pengelolaan hubungan eksternal dan kerja sama antarorganisasi mahasiswa di lingkup Malang Raya serta Forum Daerah.</p>
+                            <p class="org-desc-text">Berfokus pada pengelolaan hubungan eksternal dan kerja sama
+                                antarorganisasi mahasiswa di lingkup Malang Raya serta Forum Daerah.</p>
                         </div>
                     </div>
                     <div class="org-period-seal">2025 – 2026</div>
@@ -880,7 +2027,8 @@
                         <div class="org-details">
                             <h4>Rubi Community</h4>
                             <div class="org-role-tag">✦ Anggota – Batch 8</div>
-                            <p class="org-desc-text">RUBI Community (Respecting Understanding Beauty Influencer) adalah komunitas kecantikan milik Avoskin Beauty, didirikan untuk memberdayakan perempuan.</p>
+                            <p class="org-desc-text">RUBI Community (Respecting Understanding Beauty Influencer) adalah
+                                komunitas kecantikan milik Avoskin Beauty, didirikan untuk memberdayakan perempuan.</p>
                         </div>
                     </div>
                     <div class="org-period-seal">Feb – Jun 2025</div>
@@ -892,7 +2040,9 @@
                         <div class="org-details">
                             <h4>FKMBK Jawa Timur</h4>
                             <div class="org-role-tag">✦ Staf Departemen Kajian Strategi</div>
-                            <p class="org-desc-text">Melakukan riset dan kajian terkait isu Bidikmisi/KIP-Kuliah di wilayah Jawa Timur. Mengelola stock of knowledge dalam bentuk infografis serta pendataan forum KIP-K.</p>
+                            <p class="org-desc-text">Melakukan riset dan kajian terkait isu Bidikmisi/KIP-Kuliah di
+                                wilayah Jawa Timur. Mengelola stock of knowledge dalam bentuk infografis serta pendataan
+                                forum KIP-K.</p>
                         </div>
                     </div>
                     <div class="org-period-seal">2024 – 2025</div>
@@ -904,7 +2054,9 @@
                         <div class="org-details">
                             <h4>Formadiksi Polinema</h4>
                             <div class="org-role-tag">✦ Pengurus Muda Komunikasi Eksternal</div>
-                            <p class="org-desc-text">Menjembatani komunikasi dan kerja sama antara Formadiksi Polinema dengan pihak eksternal — alumni, forum Bidikmisi luar Polinema, serta FKMBK di berbagai tingkat.</p>
+                            <p class="org-desc-text">Menjembatani komunikasi dan kerja sama antara Formadiksi Polinema
+                                dengan pihak eksternal — alumni, forum Bidikmisi luar Polinema, serta FKMBK di berbagai
+                                tingkat.</p>
                         </div>
                     </div>
                     <div class="org-period-seal">2024 – 2025</div>
@@ -916,7 +2068,8 @@
                         <div class="org-details">
                             <h4>Ikatan Mahasiswa Tulungagung</h4>
                             <div class="org-role-tag">✦ Anggota Eksternal</div>
-                            <p class="org-desc-text">Bergabung sebagai anggota aktif dalam kegiatan sosial dan kemahasiswaan, membangun relasi dan solidaritas sesama mahasiswa Tulungagung.</p>
+                            <p class="org-desc-text">Bergabung sebagai anggota aktif dalam kegiatan sosial dan
+                                kemahasiswaan, membangun relasi dan solidaritas sesama mahasiswa Tulungagung.</p>
                         </div>
                     </div>
                     <div class="org-period-seal">2024 – 2025</div>
@@ -954,11 +2107,14 @@
                     <div class="project-card-body">
                         <div class="project-num-hand">✦ 01 Business Intelligence</div>
                         <h3>Dashboard Business Intelligence Pizza Company</h3>
-                        <p>Dashboard Power BI dan analisis SQL untuk menganalisis kinerja penjualan perusahaan Pizza 2022 — mengidentifikasi pola, kategori terbaik, dan waktu tersibuk.</p>
+                        <p>Dashboard Power BI dan analisis SQL untuk menganalisis kinerja penjualan perusahaan Pizza
+                            2022 — mengidentifikasi pola, kategori terbaik, dan waktu tersibuk.</p>
                         <div class="project-tags-wrap">
-                            <span class="p-tag">Power BI</span><span class="p-tag">SQL</span><span class="p-tag">Data Analysis</span>
+                            <span class="p-tag">Power BI</span><span class="p-tag">SQL</span><span class="p-tag">Data
+                                Analysis</span>
                         </div>
-                        <a href="https://www.kaggle.com/datasets/khoirkaroln/modifikasi-dashboard-business-intelligence-pizza" target="_blank" class="project-link-btn">
+                        <a href="https://www.kaggle.com/datasets/khoirkaroln/modifikasi-dashboard-business-intelligence-pizza"
+                            target="_blank" class="project-link-btn">
                             Lihat di Kaggle ➔
                         </a>
                     </div>
@@ -969,33 +2125,57 @@
                     <div class="washi-tape washi-tape-top-left"></div>
                     <div class="project-carousel-wrap">
                         <div class="project-img-placeholder">
-                            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="var(--matcha-deep)" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="var(--matcha-deep)"
+                                stroke-width="1.8">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                            </svg>
                         </div>
                     </div>
                     <div class="project-card-body">
                         <div class="project-num-hand">✦ 02 Web App PBL</div>
                         <h3>AKRESA — Sistem Akreditasi</h3>
-                        <p>Aplikasi web untuk pencatatan, pengelolaan, dan evaluasi data akreditasi jurusan TI Polinema. Bagian dari Project Based Learning (PBL).</p>
+                        <p>Aplikasi web untuk pencatatan, pengelolaan, dan evaluasi data akreditasi jurusan TI Polinema.
+                            Bagian dari Project Based Learning (PBL).</p>
                         <div class="project-tags-wrap">
-                            <span class="p-tag">Web Dev</span><span class="p-tag">Laravel</span><span class="p-tag">Database</span>
+                            <span class="p-tag">Web Dev</span><span class="p-tag">Laravel</span><span
+                                class="p-tag">Database</span>
                         </div>
 
                         <div class="team-sticker-group">
                             <div class="team-title-sm">👥 Tim Pengembang (9 Orang)</div>
                             <div class="team-avatar-list">
-                                <div class="t-avatar-pill"><div class="t-avatar-circle">RN</div>Revani Nanda P.</div>
-                                <div class="t-avatar-pill"><div class="t-avatar-circle">MS</div>M. Satria R. D.</div>
-                                <div class="t-avatar-pill"><div class="t-avatar-circle">SS</div>Sharlyf Shaquille</div>
-                                <div class="t-avatar-pill"><div class="t-avatar-circle">SA</div>Susilowati Syafa</div>
-                                <div class="t-avatar-pill author"><div class="t-avatar-circle">KK</div>Khoir Karol N. ✦</div>
-                                <div class="t-avatar-pill"><div class="t-avatar-circle">IT</div>Isnaeny Tri L.</div>
-                                <div class="t-avatar-pill"><div class="t-avatar-circle">MZ</div>M. Zidna B. F.</div>
-                                <div class="t-avatar-pill"><div class="t-avatar-circle">NH</div>Nadya Hapsari</div>
-                                <div class="t-avatar-pill"><div class="t-avatar-circle">EP</div>Eka Putri N. K.</div>
+                                <div class="t-avatar-pill">
+                                    <div class="t-avatar-circle">RN</div>Revani Nanda P.
+                                </div>
+                                <div class="t-avatar-pill">
+                                    <div class="t-avatar-circle">MS</div>M. Satria R. D.
+                                </div>
+                                <div class="t-avatar-pill">
+                                    <div class="t-avatar-circle">SS</div>Sharlyf Shaquille
+                                </div>
+                                <div class="t-avatar-pill">
+                                    <div class="t-avatar-circle">SA</div>Susilowati Syafa
+                                </div>
+                                <div class="t-avatar-pill author">
+                                    <div class="t-avatar-circle">KK</div>Khoir Karol N. ✦
+                                </div>
+                                <div class="t-avatar-pill">
+                                    <div class="t-avatar-circle">IT</div>Isnaeny Tri L.
+                                </div>
+                                <div class="t-avatar-pill">
+                                    <div class="t-avatar-circle">MZ</div>M. Zidna B. F.
+                                </div>
+                                <div class="t-avatar-pill">
+                                    <div class="t-avatar-circle">NH</div>Nadya Hapsari
+                                </div>
+                                <div class="t-avatar-pill">
+                                    <div class="t-avatar-circle">EP</div>Eka Putri N. K.
+                                </div>
                             </div>
                         </div>
 
-                        <a href="https://github.com/khoirkanzura/final-project-accreditation" target="_blank" class="project-link-btn">
+                        <a href="https://github.com/khoirkanzura/final-project-accreditation" target="_blank"
+                            class="project-link-btn">
                             Lihat di GitHub ➔
                         </a>
                     </div>
@@ -1010,18 +2190,28 @@
                     <div class="project-card-body">
                         <div class="project-num-hand">✦ 03 Mobile App</div>
                         <h3>SIPRES-JTI — Sistem Presensi</h3>
-                        <p>Presensi digital berbasis mobile dengan QR Code & validasi GPS, database real-time, dan role-based access untuk dosen/karyawan dan admin.</p>
+                        <p>Presensi digital berbasis mobile dengan QR Code & validasi GPS, database real-time, dan
+                            role-based access untuk dosen/karyawan dan admin.</p>
                         <div class="project-tags-wrap">
-                            <span class="p-tag">Mobile Dev</span><span class="p-tag">QR Code</span><span class="p-tag">GPS</span><span class="p-tag">Real-time DB</span>
+                            <span class="p-tag">Mobile Dev</span><span class="p-tag">QR Code</span><span
+                                class="p-tag">GPS</span><span class="p-tag">Real-time DB</span>
                         </div>
 
                         <div class="team-sticker-group">
                             <div class="team-title-sm">👥 Tim Pengembang (4 Orang)</div>
                             <div class="team-avatar-list">
-                                <div class="t-avatar-pill"><div class="t-avatar-circle">GV</div>Gerly Vaeyungfan</div>
-                                <div class="t-avatar-pill"><div class="t-avatar-circle">IA</div>Ismi Atika</div>
-                                <div class="t-avatar-pill"><div class="t-avatar-circle">KT</div>Kartika Tri J.</div>
-                                <div class="t-avatar-pill author"><div class="t-avatar-circle">KK</div>Khoir Karol N. ✦</div>
+                                <div class="t-avatar-pill">
+                                    <div class="t-avatar-circle">GV</div>Gerly Vaeyungfan
+                                </div>
+                                <div class="t-avatar-pill">
+                                    <div class="t-avatar-circle">IA</div>Ismi Atika
+                                </div>
+                                <div class="t-avatar-pill">
+                                    <div class="t-avatar-circle">KT</div>Kartika Tri J.
+                                </div>
+                                <div class="t-avatar-pill author">
+                                    <div class="t-avatar-circle">KK</div>Khoir Karol N. ✦
+                                </div>
                             </div>
                         </div>
 
@@ -1040,22 +2230,33 @@
                     <div class="project-card-body">
                         <div class="project-num-hand">✦ 04 Sistem Informasi</div>
                         <h3>Si Tertib — Sistem Tata Tertib</h3>
-                        <p>Sistem informasi web untuk pengelolaan pelanggaran tata tertib mahasiswa — pencatatan digital, penetapan sanksi, pengajuan banding, dan pelaporan transparan.</p>
+                        <p>Sistem informasi web untuk pengelolaan pelanggaran tata tertib mahasiswa — pencatatan
+                            digital, penetapan sanksi, pengajuan banding, dan pelaporan transparan.</p>
                         <div class="project-tags-wrap">
-                            <span class="p-tag">Web App</span><span class="p-tag">Laravel</span><span class="p-tag">MySQL</span>
+                            <span class="p-tag">Web App</span><span class="p-tag">Laravel</span><span
+                                class="p-tag">MySQL</span>
                         </div>
 
                         <div class="team-sticker-group">
                             <div class="team-title-sm">👥 Tim Pengembang (4 Orang)</div>
                             <div class="team-avatar-list">
-                                <div class="t-avatar-pill"><div class="t-avatar-circle">NA</div>Naa'fi Ridho A.</div>
-                                <div class="t-avatar-pill"><div class="t-avatar-circle">AN</div>Abhinaya Nuzul.</div>
-                                <div class="t-avatar-pill author"><div class="t-avatar-circle">KK</div>Khoir Karol N. ✦</div>
-                                <div class="t-avatar-pill"><div class="t-avatar-circle">SA</div>Siti Alifia A.</div>
+                                <div class="t-avatar-pill">
+                                    <div class="t-avatar-circle">NA</div>Naa'fi Ridho A.
+                                </div>
+                                <div class="t-avatar-pill">
+                                    <div class="t-avatar-circle">AN</div>Abhinaya Nuzul.
+                                </div>
+                                <div class="t-avatar-pill author">
+                                    <div class="t-avatar-circle">KK</div>Khoir Karol N. ✦
+                                </div>
+                                <div class="t-avatar-pill">
+                                    <div class="t-avatar-circle">SA</div>Siti Alifia A.
+                                </div>
                             </div>
                         </div>
 
-                        <a href="https://github.com/khoirkanzura/Sistem-tata-tertib" target="_blank" class="project-link-btn">
+                        <a href="https://github.com/khoirkanzura/Sistem-tata-tertib" target="_blank"
+                            class="project-link-btn">
                             Lihat di GitHub ➔
                         </a>
                     </div>
@@ -1065,14 +2266,29 @@
                 <div class="project-scrap-card reveal-scrap">
                     <div class="washi-tape washi-tape-top-right"></div>
                     <div class="project-carousel-wrap">
-                        <div class="project-img-placeholder" style="background:linear-gradient(135deg,#c4956a18,#f0d8b818);">
-                            <svg viewBox="0 0 80 80" width="60" height="60" xmlns="http://www.w3.org/2000/svg"><rect x="12" y="10" width="40" height="52" rx="4" fill="none" stroke="var(--caramel-deep)" stroke-width="3" opacity="0.7"/><line x1="20" y1="24" x2="44" y2="24" stroke="var(--caramel-deep)" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/><line x1="20" y1="34" x2="44" y2="34" stroke="var(--caramel-deep)" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/><line x1="20" y1="44" x2="36" y2="44" stroke="var(--caramel-deep)" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/><circle cx="58" cy="54" r="14" fill="var(--caramel-deep)" opacity="0.12" stroke="var(--caramel-deep)" stroke-width="2"/><path d="M52 54l4 4 8-8" stroke="var(--caramel-deep)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <div class="project-img-placeholder"
+                            style="background:linear-gradient(135deg,#c4956a18,#f0d8b818);">
+                            <svg viewBox="0 0 80 80" width="60" height="60" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="12" y="10" width="40" height="52" rx="4" fill="none"
+                                    stroke="var(--caramel-deep)" stroke-width="3" opacity="0.7" />
+                                <line x1="20" y1="24" x2="44" y2="24" stroke="var(--caramel-deep)" stroke-width="2.5"
+                                    stroke-linecap="round" opacity="0.6" />
+                                <line x1="20" y1="34" x2="44" y2="34" stroke="var(--caramel-deep)" stroke-width="2.5"
+                                    stroke-linecap="round" opacity="0.6" />
+                                <line x1="20" y1="44" x2="36" y2="44" stroke="var(--caramel-deep)" stroke-width="2.5"
+                                    stroke-linecap="round" opacity="0.6" />
+                                <circle cx="58" cy="54" r="14" fill="var(--caramel-deep)" opacity="0.12"
+                                    stroke="var(--caramel-deep)" stroke-width="2" />
+                                <path d="M52 54l4 4 8-8" stroke="var(--caramel-deep)" stroke-width="2.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
                         </div>
                     </div>
                     <div class="project-card-body">
                         <div class="project-num-hand">✦ 05 Java Desktop</div>
                         <h3>Sistem Perpustakaan Polinema</h3>
-                        <p>Perpustakaan digital dengan fitur admin (data buku & anggota) dan fitur mahasiswa (peminjaman & pengembalian buku secara digital).</p>
+                        <p>Perpustakaan digital dengan fitur admin (data buku & anggota) dan fitur mahasiswa (peminjaman
+                            & pengembalian buku secara digital).</p>
                         <div class="project-tags-wrap">
                             <span class="p-tag">Java</span>
                         </div>
@@ -1080,14 +2296,23 @@
                         <div class="team-sticker-group">
                             <div class="team-title-sm">👥 Tim Pengembang (4 Orang)</div>
                             <div class="team-avatar-list">
-                                <div class="t-avatar-pill"><div class="t-avatar-circle">FR</div>Fallujah Ramadi</div>
-                                <div class="t-avatar-pill"><div class="t-avatar-circle">DS</div>Deva Selviana</div>
-                                <div class="t-avatar-pill"><div class="t-avatar-circle">DE</div>Dini Elminingstyas</div>
-                                <div class="t-avatar-pill author"><div class="t-avatar-circle">KK</div>Khoir Karol N. ✦</div>
+                                <div class="t-avatar-pill">
+                                    <div class="t-avatar-circle">FR</div>Fallujah Ramadi
+                                </div>
+                                <div class="t-avatar-pill">
+                                    <div class="t-avatar-circle">DS</div>Deva Selviana
+                                </div>
+                                <div class="t-avatar-pill">
+                                    <div class="t-avatar-circle">DE</div>Dini Elminingstyas
+                                </div>
+                                <div class="t-avatar-pill author">
+                                    <div class="t-avatar-circle">KK</div>Khoir Karol N. ✦
+                                </div>
                             </div>
                         </div>
 
-                        <a href="https://github.com/khoirkanzura/FinalProject-Perpustakaan" target="_blank" class="project-link-btn">
+                        <a href="https://github.com/khoirkanzura/FinalProject-Perpustakaan" target="_blank"
+                            class="project-link-btn">
                             Lihat di GitHub ➔
                         </a>
                     </div>
@@ -1097,18 +2322,31 @@
                 <div class="project-scrap-card reveal-scrap">
                     <div class="washi-tape washi-tape-top-left"></div>
                     <div class="project-carousel-wrap">
-                        <div class="project-img-placeholder" style="background:linear-gradient(135deg,#9b87b518,#c9b8d818);">
-                            <svg viewBox="0 0 80 80" width="60" height="60" xmlns="http://www.w3.org/2000/svg"><path d="M40 12c-9 0-16 4-16 9v6h16v2H24c-5 0-12 3-12 13s5 13 12 13h4v-7c0-6 5-11 12-11h12c5 0 8-4 8-9v-7c0-5-7-9-16-9z" fill="var(--lilac-deep)" opacity="0.5"/><circle cx="33" cy="22" r="2.5" fill="#fff"/><path d="M40 68c9 0 16-4 16-9v-6H40v-2h16c5 0 12-3 12-13s-7-13-14-13h-4v7c0 6-5 11-12 11H33c-5 0-8 4-8 9v7c0 5 7 9 15 9z" fill="var(--lilac)" opacity="0.6"/><circle cx="47" cy="58" r="2.5" fill="#fff"/></svg>
+                        <div class="project-img-placeholder"
+                            style="background:linear-gradient(135deg,#9b87b518,#c9b8d818);">
+                            <svg viewBox="0 0 80 80" width="60" height="60" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M40 12c-9 0-16 4-16 9v6h16v2H24c-5 0-12 3-12 13s5 13 12 13h4v-7c0-6 5-11 12-11h12c5 0 8-4 8-9v-7c0-5-7-9-16-9z"
+                                    fill="var(--lilac-deep)" opacity="0.5" />
+                                <circle cx="33" cy="22" r="2.5" fill="#fff" />
+                                <path
+                                    d="M40 68c9 0 16-4 16-9v-6H40v-2h16c5 0 12-3 12-13s-7-13-14-13h-4v7c0 6-5 11-12 11H33c-5 0-8 4-8 9v7c0 5 7 9 15 9z"
+                                    fill="var(--lilac)" opacity="0.6" />
+                                <circle cx="47" cy="58" r="2.5" fill="#fff" />
+                            </svg>
                         </div>
                     </div>
                     <div class="project-card-body">
                         <div class="project-num-hand">✦ 06 Data Mining</div>
                         <h3>Data Mining — Amazon Video Games Reviews</h3>
-                        <p>Pemilihan model terbaik (Regresi, Decision Tree, KNN, SVM, K-Means) pada dataset Amazon Product Reviews "Video Games" — membandingkan performa dan akurasi masing-masing algoritma.</p>
+                        <p>Pemilihan model terbaik (Regresi, Decision Tree, KNN, SVM, K-Means) pada dataset Amazon
+                            Product Reviews "Video Games" — membandingkan performa dan akurasi masing-masing algoritma.
+                        </p>
                         <div class="project-tags-wrap">
                             <span class="p-tag">Data Mining</span><span class="p-tag">Python</span>
                         </div>
-                        <a href="https://drive.google.com/drive/folders/your-link" target="_blank" class="project-link-btn">
+                        <a href="https://drive.google.com/drive/folders/your-link" target="_blank"
+                            class="project-link-btn">
                             Lihat Laporan ➔
                         </a>
                     </div>
@@ -1136,19 +2374,31 @@
                     <div class="project-card-body">
                         <div class="project-num-hand">✦ 07 Expert System</div>
                         <h3>SkinQuo — Sistem Pakar Skincare</h3>
-                        <p>Sistem pakar berbasis web menggunakan rule-based expert system. Input jenis kulit, keluhan, dan tujuan perawatan — sistem menganalisis bahan aktif dan menampilkan ranking produk.</p>
+                        <p>Sistem pakar berbasis web menggunakan rule-based expert system. Input jenis kulit, keluhan,
+                            dan tujuan perawatan — sistem menganalisis bahan aktif dan menampilkan ranking produk.</p>
                         <div class="project-tags-wrap">
-                            <span class="p-tag">Laravel</span><span class="p-tag">Web Dev</span><span class="p-tag">Supabase</span><span class="p-tag">Figma</span>
+                            <span class="p-tag">Laravel</span><span class="p-tag">Web Dev</span><span
+                                class="p-tag">Supabase</span><span class="p-tag">Figma</span>
                         </div>
 
                         <div class="team-sticker-group">
                             <div class="team-title-sm">👥 Tim Pengembang (5 Orang)</div>
                             <div class="team-avatar-list">
-                                <div class="t-avatar-pill"><div class="t-avatar-circle">AM</div>Axelo Matthew</div>
-                                <div class="t-avatar-pill author"><div class="t-avatar-circle">KK</div>Khoir Karol N. ✦</div>
-                                <div class="t-avatar-pill"><div class="t-avatar-circle">LF</div>Lyra Faiqah</div>
-                                <div class="t-avatar-pill"><div class="t-avatar-circle">NH</div>Nadya Hapsari</div>
-                                <div class="t-avatar-pill"><div class="t-avatar-circle">PC</div>Pandya Cahya</div>
+                                <div class="t-avatar-pill">
+                                    <div class="t-avatar-circle">AM</div>Axelo Matthew
+                                </div>
+                                <div class="t-avatar-pill author">
+                                    <div class="t-avatar-circle">KK</div>Khoir Karol N. ✦
+                                </div>
+                                <div class="t-avatar-pill">
+                                    <div class="t-avatar-circle">LF</div>Lyra Faiqah
+                                </div>
+                                <div class="t-avatar-pill">
+                                    <div class="t-avatar-circle">NH</div>Nadya Hapsari
+                                </div>
+                                <div class="t-avatar-pill">
+                                    <div class="t-avatar-circle">PC</div>Pandya Cahya
+                                </div>
                             </div>
                         </div>
 
@@ -1162,16 +2412,28 @@
                 <div class="project-scrap-card reveal-scrap">
                     <div class="washi-tape washi-tape-top-left"></div>
                     <div class="project-carousel-wrap">
-                        <div class="project-img-placeholder" style="background:linear-gradient(135deg,#1a6b3c18,#bce8d818);">
-                            <svg viewBox="0 0 80 80" width="60" height="60" xmlns="http://www.w3.org/2000/svg"><ellipse cx="40" cy="22" rx="22" ry="8" fill="none" stroke="var(--matcha-deep)" stroke-width="2.5" opacity="0.6"/><path d="M18 22v14c0 4.4 9.9 8 22 8s22-3.6 22-8V22" fill="none" stroke="var(--matcha-deep)" stroke-width="2.5" opacity="0.6"/><path d="M18 36v14c0 4.4 9.9 8 22 8s22-3.6 22-8V36" fill="none" stroke="var(--matcha-deep)" stroke-width="2" opacity="0.4"/></svg>
+                        <div class="project-img-placeholder"
+                            style="background:linear-gradient(135deg,#1a6b3c18,#bce8d818);">
+                            <svg viewBox="0 0 80 80" width="60" height="60" xmlns="http://www.w3.org/2000/svg">
+                                <ellipse cx="40" cy="22" rx="22" ry="8" fill="none" stroke="var(--matcha-deep)"
+                                    stroke-width="2.5" opacity="0.6" />
+                                <path d="M18 22v14c0 4.4 9.9 8 22 8s22-3.6 22-8V22" fill="none"
+                                    stroke="var(--matcha-deep)" stroke-width="2.5" opacity="0.6" />
+                                <path d="M18 36v14c0 4.4 9.9 8 22 8s22-3.6 22-8V36" fill="none"
+                                    stroke="var(--matcha-deep)" stroke-width="2" opacity="0.4" />
+                            </svg>
                         </div>
                     </div>
                     <div class="project-card-body">
                         <div class="project-num-hand">✦ 08 Data Warehouse</div>
                         <h3>Data Warehouse — Studi Kasus Northwind</h3>
-                        <p>Sistem Data Warehouse berbasis studi kasus Northwind untuk mengubah data operasional menjadi insight bisnis. Mencakup Star Schema, ETL dengan Pentaho, SCD, serta analisis KPI penjualan.</p>
+                        <p>Sistem Data Warehouse berbasis studi kasus Northwind untuk mengubah data operasional menjadi
+                            insight bisnis. Mencakup Star Schema, ETL dengan Pentaho, SCD, serta analisis KPI penjualan.
+                        </p>
                         <div class="project-tags-wrap">
-                            <span class="p-tag">Data Warehouse</span><span class="p-tag">ETL</span><span class="p-tag">Pentaho</span><span class="p-tag">Star Schema</span><span class="p-tag">OLAP</span>
+                            <span class="p-tag">Data Warehouse</span><span class="p-tag">ETL</span><span
+                                class="p-tag">Pentaho</span><span class="p-tag">Star Schema</span><span
+                                class="p-tag">OLAP</span>
                         </div>
                     </div>
                 </div>
@@ -1194,9 +2456,11 @@
                     <div class="project-card-body">
                         <div class="project-num-hand">✦ 09 ERP Implementation</div>
                         <h3>ERP System — Berry Bean (Odoo 18)</h3>
-                        <p>Implementasi sistem ERP menggunakan Odoo 18 dengan studi kasus perusahaan Berry Bean. Mengintegrasikan berbagai proses bisnis ke dalam satu sistem terpusat.</p>
+                        <p>Implementasi sistem ERP menggunakan Odoo 18 dengan studi kasus perusahaan Berry Bean.
+                            Mengintegrasikan berbagai proses bisnis ke dalam satu sistem terpusat.</p>
                         <div class="project-tags-wrap">
-                            <span class="p-tag">Odoo 18</span><span class="p-tag">ERP</span><span class="p-tag">Manufacturing</span><span class="p-tag">Inventory</span>
+                            <span class="p-tag">Odoo 18</span><span class="p-tag">ERP</span><span
+                                class="p-tag">Manufacturing</span><span class="p-tag">Inventory</span>
                         </div>
 
                         <div class="team-sticker-group">
@@ -1233,19 +2497,33 @@
                     <div class="project-card-body">
                         <div class="project-num-hand">✦ 10 Big Data Analytics</div>
                         <h3>Big Data — Estimasi Tarif Taksi NYC (Spark & HDFS)</h3>
-                        <p>Eksperimen pengolahan data skala besar buat mengestimasi tarif taksi pakai dataset NYC Taxi Fare. Data disimpan dan diproses lewat HDFS dan Apache Spark biar sanggup nanganin volume data yang besar, lalu model regresinya dibangun pakai Spark ML Pipeline untuk memprediksi tarif perjalanan dari fitur-fitur yang ada di dataset.</p>
+                        <p>Eksperimen pengolahan data skala besar buat mengestimasi tarif taksi pakai dataset NYC Taxi
+                            Fare. Data disimpan dan diproses lewat HDFS dan Apache Spark biar sanggup nanganin volume
+                            data yang besar, lalu model regresinya dibangun pakai Spark ML Pipeline untuk memprediksi
+                            tarif perjalanan dari fitur-fitur yang ada di dataset.</p>
                         <div class="project-tags-wrap">
-                            <span class="p-tag">Big Data</span><span class="p-tag">Apache Spark</span><span class="p-tag">HDFS</span><span class="p-tag">Spark ML</span>
+                            <span class="p-tag">Big Data</span><span class="p-tag">Apache Spark</span><span
+                                class="p-tag">HDFS</span><span class="p-tag">Spark ML</span>
                         </div>
 
                         <div class="team-sticker-group">
                             <div class="team-title-sm">👥 Tim Pengembang (5 Orang)</div>
                             <div class="team-avatar-list">
-                                <div class="t-avatar-pill"><div class="t-avatar-circle">AI</div>Adinda Ivanka M.</div>
-                                <div class="t-avatar-pill author"><div class="t-avatar-circle">KK</div>Khoir Karol N. ✦</div>
-                                <div class="t-avatar-pill"><div class="t-avatar-circle">MB</div>My Babby F. R. S.</div>
-                                <div class="t-avatar-pill"><div class="t-avatar-circle">NH</div>Nadya Hapsari</div>
-                                <div class="t-avatar-pill"><div class="t-avatar-circle">NS</div>Nindya Shafira P.</div>
+                                <div class="t-avatar-pill">
+                                    <div class="t-avatar-circle">AI</div>Adinda Ivanka M.
+                                </div>
+                                <div class="t-avatar-pill author">
+                                    <div class="t-avatar-circle">KK</div>Khoir Karol N. ✦
+                                </div>
+                                <div class="t-avatar-pill">
+                                    <div class="t-avatar-circle">MB</div>My Babby F. R. S.
+                                </div>
+                                <div class="t-avatar-pill">
+                                    <div class="t-avatar-circle">NH</div>Nadya Hapsari
+                                </div>
+                                <div class="t-avatar-pill">
+                                    <div class="t-avatar-circle">NS</div>Nindya Shafira P.
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1268,7 +2546,7 @@
                 <!-- Juara 2 TikTok with Polaroid Slider Frame -->
                 <div class="trophy-polaroid-card reveal-scrap">
                     <div class="washi-tape washi-tape-top-left"></div>
-                    
+
                     <div class="clean-polaroid-photo-wrap" id="slider-tiktok">
                         <img src="tiktok2.jpg" class="active" alt="Juara 2 TikTok Photo 1">
                         <img src="tiktok3.jpg" alt="Juara 2 TikTok Photo 2">
@@ -1348,8 +2626,10 @@
             <div class="contact-envelope-grid">
                 <div class="contact-letter-card reveal-scrap">
                     <div class="paper-clip"></div>
-                    <p>Saya terbuka untuk berbagai peluang kolaborasi, baik dalam pengembangan proyek, diskusi ide, maupun eksplorasi solusi di bidang teknologi dan sistem informasi.</p>
-                    <p>Jika Anda tertarik untuk bekerja sama atau ingin berdiskusi lebih lanjut, jangan ragu untuk menghubungi saya! Saya akan dengan senang hati merespons. 🌸</p>
+                    <p>Saya terbuka untuk berbagai peluang kolaborasi, baik dalam pengembangan proyek, diskusi ide,
+                        maupun eksplorasi solusi di bidang teknologi dan sistem informasi.</p>
+                    <p>Jika Anda tertarik untuk bekerja sama atau ingin berdiskusi lebih lanjut, jangan ragu untuk
+                        menghubungi saya! Saya akan dengan senang hati merespons. 🌸</p>
                     <div class="contact-signature-hand">Khoir Karol Nurzuraidah</div>
                 </div>
 
@@ -1357,7 +2637,10 @@
 
                     <a href="mailto:khoirkarolnurzuraidah23@gmail.com" class="contact-stamp-card">
                         <div class="stamp-icon-wrap">
-                            <svg viewBox="0 0 24 24" fill="var(--matcha-deep)"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                            <svg viewBox="0 0 24 24" fill="var(--matcha-deep)">
+                                <path
+                                    d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                            </svg>
                         </div>
                         <div class="stamp-text-info">
                             <strong>Email</strong>
@@ -1367,7 +2650,10 @@
 
                     <a href="tel:+6281410100519" class="contact-stamp-card">
                         <div class="stamp-icon-wrap">
-                            <svg viewBox="0 0 24 24" fill="#25D366"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                            <svg viewBox="0 0 24 24" fill="#25D366">
+                                <path
+                                    d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                            </svg>
                         </div>
                         <div class="stamp-text-info">
                             <strong>WhatsApp</strong>
@@ -1375,9 +2661,13 @@
                         </div>
                     </a>
 
-                    <a href="https://linkedin.com/in/khoir-karol-nurzuraidah" target="_blank" class="contact-stamp-card">
+                    <a href="https://linkedin.com/in/khoir-karol-nurzuraidah" target="_blank"
+                        class="contact-stamp-card">
                         <div class="stamp-icon-wrap">
-                            <svg viewBox="0 0 24 24" fill="#0077b5"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+                            <svg viewBox="0 0 24 24" fill="#0077b5">
+                                <path
+                                    d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+                            </svg>
                         </div>
                         <div class="stamp-text-info">
                             <strong>LinkedIn</strong>
@@ -1387,7 +2677,10 @@
 
                     <a href="https://github.com/khoirkanzura" target="_blank" class="contact-stamp-card">
                         <div class="stamp-icon-wrap">
-                            <svg viewBox="0 0 24 24" fill="var(--ink-main)"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                            <svg viewBox="0 0 24 24" fill="var(--ink-main)">
+                                <path
+                                    d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z" />
+                            </svg>
                         </div>
                         <div class="stamp-text-info">
                             <strong>GitHub</strong>
@@ -1397,7 +2690,10 @@
 
                     <a href="https://kaggle.com/khoirkaroln" target="_blank" class="contact-stamp-card">
                         <div class="stamp-icon-wrap">
-                            <svg viewBox="0 0 24 24" fill="#20beff"><path d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.448 1.374v5.111c0 .235-.117.352-.351.352H5.505c-.236 0-.354-.117-.354-.352V.353c0-.233.118-.353.354-.353h2.431c.234 0 .351.12.351.353v14.343l6.203-6.272c.165-.165.33-.246.495-.246h3.239c.144 0 .236.06.285.18.046.149.034.255-.036.315l-6.555 6.344 6.836 8.507c.095.104.117.208.07.334z"/></svg>
+                            <svg viewBox="0 0 24 24" fill="#20beff">
+                                <path
+                                    d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.448 1.374v5.111c0 .235-.117.352-.351.352H5.505c-.236 0-.354-.117-.354-.352V.353c0-.233.118-.353.354-.353h2.431c.234 0 .351.12.351.353v14.343l6.203-6.272c.165-.165.33-.246.495-.246h3.239c.144 0 .236.06.285.18.046.149.034.255-.036.315l-6.555 6.344 6.836 8.507c.095.104.117.208.07.334z" />
+                            </svg>
                         </div>
                         <div class="stamp-text-info">
                             <strong>Kaggle</strong>
@@ -1407,7 +2703,10 @@
 
                     <a href="https://instagram.com/khoirknz" target="_blank" class="contact-stamp-card">
                         <div class="stamp-icon-wrap">
-                            <svg viewBox="0 0 24 24" fill="#e6683c"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                            <svg viewBox="0 0 24 24" fill="#e6683c">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                            </svg>
                         </div>
                         <div class="stamp-text-info">
                             <strong>Instagram</strong>
@@ -1417,7 +2716,10 @@
 
                     <a href="https://tiktok.com/@khoir.kanzura" target="_blank" class="contact-stamp-card">
                         <div class="stamp-icon-wrap">
-                            <svg viewBox="0 0 24 24" fill="var(--ink-main)"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.78a4.85 4.85 0 01-1.01-.09z"/></svg>
+                            <svg viewBox="0 0 24 24" fill="var(--ink-main)">
+                                <path
+                                    d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.78a4.85 4.85 0 01-1.01-.09z" />
+                            </svg>
                         </div>
                         <div class="stamp-text-info">
                             <strong>TikTok</strong>
@@ -1432,7 +2734,6 @@
 
     <!-- ═══════════════════════════════ FOOTER ═══════════════════════════════ -->
     <footer>
-        <div class="footer-logo-hand">Khoir Karol Nurzuraidah ✦</div>
         <div class="footer-quote-italic">"Man jadda wajada"</div>
         <div class="footer-doodles-row">🍵 · · 🌸 · · ✦ · · 💜 · · 🍃</div>
     </footer>
@@ -1441,8 +2742,8 @@
     <script>
         /* ── THEME TOGGLE ── */
         const themeToggle = document.getElementById('themeToggle');
-        const themeIcon   = document.getElementById('themeIcon');
-        
+        const themeIcon = document.getElementById('themeIcon');
+
         function setTheme(isDark) {
             document.body.classList.toggle('dark', isDark);
             themeIcon.textContent = isDark ? '☀️' : '🌙';
@@ -1573,7 +2874,7 @@
                 tags.sort((a, b) => b.z - a.z);
 
                 const isDark = document.body.classList.contains('dark');
-                
+
                 for (let tag of tags) {
                     const scale = 300 / (300 - tag.z);
                     const alpha = Math.max(0.2, (tag.z + GLOBE_RADIUS) / (2 * GLOBE_RADIUS));
@@ -1654,4 +2955,5 @@
         })();
     </script>
 </body>
+
 </html>
