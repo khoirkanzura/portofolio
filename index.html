@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Khoir Karol Nurzuraidah — Personal Journal Portfolio</title>
-    <!-- Fonts: Playfair Display, DM Serif Display, Cormorant Garamond, Jost, Caveat (Handwritten) -->
+    <!-- Fonts: Playfair Display, DM Serif Display, Cormorant Garamond, Jost, Caveat (Handwritten), Amiri (Arabic) -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Serif+Display:ital@0;1&family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600;1,700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Caveat:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Serif+Display:ital@0;1&family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600;1,700&display=swap"
         rel="stylesheet">
     <style>
         /* ── SYSTEM DESIGN TOKENS (LIGHT MODE: WARM MATCHA & ROSE JOURNAL) ── */
@@ -418,6 +418,18 @@
             grid-template-columns: 1.1fr 0.9fr;
             gap: 4rem;
             align-items: center;
+        }
+
+        .hero-bismillah-opening {
+            font-family: 'Amiri', 'Traditional Arabic', serif;
+            font-size: clamp(1.2rem, 1.8vw, 1.55rem);
+            font-weight: 700;
+            color: var(--matcha-deep);
+            direction: rtl;
+            margin-bottom: 0.6rem;
+            line-height: 1.5;
+            letter-spacing: 0.5px;
+            opacity: 0.95;
         }
 
         .hero-sticker-header {
@@ -1532,6 +1544,17 @@
             z-index: 1;
         }
 
+        .footer-arabic-bismillah {
+            font-family: 'Amiri', 'Traditional Arabic', serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+            font-weight: 700;
+            color: var(--ink-main);
+            margin-bottom: 0.5rem;
+            direction: rtl;
+            line-height: 1.5;
+            letter-spacing: 0.5px;
+        }
+
         .footer-logo-hand {
             font-family: var(--font-heading);
             font-size: 1.8rem;
@@ -1541,11 +1564,14 @@
         }
 
         .footer-quote-italic {
-            font-family: var(--font-display);
+            font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
             font-style: italic;
-            font-size: 1.1rem;
+            font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+            font-weight: 600;
             color: var(--matcha-deep);
-            margin-bottom: 1rem;
+            letter-spacing: 1.2px;
+            margin-bottom: 0.8rem;
+            display: inline-block;
         }
 
         .footer-doodles-row {
@@ -1734,6 +1760,9 @@
     <!-- ═══════════════════════════════ HERO SECTION ═══════════════════════════════ -->
     <section id="home" class="hero-section">
         <div class="hero-left">
+            <div class="hero-bismillah-opening">
+                بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
+            </div>
             <div class="hero-sticker-header">
                 ✦ Portfolio & Journal ✦
             </div>
@@ -1881,7 +1910,7 @@
                 <!-- Interactive 3D Canvas Globe -->
                 <div class="globe-wrapper-card reveal-scrap">
                     <div class="washi-tape washi-tape-top-left"></div>
-                    <div class="globe-title-hint">🖱️ Coba geser-geser globe 3D ini!</div>
+                    <div class="globe-title-hint">Coba geser-geser globe 3D ini!</div>
                     <canvas id="skillGlobeCanvas"></canvas>
                 </div>
 
