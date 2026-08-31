@@ -973,13 +973,12 @@
             background: var(--card-bg);
             border: 1.5px solid var(--border-paper);
             border-radius: 22px 10px 24px 14px;
-            padding: 1.5rem 1.8rem;
+            padding: 1.6rem 1.8rem;
             box-shadow: var(--shadow-paper);
             transition: all 0.35s ease;
-            display: grid;
-            grid-template-columns: 1fr auto;
-            gap: 1.5rem;
-            align-items: start;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
         }
 
         .org-timeline-item:nth-child(odd) {
@@ -1013,10 +1012,13 @@
             justify-content: center;
         }
 
-        .org-item-main {
+        .org-card-header {
             display: flex;
+            align-items: center;
             gap: 1.2rem;
-            align-items: flex-start;
+            margin-bottom: 0.4rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px dashed var(--border-paper);
         }
 
         .org-logo-stamp {
@@ -1039,39 +1041,115 @@
             border-radius: 12px;
         }
 
-        .org-details h4 {
+        .org-header-text h4 {
             font-family: var(--font-heading);
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             font-weight: 700;
             color: var(--ink-main);
-            margin-bottom: 0.15rem;
+            margin: 0 0 0.15rem 0;
+            line-height: 1.3;
         }
 
-        .org-role-tag {
-            font-family: var(--font-hand);
-            font-size: 1.25rem;
+        .org-subtitle {
+            font-size: 0.82rem;
+            color: var(--ink-muted);
+            font-weight: 500;
+        }
+
+        /* Multiple Roles Nested Timeline (LinkedIn style) */
+        .org-nested-roles.has-multiple {
+            position: relative;
+            padding-left: 1.4rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .org-nested-roles.has-multiple::before {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 12px;
+            bottom: 12px;
+            width: 2.5px;
+            background: var(--matcha);
+            opacity: 0.45;
+            border-radius: 2px;
+        }
+
+        .org-nested-roles.has-multiple .org-role-entry {
+            position: relative;
+        }
+
+        .org-nested-roles.has-multiple .org-role-bullet {
+            display: block;
+            position: absolute;
+            left: -1.4rem;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--card-bg);
+            border: 2.5px solid var(--matcha-deep);
+            z-index: 2;
+            transform: translateX(-50%);
+        }
+
+        /* Single Role Organization (Clean without connector line or bullet dot) */
+        .org-nested-roles.single-role {
+            padding-left: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .org-nested-roles.single-role .org-role-entry {
+            position: relative;
+        }
+
+        .org-nested-roles.single-role .org-role-bullet {
+            display: none;
+        }
+
+        .org-role-content {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .org-role-title-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .org-role-title {
+            font-family: var(--font-body);
+            font-size: 1.02rem;
+            font-weight: 700;
             color: var(--matcha-deep);
-            margin-bottom: 0.4rem;
+            margin: 0;
+        }
+
+        .org-role-period {
+            font-family: var(--font-hand);
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--caramel-deep);
+            background: var(--caramel-light);
+            border: 1px dashed var(--caramel);
+            padding: 0.15rem 0.75rem;
+            border-radius: 100px;
+            white-space: nowrap;
         }
 
         .org-desc-text {
             font-size: 0.88rem;
             color: var(--ink-muted);
-            line-height: 1.7;
-        }
-
-        .org-period-seal {
-            font-family: var(--font-hand);
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--caramel-deep);
-            background: var(--caramel-light);
-            border: 1px dashed var(--caramel);
-            padding: 0.3rem 0.9rem;
-            border-radius: 100px;
-            white-space: nowrap;
-            transform: rotate(-2deg);
-            align-self: flex-start;
+            line-height: 1.65;
+            margin: 0;
         }
 
         /* ── PROJECTS SECTION ── */
@@ -1677,12 +1755,13 @@
             }
 
             .org-timeline-item {
-                grid-template-columns: 1fr;
-                gap: 1rem;
+                padding: 1.3rem 1.2rem;
             }
 
-            .org-period-seal {
-                align-self: flex-start;
+            .org-role-title-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.25rem;
             }
 
             .org-timeline-scrap {
@@ -1802,11 +1881,11 @@
                     <div class="stat-lbl-j">Proyek</div>
                 </div>
                 <div class="stat-polaroid">
-                    <div class="stat-num-j">6+</div>
+                    <div class="stat-num-j">10+</div>
                     <div class="stat-lbl-j">Organisasi</div>
                 </div>
                 <div class="stat-polaroid">
-                    <div class="stat-num-j">5+</div>
+                    <div class="stat-num-j">7+</div>
                     <div class="stat-lbl-j">Prestasi</div>
                 </div>
             </div>
@@ -1986,7 +2065,7 @@
         </div>
     </section>
 
-    <!-- ═══════════════════════════════ ORGANISASI SECTION (ALL 8 ITEMS) ═══════════════════════════════ -->
+    <!-- ═══════════════════════════════ ORGANISASI SECTION (LINKEDIN NESTED STYLE) ═══════════════════════════════ -->
     <section id="organisasi">
         <div class="container">
             <div class="section-header-scrap reveal-scrap">
@@ -1996,112 +2075,349 @@
 
             <div class="org-timeline-scrap">
 
+                <!-- 1. Malang Creative Center (Apprenticeship) -->
                 <div class="org-timeline-item reveal-scrap">
-                    <div class="org-item-main">
-                        <div class="org-logo-stamp"><img src="imansta.jpeg" alt="Ikatan Alumni SMAN 1 Ngunut"></div>
-                        <div class="org-details">
-                            <h4>Ikatan Alumni SMAN 1 Ngunut</h4>
-                            <div class="org-role-tag">✦ Divisi Alumni</div>
-                            <p class="org-desc-text">Mengelola jaringan alumni dan mendukung kegiatan komunikasi serta
-                                silaturahmi antar lulusan SMAN 1 Ngunut.</p>
+                    <div class="org-card-header">
+                        <div class="org-logo-stamp">
+                            <img src="mcc internship.jpeg" alt="Malang Creative Center">
+                        </div>
+                        <div class="org-header-text">
+                            <h4>Malang Creative Center</h4>
+                            <span class="org-subtitle">Apprenticeship</span>
                         </div>
                     </div>
-                    <div class="org-period-seal">2025 – 2027</div>
-                </div>
-
-                <div class="org-timeline-item reveal-scrap">
-                    <div class="org-item-main">
-                        <div class="org-logo-stamp"><img src="formadiksi poinema.jpeg" alt="Formadiksi Polinema"></div>
-                        <div class="org-details">
-                            <h4>Formadiksi Polinema</h4>
-                            <div class="org-role-tag">✦ Koordinator Komunikasi Eksternal</div>
-                            <p class="org-desc-text">Memimpin divisi komunikasi eksternal — menjembatani komunikasi dan
-                                kerja sama antara Formadiksi Polinema dengan pihak eksternal, alumni, serta FKMBK di
-                                tingkat regional, wilayah, dan nasional.</p>
+                    <div class="org-nested-roles single-role">
+                        <div class="org-role-entry">
+                            <div class="org-role-content">
+                                <div class="org-role-title-row">
+                                    <h5 class="org-role-title">Information Technology Support</h5>
+                                    <span class="org-role-period">Juli – Des 2026</span>
+                                </div>
+                                <p class="org-desc-text">Bertanggung jawab dalam dukungan teknologi informasi, pemeliharaan infrastruktur sistem, troubleshooting perangkat, serta asistensi operasional TI di lingkungan Malang Creative Center.</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="org-period-seal">2025 – 2026</div>
                 </div>
 
+                <!-- 2. Ikatan Mahasiswa Tulungagung (2 Jabatan -> has-multiple dengan garis & dot) -->
                 <div class="org-timeline-item reveal-scrap">
-                    <div class="org-item-main">
-                        <div class="org-logo-stamp"><img src="ikatama.jpeg" alt="IKATAMA Polinema"></div>
-                        <div class="org-details">
-                            <h4>Ikatan Mahasiswa Tulungagung Polinema</h4>
-                            <div class="org-role-tag">✦ Wakil Ketua Umum</div>
-                            <p class="org-desc-text">Membantu ketua dalam mengoordinasikan seluruh kegiatan, program
-                                kerja, dan anggota IKATAMA Polinema — memperkuat solidaritas mahasiswa asal Tulungagung
-                                di Malang.</p>
+                    <div class="org-card-header">
+                        <div class="org-logo-stamp">
+                            <img src="ikatama.jpeg" alt="Ikatan Mahasiswa Tulungagung">
                         </div>
-                    </div>
-                    <div class="org-period-seal">2025 – 2026</div>
-                </div>
-
-                <div class="org-timeline-item reveal-scrap">
-                    <div class="org-item-main">
-                        <div class="org-logo-stamp"><img src="fkmbk malang raya.jpeg" alt="FKMBK Malang Raya"></div>
-                        <div class="org-details">
-                            <h4>FKMBK Malang Raya</h4>
-                            <div class="org-role-tag">✦ Staf Departemen Luar Negeri</div>
-                            <p class="org-desc-text">Berfokus pada pengelolaan hubungan eksternal dan kerja sama
-                                antarorganisasi mahasiswa di lingkup Malang Raya serta Forum Daerah.</p>
-                        </div>
-                    </div>
-                    <div class="org-period-seal">2025 – 2026</div>
-                </div>
-
-                <div class="org-timeline-item reveal-scrap">
-                    <div class="org-item-main">
-                        <div class="org-logo-stamp"><img src="rubi comunity.jpeg" alt="Rubi Community"></div>
-                        <div class="org-details">
-                            <h4>Rubi Community</h4>
-                            <div class="org-role-tag">✦ Anggota – Batch 8</div>
-                            <p class="org-desc-text">RUBI Community (Respecting Understanding Beauty Influencer) adalah
-                                komunitas kecantikan milik Avoskin Beauty, didirikan untuk memberdayakan perempuan.</p>
-                        </div>
-                    </div>
-                    <div class="org-period-seal">Feb – Jun 2025</div>
-                </div>
-
-                <div class="org-timeline-item reveal-scrap">
-                    <div class="org-item-main">
-                        <div class="org-logo-stamp"><img src="fkmbk jatim.jpeg" alt="FKMBK Jawa Timur"></div>
-                        <div class="org-details">
-                            <h4>FKMBK Jawa Timur</h4>
-                            <div class="org-role-tag">✦ Staf Departemen Kajian Strategi</div>
-                            <p class="org-desc-text">Melakukan riset dan kajian terkait isu Bidikmisi/KIP-Kuliah di
-                                wilayah Jawa Timur. Mengelola stock of knowledge dalam bentuk infografis serta pendataan
-                                forum KIP-K.</p>
-                        </div>
-                    </div>
-                    <div class="org-period-seal">2024 – 2025</div>
-                </div>
-
-                <div class="org-timeline-item reveal-scrap">
-                    <div class="org-item-main">
-                        <div class="org-logo-stamp"><img src="formadiksi poinema.jpeg" alt="Formadiksi Polinema"></div>
-                        <div class="org-details">
-                            <h4>Formadiksi Polinema</h4>
-                            <div class="org-role-tag">✦ Pengurus Muda Komunikasi Eksternal</div>
-                            <p class="org-desc-text">Menjembatani komunikasi dan kerja sama antara Formadiksi Polinema
-                                dengan pihak eksternal — alumni, forum Bidikmisi luar Polinema, serta FKMBK di berbagai
-                                tingkat.</p>
-                        </div>
-                    </div>
-                    <div class="org-period-seal">2024 – 2025</div>
-                </div>
-
-                <div class="org-timeline-item reveal-scrap">
-                    <div class="org-item-main">
-                        <div class="org-logo-stamp"><img src="ikatama.jpeg" alt="IKATAMA"></div>
-                        <div class="org-details">
+                        <div class="org-header-text">
                             <h4>Ikatan Mahasiswa Tulungagung</h4>
-                            <div class="org-role-tag">✦ Anggota Eksternal</div>
-                            <p class="org-desc-text">Bergabung sebagai anggota aktif dalam kegiatan sosial dan
-                                kemahasiswaan, membangun relasi dan solidaritas sesama mahasiswa Tulungagung.</p>
+                            <span class="org-subtitle">IKATAMA Polinema</span>
                         </div>
                     </div>
-                    <div class="org-period-seal">2024 – 2025</div>
+                    <div class="org-nested-roles has-multiple">
+                        <div class="org-role-entry">
+                            <div class="org-role-bullet"></div>
+                            <div class="org-role-content">
+                                <div class="org-role-title-row">
+                                    <h5 class="org-role-title">Wakil Ketua Umum</h5>
+                                    <span class="org-role-period">2025 – 2026</span>
+                                </div>
+                                <p class="org-desc-text">Membantu ketua dalam mengoordinasikan seluruh kegiatan, program kerja, dan anggota IKATAMA Polinema — memperkuat solidaritas mahasiswa asal Tulungagung di Malang.</p>
+                            </div>
+                        </div>
+                        <div class="org-role-entry">
+                            <div class="org-role-bullet"></div>
+                            <div class="org-role-content">
+                                <div class="org-role-title-row">
+                                    <h5 class="org-role-title">Anggota Eksternal</h5>
+                                    <span class="org-role-period">2024 – 2025</span>
+                                </div>
+                                <p class="org-desc-text">Bergabung sebagai anggota aktif dalam kegiatan sosial dan kemahasiswaan, membangun relasi dan solidaritas sesama mahasiswa Tulungagung.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Formadiksi Polinema (2 Jabatan -> has-multiple dengan garis & dot) -->
+                <div class="org-timeline-item reveal-scrap">
+                    <div class="org-card-header">
+                        <div class="org-logo-stamp">
+                            <img src="formadiksi poinema.jpeg" alt="Formadiksi Polinema">
+                        </div>
+                        <div class="org-header-text">
+                            <h4>Formadiksi Polinema</h4>
+                            <span class="org-subtitle">Forum Mahasiswa Bidikmisi / KIP-K Politeknik Negeri Malang</span>
+                        </div>
+                    </div>
+                    <div class="org-nested-roles has-multiple">
+                        <div class="org-role-entry">
+                            <div class="org-role-bullet"></div>
+                            <div class="org-role-content">
+                                <div class="org-role-title-row">
+                                    <h5 class="org-role-title">Koordinator Komunikasi Eksternal</h5>
+                                    <span class="org-role-period">2025 – 2026</span>
+                                </div>
+                                <p class="org-desc-text">Memimpin divisi komunikasi eksternal — menjembatani komunikasi dan kerja sama antara Formadiksi Polinema dengan pihak eksternal, alumni, serta FKMBK di tingkat regional, wilayah, dan nasional.</p>
+                            </div>
+                        </div>
+                        <div class="org-role-entry">
+                            <div class="org-role-bullet"></div>
+                            <div class="org-role-content">
+                                <div class="org-role-title-row">
+                                    <h5 class="org-role-title">Pengurus Muda Komunikasi Eksternal</h5>
+                                    <span class="org-role-period">2024 – 2025</span>
+                                </div>
+                                <p class="org-desc-text">Menjembatani komunikasi dan kerja sama antara Formadiksi Polinema dengan pihak eksternal — alumni, forum Bidikmisi luar Polinema, serta FKMBK di berbagai tingkat.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. FKMBK Malang Raya (1 Jabatan -> single-role tanpa garis & dot) -->
+                <div class="org-timeline-item reveal-scrap">
+                    <div class="org-card-header">
+                        <div class="org-logo-stamp">
+                            <img src="fkmbk malang raya.jpeg" alt="FKMBK Malang Raya">
+                        </div>
+                        <div class="org-header-text">
+                            <h4>FKMBK Malang Raya</h4>
+                            <span class="org-subtitle">Forum Komunikasi Bidikmisi / KIP-K Malang Raya</span>
+                        </div>
+                    </div>
+                    <div class="org-nested-roles single-role">
+                        <div class="org-role-entry">
+                            <div class="org-role-content">
+                                <div class="org-role-title-row">
+                                    <h5 class="org-role-title">Staf Departemen Luar Negeri</h5>
+                                    <span class="org-role-period">2025 – 2026</span>
+                                </div>
+                                <p class="org-desc-text">Berfokus pada pengelolaan hubungan eksternal dan kerja sama antarorganisasi mahasiswa di lingkup Malang Raya serta Forum Daerah.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Ikatan Alumni SMAN 1 Ngunut (IMANSTA) (1 Jabatan -> single-role tanpa garis & dot) -->
+                <div class="org-timeline-item reveal-scrap">
+                    <div class="org-card-header">
+                        <div class="org-logo-stamp">
+                            <img src="imansta.jpeg" alt="Ikatan Alumni SMAN 1 Ngunut">
+                        </div>
+                        <div class="org-header-text">
+                            <h4>Ikatan Alumni SMAN 1 Ngunut (IMANSTA)</h4>
+                            <span class="org-subtitle">SMAN 1 Ngunut</span>
+                        </div>
+                    </div>
+                    <div class="org-nested-roles single-role">
+                        <div class="org-role-entry">
+                            <div class="org-role-content">
+                                <div class="org-role-title-row">
+                                    <h5 class="org-role-title">Divisi Alumni</h5>
+                                    <span class="org-role-period">2025 – 2027</span>
+                                </div>
+                                <p class="org-desc-text">Mengelola jaringan alumni dan mendukung kegiatan komunikasi serta silaturahmi antar lulusan SMAN 1 Ngunut.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Rubi Community (1 Jabatan -> single-role tanpa garis & dot) -->
+                <div class="org-timeline-item reveal-scrap">
+                    <div class="org-card-header">
+                        <div class="org-logo-stamp">
+                            <img src="rubi comunity.jpeg" alt="Rubi Community">
+                        </div>
+                        <div class="org-header-text">
+                            <h4>Rubi Community</h4>
+                            <span class="org-subtitle">Avoskin Beauty Community</span>
+                        </div>
+                    </div>
+                    <div class="org-nested-roles single-role">
+                        <div class="org-role-entry">
+                            <div class="org-role-content">
+                                <div class="org-role-title-row">
+                                    <h5 class="org-role-title">Anggota – Batch 8</h5>
+                                    <span class="org-role-period">Feb – Jun 2025</span>
+                                </div>
+                                <p class="org-desc-text">RUBI Community (Respecting Understanding Beauty Influencer) adalah komunitas kecantikan milik Avoskin Beauty, didirikan untuk memberdayakan perempuan.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. FKMBK Jawa Timur (1 Jabatan -> single-role tanpa garis & dot) -->
+                <div class="org-timeline-item reveal-scrap">
+                    <div class="org-card-header">
+                        <div class="org-logo-stamp">
+                            <img src="fkmbk jatim.jpeg" alt="FKMBK Jawa Timur">
+                        </div>
+                        <div class="org-header-text">
+                            <h4>FKMBK Jawa Timur</h4>
+                            <span class="org-subtitle">Forum Komunikasi Bidikmisi / KIP-K Jawa Timur</span>
+                        </div>
+                    </div>
+                    <div class="org-nested-roles single-role">
+                        <div class="org-role-entry">
+                            <div class="org-role-content">
+                                <div class="org-role-title-row">
+                                    <h5 class="org-role-title">Staf Departemen Kajian Strategi</h5>
+                                    <span class="org-role-period">2024 – 2025</span>
+                                </div>
+                                <p class="org-desc-text">Melakukan riset dan kajian terkait isu Bidikmisi/KIP-Kuliah di wilayah Jawa Timur. Mengelola stock of knowledge dalam bentuk infografis serta pendataan forum KIP-K.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. Broadcasting SMAN 1 Ngunut (1 Jabatan -> single-role tanpa garis & dot) -->
+                <div class="org-timeline-item reveal-scrap">
+                    <div class="org-card-header">
+                        <div class="org-logo-stamp">
+                            <img src="broadcast.jpeg" alt="Broadcasting SMAN 1 Ngunut">
+                        </div>
+                        <div class="org-header-text">
+                            <h4>Broadcasting SMAN 1 Ngunut</h4>
+                            <span class="org-subtitle">SMAN 1 Ngunut</span>
+                        </div>
+                    </div>
+                    <div class="org-nested-roles single-role">
+                        <div class="org-role-entry">
+                            <div class="org-role-content">
+                                <div class="org-role-title-row">
+                                    <h5 class="org-role-title">Bendahara Satu</h5>
+                                    <span class="org-role-period">2022 – 2023</span>
+                                </div>
+                                <p class="org-desc-text">Mengelola keuangan internal organisasi, penyusunan anggaran kegiatan broadcasting, serta pencatatan kas organisasi.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8. IT Club SMAN 1 Ngunut (1 Jabatan -> single-role tanpa garis & dot) -->
+                <div class="org-timeline-item reveal-scrap">
+                    <div class="org-card-header">
+                        <div class="org-logo-stamp">
+                            <img src="itc smanusa.jpeg" alt="IT Club SMAN 1 Ngunut">
+                        </div>
+                        <div class="org-header-text">
+                            <h4>IT Club SMAN 1 Ngunut</h4>
+                            <span class="org-subtitle">SMAN 1 Ngunut</span>
+                        </div>
+                    </div>
+                    <div class="org-nested-roles single-role">
+                        <div class="org-role-entry">
+                            <div class="org-role-content">
+                                <div class="org-role-title-row">
+                                    <h5 class="org-role-title">Anggota</h5>
+                                    <span class="org-role-period">2021 – 2023</span>
+                                </div>
+                                <p class="org-desc-text">Aktif mengikuti kegiatan pelatihan, workshop teknologi informasi, dan pengembangan karya multimedia di sekolah.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 9. Palang Merah Remaja SMAN 1 Ngunut (2 Jabatan -> has-multiple dengan garis & dot) -->
+                <div class="org-timeline-item reveal-scrap">
+                    <div class="org-card-header">
+                        <div class="org-logo-stamp">
+                            <img src="palang merah remaja.jpeg" alt="Palang Merah Remaja SMAN 1 Ngunut">
+                        </div>
+                        <div class="org-header-text">
+                            <h4>Palang Merah Remaja SMAN 1 Ngunut</h4>
+                            <span class="org-subtitle">SMAN 1 Ngunut</span>
+                        </div>
+                    </div>
+                    <div class="org-nested-roles has-multiple">
+                        <div class="org-role-entry">
+                            <div class="org-role-bullet"></div>
+                            <div class="org-role-content">
+                                <div class="org-role-title-row">
+                                    <h5 class="org-role-title">Ketua Satu</h5>
+                                    <span class="org-role-period">2021 – 2022</span>
+                                </div>
+                                <p class="org-desc-text">Memimpin dan mengoordinasikan seluruh kegiatan keorganisasian, latihan kepalangmerahan, dan pertolongan pertama PMR Wira SMAN 1 Ngunut.</p>
+                            </div>
+                        </div>
+                        <div class="org-role-entry">
+                            <div class="org-role-bullet"></div>
+                            <div class="org-role-content">
+                                <div class="org-role-title-row">
+                                    <h5 class="org-role-title">Anggota Sie Rumah Tangga</h5>
+                                    <span class="org-role-period">2020 – 2021</span>
+                                </div>
+                                <p class="org-desc-text">Mengelola perlengkapan, inventaris medis, dan kebutuhan logistik operasional organisasi PMR.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 10. OSIS SMPN 2 Ngunut (Osneronuta) (1 Jabatan -> single-role tanpa garis & dot) -->
+                <div class="org-timeline-item reveal-scrap">
+                    <div class="org-card-header">
+                        <div class="org-logo-stamp">
+                            <img src="osneronuta.jpeg" alt="OSIS SMPN 2 Ngunut">
+                        </div>
+                        <div class="org-header-text">
+                            <h4>OSIS SMPN 2 Ngunut (Osneronuta)</h4>
+                            <span class="org-subtitle">SMPN 2 Ngunut</span>
+                        </div>
+                    </div>
+                    <div class="org-nested-roles single-role">
+                        <div class="org-role-entry">
+                            <div class="org-role-content">
+                                <div class="org-role-title-row">
+                                    <h5 class="org-role-title">Pengurus</h5>
+                                    <span class="org-role-period">2019 – 2020</span>
+                                </div>
+                                <p class="org-desc-text">Berkontribusi aktif dalam perencanaan, pelaksanaan kegiatan kesiswaan, dan agenda osis di lingkungan sekolah.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 11. Palang Merah Remaja SMPN 2 Ngunut (1 Jabatan -> single-role tanpa garis & dot) -->
+                <div class="org-timeline-item reveal-scrap">
+                    <div class="org-card-header">
+                        <div class="org-logo-stamp">
+                            <img src="palang merah remaja.jpeg" alt="Palang Merah Remaja SMPN 2 Ngunut">
+                        </div>
+                        <div class="org-header-text">
+                            <h4>Palang Merah Remaja SMPN 2 Ngunut</h4>
+                            <span class="org-subtitle">SMPN 2 Ngunut</span>
+                        </div>
+                    </div>
+                    <div class="org-nested-roles single-role">
+                        <div class="org-role-entry">
+                            <div class="org-role-content">
+                                <div class="org-role-title-row">
+                                    <h5 class="org-role-title">Anggota</h5>
+                                    <span class="org-role-period">2019 – 2020</span>
+                                </div>
+                                <p class="org-desc-text">Mengikuti pelatihan dasar pertolongan pertama, aksi donor darah, serta kegiatan kemanusiaan remaja.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 12. Scout Arneda Tulungagung (1 Jabatan -> single-role tanpa garis & dot) -->
+                <div class="org-timeline-item reveal-scrap">
+                    <div class="org-card-header">
+                        <div class="org-logo-stamp">
+                            <img src="scout arneda.jpeg" alt="Scout Arneda Tulungagung">
+                        </div>
+                        <div class="org-header-text">
+                            <h4>Scout Arneda Tulungagung</h4>
+                            <span class="org-subtitle">Gerakan Pramuka</span>
+                        </div>
+                    </div>
+                    <div class="org-nested-roles single-role">
+                        <div class="org-role-entry">
+                            <div class="org-role-content">
+                                <div class="org-role-title-row">
+                                    <h5 class="org-role-title">Anggota</h5>
+                                    <span class="org-role-period">2018 – 2020</span>
+                                </div>
+                                <p class="org-desc-text">Aktif dalam kegiatan kepramukaan, pengembangan kedisiplinan, kerja sama tim, dan perkemahan bakti.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -2638,6 +2954,26 @@
                     <div class="trophy-rank-badge">✦ Juara 3</div>
                     <h4>Lomba Movie Maker — ITC SMAN 1 Ngunut</h4>
                     <div class="trophy-year-seal">📅 2020</div>
+                </div>
+
+                <!-- Juara 3 Cerdas Cermat GELORA MAN 3 Tulungagung -->
+                <div class="trophy-polaroid-card reveal-scrap">
+                    <div class="washi-tape washi-tape-top-right"></div>
+                    <div class="clean-polaroid-photo-wrap">
+                        <img src="cc gelora.jpeg" class="active" alt="Juara 3 Lomba Cerdas Cermat GELORA MAN 3 Tulungagung 2018">
+                    </div>
+                    <span class="trophy-icon-j">🥉</span>
+                    <div class="trophy-rank-badge">✦ Juara 3</div>
+                    <h4>Lomba Cerdas Cermat GELORA MAN 3 Tulungagung</h4>
+                    <div class="trophy-year-seal">📅 2018</div>
+                </div>
+
+                <!-- Juara 3 Cerdas Cermat LOPTIGA SMAN 1 Rejotangan -->
+                <div class="trophy-polaroid-card reveal-scrap">
+                    <span class="trophy-icon-j">🥉</span>
+                    <div class="trophy-rank-badge">✦ Juara 3</div>
+                    <h4>Lomba Cerdas Cermat LOPTIGA SMAN 1 Rejotangan</h4>
+                    <div class="trophy-year-seal">📅 2018</div>
                 </div>
 
             </div>
