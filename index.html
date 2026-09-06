@@ -119,65 +119,196 @@
             position: relative;
         }
 
-        /* Subtle Noise Overlay */
+        /* ── MULTI-LAYER AESTHETIC BACKGROUND SYSTEM ── */
+        /* 1. Paper Journal Dot Grid & Noise Overlay */
         body::before {
             content: '';
             position: fixed;
             inset: 0;
             z-index: 0;
             pointer-events: none;
-            opacity: 0.035;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.05;
+            background-image:
+                radial-gradient(var(--ink-muted) 1px, transparent 1px),
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            background-size: 32px 32px, auto;
+            transition: opacity 0.5s ease;
         }
 
-        /* Organic Background Blobs (Matcha, Rose & Lilac Blend) */
-        .ambient-blob {
+        body.dark::before {
+            opacity: 0.07;
+            background-image:
+                radial-gradient(rgba(244, 232, 247, 0.45) 1px, transparent 1px),
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* 2. Interactive Fluid Cursor Aura (Halo Light) */
+        #cursorAura {
             position: fixed;
+            top: 0;
+            left: 0;
+            width: 480px;
+            height: 480px;
+            margin-left: -240px;
+            margin-top: -240px;
             border-radius: 50%;
-            filter: blur(100px);
             pointer-events: none;
             z-index: 0;
-            transition: background 0.5s ease;
+            filter: blur(80px);
             opacity: 0.45;
+            background: radial-gradient(circle, rgba(228, 151, 172, 0.5) 0%, rgba(132, 155, 130, 0.3) 45%, transparent 70%);
+            transition: opacity 0.6s ease;
+            will-change: transform;
+            transform: translate3d(-1000px, -1000px, 0);
+        }
+
+        body.dark #cursorAura {
+            opacity: 0.55;
+            background: radial-gradient(circle, rgba(225, 113, 146, 0.5) 0%, rgba(165, 204, 162, 0.35) 40%, rgba(175, 151, 203, 0.25) 60%, transparent 75%);
+        }
+
+        /* 3. Fluid Morphing Organic Aurora Mesh Blobs (GPU Accelerated) */
+        .ambient-blob {
+            position: fixed;
+            filter: blur(90px);
+            pointer-events: none;
+            z-index: 0;
+            transition: opacity 0.6s ease;
+            opacity: 0.5;
+            will-change: transform, border-radius;
+        }
+
+        body.dark .ambient-blob {
+            opacity: 0.6;
+            filter: blur(105px);
         }
 
         .blob-a {
-            width: 550px;
-            height: 550px;
-            background: radial-gradient(circle, var(--matcha-light), transparent 70%);
-            top: -120px;
+            width: 620px;
+            height: 620px;
+            background: radial-gradient(circle at 35% 35%, var(--matcha-light) 0%, rgba(132, 155, 130, 0.25) 50%, transparent 75%);
+            top: -140px;
             right: -100px;
-            animation: floatBlob 14s ease-in-out infinite;
+            border-radius: 43% 57% 70% 30% / 46% 44% 56% 54%;
+            animation: morphBlobA 22s ease-in-out infinite alternate;
         }
 
         .blob-b {
-            width: 450px;
-            height: 450px;
-            background: radial-gradient(circle, var(--rose-light), transparent 70%);
-            bottom: 10%;
-            left: -100px;
-            animation: floatBlob 18s ease-in-out infinite reverse;
+            width: 560px;
+            height: 560px;
+            background: radial-gradient(circle at 65% 65%, var(--rose-light) 0%, rgba(228, 151, 172, 0.22) 50%, transparent 75%);
+            bottom: 5%;
+            left: -120px;
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            animation: morphBlobB 26s ease-in-out infinite alternate;
         }
 
         .blob-c {
-            width: 380px;
-            height: 380px;
-            background: radial-gradient(circle, var(--lilac-light), transparent 70%);
-            top: 45%;
-            right: 5%;
-            animation: floatBlob 12s ease-in-out infinite;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle at 50% 50%, var(--lilac-light) 0%, rgba(193, 175, 213, 0.25) 50%, transparent 75%);
+            top: 40%;
+            right: 4%;
+            border-radius: 35% 65% 55% 45% / 55% 45% 55% 45%;
+            animation: morphBlobC 20s ease-in-out infinite alternate;
         }
 
-        @keyframes floatBlob {
+        .blob-d {
+            width: 440px;
+            height: 440px;
+            background: radial-gradient(circle at 50% 50%, var(--peach-light) 0%, rgba(244, 183, 148, 0.2) 50%, transparent 75%);
+            top: 72%;
+            right: 32%;
+            border-radius: 50% 50% 38% 62% / 40% 60% 40% 60%;
+            animation: morphBlobA 25s ease-in-out infinite alternate-reverse;
+        }
 
-            0%,
-            100% {
-                transform: translate(0, 0) scale(1);
+        @keyframes morphBlobA {
+            0% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+                border-radius: 43% 57% 70% 30% / 46% 44% 56% 54%;
             }
 
             50% {
-                transform: translate(35px, -25px) scale(1.08);
+                transform: translate(45px, -35px) rotate(45deg) scale(1.1);
+                border-radius: 62% 38% 46% 54% / 60% 33% 67% 40%;
             }
+
+            100% {
+                transform: translate(-30px, 40px) rotate(90deg) scale(0.95);
+                border-radius: 38% 62% 63% 37% / 41% 58% 42% 59%;
+            }
+        }
+
+        @keyframes morphBlobB {
+            0% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+                border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            }
+
+            50% {
+                transform: translate(-40px, 30px) rotate(-60deg) scale(1.08);
+                border-radius: 45% 55% 65% 35% / 35% 65% 35% 65%;
+            }
+
+            100% {
+                transform: translate(30px, -25px) rotate(-120deg) scale(0.93);
+                border-radius: 70% 30% 50% 50% / 50% 40% 60% 50%;
+            }
+        }
+
+        @keyframes morphBlobC {
+            0% {
+                transform: translate(0, 0) scale(1);
+                border-radius: 35% 65% 55% 45% / 55% 45% 55% 45%;
+            }
+
+            50% {
+                transform: translate(35px, 25px) scale(1.12);
+                border-radius: 50% 50% 30% 70% / 60% 40% 60% 40%;
+            }
+
+            100% {
+                transform: translate(-25px, -30px) scale(0.98);
+                border-radius: 65% 35% 40% 60% / 45% 55% 45% 55%;
+            }
+        }
+
+        /* 4. Fullscreen Interactive Ambient Canvas */
+        #ambientCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Interactive Hint Badge */
+        .bg-interactive-hint {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            font-family: var(--font-hand);
+            font-size: 0.98rem;
+            color: var(--ink-muted);
+            background: var(--tape-bg);
+            border: 1px dashed var(--tape-border);
+            padding: 0.28rem 0.85rem;
+            border-radius: 100px;
+            margin-top: 0.6rem;
+            cursor: pointer;
+            user-select: none;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+        }
+
+        .bg-interactive-hint:hover {
+            transform: scale(1.05) rotate(-1deg);
+            color: var(--rose-deep);
+            border-color: var(--rose);
+            box-shadow: 0 4px 14px rgba(200, 108, 135, 0.18);
         }
 
         /* ── SCRAPBOOK DECORATIVE ACCENTS ── */
@@ -352,7 +483,7 @@
         /* ── LAYOUT CONTAINERS & HEADINGS ── */
         section {
             position: relative;
-            z-index: 1;
+            z-index: 2;
             padding: 90px 0;
         }
 
@@ -1224,54 +1355,107 @@
             width: 32px;
             height: 32px;
             border-radius: 50%;
-            background: rgba(255, 253, 250, 0.9);
-            border: 1px solid var(--border-paper);
-            color: var(--ink-main);
-            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.78);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            color: #2c202e;
+            font-size: 1.1rem;
+            line-height: 1;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 5;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            opacity: 0.85;
+        }
+
+        .project-carousel-wrap:hover .carousel-btn,
+        .clean-polaroid-photo-wrap:hover .carousel-btn {
+            opacity: 1;
         }
 
         .carousel-btn:hover {
+            opacity: 1;
+            transform: translateY(-50%) scale(1.12);
             background: var(--matcha-deep);
-            color: #fff;
+            border-color: var(--matcha-deep);
+            color: #ffffff;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
         }
 
         .carousel-btn.prev {
-            left: 10px;
+            left: 8px;
         }
 
         .carousel-btn.next {
-            right: 10px;
+            right: 8px;
+        }
+
+        /* ── Dark Mode Carousel Button & Indicator Styles ── */
+        body.dark .carousel-btn {
+            background: rgba(22, 16, 32, 0.78);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            color: #ffffff;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+        }
+
+        body.dark .carousel-btn:hover {
+            background: var(--sakura-deep, #c86c87);
+            border-color: var(--sakura-deep, #c86c87);
+            color: #ffffff;
+            box-shadow: 0 6px 18px rgba(200, 108, 135, 0.45);
         }
 
         .carousel-dots {
             position: absolute;
-            bottom: 10px;
+            bottom: 8px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
+            align-items: center;
             gap: 5px;
             z-index: 5;
+            padding: 3px 8px;
+            border-radius: 12px;
+            background: rgba(0, 0, 0, 0.35);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
         }
 
         .c-dot {
-            width: 7px;
-            height: 7px;
+            width: 6px;
+            height: 6px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.45);
             border: none;
             cursor: pointer;
             padding: 0;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .c-dot:hover {
+            background: rgba(255, 255, 255, 0.85);
         }
 
         .c-dot.active {
-            background: var(--matcha-deep);
-            width: 16px;
+            background: #ffffff;
+            width: 15px;
             border-radius: 4px;
+        }
+
+        body.dark .carousel-dots {
+            background: rgba(14, 10, 22, 0.6);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        body.dark .c-dot.active {
+            background: var(--sakura-light, #f4b794);
         }
 
         .project-card-body {
@@ -1583,20 +1767,37 @@
         }
 
         .stamp-icon-wrap {
-            width: 44px;
-            height: 44px;
-            min-width: 44px;
-            border-radius: 12px;
+            width: 46px;
+            height: 46px;
+            min-width: 46px;
+            border-radius: 13px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: var(--matcha-light);
-            border: 1px solid var(--border-paper);
+            background: #ffffff;
+            border: 1.5px solid var(--border-paper);
+            box-shadow: 0 4px 12px rgba(44, 32, 46, 0.06);
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            overflow: hidden;
+            padding: 5px;
+        }
+
+        body.dark .stamp-icon-wrap {
+            background: #1f192b;
+            border-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+        }
+
+        .contact-stamp-card:hover .stamp-icon-wrap {
+            transform: scale(1.1) rotate(-3deg);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
         }
 
         .stamp-icon-wrap svg {
-            width: 24px;
-            height: 24px;
+            width: 100%;
+            height: 100%;
+            display: block;
+            border-radius: 8px;
         }
 
         .stamp-text-info strong {
@@ -1813,9 +2014,13 @@
 
 <body>
 
-    <div class="ambient-blob blob-a"></div>
-    <div class="ambient-blob blob-b"></div>
-    <div class="ambient-blob blob-c"></div>
+    <!-- ══════════ DYNAMIC AESTHETIC BACKGROUND SYSTEM ══════════ -->
+    <div id="cursorAura" aria-hidden="true"></div>
+    <div class="ambient-blob blob-a" aria-hidden="true"></div>
+    <div class="ambient-blob blob-b" aria-hidden="true"></div>
+    <div class="ambient-blob blob-c" aria-hidden="true"></div>
+    <div class="ambient-blob blob-d" aria-hidden="true"></div>
+    <canvas id="ambientCanvas" aria-hidden="true"></canvas>
 
     <!-- ═══════════════════════════════ NAVBAR ═══════════════════════════════ -->
     <nav>
@@ -1842,8 +2047,13 @@
             <div class="hero-bismillah-opening">
                 بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
             </div>
-            <div class="hero-sticker-header">
-                ✦ Portfolio & Journal ✦
+            <div style="display: flex; gap: 0.8rem; align-items: center; flex-wrap: wrap; margin-bottom: 1.5rem;">
+                <div class="hero-sticker-header" style="margin-bottom: 0;">
+                    ✦ Portfolio & Journal ✦
+                </div>
+                <div class="bg-interactive-hint" title="Sentuh atau klik layar untuk efek percikan bintang estetik!">
+                    <span>✨</span> Gerakkan kursor / Tap untuk sentuhan magis
+                </div>
             </div>
             <h1 class="hero-name-journal">
                 Khoir Karol <br><span class="highlight-serif">Nurzuraidah</span>
@@ -2404,7 +2614,7 @@
                         </div>
                         <div class="org-header-text">
                             <h4>Scout Arneda Tulungagung</h4>
-                            <span class="org-subtitle">Gerakan Pramuka</span>
+                            <span class="org-subtitle">Gerakan Pramuka SMPN 2 NGUNUT</span>
                         </div>
                     </div>
                     <div class="org-nested-roles single-role">
@@ -3001,10 +3211,14 @@
                 <div class="contact-stamps-grid reveal-scrap">
 
                     <a href="mailto:khoirkarolnurzuraidah23@gmail.com" class="contact-stamp-card">
-                        <div class="stamp-icon-wrap">
-                            <svg viewBox="0 0 24 24" fill="var(--matcha-deep)">
-                                <path
-                                    d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                        <div class="stamp-icon-wrap" title="Gmail">
+                            <svg viewBox="0 0 512 512">
+                                <rect width="512" height="512" rx="100" fill="#FFFFFF"/>
+                                <path d="m76 190v171q0 30 30 30h52V190" fill="#4285F4"/>
+                                <path d="m354 190v201h52q30 0 30-30V190" fill="#34A853"/>
+                                <path d="m350 255V149l28-21c24-18 58 2 58 30v32" fill="#FBBC04"/>
+                                <path d="m154 249V143l102 77 98-74v106l-98 74" fill="#EA4335"/>
+                                <path d="m76 190v-32c0-29 34-48 58-30l24 18v106" fill="#C5221F"/>
                             </svg>
                         </div>
                         <div class="stamp-text-info">
@@ -3013,11 +3227,11 @@
                         </div>
                     </a>
 
-                    <a href="tel:+6281410100519" class="contact-stamp-card">
-                        <div class="stamp-icon-wrap">
-                            <svg viewBox="0 0 24 24" fill="#25D366">
-                                <path
-                                    d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                    <a href="https://wa.me/6281410100519" target="_blank" rel="noopener noreferrer" class="contact-stamp-card">
+                        <div class="stamp-icon-wrap" title="WhatsApp">
+                            <svg viewBox="0 0 48 48">
+                                <rect width="48" height="48" rx="10" fill="#25D366"/>
+                                <path fill="#FFFFFF" transform="translate(6, 6) scale(1.5)" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
                             </svg>
                         </div>
                         <div class="stamp-text-info">
@@ -3028,10 +3242,10 @@
 
                     <a href="https://linkedin.com/in/khoir-karol-nurzuraidah" target="_blank"
                         class="contact-stamp-card">
-                        <div class="stamp-icon-wrap">
-                            <svg viewBox="0 0 24 24" fill="#0077b5">
-                                <path
-                                    d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+                        <div class="stamp-icon-wrap" title="LinkedIn">
+                            <svg viewBox="0 0 48 48">
+                                <rect width="48" height="48" rx="10" fill="#0A66C2"/>
+                                <path fill="#FFFFFF" d="M14 20h5v16h-5V20zm2.5-8a2.9 2.9 0 1 1 0 5.8 2.9 2.9 0 0 1 0-5.8zM22 20h4.8v2.2h.1c.7-1.3 2.3-2.6 4.8-2.6 5.1 0 6.1 3.4 6.1 7.8V36h-5V28c0-1.9 0-4.4-2.7-4.4-2.7 0-3.1 2.1-3.1 4.2V36H22V20z"/>
                             </svg>
                         </div>
                         <div class="stamp-text-info">
@@ -3041,10 +3255,10 @@
                     </a>
 
                     <a href="https://github.com/khoirkanzura" target="_blank" class="contact-stamp-card">
-                        <div class="stamp-icon-wrap">
-                            <svg viewBox="0 0 24 24" fill="var(--ink-main)">
-                                <path
-                                    d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z" />
+                        <div class="stamp-icon-wrap" title="GitHub">
+                            <svg viewBox="0 0 48 48">
+                                <rect width="48" height="48" rx="10" fill="#181717"/>
+                                <path fill="#FFFFFF" fill-rule="evenodd" d="M24 10a14 14 0 0 0-4.43 27.28c.7.13.96-.3.96-.67v-2.36c-3.9.85-4.72-1.88-4.72-1.88-.64-1.62-1.56-2.05-1.56-2.05-1.27-.87.1-.85.1-.85 1.4.1 2.14 1.44 2.14 1.44 1.25 2.14 3.28 1.52 4.08 1.16.13-.9.49-1.52.88-1.87-3.11-.35-6.38-1.56-6.38-6.93 0-1.53.55-2.78 1.44-3.76-.14-.35-.63-1.78.14-3.7 0 0 1.18-.38 3.85 1.44a13.4 13.4 0 0 1 7 0c2.67-1.82 3.85-1.44 3.85-1.44.77 1.92.28 3.35.14 3.7.9.98 1.44 2.23 1.44 3.76 0 5.38-3.28 6.57-6.4 6.92.5.43.95 1.28.95 2.58v3.82c0 .38.25.81.97.67A14 14 0 0 0 24 10z"/>
                             </svg>
                         </div>
                         <div class="stamp-text-info">
@@ -3053,11 +3267,11 @@
                         </div>
                     </a>
 
-                    <a href="https://kaggle.com/khoirkaroln" target="_blank" class="contact-stamp-card">
-                        <div class="stamp-icon-wrap">
-                            <svg viewBox="0 0 24 24" fill="#20beff">
-                                <path
-                                    d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.448 1.374v5.111c0 .235-.117.352-.351.352H5.505c-.236 0-.354-.117-.354-.352V.353c0-.233.118-.353.354-.353h2.431c.234 0 .351.12.351.353v14.343l6.203-6.272c.165-.165.33-.246.495-.246h3.239c.144 0 .236.06.285.18.046.149.034.255-.036.315l-6.555 6.344 6.836 8.507c.095.104.117.208.07.334z" />
+                    <a href="https://kaggle.com/khoirkaroln" target="_blank" rel="noopener noreferrer" class="contact-stamp-card">
+                        <div class="stamp-icon-wrap" title="Kaggle">
+                            <svg viewBox="0 0 48 48">
+                                <rect width="48" height="48" rx="10" fill="#20BEFF"/>
+                                <path fill="#FFFFFF" transform="translate(10, 9.5) scale(1.2)" d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.448 1.374v5.111c0 .235-.117.352-.351.352H5.505c-.236 0-.354-.117-.354-.352V.353c0-.233.118-.353.354-.353h2.431c.234 0 .351.12.351.353v14.343l6.203-6.272c.165-.165.33-.246.495-.246h3.239c.144 0 .236.06.285.18.046.149.034.255-.036.315l-6.555 6.344 6.836 8.507c.095.104.117.208.07.334z"/>
                             </svg>
                         </div>
                         <div class="stamp-text-info">
@@ -3067,10 +3281,19 @@
                     </a>
 
                     <a href="https://instagram.com/khoirknz" target="_blank" class="contact-stamp-card">
-                        <div class="stamp-icon-wrap">
-                            <svg viewBox="0 0 24 24" fill="#e6683c">
-                                <path
-                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                        <div class="stamp-icon-wrap" title="Instagram">
+                            <svg viewBox="0 0 48 48">
+                                <defs>
+                                    <radialGradient id="ig-grad-real" r="140%" cx="30%" cy="105%">
+                                        <stop offset="0%" stop-color="#fdf497"/>
+                                        <stop offset="10%" stop-color="#fdf497"/>
+                                        <stop offset="50%" stop-color="#fd5949"/>
+                                        <stop offset="68%" stop-color="#d6249f"/>
+                                        <stop offset="100%" stop-color="#285aeb"/>
+                                    </radialGradient>
+                                </defs>
+                                <rect width="48" height="48" rx="12" fill="url(#ig-grad-real)"/>
+                                <path fill="#FFFFFF" d="M24 14c3.26 0 3.65.01 4.93.07 1.19.05 1.83.25 2.26.42.57.22.98.49 1.41.92.43.43.7.84.92 1.41.17.43.37 1.07.42 2.26.06 1.28.07 1.67.07 4.93s-.01 3.65-.07 4.93c-.05 1.19-.25 1.83-.42 2.26-.22.57-.49.98-.92 1.41-.43.43-.84.7-1.41.92-.43.17-1.07.37-2.26.42-1.28.06-1.67.07-4.93.07s-3.65-.01-4.93-.07c-1.19-.05-1.83-.25-2.26-.42-.57-.22-.98-.49-1.41-.92-.43-.43-.7-.84-.92-1.41-.17-.43-.37-1.07-.42-2.26-.06-1.28-.07-1.67-.07-4.93s.01-3.65.07-4.93c.05-1.19.25-1.83.42-2.26.22-.57.49-.98.92-1.41.43-.43.84-.7 1.41-.92.43-.17 1.07-.37 2.26-.42 1.28-.06 1.67-.07 4.93-.07zm0-2.5c-3.32 0-3.73.01-5.03.07-1.3.06-2.18.27-2.96.57-.8.31-1.48.73-2.16 1.41-.68.68-1.1 1.36-1.41 2.16-.3.78-.51 1.67-.57 2.96-.06 1.3-.07 1.71-.07 5.03s.01 3.73.07 5.03c.06 1.3.27 2.18.57 2.96.31.8.73 1.48 1.41 2.16.68.68 1.36 1.1 2.16 1.41.78.3 1.67.51 2.96.57 1.3.06 1.71.07 5.03.07s3.73-.01 5.03-.07c1.3-.06 2.18-.27 2.96-.57.8-.31 1.48-.73 2.16-1.41.68-.68 1.1-1.36 1.41-2.16.3-.78.51-1.67.57-2.96.06-1.3.07-1.71.07-5.03s-.01-3.73-.07-5.03c-.06-1.3-.27-2.18-.57-2.96-.31-.8-.73-1.48-1.41-2.16-.68-.68-1.36-1.1-2.16-1.41-.78-.3-1.67-.51-2.96-.57-1.3-.06-1.71-.07-5.03-.07zm0 6.08a6.42 6.42 0 1 0 0 12.84 6.42 6.42 0 0 0 0-12.84zm0 10.34a3.92 3.92 0 1 1 0-7.84 3.92 3.92 0 0 1 0 7.84zm8.17-10.97a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
                             </svg>
                         </div>
                         <div class="stamp-text-info">
@@ -3080,10 +3303,12 @@
                     </a>
 
                     <a href="https://tiktok.com/@khoir.kanzura" target="_blank" class="contact-stamp-card">
-                        <div class="stamp-icon-wrap">
-                            <svg viewBox="0 0 24 24" fill="var(--ink-main)">
-                                <path
-                                    d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.78a4.85 4.85 0 01-1.01-.09z" />
+                        <div class="stamp-icon-wrap" title="TikTok">
+                            <svg viewBox="0 0 48 48">
+                                <rect width="48" height="48" rx="12" fill="#010101"/>
+                                <path fill="#25F4EE" d="M32.8 17.6a8.8 8.8 0 0 1-5.3-2.3v10.4a7.8 7.8 0 1 1-6.8-7.75v3.9a4 4 0 1 0 3 3.85V8.5h3.9c.3 3.3 2.5 5.9 5.2 6.3v2.8z"/>
+                                <path fill="#FE2C55" d="M33.6 18.4a8.8 8.8 0 0 1-5.3-2.3v10.4a7.8 7.8 0 1 1-6.8-7.75v3.9a4 4 0 1 0 3 3.85V9.3h3.9c.3 3.3 2.5 5.9 5.2 6.3v2.8z"/>
+                                <path fill="#FFFFFF" d="M33.2 18a8.8 8.8 0 0 1-5.3-2.3v10.4a7.8 7.8 0 1 1-6.8-7.75v3.9a4 4 0 1 0 3 3.85V8.9h3.9c.3 3.3 2.5 5.9 5.2 6.3v2.8z"/>
                             </svg>
                         </div>
                         <div class="stamp-text-info">
@@ -3316,6 +3541,502 @@
 
             resizeCanvas();
             initTags();
+            requestAnimationFrame(render);
+        })();
+
+        /* ════════════════════════════════════════════════════════════════
+           ── DYNAMIC AESTHETIC BACKGROUND ENGINE ──
+           Botanical Petals, Matcha Leaves, Sparkle Constellations & Aura
+        ════════════════════════════════════════════════════════════════ */
+        (function initDynamicAestheticBackground() {
+            const canvas = document.getElementById('ambientCanvas');
+            const aura = document.getElementById('cursorAura');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+
+            let width = window.innerWidth;
+            let height = window.innerHeight;
+            let dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+            // Responsive particle count
+            const isMobile = () => window.innerWidth < 768;
+            const getCounts = () => {
+                if (window.innerWidth < 768) {
+                    return { petals: 14, leaves: 8, stars: 20, orbs: 8 };
+                } else if (window.innerWidth < 1200) {
+                    return { petals: 22, leaves: 14, stars: 32, orbs: 14 };
+                } else {
+                    return { petals: 30, leaves: 18, stars: 45, orbs: 18 };
+                }
+            };
+
+            function resizeCanvas() {
+                width = window.innerWidth;
+                height = window.innerHeight;
+                dpr = Math.min(window.devicePixelRatio || 1, 2);
+                canvas.width = width * dpr;
+                canvas.height = height * dpr;
+                canvas.style.width = width + 'px';
+                canvas.style.height = height + 'px';
+                ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            }
+
+            // Mouse & Aura tracking
+            let targetMouseX = width / 2;
+            let targetMouseY = height / 3;
+            let auraX = width / 2;
+            let auraY = height / 3;
+            let mouseMoved = false;
+            let lastMoveTime = Date.now();
+
+            window.addEventListener('mousemove', (e) => {
+                targetMouseX = e.clientX;
+                targetMouseY = e.clientY;
+                mouseMoved = true;
+                lastMoveTime = Date.now();
+                if (aura) aura.style.opacity = document.body.classList.contains('dark') ? '0.6' : '0.45';
+            });
+
+            window.addEventListener('touchmove', (e) => {
+                if (e.touches && e.touches[0]) {
+                    targetMouseX = e.touches[0].clientX;
+                    targetMouseY = e.touches[0].clientY;
+                    mouseMoved = true;
+                    lastMoveTime = Date.now();
+                }
+            }, { passive: true });
+
+            document.addEventListener('mouseleave', () => {
+                if (aura) aura.style.opacity = '0';
+            });
+
+            // Particles arrays
+            let petals = [];
+            let leaves = [];
+            let stars = [];
+            let orbs = [];
+            let burstParticles = [];
+
+            // Helper random range
+            const rand = (min, max) => Math.random() * (max - min) + min;
+
+            // Initialize Botanical Petal
+            function createPetal(randomY = true) {
+                return {
+                    x: rand(0, width),
+                    y: randomY ? rand(0, height) : rand(-40, -10),
+                    size: rand(8, 16),
+                    vx: rand(-0.3, 0.6),
+                    vy: rand(0.5, 1.4),
+                    pitch: rand(0, Math.PI * 2),
+                    vPitch: rand(0.01, 0.035),
+                    roll: rand(0, Math.PI * 2),
+                    vRoll: rand(0.015, 0.04),
+                    rotation: rand(0, Math.PI * 2),
+                    vRot: rand(-0.015, 0.02),
+                    swayOffset: rand(0, 100),
+                    swaySpeed: rand(0.015, 0.03),
+                    alpha: rand(0.4, 0.85)
+                };
+            }
+
+            // Initialize Matcha Leaf
+            function createLeaf(randomY = true) {
+                return {
+                    x: rand(0, width),
+                    y: randomY ? rand(0, height) : rand(-40, -10),
+                    size: rand(10, 18),
+                    vx: rand(-0.4, 0.5),
+                    vy: rand(0.4, 1.1),
+                    pitch: rand(0, Math.PI * 2),
+                    vPitch: rand(0.01, 0.03),
+                    rotation: rand(0, Math.PI * 2),
+                    vRot: rand(-0.015, 0.015),
+                    swayOffset: rand(0, 100),
+                    swaySpeed: rand(0.01, 0.025),
+                    alpha: rand(0.35, 0.75)
+                };
+            }
+
+            // Initialize Sparkle Star (✦)
+            function createStar() {
+                return {
+                    x: rand(0, width),
+                    y: rand(0, height),
+                    size: rand(3, 7.5),
+                    pulse: rand(0, Math.PI * 2),
+                    pulseSpeed: rand(0.02, 0.06),
+                    rotation: rand(0, Math.PI * 2),
+                    vRot: rand(-0.01, 0.01),
+                    type: Math.random() > 0.4 ? 'fourPoint' : 'diamond',
+                    alpha: rand(0.3, 0.9)
+                };
+            }
+
+            // Initialize Glowing Ambient Orb
+            function createOrb() {
+                return {
+                    x: rand(0, width),
+                    y: rand(0, height),
+                    radius: rand(2.5, 6),
+                    vx: rand(-0.2, 0.2),
+                    vy: rand(-0.5, -0.1),
+                    alpha: rand(0.2, 0.55),
+                    pulse: rand(0, Math.PI * 2)
+                };
+            }
+
+            function initAllParticles() {
+                const counts = getCounts();
+                petals = Array.from({ length: counts.petals }, () => createPetal(true));
+                leaves = Array.from({ length: counts.leaves }, () => createLeaf(true));
+                stars = Array.from({ length: counts.stars }, () => createStar());
+                orbs = Array.from({ length: counts.orbs }, () => createOrb());
+            }
+
+            // ── CLICK / TAP BURST (SPARKLE FOUNTAIN) ──
+            function triggerSparkleBurst(originX, originY) {
+                const count = isMobile() ? 12 : 20;
+                for (let i = 0; i < count; i++) {
+                    const angle = rand(0, Math.PI * 2);
+                    const speed = rand(2.5, 6.5);
+                    burstParticles.push({
+                        x: originX,
+                        y: originY,
+                        vx: Math.cos(angle) * speed,
+                        vy: Math.sin(angle) * speed - rand(0.5, 2),
+                        size: rand(4, 10),
+                        rotation: rand(0, Math.PI * 2),
+                        vRot: rand(-0.15, 0.15),
+                        alpha: 1,
+                        decay: rand(0.02, 0.035),
+                        type: i % 3 === 0 ? 'petal' : (i % 3 === 1 ? 'star' : 'sparkle')
+                    });
+                }
+            }
+            window.triggerSparkleBurst = triggerSparkleBurst;
+
+            window.addEventListener('click', (e) => {
+                // Don't trigger if clicked on a button/interactive element to maintain focus
+                const tag = e.target.tagName ? e.target.tagName.toLowerCase() : '';
+                if (tag === 'input' || tag === 'textarea' || tag === 'select') return;
+                triggerSparkleBurst(e.clientX, e.clientY);
+            });
+
+            // ── DRAWING UTILITIES ──
+            // 1. Draw 3D fluttering Rose / Sakura Petal
+            function drawPetal(p, isDark) {
+                ctx.save();
+                ctx.translate(p.x, p.y);
+                ctx.rotate(p.rotation);
+
+                const scaleX = Math.cos(p.pitch);
+                const scaleY = Math.sin(p.roll);
+                ctx.scale(Math.abs(scaleX) > 0.05 ? scaleX : 0.05, Math.abs(scaleY) > 0.05 ? scaleY : 0.05);
+
+                const s = p.size;
+                const grad = ctx.createLinearGradient(0, -s, 0, s);
+                if (isDark) {
+                    grad.addColorStop(0, `rgba(255, 160, 185, ${p.alpha * 0.95})`);
+                    grad.addColorStop(0.6, `rgba(225, 113, 146, ${p.alpha * 0.85})`);
+                    grad.addColorStop(1, `rgba(180, 70, 110, ${p.alpha * 0.6})`);
+                } else {
+                    grad.addColorStop(0, `rgba(251, 234, 240, ${p.alpha * 0.95})`);
+                    grad.addColorStop(0.5, `rgba(244, 212, 223, ${p.alpha * 0.85})`);
+                    grad.addColorStop(1, `rgba(228, 151, 172, ${p.alpha * 0.7})`);
+                }
+
+                ctx.fillStyle = grad;
+                ctx.beginPath();
+                ctx.moveTo(0, -s);
+                ctx.bezierCurveTo(s * 0.9, -s * 0.5, s * 0.9, s * 0.8, 0, s);
+                ctx.bezierCurveTo(-s * 0.9, s * 0.8, -s * 0.9, -s * 0.5, 0, -s);
+                ctx.fill();
+
+                // Subtle delicate central vein
+                ctx.strokeStyle = isDark ? `rgba(255, 200, 220, ${p.alpha * 0.4})` : `rgba(200, 108, 135, ${p.alpha * 0.3})`;
+                ctx.lineWidth = 0.75;
+                ctx.beginPath();
+                ctx.moveTo(0, -s * 0.7);
+                ctx.quadraticCurveTo(s * 0.05, 0, 0, s * 0.8);
+                ctx.stroke();
+
+                ctx.restore();
+            }
+
+            // 2. Draw Matcha Tea Leaf
+            function drawLeaf(l, isDark) {
+                ctx.save();
+                ctx.translate(l.x, l.y);
+                ctx.rotate(l.rotation);
+
+                const scaleX = Math.cos(l.pitch);
+                ctx.scale(Math.abs(scaleX) > 0.08 ? scaleX : 0.08, 1);
+
+                const s = l.size;
+                const grad = ctx.createLinearGradient(-s * 0.4, -s, s * 0.4, s);
+                if (isDark) {
+                    grad.addColorStop(0, `rgba(195, 235, 190, ${l.alpha * 0.9})`);
+                    grad.addColorStop(0.5, `rgba(165, 204, 162, ${l.alpha * 0.8})`);
+                    grad.addColorStop(1, `rgba(90, 140, 95, ${l.alpha * 0.65})`);
+                } else {
+                    grad.addColorStop(0, `rgba(228, 235, 226, ${l.alpha * 0.9})`);
+                    grad.addColorStop(0.5, `rgba(132, 155, 130, ${l.alpha * 0.8})`);
+                    grad.addColorStop(1, `rgba(77, 100, 75, ${l.alpha * 0.65})`);
+                }
+
+                ctx.fillStyle = grad;
+                ctx.beginPath();
+                ctx.moveTo(0, -s);
+                ctx.quadraticCurveTo(s * 0.55, 0, 0, s);
+                ctx.quadraticCurveTo(-s * 0.55, 0, 0, -s);
+                ctx.fill();
+
+                // Leaf midrib
+                ctx.strokeStyle = isDark ? `rgba(230, 255, 225, ${l.alpha * 0.45})` : `rgba(60, 80, 58, ${l.alpha * 0.35})`;
+                ctx.lineWidth = 0.8;
+                ctx.beginPath();
+                ctx.moveTo(0, -s * 0.85);
+                ctx.lineTo(0, s * 0.85);
+                ctx.stroke();
+
+                ctx.restore();
+            }
+
+            // 3. Draw Sparkle ✦ Star / Diamond
+            function drawStar(s, isDark) {
+                const curPulse = Math.sin(s.pulse);
+                const currentAlpha = Math.max(0.1, s.alpha * (0.6 + 0.4 * curPulse));
+                const currentSize = s.size * (0.8 + 0.25 * curPulse);
+
+                ctx.save();
+                ctx.translate(s.x, s.y);
+                ctx.rotate(s.rotation);
+
+                if (isDark) {
+                    ctx.fillStyle = s.type === 'fourPoint'
+                        ? `rgba(244, 212, 223, ${currentAlpha})`
+                        : `rgba(175, 151, 203, ${currentAlpha * 0.9})`;
+                    ctx.shadowColor = 'rgba(225, 113, 146, 0.45)';
+                    ctx.shadowBlur = 6;
+                } else {
+                    ctx.fillStyle = s.type === 'fourPoint'
+                        ? `rgba(195, 138, 89, ${currentAlpha * 0.85})`
+                        : `rgba(200, 108, 135, ${currentAlpha * 0.75})`;
+                    ctx.shadowColor = 'rgba(244, 183, 148, 0.3)';
+                    ctx.shadowBlur = 4;
+                }
+
+                ctx.beginPath();
+                const outer = currentSize;
+                const inner = currentSize * 0.28;
+                for (let i = 0; i < 8; i++) {
+                    const r = i % 2 === 0 ? outer : inner;
+                    const a = (i * Math.PI) / 4;
+                    const sx = Math.cos(a) * r;
+                    const sy = Math.sin(a) * r;
+                    if (i === 0) ctx.moveTo(sx, sy);
+                    else ctx.lineTo(sx, sy);
+                }
+                ctx.closePath();
+                ctx.fill();
+                ctx.restore();
+            }
+
+            // 4. Draw Ambient Luminous Bokeh Orb
+            function drawOrb(o, isDark) {
+                const curPulse = Math.sin(o.pulse);
+                const curAlpha = Math.max(0.08, o.alpha * (0.7 + 0.3 * curPulse));
+                const rad = o.radius * (0.9 + 0.2 * curPulse);
+
+                ctx.save();
+                const grad = ctx.createRadialGradient(o.x, o.y, 0, o.x, o.y, rad * 2);
+                if (isDark) {
+                    grad.addColorStop(0, `rgba(175, 151, 203, ${curAlpha})`);
+                    grad.addColorStop(1, 'rgba(175, 151, 203, 0)');
+                } else {
+                    grad.addColorStop(0, `rgba(244, 183, 148, ${curAlpha * 0.8})`);
+                    grad.addColorStop(1, 'rgba(244, 183, 148, 0)');
+                }
+                ctx.fillStyle = grad;
+                ctx.beginPath();
+                ctx.arc(o.x, o.y, rad * 2, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.restore();
+            }
+
+            // ── MAIN ANIMATION LOOP ──
+            let lastTime = performance.now();
+
+            function render(currentTime) {
+                const dt = Math.min((currentTime - lastTime) / 16.67, 2);
+                lastTime = currentTime;
+
+                ctx.clearRect(0, 0, width, height);
+
+                const isDark = document.body.classList.contains('dark');
+
+                // Smooth cursor aura position (Lerp)
+                auraX += (targetMouseX - auraX) * 0.085 * dt;
+                auraY += (targetMouseY - auraY) * 0.085 * dt;
+                if (aura) {
+                    aura.style.transform = `translate3d(${auraX}px, ${auraY}px, 0)`;
+                }
+
+                // 1. Render Orbs
+                for (let o of orbs) {
+                    o.y += o.vy * dt;
+                    o.x += o.vx * dt;
+                    o.pulse += 0.03 * dt;
+                    if (o.y < -20) { o.y = height + 20; o.x = rand(0, width); }
+                    if (o.x < -20) o.x = width + 20;
+                    if (o.x > width + 20) o.x = -20;
+                    drawOrb(o, isDark);
+                }
+
+                // 2. Render Stars
+                for (let s of stars) {
+                    s.pulse += s.pulseSpeed * dt;
+                    s.rotation += s.vRot * dt;
+                    drawStar(s, isDark);
+                }
+
+                // Mouse interaction radius & force
+                const interactRadius = isMobile() ? 90 : 130;
+
+                // 3. Render Petals
+                for (let p of petals) {
+                    // Natural sway & drift
+                    p.swayOffset += p.swaySpeed * dt;
+                    const swayX = Math.sin(p.swayOffset) * 0.75;
+                    p.x += (p.vx + swayX) * dt;
+                    p.y += p.vy * dt;
+
+                    // Flutter 3D
+                    p.pitch += p.vPitch * dt;
+                    p.roll += p.vRoll * dt;
+                    p.rotation += p.vRot * dt;
+
+                    // Mouse wind interaction
+                    const dx = p.x - targetMouseX;
+                    const dy = p.y - targetMouseY;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < interactRadius && dist > 1) {
+                        const force = (1 - dist / interactRadius) * 2.2;
+                        p.vx += (dx / dist) * force * dt;
+                        p.vy += (dy / dist) * force * dt;
+                    }
+
+                    // Friction
+                    p.vx *= Math.pow(0.96, dt);
+                    p.vy = p.vy * 0.96 + 0.03 * dt; // gentle gravity pull back
+
+                    // Boundary wrap
+                    if (p.y > height + 30) {
+                        Object.assign(p, createPetal(false));
+                    }
+                    if (p.x < -40) p.x = width + 30;
+                    if (p.x > width + 40) p.x = -30;
+
+                    drawPetal(p, isDark);
+                }
+
+                // 4. Render Matcha Leaves
+                for (let l of leaves) {
+                    l.swayOffset += l.swaySpeed * dt;
+                    const swayX = Math.cos(l.swayOffset) * 0.6;
+                    l.x += (l.vx + swayX) * dt;
+                    l.y += l.vy * dt;
+
+                    l.pitch += l.vPitch * dt;
+                    l.rotation += l.vRot * dt;
+
+                    const dx = l.x - targetMouseX;
+                    const dy = l.y - targetMouseY;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < interactRadius && dist > 1) {
+                        const force = (1 - dist / interactRadius) * 2;
+                        l.vx += (dx / dist) * force * dt;
+                        l.vy += (dy / dist) * force * dt;
+                    }
+
+                    l.vx *= Math.pow(0.96, dt);
+                    l.vy = l.vy * 0.96 + 0.025 * dt;
+
+                    if (l.y > height + 30) {
+                        Object.assign(l, createLeaf(false));
+                    }
+                    if (l.x < -40) l.x = width + 30;
+                    if (l.x > width + 40) l.x = -30;
+
+                    drawLeaf(l, isDark);
+                }
+
+                // 5. Render Click / Tap Bursts
+                for (let i = burstParticles.length - 1; i >= 0; i--) {
+                    const bp = burstParticles[i];
+                    bp.x += bp.vx * dt;
+                    bp.y += bp.vy * dt;
+                    bp.vy += 0.08 * dt; // micro-gravity
+                    bp.vx *= Math.pow(0.94, dt);
+                    bp.vy *= Math.pow(0.94, dt);
+                    bp.rotation += bp.vRot * dt;
+                    bp.alpha -= bp.decay * dt;
+
+                    if (bp.alpha <= 0) {
+                        burstParticles.splice(i, 1);
+                        continue;
+                    }
+
+                    ctx.save();
+                    ctx.translate(bp.x, bp.y);
+                    ctx.rotate(bp.rotation);
+
+                    if (bp.type === 'star') {
+                        ctx.fillStyle = isDark ? `rgba(255, 215, 0, ${bp.alpha})` : `rgba(200, 108, 135, ${bp.alpha})`;
+                        ctx.beginPath();
+                        const r1 = bp.size;
+                        const r2 = bp.size * 0.3;
+                        for (let j = 0; j < 8; j++) {
+                            const r = j % 2 === 0 ? r1 : r2;
+                            const a = (j * Math.PI) / 4;
+                            const sx = Math.cos(a) * r;
+                            const sy = Math.sin(a) * r;
+                            if (j === 0) ctx.moveTo(sx, sy);
+                            else ctx.lineTo(sx, sy);
+                        }
+                        ctx.closePath();
+                        ctx.fill();
+                    } else if (bp.type === 'petal') {
+                        ctx.fillStyle = isDark ? `rgba(225, 113, 146, ${bp.alpha})` : `rgba(244, 183, 148, ${bp.alpha})`;
+                        ctx.beginPath();
+                        ctx.arc(0, 0, bp.size * 0.6, 0, Math.PI * 2);
+                        ctx.fill();
+                    } else {
+                        ctx.fillStyle = isDark ? `rgba(165, 204, 162, ${bp.alpha})` : `rgba(132, 155, 130, ${bp.alpha})`;
+                        ctx.beginPath();
+                        ctx.arc(0, 0, bp.size * 0.45, 0, Math.PI * 2);
+                        ctx.fill();
+                    }
+                    ctx.restore();
+                }
+
+                requestAnimationFrame(render);
+            }
+
+            // Window resize handler
+            let resizeTimer;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(() => {
+                    resizeCanvas();
+                    initAllParticles();
+                }, 150);
+            });
+
+            // Initialize
+            resizeCanvas();
+            initAllParticles();
             requestAnimationFrame(render);
         })();
     </script>
